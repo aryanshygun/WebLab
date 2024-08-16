@@ -1,0 +1,79 @@
+body {
+    background-color: rgb(47, 47, 47);
+    font-family: 'Futura', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #292928;
+    border-radius: 25px;
+    border: 2px solid #4d4d4c;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.result {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #1d1d1b;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.screen {
+    color: white;
+    font-size: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+button {
+    aspect-ratio: 1/1;
+    flex: 1;
+    background-color: #535251;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    /* padding: 20px; */
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    filter: brightness(1.5);
+    box-shadow: 0px 0px 10px gray;
+}
+
+button.op {
+    background-color: #ff9500;
+}
+
+button:active {
+    transform: scale(0.95);
+}
