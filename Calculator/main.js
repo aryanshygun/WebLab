@@ -36,17 +36,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Perform the calculation
+    // function calculate(num1, num2, operator) {
+    //     num1 = parseInt(num1);
+    //     num2 = parseInt(num2);
+    //     switch (operator) {
+    //         case "+": return (num1 + num2).toString();
+    //         case "-": return (num1 - num2).toString();
+    //         case "X": return (num1 * num2).toString();
+    //         case "÷": return num2 !== 0 ? (num1 / num2).toString() : "Error";
+    //         default: return "Error";
+    //     }
+    // }
+
     function calculate(num1, num2, operator) {
-        num1 = parseFloat(num1);
-        num2 = parseFloat(num2);
-        switch (operator) {
-            case "+": return (num1 + num2).toString();
-            case "-": return (num1 - num2).toString();
-            case "X": return (num1 * num2).toString();
-            case "÷": return num2 !== 0 ? (num1 / num2).toString() : "Error";
-            default: return "Error";
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+    
+        if (operator === "+") {
+            return (num1 + num2)
+        } else if (operator === "-") {
+            return (num1 - num2)
+        } else if (operator === "X") {
+            return (num1 * num2)
+        } else if (operator === "÷") {
+            return (num1 / num2)
         }
     }
+    
 
     // Add event listeners to buttons
     document.querySelectorAll("button").forEach(button => {
