@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateScreen("0");
         } else if (value === "=") {
             if (previousInput && operator && currentInput) {
-                currentInput = calculate(previousInput, currentInput, operator);
+                currentInput = calc(previousInput, currentInput, operator);
                 updateScreen(currentInput);
                 operator = "";
                 previousInput = "";
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Perform the calculation
-    // function calculate(num1, num2, operator) {
+    // function calc(num1, num2, operator) {
     //     num1 = parseInt(num1);
     //     num2 = parseInt(num2);
     //     switch (operator) {
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     }
     // }
 
-    function calculate(num1, num2, operator) {
+    function calc(num1, num2, operator) {
         num1 = parseInt(num1);
         num2 = parseInt(num2);
     
