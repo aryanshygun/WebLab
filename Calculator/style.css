@@ -1,49 +1,38 @@
 body {
     background-color: rgb(47, 47, 47);
     font-family: 'Futura', sans-serif;
+    color: white;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.container {
-    background-color: #292928;
+section {
+    width: 400px;
     box-shadow: 0px 0px 20px black;
     border-radius: 25px;
     border: 2px solid #4d4d4c;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
+    background-color: #252525;
     padding: 20px;
     box-sizing: border-box;
-}
-
-.result {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: #1d1d1b;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 20px;
-}
-
-.screen {
-    color: white;
-    font-size: 48px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
+}
+
+#screen {
+    grid-column: span 4;
+    display: flex;
+    justify-content: end;
+    background-color: #1d1d1b;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 48px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
 }
 
 button {
@@ -61,7 +50,7 @@ button {
 .span{
     aspect-ratio: 4/1;
     grid-column: span 4;
-    border-radius: 15px;
+    border-radius: 50px;
 }
 
 button:hover {
@@ -74,5 +63,5 @@ button.op {
 }
 
 button:active {
-    transform: scale(0.95);
+    transform: scale(.8);
 }
