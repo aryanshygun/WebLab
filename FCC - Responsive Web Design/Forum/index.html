@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Ryan's survey!</h1>
+    <p id="description">Welcome to Ryan's survey!</p>
+    <form id="survey-form">
+        <label for="name" id="name-label">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email" id="email-label">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="number" id="number-label">Age:</label>
+        <input type="number" id="number" name="age" placeholder="Enter your age" min="10" max="100" required>
+
+
+        <select id="dropdown" name="source">
+            <option value="social-media">Social Media</option>
+            <option value="friend">Friend</option>
+            <option value="advertisement">Advertisement</option>
+        </select>
+
+        <input type="radio" id="likely" name="recommend" value="likely" required>
+        <label for="likely">Likely</label>
+        <input type="radio" id="unlikely" name="recommend" value="unlikely">
+        <label for="unlikely">Unlikely</label>
+
+        <input type="checkbox" id="service1" name="services" value="consulting">
+        <input type="checkbox" id="service2" name="services" value="development">
+        <input type="checkbox" id="service3" name="services" value="design">
+        <textarea id="comments" name="comments" placeholder="Enter any additional comments here"></textarea>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</body>
+</html>

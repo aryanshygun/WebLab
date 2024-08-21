@@ -11,6 +11,7 @@ body {
 
 .container {
     background-color: #292928;
+    box-shadow: 0px 0px 20px black;
     border-radius: 25px;
     border: 2px solid #4d4d4c;
     width: 300px;
@@ -40,29 +41,27 @@ body {
 }
 
 .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
 }
 
 button {
     aspect-ratio: 1/1;
-    flex: 1;
     background-color: #535251;
     border: none;
     border-radius: 50%;
     color: white;
     font-size: 24px;
     cursor: pointer;
-    /* padding: 20px; */
     padding: 0;
     transition: all 0.3s ease;
+}
+
+.span{
+    aspect-ratio: 4/1;
+    grid-column: span 4;
+    border-radius: 15px;
 }
 
 button:hover {
