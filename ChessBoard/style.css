@@ -1,48 +1,75 @@
 body{
-    background-color: rgb(87, 87, 87);
+    background-color: hsl(0, 0%, 90%);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-top: 100px;
+    height: 100vh;
 }
 
-.board{
-    width: 800px;
-    height: 800px;
+section{
+    width: 90vh;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    padding: 10px;
+    background-color: hsl(0, 0%, 85%) !important;
+}
+
+.row{
     display: flex;
-    flex-wrap: wrap;
-    border:10px solid rgb(73, 73, 73);
+    height: 12.5%;
 }
-.board .block img{
-    width: 80%;
-    /* border: 5px solid white; */
-}
-.block{
-    width: 100px;
-    height: 100px;
-    margin: 0px;
+
+.row div{
+    width: 12.5%;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 5px;
+    box-sizing: border-box;
 }
 
-.oddrow,
-.evenrow{
-    display: flex;
-    flex-direction: row;
+img{
+    width: 80%;
 }
 
-.evenrow .block:nth-child(odd){
-    background-color: cadetblue;
+.w{
+    text-shadow:
+        2px 2px 0 black,
+        2px -2px 0 black,
+        -2px 2px 0 black,
+        -2px -2px 0 black;
+    color: white;
 }
 
-.evenrow .block:nth-child(even){
-    background-color: lightblue;
+.b{
+    text-shadow:
+        2px 2px 0 white,
+        2px -2px 0 white,
+        -2px 2px 0 white,
+        -2px -2px 0 white;
+    color: hsl(0, 0%, 15%);
 }
 
-.oddrow .block:nth-child(odd){
-    background-color: lightblue;
+.style{
+    background-color: hsl(0, 0%, 90%);
+    box-shadow:  2px 2px 5px #bfbfbf, -3px -3px 7px #d9d9d9;
+    border-radius: 25px;
+    transition: all .3s ease;
 }
 
-.oddrow .block:nth-child(even){
-    background-color: cadetblue;
+.btn:active {
+    transform: scale(.85);
+}
+
+.btn:hover{
+    box-shadow:inset 2px 2px 5px #bfbfbf, inset -3px -3px 7px #d9d9d9;
+}
+
+
+
+.row:nth-child(odd) div:nth-child(even),
+.row:nth-child(even) div:nth-child(odd){
+    background-color: hsl(0, 0%, 60%);
 }
