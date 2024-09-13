@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
             topics[i].style.width = '0px';
             topics[i].style.padding = '0px';
             closeAll()
-            // background.style.transform = 'translateY(0%)'
-
         }
     }
 
@@ -61,33 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
         xDiv.style.opacity = '1'
         xDiv.style.visibility = 'visible'
     }
-
-
-
-    // let cyberT = false
-    // cyberLink.addEventListener('click', () => {
-    //     if (cyberT) {
-    //         closeAll()
-    //         openDiv(cyberDiv)
-    //         background.style.transform = 'translateY(0px)'
-    //     } else {
-    //         closeAll()
-    //     }
-    //     cyberT = !cyberT
-    // })
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     cyberLink.addEventListener('click', () => {

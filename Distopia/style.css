@@ -138,8 +138,8 @@ article h2{
     font-weight: bold;
 }
 
-nav a img{
-    height: 50%;
+nav a i{
+    /* height: 50%; */
     transform: rotate(-135deg);
     transition: transform .5s ease;
 }

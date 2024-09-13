@@ -125,9 +125,9 @@ article{
     width: 100px;
 }
 
-#one{background-image: url(img2/ink1.jpg);}
-#two{background-image: url(img2/ink2.jpg);}
-#three{background-image: url(img2/ink3.jpg);}
+#one{background-image: url(image/ink1.jpg);}
+#two{background-image: url(image/ink2.jpg);}
+#three{background-image: url(image/ink3.jpg);}
 
 .card:hover{
     box-shadow: inset 0px 0px 50px rgb(0, 0, 0);
@@ -158,12 +158,12 @@ article{
     }
 
 #yek{
-    background-image: url(img2/p2.jpg);
+    background-image: url(image/p2.jpg);
     align-items: end;
 
 }
 #do{
-    background-image: url(img2/p1.jpg);
+    background-image: url(image/p1.jpg);
     align-items: start;
 }
 
@@ -192,7 +192,7 @@ article{
 .hero{
     height: 500px;
     width: 100%;
-    background-image: url(img2/hero1.jpg);
+    background-image: url(image/hero1.jpg);
     background-size: 100%;
     color: white;
 }
@@ -256,19 +256,19 @@ article{
 }
 
 #sec1{
-    background-image: url(img2/bg1.png);
+    background-image: url(image/bg1.png);
     background-size: 100% 100%;
 }
 #sec2{
-    background-image: url(img2/bg2.png);
+    background-image: url(image/bg2.png);
     background-size: 100% 100%;
 }
 #sec3{
-    background-image: url(img2/bg3.png);
+    background-image: url(image/bg3.png);
     background-size: 100% 100%;
 }
 #sec4{
-    background-image: url(img2/bg4.png);
+    background-image: url(image/bg4.png);
     background-size: 100% 100%;
 }
 
