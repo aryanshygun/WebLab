@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body{
+    margin: 0;
+    font-family: Nunito;
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    background: linear-gradient(to top , hsl(225, 73%, 17%), hsl(225, 73%, 47%));
+}
+
+article {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section{
+    width: 40px;
+    height: 70px;
+    position: absolute;
+    border-radius: 5px;
+    transition: all .5s ease;
+
+    --bg-color: #000;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 15px var(--bg-color),
+                0 0 30px var(--bg-color),
+                0 0 45px var(--bg-color);
+}
+
+div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 50px;
+    z-index: 5;
+
+    cursor: pointer;
+    border-radius: 50px;
+    backdrop-filter: blur(50px);
+    box-shadow: 0 10px 15px hsla(0, 0%, 15%, 0.5);
+    
+	border-bottom:  1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+
+div a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 50%,transparent 50%, transparent);
+    transition: all .5s ease;
+}
+
+p{
+    position: fixed;
+    bottom: 5%;
+    left: 5%;
+    color: white;
+}
+p a{
+    text-decoration: none;
+    color: red;
+}
+p a:hover{
+    text-decoration: underline;
+}
