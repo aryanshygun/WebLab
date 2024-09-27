@@ -1,3 +1,5 @@
+// this essentially selects what we see in the log div
+// also selects which function is called when clicking line 36 action button
 function toggleForm(form) {
     const signInBtn = document.getElementById('signin-btn')
     const signUpBtn = document.getElementById('signup-btn')
@@ -30,6 +32,9 @@ function toggleForm(form) {
     }
 }
 
+// this is the base admins that are pre-added. they have a different front page
+// from normal users. they can see the lists of all users and can add products
+// feel free to change ur passkey lol
 const admins = {
     "ryan": {
         "userName": "ryan",
@@ -44,11 +49,14 @@ const admins = {
         "isLogged": false
     }
 }
-
+// here it works with local storage of your own web browser so i wont be able to see
+// your added users. havent learnt how to properly export to json file so this is the
+// best we can do
 const users = JSON.parse(localStorage.getItem('users')) || admins
 
 
-
+// checks if userid and userpass is correct then says proper regards and logs the user
+// as logged in
 function signIn() {
     const userId = document.getElementById('username').value
     const userPass = document.getElementById('password').value
@@ -68,7 +76,7 @@ function signIn() {
         userPass.value = ''
     }
 }
-
+// checks if username isnt taken and also logs the user as logged in
 function signUp() {
     const userId = document.getElementById('username').value
     const userPass = document.getElementById('password').value
