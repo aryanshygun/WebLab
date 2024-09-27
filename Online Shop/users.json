@@ -1,0 +1,32 @@
+{
+    "ryan": {
+        "userName": "ryan",
+        "passWord": "123",
+        "isAdmin": true,
+        "isLogged": false
+    },
+    "alice": {
+        "userName": "alice",
+        "passWord": "234",
+        "isAdmin": false,
+        "isLogged": false
+    },
+    "bob": {
+        "userName": "bob",
+        "passWord": "345",
+        "isAdmin": false,
+        "isLogged": false
+    },
+    "charlie": {
+        "userName": "charlie",
+        "passWord": "456",
+        "isAdmin": true,
+        "isLogged": false
+    },
+    "david": {
+        "userName": "david",
+        "passWord": "567",
+        "isAdmin": false,
+        "isLogged": false
+    }
+}

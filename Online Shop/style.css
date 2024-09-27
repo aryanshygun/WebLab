@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: nunito;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+    background-image: url(hero1.jpg);
+}
+
+.style{
+    color: rgb(50, 50, 50);
+    background-color: #e0e0e0;
+    box-shadow:  2px 2px 5px #b8b9be, -3px -3px 7px #fff;
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(190, 190, 190, 0.479);
+    transition: all .5s ease;
+}
+.style.btn{
+    padding: 5px;
+    width: 150px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.style.btn:hover{
+    color: white;
+    background-color: royalblue;
+    border-color: royalblue;
+    box-shadow: 0px 0px 5px royalblue, 0px 0px 10px royalblue, 0px 0px 20px royalblue;
+}
+.buttonclick{
+    color: white;
+    background-color: royalblue;
+}
+
+#auth-container{
+    height: 500px;
+    width: 50%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    gap: 0px;
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
+    background-color: unset;
+}
+.addgap{
+    gap: 5% !important;
+}
+#auth-container h1{
+    text-align: center;
+    font-size: 30px;
+    white-space: nowrap;
+}
+
+#welcome-div,
+#log-div{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 50px;
+}
+
+#welcome-div{
+    /* background-image: url('atompunk\ 3.jpeg'); */
+    background-position: center;
+    /* backdrop-filter: blur(20px); */
+    /* filter: blur(20px); */
+    flex: 1;
+    position: relative;
+}
+#welcome-div p{
+    width: 200px;
+    text-align: center;
+}
+#welcome-div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* height: 100%; */
+    z-index: -10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* filter: brightness(1.5) ; */
+    filter: blur(0px) opacity(0.2);
+}
+
+
+#welcome-div .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#log-div{
+    flex: 0;
+    padding: 50px 0;
+    border: 0;
+    opacity: 0;
+    
+}
+#log-div .input-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    font-size: 20px;
+}
+#log-div.visible{
+    flex: 2;
+    padding: 50px;
+    border-width: 1px;
+    opacity: 100;
+}
+
+
+
+
+input[type="text"] {
+    box-sizing: border-box;
+    width: 150px;
+    height: 40px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    background-color: white;
+}
+input[type="text"]:focus {
+    outline: none;
+    width: 200px;
+    box-shadow:inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+}
+
+
+
+
+
+
+
+
+/* #auth-container button{
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+
+} */
+
+#form-box{
+    display: none;
+}
