@@ -13,7 +13,7 @@ body{
     justify-content: center;
     height: 100vh;
     gap: 20px;
-    background-image: url(hero1.jpg);
+    background-image: url(images/hero1.jpg);
 }
 
 .style{
