@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container style">
+        <section id="auth-div" class="style">
+            <div id="welcome-div" class="style">
+                <img src="images/atompunk 3.jpeg" alt="">
+                <h1>Album Shop</h1>
+                <p>we have best of everything here yea we are so good we have a lot of posters and wallpapers and stuff buy from us pls we broke af</p>
+                <button class="style btn" id="enter-btn" onclick="showLogger()">Enter the site</button>
+            </div>
+            <div id="logger-div" class="style">
+                <img src="images/solarpunk 3.jpeg" alt="">
+                <h1>Enter your details</h1>
+
+                <label for="username">Username:</label>
+                <input class="style" type="text" id="username" placeholder="Your Username...">
+                <label for="password">Password:</label>
+                <input class="style" type="text" id="password" placeholder="Your Passkey...">
+                <div>
+                    <button class="style btn" onclick="handleAuth('sign-in')">Sign In</button>
+                    <button class="style btn" onclick="handleAuth('sign-up')">Sign Up</button>
+                </div>
+            </div>
+            <div id="move-div" class="style">
+                <img src="images/atompunk 2.jpeg" alt="">
+                <h1>Result:</h1>
+                <p id="greet-text"></p>
+                <p id="greet-state">State:</p>
+                <button id="greet-btn" class="style btn" onclick="mainView()">Proceed</button>
+            </div>
+        </section>
+        <!-- <section id="admin-div" class="style">
+            <div id="users-div" class="id">
+                <table id="users-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Admin</th>
+                            <th>Logged In</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section> -->
+        
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
