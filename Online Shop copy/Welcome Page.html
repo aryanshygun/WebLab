@@ -38,25 +38,60 @@
                 <h1>Result:</h1>
                 <p id="greet-text"></p>
                 <p id="greet-state">State:</p>
-                <button id="greet-btn" class="style btn" onclick="mainView()">Proceed</button>
+                <button id="greet-btn" class="style btn">Proceed</button>
             </div>
         </section>
-        <!-- <section id="admin-div" class="style">
-            <div id="users-div" class="id">
-                <table id="users-table">
-                    <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Password</th>
-                            <th>Admin</th>
-                            <th>Logged In</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+        <section id="admin-div">
+            <div id="admin-left" class="style">
+
+                this is where products will be shown
+                <label for="productName">Product Name</label>
+                <input class="style" type="text" name="productName" id="productName" placeholder="Name...">
+
+                <label for="productPrice">Product Price</label>
+                <input class="style" type="text" name="productPrice" id="productPrice" placeholder="Price...">
+
+                <label for="productImage">Product Image</label>
+                <input class="style" type="file" name="productImage" id="productImage" placeholder="Image...">
+                <button class="style btn" onclick="addToPrints()">Add to Wall</button>
             </div>
-        </section> -->
+            <div id="admin-mid">
+                <div id="products-table-title" class="style">
+                    Products:
+                </div>
+                <div id="products-table" class="style">
+                </div>
+            </div>
+            <!-- <div id="add-products" class="style">
+                this is where products will be added
+            </div> -->
+
+            
+            <div id="admin-right">
+                <div id="users-table" class="style">
+                    List of Users
+                    <table id="users-table">
+                        <thead>
+                            <tr class="style">
+                                <th>Username</th>
+                                <!-- <th>Password</th> -->
+                                <th>Admin</th>
+                                <th>Logged</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="logout-div" class="style">
+                    <!-- Logout -->
+                    <button onclick="showPage('login')" class="style btn">Log Out</button>
+                </div>
+            </div>
+        </section>
+        <section id="user-div" class="style">
+            this is user view
+        </section>
         
     </div>
     <script src="main.js"></script>
