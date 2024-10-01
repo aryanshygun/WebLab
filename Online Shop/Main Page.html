@@ -42,8 +42,8 @@
             </div>
         </section>
         <section id="admin-div">
-            <div id="admin-left" class="style">
 
+            <div id="admin-left" class="style">
                 this is where products will be shown
                 <label for="productName">Product Name</label>
                 <input class="style" type="text" name="productName" id="productName" placeholder="Name...">
@@ -55,6 +55,7 @@
                 <input class="style" type="file" name="productImage" id="productImage" placeholder="Image...">
                 <button class="style btn" onclick="addToPrints()">Add to Wall</button>
             </div>
+            
             <div id="admin-mid">
                 <div id="products-table-title" class="style">
                     Products:
@@ -62,15 +63,11 @@
                 <div id="products-table" class="style">
                 </div>
             </div>
-            <!-- <div id="add-products" class="style">
-                this is where products will be added
-            </div> -->
-
             
             <div id="admin-right">
                 <div id="users-table" class="style">
                     List of Users
-                    <table id="users-table">
+                    <table>
                         <thead>
                             <tr class="style">
                                 <th>Username</th>

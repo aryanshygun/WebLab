@@ -190,7 +190,7 @@ function handleAuth(action) {
 }
 
 function populateUsersTable() {
-    const usersTableBody = document.querySelector('#users-table tbody');
+    const usersTableBody = document.querySelector('table tbody');
     usersTableBody.innerHTML = ''
     for (const userId in users) {
         const row = document.createElement('tr')
@@ -221,8 +221,8 @@ for (const productId in testProducts) {
 
         // Set up the product's image, name, and price inside the article
         productArticle.innerHTML = `
-            <img src="${product.imagePath}" alt="${product.productName}">
-            <div class="product-details">
+            <img src="${product.imagePath}">
+            <div>
                 <p class="product-name">${product.productName}</p>
                 <p class="product-price">$${product.price.toFixed(2)}</p>
             </div>
