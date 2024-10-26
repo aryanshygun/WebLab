@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <!-- https://www.jotform.com/form-templates/library-membership-form -->
+</head>
+<body>
+    <div class="container neu">
+        <div class="header">
+            <i class="ri-book-line ri-4x"></i>
+            <h1>Library Card Application Form</h1>
+            <i class="ri-book-line ri-4x"></i>
+        </div>
+        <form>
+            <article>
+                <div class="name">
+                    <section>
+                        <h3>Name</h3>
+                        <input type="text" name="first-name" id="first-name" required>
+                        <label for="first-name">First Name</label>
+                    </section>
+                    <section>
+                        <h3 style="visibility: hidden;">Name</h3>
+                        <input type="text" name="last-name" id="last-name" required>
+                        <label for="last-name">Last Name</label>
+                    </section>
+                </div>
+                <section>
+                    <h3>Birthdate</h3>
+                    <input type="text" name="birth-date" id="birth-date" placeholder="MM-DD-YYYY" required>
+                    <label for="birth-date">Date</label>
+                </section>
+            </article>
+            <article>
+                <section>
+                    <h3>Phone Number</h3>
+                    <input type="text" name="phone-number" id="phone-number" placeholder="(000) 000-0000" required>
+                    <Valid for="phone-number">Valid number.</label>
+                </section>
+                <section>
+                    <h3>Email</h3>
+                    <input type="email" name="email" id="email" required>
+                    <label for="email">example@example.com</label>
+                </section>
+            </article>
+            <article>
+                <section>
+                    <h3>Address</h3>
+                    <input type="text" name="address" id="address" required>
+                    <label for="address">Street Address</label>
+                    <!-- <input type="text" name="address2" id="address2" required>
+                    <label for="address2">Street Address Line 2</label> -->
+                    <div class="address">
+                        <section>
+                            <input type="text" name="city" id="city" required>
+                            <label for="city">City</label>
+                        </section>
+                        <section>
+                            <input type="text" name="state" id="state" required>
+                            <label for="state">State / Province</label>
+                        </section>
+                    </div>
+                    <!-- <input type="text" name="zip" id="zip" required>
+                    <label for="zip">Postal / Zip Code</label> -->
+                </section>
+            </article>
+            <article>
+                <section>
+                    <h3>What is the expected duration use of the library card?</h3>
+                    <div class="div">
+                        <label>
+                            <input type="radio" name="card" id="single-visit">
+                            Single Visit
+                        </label>
+                        <label>
+                            <input type="radio" name="card" id="6-months">
+                            6 Months
+                        </label>
+                        <label>
+                            <input type="radio" name="card" id="12-months">
+                            12 Months
+                        </label>
+                        <label>
+                            <input type="radio" name="card" id="more-than-12-months">
+                            More Than 12 Months
+                        </label>
+                        <!-- <label>
+                            <input type="radio" name="card" id="other">
+                            Other
+                        </label> -->
+                    </div>
+                </section>
+            </article>
+            <!-- <article>
+                <section>
+                    <h3>What's the reason for applying to a library card? Please specify</h3>
+                    <textarea name="reason" id="reason" placeholder="Type here..."></textarea>
+                    <label for="reason">(student, research, borrowing a book, etc.)</label>
+                </section>
+            </article> -->
+            <article>
+                <section>
+                    <div class="div">
+                        <h3>Would you like to receive periodic emails about library news, special events and activities?</h3>
+                        <!-- <label>
+                            <input type="radio" name="email" id="Yes">
+                            Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="email" id="No">
+                            No
+                        </label> -->
+                        <input type="checkbox" name="understand" id="understand" required>
+                        <label for="understand">Yes I would.</label>
+                    </div>
+                </section>
+            </article>
+            <!-- <article>
+                <div class="guideline">
+                    <h3>I understand the full responsibility for the use of this library card.</h3>
+                    <label>
+                        *REQUIRED
+                        <input type="checkbox" name="understand" id="understand" required>
+                    </label>
+                </div>
+            </article> -->
+            <div class="btn">
+                <div onclick="submit_data()" class="button">SUBMIT</div>
+            </div>
+        </form>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

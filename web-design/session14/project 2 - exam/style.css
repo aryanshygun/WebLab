@@ -1,0 +1,27 @@
+p{
+    margin: 0;
+}
+
+#exam-div{
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    background-color: royalblue;
+    width: 300px;
+    height: 300px;
+    gap: 20px;
+}
+.question-row{
+    display: flex;
+    flex-direction: row;
+}
+.question-options{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
