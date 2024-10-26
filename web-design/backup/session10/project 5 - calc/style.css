@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    background-color: cadetblue;
+}
+h2{
+    margin: 0;
+}
+
+input{
+    padding: 15px 0px; 
+    margin-bottom: 25px;   
+}
+

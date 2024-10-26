@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+}
+
+.outerbox {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.innerbox {
+    flex: 1 0 30%; /* flex-grow, flex-shrink, and flex-basis */
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc; /* optional, to see the boundaries of each div */
+}
+
+.header{
+    font-family: 'futura', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.text{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    margin: 7.5%;
+}

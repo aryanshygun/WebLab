@@ -1,0 +1,37 @@
+body{
+    background-color: grey;
+}
+
+.outterdiv{
+    width: 50%;
+    margin: 5% 25%;
+    /* padding: 2%; */
+    background-color: rgb(255, 161, 161);
+}
+
+.fig1{
+    width: 90%;
+    margin: 5%;
+}
+
+p{
+    color: white;
+    font-family: sans-serif;
+    /* display: ; */
+    position: relative;
+}
+
+
+.outterdiv2{
+    background-image: url('../../IMG_2112.JPG');
+    aspect-ratio: 4/5;
+    width: 50%;
+    margin: 25%;
+    background-repeat: no-repeat;
+
+}
+
+.p2{
+    text-align: center;
+    padding-top: 10%;
+}

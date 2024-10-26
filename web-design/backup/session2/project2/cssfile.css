@@ -1,0 +1,33 @@
+body{
+    background-color: rgb(65, 65, 65);
+    /* font-family: 'futura', sans-serif; */
+    text-align: center;
+}
+
+h1{
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
+}
+
+.samsung_h{
+    color: rgb(0, 191, 255);
+    font-family: 'futura', sans-serif;
+    font-size: 30px;
+}
+
+.samsung_p{
+    color:rgb(108, 240, 255);
+    font-family: 'futura', sans-serif;
+    font-size: 20px;}
+
+.apple_h{
+    color: rgb(0, 255, 123);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+}
+
+.apple_p{
+    color: rgb(125, 255, 188);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+}

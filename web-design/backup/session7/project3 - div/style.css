@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(87, 87, 87);
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.board{
+    width: 800px;
+    height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    border:10px solid rgb(73, 73, 73);
+}
+.board .block img{
+    width: 80%;
+    /* border: 5px solid white; */
+}
+.block{
+    width: 100px;
+    height: 100px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.oddrow,
+.evenrow{
+    display: flex;
+    flex-direction: row;
+}
+
+.evenrow .block:nth-child(odd){
+    background-color: cadetblue;
+}
+
+.evenrow .block:nth-child(even){
+    background-color: lightblue;
+}
+
+.oddrow .block:nth-child(odd){
+    background-color: lightblue;
+}
+
+.oddrow .block:nth-child(even){
+    background-color: cadetblue;
+}

@@ -1,0 +1,270 @@
+#t1,#t2, #t3, #t4{
+    /* display: none; */
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+table{
+    margin: 200px auto;
+    width: 80%;  
+
+}
+#t1{
+    border-collapse: collapse;
+
+}
+
+#t1 tr{
+    border-bottom: 1px solid gray;  
+}
+
+#t1 th{
+    padding: 10px;
+}
+
+#t1 td{
+    padding: 10px 30px;
+    color: gray;
+    text-align: center;
+}
+
+
+#t2{
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+}
+
+#t2 tr:nth-child(1){
+    background-color: rgb(68, 68, 68);
+    color: white;
+}
+
+#t2 tr{
+    box-shadow: 0px 0px 10px rgb(187, 187, 187);
+}
+
+#t2 th{
+    padding: 20px;
+}
+
+#t2 td{
+    padding: 20px 30px;
+    color: gray;
+    text-align: center;
+}
+
+#t3{
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+#t3 tr:nth-child(1){
+    background-color: rgb(69, 24, 248);
+    color: white;
+}
+
+#t3 tr{
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+
+#t3 th{
+    padding: 20px;
+}
+
+#t3 td{
+    padding: 20px 30px;
+    text-align: center;
+}
+#t3 tr:nth-child(n+2) td:nth-child(odd),
+#t3 tr:nth-child(n+2) th:nth-child(odd){
+    background-color: rgb(200, 233, 255);
+}
+
+#t3 a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(51, 1, 255);
+    padding: 10px;
+}
+
+#t4{
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+
+#t4 tr, #t4 td{
+    border: 1px solid rgb(227, 227, 227);
+}
+
+
+#t4 th{
+    padding: 20px;
+    /* height: 200px; */
+}
+
+#t4 td{
+    padding: 20px 30px;
+    text-align: center;
+}
+#t4 .card{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#t4 .card img{
+    width: 100%;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+#t4 .card h1{
+    margin: 0;
+    font-size: 12px;
+}
+#t4 .card p{
+    margin: 0;
+    font-size: 10px;
+    color: rgb(255, 153, 153);
+}
+
+
+#t5{
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+#t5 th{
+    background-color: rgb(21, 37, 37);
+    color: white;
+    padding: 20px;
+}
+
+#t5 tr:nth-child(odd){
+    background-color: rgb(146, 208, 255);
+}
+#t5 td{
+    padding: 20px;
+    text-align: center;
+
+}
+
+#t5 td:hover{
+    border: 1px solid red;
+    color: red;
+}
+#t5 tr:hover{
+    color: red;
+}
+.lists{
+    display: flex;
+    flex-direction: column;
+
+    gap: 50px;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+}
+#l1{
+    background-color: rgb(227, 227, 227);
+    width: 20%;
+    padding: 10px 15px;
+    color: gray;
+
+}
+#l1 li{
+    background-color: rgb(255, 255, 255);
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px rgb(177, 177, 177);
+    margin: 10px 0px;
+    list-style: inside decimal;
+    padding: 15px;
+}
+
+#l2{
+    background-color: rgb(49, 49, 49);
+    color: white;
+    width: 30%;
+    /* margin: 200px auto; */
+    padding: 10px 15px;
+    color: gray;
+}
+
+#l2 li{
+    border-bottom: 1px solid rgb(89, 89, 89);
+    list-style: none;
+    padding: 15px;
+}
+#l2 li:first-child{
+    color: white;
+}
+
+#l3{
+
+    width: 30%;
+    /* margin: 200px auto; */
+    padding: 10px 15px;
+}
+
+#l3 li{
+    list-style: none;
+    padding: 15px;
+}
+
+#l4{
+    width: 80%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    border-top: 2px solid gray;
+    color: gray;
+}
+#l4 li{
+    list-style: none;
+    padding: 15px 50px;
+}
+#l4 li:hover{
+    border-bottom: 2px solid orangered;
+}
+
+#l5{
+    background-color: rgb(202, 202, 202);
+    list-style:  none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+#l5 li{
+    padding: 20px 150px 20px 20px;
+}
+#l5 li:nth-child(1){
+    border-left: 5px solid green;
+}
+#l5 li:nth-child(2){
+    border-left: 5px solid red;
+}
+#l5 li:nth-child(3){
+    border-left: 5px solid blue;
+}
+#l5 li:nth-child(4){
+    border-left: 5px solid gray;
+}
+#l5 li:nth-child(1):hover{
+    background-color: green;
+}
+#l5 li:nth-child(2):hover{
+    background-color: red;
+}
+#l5 li:nth-child(3):hover{
+    background-color: blue;
+}
+#l5 li:nth-child(4):hover{
+    background-color: gray;
+}
