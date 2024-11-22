@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* OVERALL SETITNGS */
+*{
+    transition: .5s ease all;
+}
+:root{
+    --dark-bg: hwb(0 13% 87%);
+    /* --hover-shadow-color: rgba(0, 0, 0, 0.477); */
+    --hover-shadow-color: rgba(0, 255, 238, 0.477);
+    
+}
+p, h1, h2, h3, h4{
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/bg-dark.jpg);
+    backdrop-filter: brightness;
+    background-size: cover;
+    background-position: center;
+
+    font-family: Poppins;
+    color: white;
+}
+
+.container{
+    width: calc(100% - 100px);
+    height: calc(100% - 100px);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.style{
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    border: 1px solid rgba(190, 190, 190, 0.479);
+}
+
+.style.btn{
+    padding: 10px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.div-hovered{
+    box-shadow: 0px 0px 15px var(--hover-shadow-color),
+                0px 0px 30px var(--hover-shadow-color);
+    backdrop-filter: blur(12px);
+}
+
+.btn-hovered{
+    box-shadow: 0px 0px 15px var(--hover-shadow-color);
+}
+.btn-clicked{
+    background-color: var(--dark-bg);
+    color: white;
+    box-shadow: 0px 0px 15px var(--hover-shadow-color);
+}
+
+/* THE INTRO PAGE CSS */
+#auther-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    gap: 0;
+    box-sizing: border-box;
+    max-width: 70%;
+}
+
+#welcome-div,
+#login-div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
+#welcome-div{
+    flex: 1;
+    padding: 50px;
+    & img{
+        max-width: 50%;
+    }
+    & p{
+        font-size: 20px;
+        text-align: justify;
+    }
+    & button{
+        width: 100%;
+    }
+}
+
+#login-div{
+    flex: 0;
+    overflow: hidden;
+    gap: 0;
+}
+.add-gap{
+    gap: 50px !important;
+}
+.show-login-div{
+    flex: 2 !important;
+}
+
+#input-data-div,
+#move-div{
+    width: 100%;
+    /* flex: 1; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+#input-data-div{
+    flex: 2;
+    padding: 50px;
+    justify-content: space-evenly;
+    & h1{
+        font-size: 40px;
+    }
+    & input{
+        background-color: white;
+        width: 50%;
+        height: 50px;
+        padding-left: 50px;
+        box-sizing: border-box;
+        &:focus{
+            width: 75%;
+            border: 0;
+            outline: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            box-shadow: 0px 0px 15px var(--hover-shadow-color),
+            0px 0px 30px var(--hover-shadow-color);
+        }
+    }
+    & div{
+        display: flex;
+        width: 75%;
+        gap: 50px;
+        & button{
+            flex: 1;
+        }
+    }
+}
+
+#move-div{
+    flex: 0;
+    overflow: hidden;
+    border-width: 0;
+}
+.show-move-div{
+    flex: 1 !important;
+    padding: 50px !important;
+    border-width: 1px !important;
+}
+.overflow-visible {
+    overflow: visible !important;
+}
