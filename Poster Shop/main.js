@@ -5,7 +5,7 @@ const admins = {
         "isAdmin": true,
     },
     "nona": {
-        "userName": "Danial",
+        "userName": "Nona",
         "passWord": "222",
         "isAdmin": false,
     }
@@ -14,14 +14,14 @@ const users = JSON.parse(localStorage.getItem('users')) || admins
 
 
 $(document).ready(function() {
-    $('.container').hover(
-        function() {
-            $(this).addClass('div-hovered')
-        },
-        function() {
-            $(this).removeClass('div-hovered')
-        }
-    )
+    // $('.container').hover(
+    //     function() {
+    //         $(this).addClass('div-hovered')
+    //     },
+    //     function() {
+    //         $(this).removeClass('div-hovered')
+    //     }
+    // )
     $('article').hover(
         function() {
             $(this).addClass('div-hovered')
@@ -44,15 +44,16 @@ $(document).ready(function() {
 const authDiv = document.getElementById('auther-div')
 const loggDiv = document.getElementById('login-div')
 const moveDiv = document.getElementById('move-div')
-
+const logoName = document.getElementById('logo-id')
 function showLogger(){
 
     event.target.classList.toggle('btn-clicked')
     authDiv.classList.toggle('add-gap')
     loggDiv.classList.toggle('show-login-div')
+    logoName.classList.toggle('scale-up')
     setTimeout(() => {
         loggDiv.classList.toggle('overflow-visible')
-    }, 220)
+    }, 200)
 }
 
 function handleAuth(action){
@@ -65,10 +66,18 @@ function handleAuth(action){
     const greetText = document.getElementById('greet-text')
     const greetBtn = document.getElementById('greet-btn')
 
-    if (userId === '' || userPass === '') return
+    // if (userId === '' || userPass === '') {
+    //     greetText.textContent = `Please feel the details!`
+    // }
 
+    // } else {
+    // }
+    
+    // authDiv.style.height = '80%'
     if (action === 'sign-in') {
-        if (userId in users && users[userId].passWord === userPass) {
+        if (userId === '' || userPass === '') {
+            greetText.textContent = `Please feel the details!`
+        } else if (userId in users && userPass === users[userId].passWord) {
             if (users[userId].isAdmin === true){
                 greetText.textContent = `Hi there Admin ${users[userId].userName}!`
                 greetBtn.onclick = function() {
