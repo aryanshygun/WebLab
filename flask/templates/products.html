@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table border='1'>
+        <thead>
+            <th>#</th>
+            <th>name</th>
+            <!-- <th>image</th> -->
+            <th>ram</th>
+            <th>price</th>
+        </thead>
+        <tbody>
+            {% for i in xdict %}
+                <tr>
+                    <td>{{ i['id'][-1] }}</td>
+                    <td>{{ i['name'] }}</td>
+                    <td>{{ i['ram'] }}</td>
+                    <td>{{ i['price'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
