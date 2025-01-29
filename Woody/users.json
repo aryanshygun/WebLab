@@ -1,0 +1,58 @@
+[
+    {
+        "username": "ryan",
+        "password": "112",
+        "age": 23,
+        "city": "rasht",
+        "role": "admin"
+    },
+    {
+        "username": "amir",
+        "password": "222",
+        "age": 20,
+        "city": "tehran",
+        "role": "admin"
+    },
+    {
+        "username": "kasra",
+        "password": "333",
+        "age": 26,
+        "city": "shiraz",
+        "role": "user"
+    },
+    {
+        "username": "sara",
+        "password": "444",
+        "age": 28,
+        "city": "mashhad",
+        "role": "user"
+    },
+    {
+        "username": "reza",
+        "password": "555",
+        "age": 31,
+        "city": "esfahan",
+        "role": "admin"
+    },
+    {
+        "username": "mina",
+        "password": "666",
+        "age": 24,
+        "city": "tabriz",
+        "role": "user"
+    },
+    {
+        "username": "hossein",
+        "password": "777",
+        "age": 35,
+        "city": "karaj",
+        "role": "admin"
+    },
+    {
+        "username": "lila",
+        "password": "888",
+        "age": 19,
+        "city": "kerman",
+        "role": "user"
+    }
+]

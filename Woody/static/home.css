@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+html{
+    scroll-behavior: smooth;
+}
+
+:root{
+    --dark-bg: hwb(0 13% 87%);
+    --hover-shadow-black: rgba(0, 0, 0, 0.5)
+}
+
+.style{
+    box-shadow:  0px 0px 10px var(--hover-shadow-black);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid rgba(198, 198, 198, 0.498);
+    text-align: center;
+    transition: all .5s ease;
+    &.btn{
+        background-color: #e0e0e0;
+        backdrop-filter: unset;
+        &:hover{
+            background: rgb(49, 94, 255);
+            box-shadow: inset 2px 2px 15px rgb(0, 102, 255),inset -3px -3px 7px #fff;
+            padding: 10px 38px;
+            color: #ffffff;
+        }
+    }
+    &.alt{
+        background: rgb(49, 94, 255);
+        box-shadow: inset 2px 2px 15px rgb(0, 47, 255),inset -3px -3px 7px #cecece;
+        color: #ffffff;
+    }
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 18px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+i{
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+h1,h2,h3,p{
+    margin: 0;
+}
+
+article{
+    width: calc(100%);
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 25px;
+    & a img{
+        width: 100%;
+    }
+    & section{
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        align-items: center;
+        gap: 25px;
+        &.hero{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 25px;
+            font-size: 50px;
+        }
+        & .category{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            padding-bottom: 50px;
+            box-sizing: border-box;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: inset 0px -50px 75px 0px rgba(0, 0, 0, 0.575),
+                        0px 0px 30px var(--hover-shadow-black) !important;
+            color: white;
+            font-size: 25px;
+            &:hover{
+                flex: 3;
+            }
+        }
+    
+        & #tablet-category{
+            background-image: url('images/tablet-cover.jpg');
+        }
+        & #phone-category{
+            background-image: url('images/phone-cover.jpg');
+        }    
+        & #laptop-category{
+            background-image: url('images/laptop-cover.jpg');
+        }    
+        & #camera-category{
+            background-image: url('images/camera-cover.jpg');
+        }   
+         & #smartwatch-category{
+            background-image: url('images/smartwatch-cover.jpg');
+        }
+    }
+}

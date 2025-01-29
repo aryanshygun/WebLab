@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>ABOUT</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='about.css')}}">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='header_footer.css')}}">
+</head>
+<body>
+    <nav class="style">
+        <a class="logo">WooDY</a>
+        <div class="nav-bar">
+            <a class="style btn" id="drop-btn">CATEGORIES<i class="ri-arrow-down-s-line"></i></a>
+            <div id="drop-list">
+                <a class="style btn" href="/mobile-page">MOBILE</a>
+                <a class="style btn" href="/laptop-page">LAPTOP</a>
+                <a class="style btn" href="/tablet-page">TABLET</a>
+                <a class="style btn" href="/smartwatch-page">SMARTWATCH</a>
+                <a class="style btn" href="/camera-page">CAMERA</a>
+            </div>
+            <a class="style btn" href="{{ url_for('home')}}">HOME</a>
+            <a class="style btn" href="{{ url_for('about')}}">ABOUT</a>
+            <a class="style btn" href="{{ url_for('contact')}}">CONTACT</a>
+            <!-- <a class="style btn" href="{{ url_for('profile')}}">PROFILE</a> -->
+        </div>
+        <a class="style alt btn order" href="{{ url_for('profile')}}">PROFILE<i class="ri-shopping-cart-line ri-xl "></i></a>
+    </nav>
+
+
+
+
+    <article>
+        <section class="style walltext">
+            <!-- <div class="style">
+                <h3>- PHONE -</h3>
+                <p>+1 (123) 456-7890</p>
+                <h3>- EMAIL -</h3>
+                <p>info@example.com</p>
+                <h3>- ADDRESS -</h3>
+                <p>1234 Elm Street, Suite 567, Your City, Your Country</p>
+                <h3>- BUSINESS HOURS -</h3>
+                <p>Monday - Friday, 9:00 AM - 5:00 PM</p>        
+            </div> -->
+            <h2>About Us</h2>
+            <p>
+                Welcome to <strong>TechWorld Online</strong>, your ultimate destination for cutting-edge digital devices. 
+                Established with a passion for technology, we aim to connect you with the latest gadgets, including smartphones, laptops, tablets, and accessories, all from trusted global brands. 
+                Our mission is to offer premium quality products at competitive prices, ensuring an exceptional shopping experience with fast shipping and reliable customer support.
+            </p>
+            <p>
+                At <strong>TechWorld Online</strong>, we believe technology can transform lives, and we are dedicated to making it accessible to everyone. 
+                Whether you're a tech enthusiast looking for the newest innovations or a professional seeking reliable tools for work, we've got you covered. 
+                Join thousands of satisfied customers who trust us for their digital needs and experience the perfect blend of convenience, quality, and value.
+            </p>
+            <p>
+                Welcome to <strong>TechWorld Online</strong>, your ultimate destination for cutting-edge digital devices. 
+                Established with a passion for technology, we aim to connect you with the latest gadgets, including smartphones, laptops, tablets, and accessories, all from trusted global brands. 
+                Our mission is to offer premium quality products at competitive prices, ensuring an exceptional shopping experience with fast shipping and reliable customer support.
+            </p>
+            <p>
+                At <strong>TechWorld Online</strong>, we believe technology can transform lives, and we are dedicated to making it accessible to everyone. 
+                Whether you're a tech enthusiast looking for the newest innovations or a professional seeking reliable tools for work, we've got you covered. 
+                Join thousands of satisfied customers who trust us for their digital needs and experience the perfect blend of convenience, quality, and value.
+            </p>
+        </section>
+        <section class="style hero">
+            <p>ABOUT US</p>
+            <p>- MULTINATIONAL MARKET -</p>
+        </section>
+    </article>
+
+
+
+    <footer class="style">
+        <div class="text">
+            All Content © Copyright WooDY International 2024. All Rights Reserved.
+        </div>
+        <div class="socials">
+            <a href="https://www.youtube.com"><i class="ri-youtube-line ri-xl"></i></a>
+            <a href="https://instagram.com"><i class="ri-instagram-line ri-xl"></i></a>
+            <a href="https://x.com"><i class="ri-twitter-x-line ri-xl"></i></a>
+            <a href="https://reddit.com"><i class="ri-reddit-line ri-xl"></i></a>
+            <a href="https://discord.com"><i class="ri-discord-line ri-xl"></i></a>
+        </div>
+    </footer>
+    <script>
+        const dropButton = document.getElementById('drop-btn')
+        const dropList = document.getElementById('drop-list')
+
+        $('#drop-btn').on('click', function () {
+            $('#drop-list').toggleClass('show')
+        })
+    </script>
+</body>
+</html>

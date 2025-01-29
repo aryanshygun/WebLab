@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>HOME</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='header_footer.css')}}">
+</head>
+<body>
+    <nav class="style">
+        <a class="logo">WooDY</a>
+        <div class="nav-bar">
+            <a class="style btn" id="drop-btn">CATEGORIES<i class="ri-arrow-down-s-line"></i></a>
+            <div id="drop-list">
+                <a class="style btn" href="/mobile-page">MOBILE</a>
+                <a class="style btn" href="/laptop-page">LAPTOP</a>
+                <a class="style btn" href="/tablet-page">TABLET</a>
+                <a class="style btn" href="/smartwatch-page">SMARTWATCH</a>
+                <a class="style btn" href="/camera-page">CAMERA</a>
+            </div>
+            <a class="style btn" href="{{ url_for('home')}}">HOME</a>
+            <a class="style btn" href="{{ url_for('about')}}">ABOUT</a>
+            <a class="style btn" href="{{ url_for('contact')}}">CONTACT</a>
+            <!-- <a class="style btn" href="{{ url_for('profile')}}">PROFILE</a> -->
+        </div>
+        <a class="style alt btn order" href="{{ url_for('profile')}}">PROFILE<i class="ri-shopping-cart-line ri-xl "></i></a>
+    </nav>
+
+
+
+
+    <article>
+        <section class="style hero">
+            <!-- <div class="hero">
+            </div> -->
+            <p>THE ONE PLACE YOU CAN GET EVERYTHING</p>
+            <p>- WEB DESIGN TEST CASE -</p>
+        </section>
+        <section>
+            <a class="category style" href="/mobile-page" id="phone-category">MOBILE</a>
+            <a class="category style" href="/laptop-page" id="laptop-category">LAPTOP</a>
+            <a class="category style" href="/tablet-page" id="tablet-category">TABLET</a>
+            <a class="category style" href="/smartwatch-page" id="smartwatch-category">SMART WATCH</a>
+            <a class="category style" href="/camera-page" id="camera-category">CAMERA</a>
+        </section>
+    </article>
+
+
+
+
+    <footer class="style">
+        <div class="text">
+            All Content © Copyright WooDY International 2024. All Rights Reserved.
+        </div>
+        <div class="socials">
+            <a href="https://www.youtube.com"><i class="ri-youtube-line ri-xl"></i></a>
+            <a href="https://instagram.com"><i class="ri-instagram-line ri-xl"></i></a>
+            <a href="https://x.com"><i class="ri-twitter-x-line ri-xl"></i></a>
+            <a href="https://reddit.com"><i class="ri-reddit-line ri-xl"></i></a>
+            <a href="https://discord.com"><i class="ri-discord-line ri-xl"></i></a>
+        </div>
+    </footer>
+    <script>
+        const dropButton = document.getElementById('drop-btn')
+        const dropList = document.getElementById('drop-list')
+
+        $('#drop-btn').on('click', function () {
+            $('#drop-list').toggleClass('show')
+        })
+    </script>
+</body>
+</html>

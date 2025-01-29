@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>PROFILE</title>
+    <!-- <link rel="stylesheet" href=" {{ url_for('static', filename='header_footer.css')}}"> -->
+    <!-- <link rel="stylesheet" href=" {{ url_for('static', filename='profile.css')}}"> -->
+    <link rel="stylesheet" href="../static/profile.css">
+    <link rel="stylesheet" href="../static/header_footer.css">
+</head>
+<body>
+    <nav class="style">
+        <a class="logo">WooDY</a>
+        <div class="nav-bar">
+            <a class="style btn" id="drop-btn">CATEGORIES<i class="ri-arrow-down-s-line"></i></a>
+            <div id="drop-list">
+                <a class="style btn" href="/mobile-page">MOBILE</a>
+                <a class="style btn" href="/laptop-page">LAPTOP</a>
+                <a class="style btn" href="/tablet-page">TABLET</a>
+                <a class="style btn" href="/smartwatch-page">SMARTWATCH</a>
+                <a class="style btn" href="/camera-page">CAMERA</a>
+            </div>
+            <a class="style btn" href="{{ url_for('home')}}">HOME</a>
+            <a class="style btn" href="{{ url_for('about')}}">ABOUT</a>
+            <a class="style btn" href="{{ url_for('contact')}}">CONTACT</a>
+            <!-- <a class="style btn" href="{{ url_for('profile')}}">PROFILE</a> -->
+        </div>
+        <a class="style alt btn order" href="{{ url_for('profile')}}">PROFILE<i class="ri-shopping-cart-line ri-xl "></i></a>
+    </nav>
+
+
+
+
+    <article>
+        <div class="buttons">
+            <a id="products-btn" class="style">PRODUCTS</a>
+            <a id="users-btn" class="style">USERS</a>
+            <a class="style logout" href="/logout">
+                <p>LOG-OUT</p>
+                <p>{{ username | upper}} - {{ role | upper}}</p>
+            </a>
+        </div>
+        <div class="divs">
+            <section id="products-div" class=" show">
+                {% for category, products in products.items() %}
+                <!-- <h3>{{ category | title }}</h3> -->
+                <div class="product-category">
+                    {% for product in products %}
+                    <form action="/update_product" method="POST" class="product-card style">
+                        <!-- <input type="hidden" name="category" value="{{ category }}"> -->
+                        <!-- <input type="hidden" name="product_name" value="{{ product['product_name'] }}"> -->
+                        <div class="product-info">
+                            <img src="{{ url_for('static', filename=product['url']) }}" alt="{{ product['product_name'] }}" class="product-image">
+                            <h1>{{ product['product_name'] | title }}</h1>
+                        </div>
+                        <div class="product-info">
+                            <label>- BRAND -</label>
+                            <input class="style btn" type="text" name="product_brand" value="{{ product['product_brand'] }}" class="edit-input">
+                        </div>
+                        <div class="product-info">
+                            <label>- PRICE -</label>
+                            <input class="style btn" type="number" name="price" value="{{ product['price'] }}" class="edit-input">
+                        </div>
+                        <div class="product-info">
+                            <label>- YEAR -</label>
+                            <input class="style btn" type="number" name="year_of_product" value="{{ product['year_of_product'] }}" class="edit-input">
+                        </div>
+                        <div class="product-info">
+                            <label>- PROCESSOR -</label>
+                            <input class="style btn" type="text" name="processor" value="{{ product['processor'] }}" class="edit-input">
+                        </div>
+                        <div class="product-info">
+                            <label>- MEMORY -</label>
+                            <input class="style btn" type="text" name="memory" value="{{ product['memory'] }}" class="edit-input">
+                        </div>
+                        <div class="product-info">
+                            <label>- COUNT -</label>
+                            <input class="style btn" type="number" name="count" value="{{ product['count'] }}" class="edit-input">
+                        </div>
+                        <div class="product-actions">
+                            <button class="style" type="submit" class="update-btn">Update</button>
+                            <button class="style" type="submit" formaction="/delete_product" class="delete-btn">Delete</button>
+                        </div>
+                    </form>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </section>
+            <section id="users-div" class=" show">
+                {% for user in users %}
+                <form action="/update_user" method="POST" class="user-card style">
+                    <!-- <input type="hidden" name="username" value="{{ user['username'] }}"> -->
+                    <div class="user-info">
+                        <h1>{{ user['username'] | title }}</h1>
+                    </div>
+                    <div class="user-info">
+                        <label>- PASSWORD -</label>
+                        <input class="style btn" type="text" name="password" value="{{ user['password'] }}" class="edit-input">
+                    </div>
+                    <div class="user-info">
+                        <label>- AGE -</label>
+                        <input class="style btn" type="number" name="age" value="{{ user['age'] }}" class="edit-input">
+                    </div>
+                    <div class="user-info">
+                        <label>- CITY -</label>
+                        <input class="style btn" type="text" name="city" value="{{ user['city'] }}" class="edit-input">
+                    </div>
+                    <div class="user-info">
+                        <label>- ROLE -</label>
+                        <select name="role" class="edit-input style btn">
+                            <option value="admin" {% if user['role'] == 'admin' %}selected{% endif %}>Admin</option>
+                            <option value="user" {% if user['role'] == 'user' %}selected{% endif %}>User</option>
+                        </select>
+                    </div>
+                    <div class="user-actions">
+                        <button class="style" type="submit" class="update-btn">Update</button>
+                        <button class="style" type="submit" formaction="/delete_user" class="delete-btn">Delete</button>
+                    </div>
+                </form>
+                {% endfor %}
+            </section>
+
+        </div>
+    </article>
+
+
+
+
+    <footer class="style">
+        <div class="text">
+            All Content © Copyright WooDY International 2024. All Rights Reserved.
+        </div>
+        <div class="socials">
+            <a href="https://www.youtube.com"><i class="ri-youtube-line ri-xl"></i></a>
+            <a href="https://instagram.com"><i class="ri-instagram-line ri-xl"></i></a>
+            <a href="https://x.com"><i class="ri-twitter-x-line ri-xl"></i></a>
+            <a href="https://reddit.com"><i class="ri-reddit-line ri-xl"></i></a>
+            <a href="https://discord.com"><i class="ri-discord-line ri-xl"></i></a>
+        </div>
+    </footer>
+    <script>
+        const dropButton = document.getElementById('drop-btn')
+        const dropList = document.getElementById('drop-list')
+
+        $('#drop-btn').on('click', function () {
+            $('#drop-list').toggleClass('show')
+        })
+    </script>
+    <script src="../static/profile.js"></script>
+</body>
+</html>
