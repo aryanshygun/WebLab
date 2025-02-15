@@ -1,0 +1,5 @@
+{
+  "Job": ["engineer", "teacher", "doctor", "lawyer"],
+  "Sport": ["basketball", "crossfit", "football", "body-building"],
+  "Country": ["england", "france", "germany", "canada"]
+}

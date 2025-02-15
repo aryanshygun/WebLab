@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registeration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="phase1">
+
+        <section>
+    
+            <h1>Registration Form</h1>
+            <form action="">
+                <input type="text" name="username" id="username-1" placeholder="username">
+        
+                <input type="text" name="password" id="password-1" placeholder="password">
+            </form>
+            <button onclick="register1()">Register</button>
+    
+        </section>
+    
+        <section>
+    
+            <h1>Registered Users</h1>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Pass</th>
+                    <th>Time</th>
+                </thead>
+                <tbody id="registered-users-1">
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="phase2">
+        <section>
+    
+            <h1>Registration Form</h1>
+            <form action="">
+                <input type="text" name="username" id="username-2" placeholder="username">
+        
+                <input type="text" name="password" id="password-2" placeholder="password">
+
+                <input type="text" name="email" id="email-2" placeholder="email">
+
+            </form>
+            <button onclick="register2()">Register</button>
+    
+        </section>
+    
+        <section>
+    
+            <h1>Registered Users</h1>
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Pass</th>
+                    <th>Email</th>
+                    <th>Time</th>
+                </thead>
+                <tbody id="registered-users-2">
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="phase3">
+        <button onclick="showLogin()" id="show-login">Show Login</button>
+        <section id="login-div" style="display: none;">
+            <h1>Login Form</h1>
+            <form action="">
+                <input type="text" name="username" id="username-3" placeholder="username">
+        
+                <input type="text" name="password" id="password-3" placeholder="password">
+            </form>
+            <button onclick="login()">Login</button>
+    
+        </section>
+
+        <section id="status-div" style="display: none;">
+            <h1 id="status">Status:</h1>
+        </section>
+    </div>
+
+</body>
+<script src="main1.js"></script>
+</html>
