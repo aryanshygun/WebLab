@@ -1,0 +1,62 @@
+{
+    "ryan": {
+        "password": "123",
+        "score": 100
+    },
+    "john": {
+        "password": "321",
+        "score": 150
+    },
+    "Ryanole": {
+        "password": "123",
+        "score": 0
+    },
+    "mike": {
+        "password": "mikepass",
+        "score": 200
+    },
+    "sarah": {
+        "password": "sarah123",
+        "score": 80
+    },
+    "alex": {
+        "password": "pass456",
+        "score": 130
+    },
+    "linda": {
+        "password": "lindapass",
+        "score": 90
+    },
+    "chris": {
+        "password": "chris321",
+        "score": 170
+    },
+    "emma": {
+        "password": "emma789",
+        "score": 50
+    },
+    "david": {
+        "password": "davidpass",
+        "score": 120
+    },
+    "oliver": {
+        "password": "oliver777",
+        "score": 140
+    },
+    "lucas": {
+        "password": "lucas555",
+        "score": 60
+    },
+    "grace": {
+        "password": "grace987",
+        "score": 110
+    },
+    "ethan": {
+        "password": "ethan333",
+        "score": 180
+    },
+    "nora": {
+        "password": "nora222",
+        "score": 40
+    }
+}

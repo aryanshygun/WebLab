@@ -1,0 +1,16 @@
+form{
+    display: flex;
+    width: calc(100% - 100px);
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    border-radius: 50px;
+    padding: 50px;
+    & div{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+    }
+}

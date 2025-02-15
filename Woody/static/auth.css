@@ -23,6 +23,7 @@ form {
     & input{
         width: 100%;
         box-sizing: border-box;
+
     }
     &.active{
         display: flex;

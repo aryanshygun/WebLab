@@ -1,5 +1,12 @@
 {
-  "Job": ["engineer", "teacher", "doctor", "lawyer"],
-  "Sport": ["basketball", "crossfit", "football", "body-building"],
-  "Country": ["england", "france", "germany", "canada"]
+  "Job": ["engineer", "teacher", "doctor", "lawyer", "artist", "pilot"],
+  "Sport": ["basketball", "crossfit", "football", "bodybuilding", "tennis", "swimming"],
+  "Country": ["england", "france", "germany", "canada", "italy", "brazil"],
+  "Animal": ["tiger", "eagle", "dolphin", "rabbit", "panther", "falcon"],
+  "Color": ["red", "blue", "green", "black", "yellow", "purple"],
+  "Fruit": ["apple", "mango", "peach", "grape", "lemon", "cherry"],
+  "Vehicle": ["car", "truck", "bicycle", "scooter", "airplane", "submarine"],
+  "Instrument": ["guitar", "piano", "violin", "trumpet", "flute", "drums"],
+  "Clothing": ["shirt", "pants", "jacket", "sneakers", "hat", "gloves"],
+  "Tool": ["hammer", "wrench", "drill", "saw", "screwdriver", "pliers"]
 }
