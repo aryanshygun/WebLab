@@ -10,22 +10,21 @@
         flex-direction: row;
         justify-content: space-between;
         flex: 1;
-        padding: 50px;
-        & p {
-            text-align: end;
-        }
+        padding: 25px;
     }
     & .body{
         display: flex;
         flex-direction: column;
-        padding: 50px;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 25px;
         flex-grow: 1;
         & .topics{
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 5px;
             width: 100%;
             & button:hover{
                 padding: 10px 15px;
@@ -36,49 +35,10 @@
         }
     }
     & p {
+        width: 80%;
         text-align: justify;
-        font-size: 20px;
+        font-size: 15px;
     }
 
 
 }
-
-
-/* main > div{
-    width: calc(100% - 100px);
-    height: calc(100% - 100px);
-    padding: 50px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    & .intro{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        & p {
-            text-align: end;
-        }
-    }
-    & .body{
-        display: flex;
-        flex-direction: column;
-        & .topics{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
-            & button:hover{
-                padding: 10px 15px;
-                background-color:  rgb(154, 82, 255);
-
-            }
-        }
-    }
-    & p {
-        text-align: justify;
-        font-size: 20px;
-    }
-} */

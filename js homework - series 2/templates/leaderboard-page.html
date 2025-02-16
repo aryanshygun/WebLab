@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard-page.css') }}">
-    <title>Homepage</title>
+    <title>Leaderboard</title>
 </head>
 <body>
     <div class="container">
@@ -27,12 +27,17 @@
                 {% for user, score in scores.items() %}
                     <div class="style score">
                         <h1>{{ loop.index }}</h1>
-                        <h1>{{ user | title }}</h1>
+
+                        {% if user == logged_user %}
+                            <h1 class="logged">{{ user | title }}</h1>
+                        {% else %}
+                            <h1>{{ user | title }}</h1>
+                        {% endif %}
+
                         <h1>{{ score['score']}}</h1>
                     </div>
                 {% endfor %}
             </div>
-
         </main>
 
         <footer class="style">
@@ -42,5 +47,12 @@
         </footer>
     </div>
 
+<div>
+    <h1 class="correct">test</h1>
+</div>
+
+
 </body>
+<script src="{{ url_for( 'static', filename='js/leaderboard-page.js')}}"></script>
+
 </html>

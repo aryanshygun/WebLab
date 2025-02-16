@@ -1,0 +1,120 @@
+.content{
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    /* gap: 25px; */
+    & > div {
+        box-sizing: border-box;
+        width: 100%;
+        /* width: 500px; */
+    }
+    & .buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    & .title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        & h1{
+            font-size: 26px;
+        }
+    }
+
+    & .result{
+        display: flex;
+        justify-content: space-between;
+        & a{
+            height: 100%;
+            /* aspect-ratio: 1/1; */
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover{
+                padding: 10px 25px;
+            }
+        }
+        align-items: center;
+        /* padding: 25px; */
+        & h2{
+            padding: 25px;
+            font-size: 20px;
+            text-wrap: wrap;
+        }
+    }
+    /* & .result{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+
+    } */
+    & .game{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 25px;
+        gap: 25px;
+        & .inputs{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            & input{
+                background-color: rgba(255, 255, 255, 0.344);
+                cursor:auto;
+                color: rgb(255, 255, 255);
+                padding: 5px;
+                border-radius: 50%;
+                font-size: 30px;
+                padding: 5px;
+                text-align: center;
+                height: 100%;
+                border: none;
+                box-sizing: border-box;
+                aspect-ratio: 1/1;
+                &::placeholder{
+                    color: rgba(63, 63, 63, 0.616);
+                }
+            }
+        }
+        & .letters{
+            display: flex;
+            /* flex-direction: row; */
+            flex-wrap: wrap;
+
+            width: 100%;
+            /* background-color: red; */
+            /* flex: 1; */
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            & button{
+                cursor: pointer;
+                aspect-ratio: 1/1;
+                width: 50px;
+                border-radius: 50%;
+                transition: all 0.5s ease;
+                &:hover{
+
+                    padding: 0;
+                    /* border: 1px solid black; */
+                    box-shadow: 0px 0px 10px 5px rgba(255, 255, 255, 0.246);
+                }
+                &:focus{
+                    /* transform: scale(1.25); */
+                    z-index: 10;
+                }
+
+            }
+
+        }
+    }
+}

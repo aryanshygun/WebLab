@@ -9,7 +9,7 @@
     />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/home-page.css') }}">
-    <title>Homepage</title>
+    <title>Home</title>
 </head>
 <body>
     <div class="container">
@@ -20,8 +20,9 @@
         <main>
             <div class="content">
                 <div class="style info">
-                    <h1>Hi there, <br>{{username | title}}!👋🏼</h1>
-                    <p>Your score is: <br>{{score}}!</p>
+                    <h1>Hello<br>{{username | title}}!👋🏼</h1>
+                    <!-- <h2>CURRENT SCORE: <br>{{score}}!</h2> -->
+                    <h1 style="text-align: end;">SCORE: <br>{{score}}!</h1>
                 </div>
     
                 <div class="style body">

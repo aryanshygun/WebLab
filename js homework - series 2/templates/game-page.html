@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game-page.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/home-page.css') }}"> -->
+    <title>Play!</title>
+</head>
+<body>
+    <div class="container">
+        <header class="style">
+            <p>WORDLE</p>
+        </header>
+
+        <main>
+            <div class="content">
+                <div class="style title">
+                    <h1>Guess the {{ selected_topic }}!</h1>
+                </div>
+                
+                <div class="style game">
+                     <!-- <h3>{{ selected_word }}</h3> -->
+                    <div class="inputs">
+                        {% for i in range(selected_word|length) %}
+                            <input type="text" class="blank-space" maxlength="1" size="1" disabled>
+                        {% endfor %}
+                          
+                    </div>
+                    <div class="letters">
+                        {% for letter in letters %}
+                            <button type="button" class="style btn alt" onclick="enterLetter('{{ letter }}')">{{ letter | upper }}</button>
+                        {% endfor %}
+                    </div>
+                       
+                     <div class="buttons">
+                         <button class="style btn" onclick="deleteLetter()"><i class="ri-close-large-line ri-2x"></i></button>
+                         <button class="style btn" onclick="revealLetter('{{ selected_word }}')"><i class="ri-question-line ri-2x"></i></button>
+                         <button class="style btn" onclick="check('{{ selected_word }}', '{{ user_score }}')"><i class="ri-play-line ri-2x"></i></button>
+                     </div>
+                 </div>
+                 <div class="style result" id="result-div" style="justify-content: center;">
+                    <h2 id="result"></h2>
+                    <a href="" class="style btn alt" id="try-again" style="display: none;"><i class="ri-loop-right-line ri-2x"></i></a>
+                 </div>
+
+            
+            </div>
+
+        </main>
+
+        <footer class="style">
+            <a class="style btn alt" href="/home"><i class="ri-gamepad-line ri-2x"></i></a>
+            <a class="style btn alt" href="/leaderboard"><i class="ri-list-check ri-2x"></i></a>
+            <a class="style btn" href="/logout"><i class="ri-logout-circle-r-line ri-2x"></i></a>
+        </footer>
+    </div>
+
+</body>
+<script src="{{ url_for( 'static', filename='js/game-page.js')}}"></script>
+
+</html>

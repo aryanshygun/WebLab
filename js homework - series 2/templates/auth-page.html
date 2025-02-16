@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/auth-page.css') }}">
-    <title>Authorization</title>
+    <title>Authenticate</title>
 </head>
 <body>
     <div class="container">
@@ -28,14 +28,14 @@
                 </div>
 
                 {% if result == 'success' %}
-                    <p>- Status -<br>Success! You can now Continue</p>
+                    <p>Status - Success!<br>You can now continue</p>
                     <button class="style btn" type='submit' formaction="/home">Proceed</button>
                 {% elif result == 'wrong-info' %}
-                    <p>- Status -<br>Wrong info! Try again!</p>
+                    <p>Status - Failure!<br>Wrong info! Try again!</p>
                     <button class="style btn" type='submit' formaction="/home" disabled>Proceed</button>
 
                 {% elif result == 'used-username' %}
-                    <p>- Status -<br>Already taken! Try again!</p>  
+                    <p>Status - Failure!<br>Already taken! Try again!</p>  
                     <button class="style btn" type='submit' formaction="/home" disabled>Proceed</button>
 
                 {% endif %}
@@ -45,7 +45,7 @@
         <footer class="style">
             <a class="style btn alt" href="/home"><i class="ri-gamepad-line ri-2x"></i></a>
             <a class="style btn alt" href="/leaderboard"><i class="ri-list-check ri-2x"></i></a>
-            <a class="style btn" href="/logout"><i class="ri-logout-circle-r-line"></i></a>
+            <a class="style btn" href="/logout"><i class="ri-logout-circle-r-line ri-2x"></i></a>
         </footer>
     </div>
 </body>

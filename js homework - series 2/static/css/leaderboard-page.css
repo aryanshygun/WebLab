@@ -7,32 +7,40 @@
     height: calc(100%);
     overflow: scroll;
     scrollbar-width: none;
-    & > div {
-        box-sizing: border-box;
-        &:hover{
-            width: 100%;
-        }
+    & h1{
+        font-size: 20px;
     }
     & .score {
         cursor: pointer;
+        box-sizing: border-box;
+
         width: 75%;
         padding: 25px;
         text-align: center;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-
+        &:hover{
+            width: 100%;
+        }
         &:last-child{
             margin-bottom: 25px;
         }
     }
     & .title{
+        box-sizing: border-box;
+
         cursor: pointer;
-        width: 80%;
+        width: 100%;
         padding: 25px;
         margin-top: 25px;
         display: flex;
         justify-content: center;
         text-align: center;
     }
+}
+
+.score:has(.logged){
+    background-color: rgb(110, 7, 255);
+    width: 100%;
 }

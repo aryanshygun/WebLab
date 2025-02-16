@@ -1,76 +1,16 @@
 body{
     background-color: rgb(0, 0, 0);
-    height: 100vh;
-    width: 100%;
+    /* height: 100vh; */
+    font-family: Helvetica, Arial, sans-serif;
+    /* width: 100%; */
+
     margin: 0;
     position: relative;
-    & h1, h2, h3, h4, h5{
-        margin: 0;
-    }
-    & .style{
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        color: whitesmoke;
-        font-weight: 500;
-        backdrop-filter: blur(15px);
-        border-radius: 50px;
-        border: 1px solid rgba(198, 198, 198, 0.294);
-        transition: all .5s ease;
-        &:hover{
-            backdrop-filter: blur(30px);
-        }
-        &.input{
-            padding: 10px 15px;
-            &:hover{
-                padding: 10px 25px;
-            }
-        }
-        &.btn{
-            padding: 10px 15px;
-            background-color: rgb(110, 7, 255);
-            font-size: 20px;
-            color: whitesmoke;
-            cursor: pointer;
-            &.alt{
-                background-color: unset;
-                backdrop-filter: blur(90px);
-
-            }
-            &:hover{
-                padding: 10px 25px;
-
-            }
-            &:disabled {
-                background-color: gray;
-                cursor: not-allowed;
-            }
-        }
-        &.input{
-            background-color: rgba(255, 255, 255, 0.344);
-            color: whitesmoke;
-            font-size: 18px;
-            text-align: center;
-        }
-        /* &.btn{
-            background-color: #e0e0e0;
-            backdrop-filter: unset;
-            border-radius: 50px;
-            &:hover{
-                background: rgb(49, 94, 255);
-                box-shadow: inset 2px 2px 15px rgb(0, 102, 255),inset -3px -3px 7px #fff;
-                padding: 10px 38px;
-                color: #ffffff;
-            }
-        }
-        &.alt{
-            background: rgb(49, 94, 255);
-            box-shadow: inset 2px 2px 15px rgb(0, 47, 255),inset -3px -3px 7px #cecece;
-            color: #ffffff;
-        } */
-    }
     & .container{
+        /* width: 1024px; */
+        /* height: 768px; */
         background-image: url('../img/Dark.jpg');
         background-size: 100% 100%;
-        border-radius: 50px;
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
@@ -79,12 +19,15 @@ body{
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        height: 99vh;
-        aspect-ratio: 9/18;
+        /* height: 99vh; */
+        height: 768px;
+        aspect-ratio: 1/2;
+        /* wid */
     }    
     & header{
         cursor: pointer;
         height: 10%;
+        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -109,6 +52,7 @@ body{
     }   
     & footer{
         height: 10%;
+        box-sizing: border-box;
         display: flex;
         justify-content: space-between;
         overflow: hidden;
@@ -116,14 +60,59 @@ body{
         flex-direction: row;
         & a {
             flex: 1;
-
             display: flex;
             justify-content: center;
             align-items: center;
-            /* aspect-ratio: 1/1; */
         }
     }
-    & a {
-        text-decoration: none;
+    & footer,
+    & header,
+    & .container{
+        border-radius: 38px !important;
+    }
+}
+
+h1, h2, h3, h4, h5, a, p{
+    text-decoration: none;
+    margin: 0;
+}
+
+.style {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    color: whitesmoke;
+    font-weight: bold;
+    backdrop-filter: blur(15px);
+    border-radius: 50px;
+    border: 1px solid rgba(198, 198, 198, 0.294);
+    transition: all .5s ease;
+    &:hover{
+        backdrop-filter: blur(30px);
+    }
+    &.btn{
+        padding: 10px 15px;
+        background-color: rgb(110, 7, 255);
+        font-size: 20px;
+        color: whitesmoke;
+        cursor: pointer;
+        &.alt{
+            background-color: unset;
+            backdrop-filter: blur(90px);
+
+        }
+        &:hover{
+            padding: 10px 25px;
+
+        }
+        &:disabled {
+            background-color: gray;
+            cursor: not-allowed;
+        }
+    }
+    &.input{
+        background-color: rgba(255, 255, 255, 0.344);
+        color: whitesmoke;
+        font-size: 18px;
+        text-align: center;
+        padding: 10px;
     }
 }
