@@ -4,12 +4,9 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    /* gap: 25px; */
-    & > div {
-        box-sizing: border-box;
-        width: 100%;
-        /* width: 500px; */
-    }
+    gap: 25px;
+    box-sizing: border-box;
+
     & .buttons{
         width: 100%;
         display: flex;
@@ -58,14 +55,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
-        padding: 25px;
-        gap: 25px;
-        & .inputs{
+        /* padding: 10px 0px; */
+        /* align-items: center; */
+        justify-content: space-between;
+        /* height: calc(100% - 900px); */
+        flex-grow: 1;
+        padding: 15px;
+        /* gap: 25px; */
+        & > div {
             width: 100%;
+        }
+        & .inputs{
+            width: 80%;
+            gap: 10px;
             display: flex;
-            flex-direction: row;
-            justify-content: space-between;
+            /* flex-direction: row; */
+            flex-wrap: wrap;
+            justify-content: center;
             
             & input{
                 background-color: rgba(255, 255, 255, 0.344);
@@ -73,13 +79,17 @@
                 color: rgb(255, 255, 255);
                 padding: 5px;
                 border-radius: 50%;
-                font-size: 30px;
-                padding: 5px;
+                width: 40px;
+                height: 40px;
+                aspect-ratio: 1/1;
+                /* font-size: 20px; */
+                /* padding: 5px; */
+                padding: 10px 10px;
                 text-align: center;
-                height: 100%;
+                /* height: 100%; */
                 border: none;
                 box-sizing: border-box;
-                aspect-ratio: 1/1;
+                /* aspect-ratio: 1/1; */
                 &::placeholder{
                     color: rgba(63, 63, 63, 0.616);
                 }
@@ -99,7 +109,7 @@
             & button{
                 cursor: pointer;
                 aspect-ratio: 1/1;
-                width: 50px;
+                width: 40px;
                 border-radius: 50%;
                 transition: all 0.5s ease;
                 &:hover{

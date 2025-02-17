@@ -34,7 +34,7 @@
                     </div>
                     <div class="letters">
                         {% for letter in letters %}
-                            <button type="button" class="style btn alt" onclick="enterLetter('{{ letter }}')">{{ letter | upper }}</button>
+                            <button type="button" class="style btn alt" onclick="enterLetter('{{ letter }}')" style="padding: 5px;">{{ letter | upper }}</button>
                         {% endfor %}
                     </div>
                        

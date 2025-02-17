@@ -1,4 +1,4 @@
-from flask import Flask,jsonify, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session
 import json
 import random
 
@@ -78,36 +78,12 @@ def play_game(selected_topic):
 	return render_template('game-page.html', **context)
 
 
-
-
-
-
-
-
-
-
-
-
-
-# Load users
 @app.route('/result', methods=['POST'])
-# @app.route('/fail', methods=['POST'])
 def update_score():
 	data = request.get_json()
 	users[session['username']]['score'] = data['updated_score']
 	save_file('static/json/users.json', users)
-
-
-
-
-
-
-
-
-
-
-
-
+	return 'added'
 
 @app.route("/logout")
 def logout():
