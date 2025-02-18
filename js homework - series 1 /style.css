@@ -80,14 +80,17 @@ form{
     
     align-items: center;
     justify-content: space-evenly;
+    box-sizing: border-box;
 }
 input[type="text"]{
     font-size: 20px;
+    width: 100%;
     background-color: rgb(65, 188, 225);
     border-radius: 50px;
     border: none;
     padding: 10px 15px;
     color: whitesmoke;
+    /* box-sizing: border-box; */
     text-align: center;
     &::placeholder{
         color: rgba(255, 255, 255, 0.597);
@@ -109,12 +112,13 @@ input[type="text"]{
 
 table{
     width: 100%;
-    border-spacing: 10px;
+    border-spacing: 5px;
     & th{
         color: whitesmoke;
         /* padding: 0px 20px; */
         text-wrap: nowrap;
-        padding: 10px 15px;
+        /* padding: 10px 15px; */
+        padding: 5px 10px;
         text-align: center;
         background-color: royalblue;
         border: 2px solid rgb(0, 0, 0);
@@ -125,7 +129,7 @@ table{
         color: rgb(0, 0, 0);
         /* padding: 0px 20px; */
         text-wrap: nowrap;
-        padding: 10px 15px;
+        padding: 5px 10px;
         text-align: center;
         background-color: rgb(65, 188, 225);
         border-radius: 50px;
