@@ -1,0 +1,26 @@
+{
+    "ryxnole":{
+        "first-name": "ryan",
+        "last-name": "shygun",
+        "password": "111",
+        "age": 24,
+        "city": "rasht",
+        "status": "admin"
+    },
+    "itszahra":{
+        "first-name": "zahra",
+        "last-name": "farshchi",
+        "password": "222",
+        "age": 28,
+        "city": "tehran",
+        "status": "teacher"
+    },
+    "abasali":{
+        "first-name": "abas",
+        "last-name": "ali",
+        "password": "333",
+        "age": 38,
+        "city": "mashhad",
+        "status": "student"
+    }
+}
