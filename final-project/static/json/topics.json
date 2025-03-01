@@ -1,0 +1,629 @@
+{
+    "Programming": {
+        "Which Language Is This": {
+            "prerequisites": [],
+            "study": {
+                "title": "Which Language Is This?",
+                "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to."
+            },
+            "tests": [
+                {
+                    "question": "Which language is this?\n\n```html\n<h1>Hello, World!</h1>\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "HTML"
+                },
+                {
+                    "question": "Which language is this?\n\n```css\nbody { background-color: lightblue; }\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "CSS"
+                },
+                {
+                    "question": "Which language is this?\n\n```javascript\nconsole.log('Hello, World!');\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "JavaScript"
+                },
+                {
+                    "question": "Which language is this?\n\n```python\nprint('Hello, World!')\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "Python"
+                },
+                {
+                    "question": "Which language is this?\n\n```html\n<a href='https://example.com'>Click Here</a>\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "HTML"
+                },
+                {
+                    "question": "Which language is this?\n\n```css\nh1 { color: red; }\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "CSS"
+                },
+                {
+                    "question": "Which language is this?\n\n```javascript\nlet x = 5;\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "JavaScript"
+                },
+                {
+                    "question": "Which language is this?\n\n```python\nx = 5\nprint(x)\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "Python"
+                },
+                {
+                    "question": "Which language is this?\n\n```html\n<img src='image.jpg' alt='Image'>\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "HTML"
+                },
+                {
+                    "question": "Which language is this?\n\n```css\np { font-size: 16px; }\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "CSS"
+                },
+                {
+                    "question": "Which language is this?\n\n```javascript\nfunction greet() { console.log('Hello!'); }\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "JavaScript"
+                },
+                {
+                    "question": "Which language is this?\n\n```python\ndef greet():\n    print('Hello!')\n```",
+                    "options": ["HTML", "CSS", "JavaScript", "Python"],
+                    "correct-answer": "Python"
+                }
+            ]
+        },
+        "Find the Problem": {
+            "prerequisites": ["Which Language Is This"],
+            "study": {
+                "title": "Find the Problem",
+                "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet."
+            },
+            "tests": [
+                {
+                    "question": "What is the problem in this HTML code?\n\n```html\n<h1>Hello, World!</h2>\n```",
+                    "options": ["Missing closing tag", "Incorrect tag", "Extra space", "No problem"],
+                    "correct-answer": "Incorrect tag"
+                },
+                {
+                    "question": "What is the problem in this CSS code?\n\n```css\nbody { background-color: lightblue; }\n```",
+                    "options": ["Missing semicolon", "Incorrect property", "No problem", "Extra space"],
+                    "correct-answer": "No problem"
+                },
+                {
+                    "question": "What is the problem in this JavaScript code?\n\n```javascript\nconsole.log('Hello, World!');\n```",
+                    "options": ["Missing semicolon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "No problem"
+                },
+                {
+                    "question": "What is the problem in this Python code?\n\n```python\nprint('Hello, World!')\n```",
+                    "options": ["Missing colon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "No problem"
+                },
+                {
+                    "question": "What is the problem in this HTML code?<p>This is a paragraph<\\p>",
+                    "options": ["Missing closing tag", "Incorrect tag", "Extra space", "No problem"],
+                    "correct-answer": "Incorrect tag"
+                },
+                {
+                    "question": "What is the problem in this CSS code?\n\n```css\nh1 { color: red }\n```",
+                    "options": ["Missing semicolon", "Incorrect property", "No problem", "Extra space"],
+                    "correct-answer": "Missing semicolon"
+                },
+                {
+                    "question": "What is the problem in this JavaScript code?\n\n```javascript\nlet x = 5\nconsole.log(x);\n```",
+                    "options": ["Missing semicolon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "Missing semicolon"
+                },
+                {
+                    "question": "What is the problem in this Python code?\n\n```python\nx = 5\nprint(x)\n```",
+                    "options": ["Missing colon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "No problem"
+                },
+                {
+                    "question": "What is the problem in this HTML code?\n\n```html\n<img src='image.jpg' alt='Image'>\n```",
+                    "options": ["Missing closing tag", "Incorrect tag", "Extra space", "No problem"],
+                    "correct-answer": "No problem"
+                },
+                {
+                    "question": "What is the problem in this CSS code?\n\n```css\np { font-size: 16px }\n```",
+                    "options": ["Missing semicolon", "Incorrect property", "No problem", "Extra space"],
+                    "correct-answer": "Missing semicolon"
+                },
+                {
+                    "question": "What is the problem in this JavaScript code?\n\n```javascript\nfunction greet() { console.log('Hello!') }\n```",
+                    "options": ["Missing semicolon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "Missing semicolon"
+                },
+                {
+                    "question": "What is the problem in this Python code?\n\n```python\ndef greet()\n    print('Hello!')\n```",
+                    "options": ["Missing colon", "Incorrect function", "No problem", "Extra space"],
+                    "correct-answer": "Missing colon"
+                }
+            ]
+        },
+        "Fill in the Blank": {
+            "prerequisites": ["Which Language Is This", "Find the Problem"],
+            "study": {
+                "title": "Fill in the Blank",
+                "body": "Fill in the blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet."
+            },
+            "tests": [
+                {
+                    "question": "Fill in the blank in this HTML code:\n\n```html\n<h1>____, World!</h1>\n```",
+                    "options": ["Hello", "Hi", "Hey", "Greetings"],
+                    "correct-answer": "Hello"
+                },
+                {
+                    "question": "Fill in the blank in this CSS code:\n\n```css\nbody { background-color: ____; }\n```",
+                    "options": ["lightblue", "red", "green", "yellow"],
+                    "correct-answer": "lightblue"
+                },
+                {
+                    "question": "Fill in the blank in this JavaScript code:\n\n```javascript\nconsole.log('____, World!');\n```",
+                    "options": ["Hello", "Hi", "Hey", "Greetings"],
+                    "correct-answer": "Hello"
+                },
+                {
+                    "question": "Fill in the blank in this Python code:\n\n```python\nprint('____, World!')\n```",
+                    "options": ["Hello", "Hi", "Hey", "Greetings"],
+                    "correct-answer": "Hello"
+                },
+                {
+                    "question": "Fill in the blank in this HTML code:\n\n```html\n<p>This is a ____.</p>\n```",
+                    "options": ["paragraph", "sentence", "word", "line"],
+                    "correct-answer": "paragraph"
+                },
+                {
+                    "question": "Fill in the blank in this CSS code:\n\n```css\nh1 { color: ____; }\n```",
+                    "options": ["red", "blue", "green", "yellow"],
+                    "correct-answer": "red"
+                },
+                {
+                    "question": "Fill in the blank in this JavaScript code:\n\n```javascript\nlet x = ____;\n```",
+                    "options": ["5", "10", "15", "20"],
+                    "correct-answer": "5"
+                },
+                {
+                    "question": "Fill in the blank in this Python code:\n\n```python\nx = ____\nprint(x)\n```",
+                    "options": ["5", "10", "15", "20"],
+                    "correct-answer": "5"
+                },
+                {
+                    "question": "Fill in the blank in this HTML code:\n\n```html\n<img src='____.jpg' alt='Image'>\n```",
+                    "options": ["image", "photo", "picture", "snapshot"],
+                    "correct-answer": "image"
+                },
+                {
+                    "question": "Fill in the blank in this CSS code:\n\n```css\np { font-size: ____; }\n```",
+                    "options": ["16px", "20px", "24px", "30px"],
+                    "correct-answer": "16px"
+                },
+                {
+                    "question": "Fill in the blank in this JavaScript code:\n\n```javascript\nfunction greet() { console.log('____!'); }\n```",
+                    "options": ["Hello", "Hi", "Hey", "Greetings"],
+                    "correct-answer": "Hello"
+                },
+                {
+                    "question": "Fill in the blank in this Python code:\n\n```python\ndef greet():\n    print('____!')\n```",
+                    "options": ["Hello", "Hi", "Hey", "Greetings"],
+                    "correct-answer": "Hello"
+                }
+            ]
+        }
+    },
+    "Languages": {
+        "What are Synonyms?": {
+            "prerequisites": [],
+            "study": {
+                "title": "What are Synonyms?",
+                "body": "Synonyms are words that have the same or nearly the same meaning as another word. For example, 'happy' and 'joyful' are synonyms because they both express a positive feeling."
+            },
+            "tests": [
+                {
+                    "question": "What is a synonym for 'big'?",
+                    "options": ["small", "large", "tiny", "little"],
+                    "correct-answer": "large"
+                },
+                {
+                    "question": "What is a synonym for 'fast'?",
+                    "options": ["slow", "quick", "lazy", "calm"],
+                    "correct-answer": "quick"
+                },
+                {
+                    "question": "What is a synonym for 'happy'?",
+                    "options": ["sad", "angry", "joyful", "tired"],
+                    "correct-answer": "joyful"
+                },
+                {
+                    "question": "What is a synonym for 'smart'?",
+                    "options": ["dull", "clever", "slow", "lazy"],
+                    "correct-answer": "clever"
+                },
+                {
+                    "question": "What is a synonym for 'begin'?",
+                    "options": ["end", "start", "stop", "pause"],
+                    "correct-answer": "start"
+                },
+                {
+                    "question": "What is a synonym for 'brave'?",
+                    "options": ["scared", "cowardly", "fearless", "shy"],
+                    "correct-answer": "fearless"
+                },
+                {
+                    "question": "What is a synonym for 'cold'?",
+                    "options": ["hot", "chilly", "warm", "boiling"],
+                    "correct-answer": "chilly"
+                },
+                {
+                    "question": "What is a synonym for 'loud'?",
+                    "options": ["quiet", "noisy", "soft", "silent"],
+                    "correct-answer": "noisy"
+                },
+                {
+                    "question": "What is a synonym for 'rich'?",
+                    "options": ["poor", "wealthy", "broke", "needy"],
+                    "correct-answer": "wealthy"
+                },
+                {
+                    "question": "What is a synonym for 'tired'?",
+                    "options": ["energetic", "sleepy", "awake", "active"],
+                    "correct-answer": "sleepy"
+                },
+                {
+                    "question": "What is a synonym for 'angry'?",
+                    "options": ["calm", "mad", "happy", "peaceful"],
+                    "correct-answer": "mad"
+                },
+                {
+                    "question": "What is a synonym for 'small'?",
+                    "options": ["big", "tiny", "huge", "large"],
+                    "correct-answer": "tiny"
+                }
+            ]
+        },
+        "What are Antonyms?": {
+            "prerequisites": ["What are Synonyms?"],
+            "study": {
+                "title": "What are Antonyms?",
+                "body": "Antonyms are words that have opposite meanings. For example, 'hot' and 'cold' are antonyms because they express opposite temperatures."
+            },
+            "tests": [
+                {
+                    "question": "What is the opposite of 'big'?",
+                    "options": ["small", "large", "huge", "giant"],
+                    "correct-answer": "small"
+                },
+                {
+                    "question": "What is the opposite of 'fast'?",
+                    "options": ["slow", "quick", "speedy", "rapid"],
+                    "correct-answer": "slow"
+                },
+                {
+                    "question": "What is the opposite of 'happy'?",
+                    "options": ["sad", "joyful", "cheerful", "excited"],
+                    "correct-answer": "sad"
+                },
+                {
+                    "question": "What is the opposite of 'smart'?",
+                    "options": ["clever", "dull", "intelligent", "bright"],
+                    "correct-answer": "dull"
+                },
+                {
+                    "question": "What is the opposite of 'begin'?",
+                    "options": ["start", "end", "continue", "pause"],
+                    "correct-answer": "end"
+                },
+                {
+                    "question": "What is the opposite of 'brave'?",
+                    "options": ["fearless", "cowardly", "bold", "heroic"],
+                    "correct-answer": "cowardly"
+                },
+                {
+                    "question": "What is the opposite of 'cold'?",
+                    "options": ["chilly", "hot", "freezing", "cool"],
+                    "correct-answer": "hot"
+                },
+                {
+                    "question": "What is the opposite of 'loud'?",
+                    "options": ["noisy", "quiet", "silent", "soft"],
+                    "correct-answer": "quiet"
+                },
+                {
+                    "question": "What is the opposite of 'rich'?",
+                    "options": ["wealthy", "poor", "broke", "needy"],
+                    "correct-answer": "poor"
+                },
+                {
+                    "question": "What is the opposite of 'tired'?",
+                    "options": ["sleepy", "energetic", "awake", "active"],
+                    "correct-answer": "energetic"
+                },
+                {
+                    "question": "What is the opposite of 'angry'?",
+                    "options": ["mad", "calm", "happy", "peaceful"],
+                    "correct-answer": "calm"
+                },
+                {
+                    "question": "What is the opposite of 'small'?",
+                    "options": ["tiny", "big", "huge", "large"],
+                    "correct-answer": "big"
+                }
+            ]
+        },
+        "Fill in the Blank!": {
+            "prerequisites": ["What are Synonyms?", "What are Antonyms?"],
+            "study": {
+                "title": "Fill in the Blank!",
+                "body": "Fill in the blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence."
+            },
+            "tests": [
+                {
+                    "question": "The cat is very ____. (small/tiny)",
+                    "options": ["small", "tiny", "big", "large"],
+                    "correct-answer": "small"
+                },
+                {
+                    "question": "She was ____ after running the race. (tired/sleepy)",
+                    "options": ["tired", "sleepy", "energetic", "awake"],
+                    "correct-answer": "tired"
+                },
+                {
+                    "question": "The weather is ____ today. (hot/cold)",
+                    "options": ["hot", "cold", "warm", "chilly"],
+                    "correct-answer": "hot"
+                },
+                {
+                    "question": "He is a ____ boy. (smart/clever)",
+                    "options": ["smart", "clever", "dull", "lazy"],
+                    "correct-answer": "smart"
+                },
+                {
+                    "question": "The dog barked ____. (loud/quiet)",
+                    "options": ["loud", "quiet", "silent", "soft"],
+                    "correct-answer": "loud"
+                },
+                {
+                    "question": "She felt ____ after hearing the good news. (happy/sad)",
+                    "options": ["happy", "sad", "angry", "tired"],
+                    "correct-answer": "happy"
+                },
+                {
+                    "question": "The car is moving ____. (fast/slow)",
+                    "options": ["fast", "slow", "quick", "lazy"],
+                    "correct-answer": "fast"
+                },
+                {
+                    "question": "The mountain is very ____. (big/small)",
+                    "options": ["big", "small", "tiny", "huge"],
+                    "correct-answer": "big"
+                },
+                {
+                    "question": "He is ____ to try new things. (brave/cowardly)",
+                    "options": ["brave", "cowardly", "fearless", "shy"],
+                    "correct-answer": "brave"
+                },
+                {
+                    "question": "The soup is ____. (hot/cold)",
+                    "options": ["hot", "cold", "warm", "chilly"],
+                    "correct-answer": "hot"
+                },
+                {
+                    "question": "She is ____ after a long day. (tired/energetic)",
+                    "options": ["tired", "energetic", "awake", "active"],
+                    "correct-answer": "tired"
+                },
+                {
+                    "question": "The baby is ____. (small/large)",
+                    "options": ["small", "large", "tiny", "huge"],
+                    "correct-answer": "small"
+                }
+            ]
+        }
+    },
+    "Mathematics": {
+        "How to add and subtract numbers!": {
+            "prerequisites": [],
+            "study": {
+                "title": "How to add and subtract numbers!",
+                "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt inventore ad tempore corrupti aliquid optio sint reprehenderit culpa asperiores. Recusandae illum voluptate cupiditate laudantium maiores. Consequatur expedita rem voluptate magnam, quam veritatis molestias perferendis minima eveniet excepturi ipsum velit modi ea beatae architecto non, quos aliquam necessitatibus consectetur iste est."
+            },
+            "tests": [
+                {
+                    "question": "2 + 2 ?",
+                    "options": [3, 4, 7, 1],
+                    "correct-answer": 4
+                },
+                {
+                    "question": "5 + 3 ?",
+                    "options": [8, 7, 9, 6],
+                    "correct-answer": 8
+                },
+                {
+                    "question": "10 - 4 ?",
+                    "options": [5, 6, 7, 8],
+                    "correct-answer": 6
+                },
+                {
+                    "question": "7 + 6 ?",
+                    "options": [12, 13, 14, 15],
+                    "correct-answer": 13
+                },
+                {
+                    "question": "9 - 5 ?",
+                    "options": [3, 4, 5, 6],
+                    "correct-answer": 4
+                },
+                {
+                    "question": "12 + 8 ?",
+                    "options": [18, 19, 20, 21],
+                    "correct-answer": 20
+                },
+                {
+                    "question": "15 - 7 ?",
+                    "options": [7, 8, 9, 10],
+                    "correct-answer": 8
+                },
+                {
+                    "question": "4 + 9 ?",
+                    "options": [12, 13, 14, 15],
+                    "correct-answer": 13
+                },
+                {
+                    "question": "20 - 11 ?",
+                    "options": [8, 9, 10, 11],
+                    "correct-answer": 9
+                },
+                {
+                    "question": "6 + 7 ?",
+                    "options": [12, 13, 14, 15],
+                    "correct-answer": 13
+                },
+                {
+                    "question": "18 - 9 ?",
+                    "options": [8, 9, 10, 11],
+                    "correct-answer": 9
+                },
+                {
+                    "question": "3 + 8 ?",
+                    "options": [10, 11, 12, 13],
+                    "correct-answer": 11
+                }
+            ]
+        },
+        "How to multiply and divide numbers!": {
+            "prerequisites": ["How to add and subtract numbers!"],
+            "study": {
+                "title": "How to multiply and divide numbers!",
+                "body": "Multiplication and division are fundamental operations in mathematics. Multiplication is repeated addition, while division is the process of splitting a number into equal parts. Understanding these concepts is essential for solving more complex problems."
+            },
+            "tests": [
+                {
+                    "question": "3 × 4 ?",
+                    "options": [10, 12, 14, 16],
+                    "correct-answer": 12
+                },
+                {
+                    "question": "10 ÷ 2 ?",
+                    "options": [3, 4, 5, 6],
+                    "correct-answer": 5
+                },
+                {
+                    "question": "7 × 6 ?",
+                    "options": [40, 42, 44, 46],
+                    "correct-answer": 42
+                },
+                {
+                    "question": "24 ÷ 8 ?",
+                    "options": [2, 3, 4, 5],
+                    "correct-answer": 3
+                },
+                {
+                    "question": "5 × 9 ?",
+                    "options": [40, 45, 50, 55],
+                    "correct-answer": 45
+                },
+                {
+                    "question": "36 ÷ 6 ?",
+                    "options": [5, 6, 7, 8],
+                    "correct-answer": 6
+                },
+                {
+                    "question": "8 × 7 ?",
+                    "options": [54, 56, 58, 60],
+                    "correct-answer": 56
+                },
+                {
+                    "question": "50 ÷ 10 ?",
+                    "options": [4, 5, 6, 7],
+                    "correct-answer": 5
+                },
+                {
+                    "question": "9 × 8 ?",
+                    "options": [70, 72, 74, 76],
+                    "correct-answer": 72
+                },
+                {
+                    "question": "63 ÷ 9 ?",
+                    "options": [6, 7, 8, 9],
+                    "correct-answer": 7
+                },
+                {
+                    "question": "12 × 5 ?",
+                    "options": [50, 55, 60, 65],
+                    "correct-answer": 60
+                },
+                {
+                    "question": "81 ÷ 9 ?",
+                    "options": [8, 9, 10, 11],
+                    "correct-answer": 9
+                }
+            ]
+        },
+        "How to calculate squares and square roots!": {
+            "prerequisites": ["How to add and subtract numbers!", "How to multiply and divide numbers!"],
+            "study": {
+                "title": "How to calculate squares and square roots!",
+                "body": "Squaring a number means multiplying it by itself, while finding the square root is the inverse operation. These concepts are widely used in geometry, algebra, and advanced mathematics."
+            },
+            "tests": [
+                {
+                    "question": "What is 5² ?",
+                    "options": [20, 25, 30, 35],
+                    "correct-answer": 25
+                },
+                {
+                    "question": "What is √16 ?",
+                    "options": [2, 3, 4, 5],
+                    "correct-answer": 4
+                },
+                {
+                    "question": "What is 7² ?",
+                    "options": [45, 49, 53, 57],
+                    "correct-answer": 49
+                },
+                {
+                    "question": "What is √25 ?",
+                    "options": [3, 4, 5, 6],
+                    "correct-answer": 5
+                },
+                {
+                    "question": "What is 9² ?",
+                    "options": [72, 81, 90, 99],
+                    "correct-answer": 81
+                },
+                {
+                    "question": "What is √36 ?",
+                    "options": [4, 5, 6, 7],
+                    "correct-answer": 6
+                },
+                {
+                    "question": "What is 12² ?",
+                    "options": [132, 144, 156, 168],
+                    "correct-answer": 144
+                },
+                {
+                    "question": "What is √64 ?",
+                    "options": [6, 7, 8, 9],
+                    "correct-answer": 8
+                },
+                {
+                    "question": "What is 15² ?",
+                    "options": [200, 225, 250, 275],
+                    "correct-answer": 225
+                },
+                {
+                    "question": "What is √100 ?",
+                    "options": [8, 9, 10, 11],
+                    "correct-answer": 10
+                },
+                {
+                    "question": "What is 20² ?",
+                    "options": [400, 425, 450, 475],
+                    "correct-answer": 400
+                },
+                {
+                    "question": "What is √144 ?",
+                    "options": [10, 11, 12, 13],
+                    "correct-answer": 12
+                }
+            ]
+        }
+    }
+}

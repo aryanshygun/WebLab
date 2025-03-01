@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+#body{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    color: whitesmoke;
+
+    & a img{
+        width: 100%;
+    }
+    & section{
+        display: flex;
+        height: 50%;
+        align-items: center;
+        gap: 25px;
+        &.hero{
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+            font-size: 50px;
+        }
+        & a{
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            /* align-items: end; */
+            /* padding-bottom: 50px; */
+            box-sizing: border-box;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            box-shadow: inset 0px -50px 75px 0px rgba(0, 0, 0, 0.575),
+                        0px 0px 30px var(--hover-shadow-black) !important;
+            color: white;
+            font-size: 25px;
+            /* filter: brightness(.2); */
+            &:hover{
+                /* padding-bottom: 150px; */
+                /* align-items: center; */
+                flex: 2;
+            }
+        }
+    
+        & #mathematics{
+            background-image: url('../img/mathematics.jpg');
+        }
+        & #languages{
+            background-image: url('../img/languages.jpg');
+        }    
+        & #programming{
+            background-image: url('../img/programming.jpg');
+        }    
+
+    }
+}
+
+.hero::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/brand.png');
+    filter: blur(5px) invert();
+    opacity: .5;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+.hero {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
