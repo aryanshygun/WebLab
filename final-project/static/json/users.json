@@ -1,31 +1,58 @@
 {
-    "ryxnole": {
+    "ryanshygun": {
         "first-name": "ryan",
         "last-name": "shygun",
         "password": "111",
         "age": "24",
         "city": "rasht",
-        "status": "admin"
+        "status": "admin",
+        "topics-created": [
+            "Mathematics",
+            "Programming",
+            "Languages"
+        ],
+        "teachers-signed": [
+            "itszahra",
+            "alexbrown",
+            "sarahjones"
+        ]
     },
-    "itszahra": {
+    "zahrafarshchi": {
         "first-name": "zahra",
         "last-name": "farshchi",
         "password": "222",
         "age": "28",
         "city": "tehran",
-        "status": "teacher"
+        "status": "teacher",
+        "courses-created": [
+            "Which Language Is This",
+            "Find the Problem",
+            "Fill in the Blank"
+        ]
     },
-    "abasali": {
-        "first-name": "abas",
-        "last-name": "ali",
+    "abbasrezaii": {
+        "first-name": "abbas",
+        "last-name": "rezaii",
         "password": "333",
         "age": "38",
         "city": "mashhad",
-        "wallet": 50,
         "status": "student",
-        "courses": [
-            "Which Language Is This",
-            "What are Synonyms?"
+        "wallet": 500,
+        "courses-finished": [
+            [
+                "Which Language Is This",
+                75
+            ],
+            [
+                "Fill in the Blank",
+                20
+            ]
+        ],
+        "courses-in-progress": [
+            [
+                "What are Antonyms?",
+                25
+            ]
         ]
     },
     "johnsmith": {
@@ -34,9 +61,24 @@
         "password": "444",
         "age": "22",
         "city": "new york",
-        "wallet": 100,
         "status": "student",
-        "courses": []
+        "wallet": 290,
+        "courses-finished": [
+            [
+                "Which Language Is This",
+                75
+            ],
+            [
+                "What are Synonyms?",
+                50
+            ]
+        ],
+        "courses-in-progress": [
+            [
+                "Fill in the Blank",
+                85
+            ]
+        ]
     },
     "maryjane": {
         "first-name": "mary",
@@ -44,9 +86,24 @@
         "password": "555",
         "age": "25",
         "city": "los angeles",
-        "wallet": 150,
         "status": "student",
-        "courses": []
+        "wallet": 190,
+        "courses-finished": [
+            [
+                "Which Language Is This",
+                75
+            ]
+        ],
+        "courses-in-progress": [
+            [
+                "Find the Problem",
+                0
+            ],
+            [
+                "What are Synonyms?",
+                0
+            ]
+        ]
     },
     "alexbrown": {
         "first-name": "alex",
@@ -54,6 +111,24 @@
         "password": "666",
         "age": "35",
         "city": "chicago",
-        "status": "teacher"
+        "status": "teacher",
+        "courses-created": [
+            "What are Synonyms?",
+            "What are Antonyms?",
+            "Fill in the Blank!"
+        ]
+    },
+    "sarahjones": {
+        "first-name": "sarah",
+        "last-name": "jones",
+        "password": "888",
+        "age": "23",
+        "city": "chicago",
+        "status": "teacher",
+        "courses-created": [
+            "How to add and subtract numbers!",
+            "How to multiply and divide numbers!",
+            "How to calculate squares and square roots!"
+        ]
     }
 }

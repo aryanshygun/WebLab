@@ -143,3 +143,7 @@ footer{
         gap: 20px;
     }
 }
+
+button:disabled{
+    cursor:not-allowed
+}

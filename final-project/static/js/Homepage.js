@@ -13,20 +13,41 @@ texts.forEach(text => {
 
 const botDiv = document.createElement("section")
 
-const cards = [
-    ['Mathematics', 'mathematics', '/mathematics'],
-    ['Languages', 'languages', '/languages'],
-    ['Programming', 'programming', '/programming'],
-]
+// const cards = [
+//     ['Mathematics', 'mathematics', '/mathematics'],
+//     ['Languages', 'languages', '/languages'],
+//     ['Programming', 'programming', '/programming'],
+// ]
 
-cards.forEach(card => {
-    const address = document.createElement('a')
-    address.classList.add("style")
-    address.href = card[2]
-    address.id = card[1]
-    address.textContent = card[0]
-    botDiv.appendChild(address)
-});
+// cards.forEach(card => {
+//     const address = document.createElement('a')
+//     address.classList.add("style")
+//     address.href = card[2]
+//     address.id = card[1]
+//     address.textContent = card[0]
+//     botDiv.appendChild(address)
+// });
+const jsonTopicsPath = 'static/json/topics.json'
 
-document.getElementById('body').appendChild(topDiv)
-document.getElementById('body').appendChild(botDiv)
+fetch(jsonTopicsPath)
+    .then(response => response.json())
+    .then(topics => {
+        Object.keys(topics).forEach(topic => {
+
+            const address = document.createElement('a')
+            address.classList.add("style")
+            address.href = `/courses/${topic}`
+            address.id = `${topic.toLowerCase()}`
+            address.textContent = topic
+            
+            const backgroundImage = document.createElement('img')
+            backgroundImage.classList.add('a-img')
+            backgroundImage.src = `static/img/${topic}.jpg`
+            address.appendChild(backgroundImage)
+
+            botDiv.appendChild(address)
+        })
+    
+        document.getElementById('body').appendChild(topDiv)
+        document.getElementById('body').appendChild(botDiv)
+    })

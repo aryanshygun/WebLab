@@ -1,0 +1,26 @@
+{
+    "for-admins": [
+        {
+            "fullname": "ryan",
+            "email": "ryxnole@gmail.com",
+            "subject": "User Interface",
+            "message": "The user interface is awesome!"
+        }
+    ],
+    "for-teachers": [
+        {
+            "student": "abasali",
+            "course": "Which Language Is This",
+            "opinion": "A Chill Teacher, really enjoyed ",
+            "time": "2021-07-01T12:00:00Z"
+        }
+    ],
+    "for-courses": [
+        {
+            "student": "abasali",
+            "course": "Which Language Is This",
+            "opinion": "I really enjoyed this course. It was very informative and I learned a lot. I would recommend it to anyone who is interested in learning a new language.",
+            "time": "2021-07-01T12:00:00Z"
+        }
+    ]
+}

@@ -8,7 +8,7 @@ const navBar = document.createElement('div')
 navBar.classList.add('nav-bar')
 const pages = [
     ["Home", "/"],
-    ["Courses", "/courses"],
+    ["Courses", "/courses/all"],
     ["Profile", "/profile"],
     ["Opinions", "/opinions"],
     ["Contact", "/contact"],

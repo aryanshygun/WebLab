@@ -60,7 +60,7 @@ function checkLog(status, event){
     const password = document.querySelector('input[name="password"]').value;
     if (username && password) {
         const data = { username, password };
-        fetch(`auth/${status}`, {
+        fetch(`authorization/${status}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,6 +69,7 @@ function checkLog(status, event){
         })
         .then(response => response.json())
         .then(data => {
+
             const resultDiv = document.createElement('div')
             const statusText = document.createElement('p')
             const actionBtn = document.createElement('a')

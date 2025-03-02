@@ -28,11 +28,12 @@
             font-size: 50px;
         }
         & a{
+            position: relative;
             flex: 1;
+            overflow: hidden;
+            /* font-weight: 900; */
             display: flex;
             justify-content: center;
-            /* align-items: end; */
-            /* padding-bottom: 50px; */
             box-sizing: border-box;
             height: 100%;
             background-size: cover;
@@ -41,44 +42,93 @@
             box-shadow: inset 0px -50px 75px 0px rgba(0, 0, 0, 0.575),
                         0px 0px 30px var(--hover-shadow-black) !important;
             color: white;
-            font-size: 25px;
-            /* filter: brightness(.2); */
+            font-size: 35px;
+            font-weight: 600;
+
             &:hover{
-                /* padding-bottom: 150px; */
-                /* align-items: center; */
                 flex: 2;
             }
         }
     
-        & #mathematics{
-            background-image: url('../img/mathematics.jpg');
+        /* & #mathematics{
+            background-image: url('../img/Mathematics.jpg');
         }
         & #languages{
-            background-image: url('../img/languages.jpg');
+            background-image: url('../img/Languages.jpg');
         }    
         & #programming{
-            background-image: url('../img/programming.jpg');
-        }    
+            background-image: url('../img/Programming.jpg');
+        }     */
 
     }
 }
 
+.hero {
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after,
 .hero::before{
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 25%;
+    /* top: 225%; */
+
+    left: 50%;
+    transform: translate(-50%, -50%) scale(4);
+    width: 28%;
     height: 100%;
+    /* aspect-ratio: 1/1; */
     background-image: url('../img/brand.png');
     filter: blur(5px) invert();
     opacity: .5;
     background-size: cover;
     background-position: center;
     z-index: -1;
+    /* animation: moveBackground1 6s linear infinite; */
+
 }
-.hero {
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+/* .hero::after {
+    top: -125%;
+    animation-delay: 6s;
+    animation: moveBackground2 6s linear infinite;
+
 }
+
+@keyframes moveBackground1 {
+    0% {
+        top: 25%;
+    }
+    50% {
+        top: 75%;
+    }
+    100% {
+        top: 125%;
+    }
+}
+
+@keyframes moveBackground2 {
+    0% {
+        top: -125%;
+    }
+    50% {
+        top: -75%;
+    }
+    100% {
+        top: -25%;
+    }
+} */
+
+.a-img{
+    /* width: 105% !important; */
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    position: fixed;
+    z-index: -10;
+    /* opacity: .5; */
+    filter: brightness(.5);
+}
+
