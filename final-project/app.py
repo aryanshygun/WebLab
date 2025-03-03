@@ -37,38 +37,60 @@ def contact_submit():
     email = data.get('email')
     subject = data.get('subject')
     message = data.get('message')
+    time = data.get('datatime')
+    print(time)
     opinions = open_file('static/json/opinions.json')
     user_opinion = {
         "fullname": name,
         "email": email,
         "subject": subject,
-        "message": message
+        "message": message,
+        "time": time
     }
+    
     opinions['for-admins'].append(user_opinion)
     save_file('static/json/opinions.json', opinions)
     return jsonify({'message': 'Message Sent!'})
-
 
 @app.route("/courses/<category>")
 def courses(category):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
     topics = open_file('static/json/topics.json')
+
     if category == 'all':
         temp_topic = topics
     else:
-        temp_topic = {key:value for key, value in topics.items() if key == category.title()}
-        # for i in temp_list.keys():
-        #     if i != category:
-        #         temp_list.pop(i)
-        # x = temp_list
+        list_of_topics = category.split('-')
+        temp_topic = {}
+        for i in list_of_topics:
+            temp_topic[i] = topics[i]
+
     with open('static/json/temp/category.json', 'w') as outfile:
         json.dump(temp_topic, outfile, indent=4)
-        
-        
-        
-    
     return render_template("base.html", name = 'Courses')
+
+topics = ['all']
+@app.route("/courses-api", methods=["POST", "GET"])
+def handle_categories():
+    url = request.get_json()
+    selected_topic = url.get('selected_topic')
+
+
+    if selected_topic in topics:
+        topics.remove(selected_topic)
+    else:
+        topics.append(selected_topic)
+        
+    if 'all' in topics:
+        topics.remove('all')
+   
+    if len(topics) == 0:
+        topics.append('all')
+    
+    url = '-'.join(topics)
+    print(topics)
+    return jsonify({ 'message': url})
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():

@@ -12,21 +12,6 @@ texts.forEach(text => {
 });
 
 const botDiv = document.createElement("section")
-
-// const cards = [
-//     ['Mathematics', 'mathematics', '/mathematics'],
-//     ['Languages', 'languages', '/languages'],
-//     ['Programming', 'programming', '/programming'],
-// ]
-
-// cards.forEach(card => {
-//     const address = document.createElement('a')
-//     address.classList.add("style")
-//     address.href = card[2]
-//     address.id = card[1]
-//     address.textContent = card[0]
-//     botDiv.appendChild(address)
-// });
 const jsonTopicsPath = 'static/json/topics.json'
 
 fetch(jsonTopicsPath)

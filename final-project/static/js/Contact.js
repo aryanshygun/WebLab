@@ -72,7 +72,7 @@ submitDiv.style.flexDirection = 'row !important'
 submitDiv.style.height = '43px'
 submitDiv.innerHTML = `
 <p id="resultText" style="display:none;"></p>
-<button class="style btn" onclick="submitOpinion(event)" >Submit</button>
+<button class="style btn" onclick="submitOpinion()" >Submit</button>
 `
 rightSectionBotDiv.appendChild(submitDiv)
 
@@ -88,6 +88,8 @@ function submitOpinion() {
     const subject = document.querySelector('input[name="subject"]').value
     const email = document.querySelector('input[name="email"]').value
     const message = document.querySelector('textarea[name="message"]').value
+    const dataTime = new Date().toLocaleString();
+    console.log(dataTime)
 
     if (name && subject && email && message){
         fetch(`/contact/submit`, {
@@ -95,11 +97,10 @@ function submitOpinion() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: name, email: email, subject: subject, message: message }),
+            body: JSON.stringify({ name: name, email: email, subject: subject, message: message, datatime: dataTime }),
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data.message)
                 const resultText = document.getElementById('resultText')
                 resultText.style.display = 'block'
                 resultText.textContent = data.message

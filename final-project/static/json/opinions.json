@@ -4,7 +4,8 @@
             "fullname": "ryan",
             "email": "ryxnole@gmail.com",
             "subject": "User Interface",
-            "message": "The user interface is awesome!"
+            "message": "The user interface is awesome!",
+            "time": "2021-07-01T12:00:00Z"
         }
     ],
     "for-teachers": [
@@ -19,7 +20,7 @@
         {
             "student": "abasali",
             "course": "Which Language Is This",
-            "opinion": "I really enjoyed this course. It was very informative and I learned a lot. I would recommend it to anyone who is interested in learning a new language.",
+            "opinion": "I really enjoyed this course. It was very informative",
             "time": "2021-07-01T12:00:00Z"
         }
     ]
