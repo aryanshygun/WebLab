@@ -125,6 +125,21 @@ def courses_specific():
     return jsonify({'message': message})
 
 
+
+@app.route("/api/courses")
+def get_courses():
+    data = open_file('static/json/topics.json')
+    return jsonify(data)
+
+
+
+
+
+
+
+
+
+
 @app.route("/authorization", methods=["GET"])
 def auth_page():
     return render_template("base.html", name = 'Authorization')

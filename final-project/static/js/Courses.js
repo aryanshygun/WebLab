@@ -1,63 +1,100 @@
-fetch('/static/json/temp/category.json')
+const body = document.getElementById("body");
+let selectedOptions = new Set();
+
+fetch("/api/courses")
     .then(response => response.json())
-    .then(topics => {
+    .then(data => {
+        const optionRow = document.createElement("div");
+        optionRow.id = "option-row";
 
-        const body = document.getElementById('body')
-
-        Object.keys(topics).forEach(topic => {
-
-            Object.keys(topics[topic]).forEach(course => {
-
-                const courseDiv = document.createElement('div')
-                courseDiv.classList.add('style', 'course')
-
-                const backgroundImage = document.createElement('img')
-                backgroundImage.classList.add('course-img')
-                backgroundImage.src = `/static/img/${topic}.jpg`
-                courseDiv.appendChild(backgroundImage)
-
-                const price = topics[topic][course]['price']
-
-                let dependencies = topics[topic][course]['prerequisites'];
-                let dependenciesList
-                if (dependencies.length === 0) {
-                    dependenciesList = 'None'
+        Object.keys(data).forEach(category => {
+            const btn = document.createElement("button");
+            btn.textContent = category;
+            btn.classList.add("option-btn", "style", "btn");
+            btn.dataset.category = category;
+            btn.addEventListener("click", () => {
+                if (selectedOptions.has(category)) {
+                    selectedOptions.delete(category);
+                    btn.classList.remove("active");
                 } else {
-                    dependenciesList = dependencies.join(" - ")
+                    selectedOptions.add(category);
+                    btn.classList.add("active");
                 }
+                fetch("/api/courses")
+                    .then(response => response.json())
+                    .then(data => renderCourses(data, selectedOptions));
+            });
 
-                const xlist = [
-                    ["TOPIC", topic],
-                    ["COURSE", course],
-                    ["DEPENDENCIES", dependenciesList],
-                    ["PRICE", price],
-                ]
+            optionRow.appendChild(btn);
+        });
 
-                xlist.forEach(row => {
-                    const rowDic = document.createElement('div')
-                    const title = document.createElement('h3')
-                    const result = document.createElement('p')
-                    result.style.textAlign = 'right'
-                    title.textContent = row[0]
-                    result.textContent = row[1]
-                    rowDic.appendChild(title)
-                    rowDic.appendChild(result)
-                    courseDiv.appendChild(rowDic)
-                })
+        body.appendChild(optionRow);
+        renderCourses(data, selectedOptions);
+    });
 
-                const rowDic = document.createElement('div')
-                rowDic.classList.add('rowButton')
-                rowDic.innerHTML = `
+function renderCourses(data, filters) {
+
+    let categories;
+    if (filters.size > 0) {
+        categories = Array.from(filters);
+    } else {
+        categories = Object.keys(data);
+    }
+
+    let oldProductDiv = document.getElementById("product-div");
+    if (oldProductDiv) {
+        oldProductDiv.remove();
+    }
+
+    const productDiv = document.createElement("div");
+    productDiv.id = "product-div";
+
+    categories.forEach(category => {
+        Object.entries(data[category]).forEach(([course, details]) => {
+            const courseDiv = document.createElement("div");
+            courseDiv.classList.add("style", "course");
+
+            const backgroundImage = document.createElement("img");
+            backgroundImage.classList.add("course-img");
+            backgroundImage.src = `/static/img/${category}.jpg`;
+            courseDiv.appendChild(backgroundImage);
+
+            let dependencies = details.prerequisites;
+            let dependencyList = dependencies.length ? dependencies.join(" - ") : "None";
+            let price = details.price;
+
+            const productDetails = [
+                ["TOPIC", category],
+                ["COURSE", course],
+                ["DEPENDENCIES", dependencyList],
+                ["PRICE", price]
+            ];
+
+            productDetails.forEach(row => {
+                const rowDic = document.createElement("div");
+                const title = document.createElement("h3");
+                const result = document.createElement("p");
+                result.style.textAlign = "right";
+                title.textContent = row[0];
+                result.textContent = row[1];
+                rowDic.appendChild(title);
+                rowDic.appendChild(result);
+                courseDiv.appendChild(rowDic);
+            });
+
+            const rowDic = document.createElement("div");
+            rowDic.classList.add("rowButton");
+            rowDic.innerHTML = `
                 <p id='${course}' style="display:none;" class='resultText'></p>
-                <button class="style btn" onclick="buyCourse('${topic}','${course}','${price}')">Register</button>
-                `
-                courseDiv.appendChild(rowDic)
+                <button class="style btn" onclick="buyCourse('${category}','${course}','${price}')">Register</button>
+            `;
+            courseDiv.appendChild(rowDic);
+            productDiv.appendChild(courseDiv);
+        });
+    });
 
-                body.appendChild(courseDiv)
-            })
-        })
-    })
-
+    body.appendChild(productDiv);
+}
 
 function buyCourse(topic, course, price) {
     fetch(`/purchase`, {
@@ -75,41 +112,3 @@ function buyCourse(topic, course, price) {
             resultText.nextElementSibling.disabled = true
         })
 }
-
-function checkHref(topic, btn) {
-    btn.classList.toggle('active')
-    fetch('/courses-api', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ selected_topic: topic }),
-    })
-        .then(response => response.json())
-        .then(data => {
-            url = `/courses/${data.message}`
-            window.location.href = url
-    })
-}
-
-function fillTopRow(){
-
-    const rowOptions = document.createElement('div')
-    rowOptions.classList.add('selectRow')
-    document.getElementById('body').prepend(rowOptions)
-
-    fetch('/static/json/topics.json')
-        .then(response => response.json())
-        .then(topics => {
-
-            Object.keys(topics).forEach(topic => {
-                const topicBtn = document.createElement('div')
-                topicBtn.innerHTML = `
-                <a class="style btnTopic" onClick="checkHref('${topic}', this)">${topic}</a>
-                `
-                rowOptions.appendChild(topicBtn)
-            })
-            
-        })
-}
-fillTopRow()
