@@ -87,7 +87,7 @@
         "age": "25",
         "city": "los angeles",
         "status": "student",
-        "wallet": -70,
+        "wallet": 50,
         "courses-finished": [
             [
                 "Which Language Is This",
@@ -97,14 +97,6 @@
         "courses-in-progress": [
             [
                 "Find the Problem",
-                0
-            ],
-            [
-                "What are Synonyms?",
-                0
-            ],
-            [
-                "How to add and subtract numbers!",
                 0
             ],
             [

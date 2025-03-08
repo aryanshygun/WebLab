@@ -2,14 +2,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.getElementById("body");
     let selectedOptions = new Set();
 
-    // Fetch the filtered courses from the newly created JSON file
-    fetchFilteredCourses().then(data => {
+    fetchCourses().then(data => {
         createCategoryButtons(data);
         renderCourses(data, selectedOptions);
     });
 
-    function fetchFilteredCourses() {
-        return fetch("/static/json/temp/selected_topics.json")
+    function fetchCourses() {
+        return fetch("/api/courses")
             .then(response => response.json());
     }
 
@@ -39,16 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateURL();
-        fetchFilteredCourses().then(data => renderCourses(data, selectedOptions));
+        fetchCourses().then(data => renderCourses(data, selectedOptions));
     }
 
     function updateURL() {
         let selectedCategories = Array.from(selectedOptions);
         let newPath = selectedCategories.length > 0
-            ? `/courses/${selectedCategories.join("&")}`
+            ? `/courses/${selectedCategories.join("-")}`
             : "/courses/all";
         window.history.pushState({}, "", newPath);
-        // window.location.href = newPath
     }
 
     function renderCourses(data, filters) {
@@ -125,3 +123,37 @@ document.addEventListener("DOMContentLoaded", () => {
         return rowDic;
     }
 });
+function buyCourse(topic, course, price) {
+    fetch(`/purchase`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ topic, course, price }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        const resultText = document.getElementById(course);
+        resultText.textContent = data.message;
+        resultText.style.display = 'block'
+        
+        const resultRow = resultText.closest('.rowButton'); // Get the parent div
+
+        if (data.success) {
+            // Remove the button only
+            const button = resultText.nextElementSibling;
+            if (button) {
+                button.remove();
+            }
+
+            const courseLink = document.createElement("a");
+            courseLink.href = `/course/${course}`;
+            courseLink.textContent = "Start Course";
+            courseLink.classList.add("style", "btn");
+
+            resultRow.appendChild(courseLink);
+        } else {
+            resultText.nextElementSibling.disabled = true
+        }
+    });
+}

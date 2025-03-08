@@ -4,6 +4,7 @@ import json
 app = Flask(__name__)
 app.secret_key = 'secretkey'
 
+
 def open_file(address):
     with open(address, 'r') as infile:
         return json.load(infile)
@@ -11,6 +12,19 @@ def open_file(address):
 def save_file(address, update):
     with open(address, 'w') as outfile:
         json.dump(update, outfile, indent=4)
+
+def update_session():
+    users = open_file('static/json/users.json')
+    session['user'] = { key: value for key, value in users[session['username']].items()}
+
+@app.route("/logout")
+def logout():
+	session.clear()
+	return redirect(url_for("home"))
+
+
+
+
 
 @app.route("/")
 def home():
@@ -23,11 +37,6 @@ def contact():
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
     return render_template("base.html", name = 'Contact')
-
-def update_session():
-    users = open_file('static/json/users.json')
-    session['user'] = { key: value for key, value in users[session['username']].items()}
-
 
 @app.route("/contact/submit", methods=["POST"])
 def contact_submit():
@@ -47,21 +56,46 @@ def contact_submit():
         "message": message,
         "time": time
     }
-    
     opinions['for-admins'].append(user_opinion)
     save_file('static/json/opinions.json', opinions)
     return jsonify({'message': 'Message Sent!'})
+
 
 @app.route("/courses/<categories>")
 def courses(categories):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
-    return render_template("base.html", name = 'Courses')
+    
+    selected_categories = categories.split("&")
+    # Load the topics data from the JSON file
+    topics_data = open_file('static/json/topics.json')
+    
+    # If 'all' is selected, we don't filter anything, otherwise we filter based on selected categories
+    if "all" in selected_categories:
+        filtered_topics = topics_data  # Include all topics if "all" is selected
+    else:
+        selected_categories = [i.title() for i in selected_categories]
 
-@app.route("/api/courses")
-def get_courses():
-    data = open_file('static/json/topics.json')
-    return jsonify(data)
+        # Filter the topics based on selected categories
+        filtered_topics = {category: topics_data.get(category, {}) for category in selected_categories if category in topics_data}
+
+    # Save the filtered topics to the selected_topics.json file in the temp folder
+    save_file('static/json/temp/selected_topics.json', filtered_topics)
+
+    # Render the base.html template and pass the 'Courses' name to dynamically load the page
+    return render_template("base.html", name='Courses')
+
+
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():
@@ -78,25 +112,34 @@ def courses_specific():
     
     dependencies = topics[selected_topic][selected_course]['prerequisites']
     success = False
-    if session['user']['status'] != 'student':
+    
+    user_data = session['user']
+    user_courses_finished = [course[0] for course in user_data['courses-finished']]
+    
+    if user_data['status'] != 'student':
         message = 'You are not a student'
-    elif session['user']['wallet'] < price:
+    elif user_data['wallet'] < price:
         message = 'Not Enough Money'
-    elif selected_course in [course[0] for course in session['user']['courses-finished']]:
+    elif selected_course in user_courses_finished:
         message = "You've already finished this course"
-    elif selected_course in [course[0] for course in session['user']['courses-in-progress']]:
+    elif selected_course in [course[0] for course in user_data['courses-in-progress']]:
         message = "You've already started this course"
         success = True
-    elif not all(prerequisite in session['user']['courses-finished'] for prerequisite in dependencies):
+    elif not all(prerequisite in user_courses_finished for prerequisite in dependencies):
         message = 'First Complete Prerequisites'
     else:
-        message = 'Course Purchased'
-        success = True
-        
-        users[session['username']]['courses-in-progress'].append([selected_course, 0])
-        users[session['username']]['wallet'] -= price
-        update_session()
-        save_file('static/json/users.json', users)        
+        # Make sure the wallet update doesn't allow a negative balance
+        new_balance = user_data['wallet'] - price
+        if new_balance < 0:
+            message = "Not Enough Money"
+        else:
+            message = 'Course Purchased'
+            success = True
+            users[session['username']]['courses-in-progress'].append([selected_course, 0])
+            users[session['username']]['wallet'] = new_balance  # Ensuring non-negative balance
+            update_session()
+            save_file('static/json/users.json', users)        
+
     return jsonify({'message': message, 'success': success})
 
 
@@ -152,12 +195,6 @@ def handle_auth(status):
             message = 'Registration Successful!'
     save_file('static/json/users.json', users)
     return jsonify({'success': success, 'message': message})
-
-@app.route("/logout")
-def logout():
-	session.clear()
-	return redirect(url_for("home"))
-
 
 
 if __name__ == '__main__':
