@@ -52,45 +52,16 @@ def contact_submit():
     save_file('static/json/opinions.json', opinions)
     return jsonify({'message': 'Message Sent!'})
 
-@app.route("/courses/<category>")
-def courses(category):
+@app.route("/courses/<categories>")
+def courses(categories):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
-    topics = open_file('static/json/topics.json')
-
-    if category == 'all':
-        temp_topic = topics
-    else:
-        list_of_topics = category.split('-')
-        temp_topic = {}
-        for i in list_of_topics:
-            temp_topic[i] = topics[i]
-
-    with open('static/json/temp/category.json', 'w') as outfile:
-        json.dump(temp_topic, outfile, indent=4)
     return render_template("base.html", name = 'Courses')
 
-topics = ['all']
-@app.route("/courses-api", methods=["POST", "GET"])
-def handle_categories():
-    url = request.get_json()
-    selected_topic = url.get('selected_topic')
-
-
-    if selected_topic in topics:
-        topics.remove(selected_topic)
-    else:
-        topics.append(selected_topic)
-        
-    if 'all' in topics:
-        topics.remove('all')
-   
-    if len(topics) == 0:
-        topics.append('all')
-    
-    url = '-'.join(topics)
-    print(topics)
-    return jsonify({ 'message': url})
+@app.route("/api/courses")
+def get_courses():
+    data = open_file('static/json/topics.json')
+    return jsonify(data)
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():
@@ -106,6 +77,7 @@ def courses_specific():
     price = int(data.get('price'))
     
     dependencies = topics[selected_topic][selected_course]['prerequisites']
+    success = False
     if session['user']['status'] != 'student':
         message = 'You are not a student'
     elif session['user']['wallet'] < price:
@@ -114,22 +86,20 @@ def courses_specific():
         message = "You've already finished this course"
     elif selected_course in [course[0] for course in session['user']['courses-in-progress']]:
         message = "You've already started this course"
+        success = True
     elif not all(prerequisite in session['user']['courses-finished'] for prerequisite in dependencies):
         message = 'First Complete Prerequisites'
     else:
         message = 'Course Purchased'
+        success = True
+        
         users[session['username']]['courses-in-progress'].append([selected_course, 0])
         users[session['username']]['wallet'] -= price
         update_session()
         save_file('static/json/users.json', users)        
-    return jsonify({'message': message})
+    return jsonify({'message': message, 'success': success})
 
 
-
-@app.route("/api/courses")
-def get_courses():
-    data = open_file('static/json/topics.json')
-    return jsonify(data)
 
 
 
