@@ -51,7 +51,7 @@ formFields.forEach(([labelText, type, id]) => {
     let input;
     if (type === "textarea") {
         input = document.createElement("textarea");
-        input.rows = 4;
+        input.rows = 2;
     } else {
         input = document.createElement("input");
         input.type = type;

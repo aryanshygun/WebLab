@@ -9,8 +9,9 @@ navBar.classList.add('nav-bar')
 const pages = [
     ["Home", "/"],
     ["Courses", "/courses/all"],
-    ["Profile", "/profile"],
+    // ["Profile", "/profile"],
     ["Opinions", "/opinions"],
+    ["About Us", "/about"],
     ["Contact", "/contact"],
 ]
 pages.forEach(page => {
@@ -23,12 +24,19 @@ pages.forEach(page => {
 
 const logOutBtn = document.createElement('a')
 logOutBtn.classList.add('style', 'alt', 'btn', 'order')
-logOutBtn.textContent = 'LOGOUT'
-logOutBtn.href = "/logout"
+logOutBtn.textContent = 'Profile'
+logOutBtn.href = "/profile"
 
 headerDiv.appendChild(logo)
 headerDiv.appendChild(navBar)
 headerDiv.appendChild(logOutBtn)
+
+
+
+
+
+
+
 
 
 const footerDiv = document.querySelector('footer')
