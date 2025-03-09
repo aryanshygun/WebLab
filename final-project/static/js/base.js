@@ -12,7 +12,7 @@ pages = [
     ["Shop", "/shop/all"],
     ["Opinions", "/opinions"],
     ["About Us", "/about"],
-    ["Contact", "/contact"],
+    ["Contact Us", "/contact"],
 ]
 
 

@@ -98,9 +98,13 @@ header{
         flex-direction: row;
         gap: 20px;
         position: relative;
+        & a {
+            white-space: nowrap;
+            overflow: hidden;   
+            text-overflow: ellipsis;
+        }
     }
     & img{
-        /* height: 50px; */
         width: 95px;
         scale: 1.4;
         filter:invert(1);

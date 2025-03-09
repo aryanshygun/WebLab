@@ -7,50 +7,56 @@
     margin: -36px 0;
     padding: 61px 0;
     flex-direction: row;
-    /* margin: 25px 0px; */
     gap: 25px;
+    & .content-div{
+        flex: 4;
+    }
+}
 
 
+
+#btn-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: space-between;
     
-    & .left {
+    & .panel-btns {
+        font-size: 20px;
         flex: 1;
-        display: flex;
-        flex-direction: column;
-        scrollbar-width: none;
-        gap: 25px;
-        & a {
-            font-weight: 500;
-            font-size: 20px;
-            flex: 1;
-            &.active{
-                background-color: rgb(49, 94, 255);
-                color: white;
-            }
+        white-space: nowrap;
+        overflow: hidden;   
+        text-overflow: ellipsis;
+        &.active{
+            background-color: rgb(49, 94, 255);
+            color: white;
+        }
+        &:hover{
+            padding: 10px 18px !important;
+        }
+    }
+    & #logout-btn{
+        background-color: red !important;
+        color: white;
+        &:hover{
+            box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.5) !important;
         }
     }
 
-    & .right {
-        flex: 4;
-        /* background-color: cadetblue; */
-    }
-}
-.logout-btn{
-    background-color: red !important;
-    color: white;
-    &:hover{
-        box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.5) !important;
-    }
 }
 
+/* #div-section {
+    flex: 4;
+} */
+
 #personal-div{
-    /* background-color: royalblue; */
     height: 100%;
     display: flex;
     flex-direction: column;
     overflow: scroll;
     scrollbar-width: none;
     gap: 25px;
-    /* padding: 0px calc(25%); */
     & div {
         padding: 0px 25px;
         min-height: 100px;
@@ -78,7 +84,8 @@
     justify-content: space-evenly !important;
 }
 
-#courses-div{
+#finished-courses-div,
+#in-progress-courses-div{
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -108,7 +115,7 @@
 
 }
 
-
+/* 
 #study-div,
 #exam-div{
     width: 100%;
@@ -117,4 +124,10 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-}
+} */
+
+/* #personal-div,
+#finished-courses-div,
+#in-progress-div{
+
+} */

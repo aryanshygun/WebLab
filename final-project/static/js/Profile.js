@@ -1,6 +1,6 @@
 const body = document.getElementById("body");
 
-let leftList;  // Declare before using
+let leftList
 function initializeLeftList() {
     return fetch('/get-info')
         .then(response => response.json())
@@ -31,12 +31,13 @@ function initializeLeftList() {
         });
 }
 
-function loadLeft() {
+function loadBtnList() {
     const leftSection = document.createElement("section");
-    leftSection.classList.add("left");
+    leftSection.id = 'btn-list'
     leftList.forEach(([sectionName, sectionId], index) => {
         const btn = document.createElement("a");
-        btn.classList.add("style", "btn");
+        btn.classList.add("style", "btn", 'panel-btns');
+        
         btn.textContent = sectionName;
         btn.onclick = function () {
             showDiv(sectionId, btn);
@@ -47,30 +48,33 @@ function loadLeft() {
             btn.classList.add('active')
         }
     });
+
     const logOut = document.createElement("a");
     logOut.textContent = "Log Out";
     logOut.href = "/logout";
-    logOut.classList.add("style", "btn", "logout-btn");
+    logOut.classList.add("style", "btn", "panel-btns");
+    logOut.id = 'logout-btn'
     leftSection.appendChild(logOut);
     body.append(leftSection);
 }
 
-function loadRight() {
-    const rightSection = document.createElement("section");
-    rightSection.classList.add("right");
+function loadDiv() {
+    // const rightSection = document.createElement("section");
+    // rightSection.classList.add("right");
+    // rightSection.id = 'div-section'
 
     import(`./profile-${userDetails.status}.js`).then(module => {
-        let functionName = `${userDetails.status}Divs`;  // Function name must match the export
+        let functionName = `${userDetails.status}Divs`;
         if (module[functionName]) {
-            module[functionName]();  // Call the function
+            module[functionName]();
         }
     })
 
-    body.appendChild(rightSection);
+    // body.appendChild(rightSection);
 }
 
 function showDiv(sectionId, btn) {
-    document.querySelectorAll(".left .btn").forEach(button => {
+    document.querySelectorAll(".panel-btns").forEach(button => {
         button.classList.remove("active");
     });
     btn.classList.add("active");
@@ -108,8 +112,8 @@ function showDiv(sectionId, btn) {
 
 window.addEventListener("DOMContentLoaded", () => {
     initializeLeftList().then(() => {
-        loadLeft();
-        loadRight();
+        loadBtnList();
+        loadDiv();
         // handleDirectAccess();
     });
 });

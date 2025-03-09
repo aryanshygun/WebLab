@@ -1,7 +1,7 @@
 export function createPersonalInfoDiv(dataDetails) {
     const form = document.createElement('form');
     form.id = 'personal-div';
-    form.classList.add('content-div', 'style');
+    form.classList.add('content-div');
     form.method = "POST";
 
     // Update top
@@ -66,60 +66,209 @@ export function createPersonalInfoDiv(dataDetails) {
             });
     });
 
-    document.querySelector('.right').appendChild(form);
+    // document.getElementById('div-section').appendChild(form);
+    document.getElementById('body').appendChild(form);
 }
 
-function createAllCoursesDiv(dataDetails) {
-    const div = document.createElement('div');
-    div.id = 'courses-div';
-    div.classList.add('content-div', 'style');
+// function createAllCoursesDiv(dataDetails) {
+//     const div = document.createElement('div');
+//     div.id = 'courses-div';
+//     div.classList.add('content-div', 'style');
 
-    const createCourseSection = (courses, title) => {
-        courses.forEach(([courseName, courseScore]) => {
-            let newName = courseName.replace(/ /g, '&');
+//     const createCourseSection = (courses, title) => {
+//         courses.forEach(([courseName, courseScore]) => {
+//             let newName = courseName.replace(/ /g, '&');
 
-            const courseDiv = document.createElement('div');
-            courseDiv.classList.add('course-div', 'style');
+//             const courseDiv = document.createElement('div');
+//             courseDiv.classList.add('course-div', 'style');
 
-            const infoRow = document.createElement('div');
-            const topicHead = document.createElement('h1');
-            topicHead.textContent = title;
+//             const infoRow = document.createElement('div');
+//             const topicHead = document.createElement('h1');
+//             topicHead.textContent = title;
 
-            const courseText = document.createElement('p');
-            courseText.textContent = courseName;
+//             const courseText = document.createElement('p');
+//             courseText.textContent = courseName;
 
-            const scoreText = document.createElement('p');
-            scoreText.textContent = `Current Score: ${courseScore}`;
+//             const scoreText = document.createElement('p');
+//             scoreText.textContent = `Current Score: ${courseScore}`;
 
-            infoRow.appendChild(topicHead);
-            infoRow.appendChild(courseText);
-            infoRow.appendChild(scoreText);
+//             infoRow.appendChild(topicHead);
+//             infoRow.appendChild(courseText);
+//             infoRow.appendChild(scoreText);
 
-            const actionRow = document.createElement('div');
-            const openCourse = document.createElement('a');
-            openCourse.textContent = 'View Course';
-            openCourse.classList.add('style', 'btn');
-            openCourse.href = `/profile/study/${newName}`;
+//             const actionRow = document.createElement('div');
+//             const openCourse = document.createElement('a');
+//             openCourse.textContent = 'View Course';
+//             openCourse.classList.add('style', 'btn');
+//             openCourse.href = `/profile/study/${newName}`;
 
-            const openExam = document.createElement('a');
-            openExam.textContent = 'View Exam';
-            openExam.classList.add('style', 'btn');
-            openExam.href = `/profile/exam/${newName}`;
+//             const openExam = document.createElement('a');
+//             openExam.textContent = 'View Exam';
+//             openExam.classList.add('style', 'btn');
+//             openExam.href = `/profile/exam/${newName}`;
 
-            actionRow.appendChild(openCourse);
-            actionRow.appendChild(openExam);
+//             actionRow.appendChild(openCourse);
+//             actionRow.appendChild(openExam);
 
-            courseDiv.appendChild(infoRow);
-            courseDiv.appendChild(actionRow);
+//             courseDiv.appendChild(infoRow);
+//             courseDiv.appendChild(actionRow);
 
-            div.appendChild(courseDiv);
-        });
-    };
+//             div.appendChild(courseDiv);
+//         });
+//     };
 
-    createCourseSection(dataDetails.courses_finished, 'Finished');
-    createCourseSection(dataDetails.courses_in_progress, 'In Progress');
+//     createCourseSection(dataDetails.courses_finished, 'Finished');
+//     createCourseSection(dataDetails.courses_in_progress, 'In Progress');
 
-    document.querySelector('.right').appendChild(div);
+//     document.querySelector('.right').appendChild(div);
+// }
+
+// function createAllCoursesDiv(dataDetails) {
+//     const div = document.createElement('div');
+//     div.id = 'courses-div';
+//     div.classList.add('content-div', 'style');
+
+//     const createCourseSection = (courses, title) => {
+
+//         dataDetails.courses_finished.forEach(([courseName, courseScore]) => {
+//             let newName = courseName.replace(/ /g, '&');
+
+//             const courseDiv = document.createElement('div');
+//             courseDiv.classList.add('course-div', 'style');
+
+//             const infoRow = document.createElement('div');
+//             // const topicHead = document.createElement('h1');
+//             // topicHead.textContent = title;
+
+//             const courseText = document.createElement('p');
+//             courseText.textContent = courseName;
+
+//             const scoreText = document.createElement('p');
+//             scoreText.textContent = `Current Score: ${courseScore}`;
+
+//             infoRow.appendChild(topicHead);
+//             infoRow.appendChild(courseText);
+//             infoRow.appendChild(scoreText);
+
+//             const actionRow = document.createElement('div');
+//             const openCourse = document.createElement('a');
+//             openCourse.textContent = 'View Course';
+//             openCourse.classList.add('style', 'btn');
+//             openCourse.href = `/profile/study/${newName}`;
+
+//             const openExam = document.createElement('a');
+//             openExam.textContent = 'View Exam';
+//             openExam.classList.add('style', 'btn');
+//             openExam.href = `/profile/exam/${newName}`;
+
+//             actionRow.appendChild(openCourse);
+//             actionRow.appendChild(openExam);
+
+//             courseDiv.appendChild(infoRow);
+//             courseDiv.appendChild(actionRow);
+
+//             div.appendChild(courseDiv);
+//         });
+//     };
+
+//     createCourseSection(dataDetails.courses_finished, 'Finished');
+//     createCourseSection(dataDetails.courses_in_progress, 'In Progress');
+
+//     document.querySelector('.right').appendChild(div);
+// }
+
+function createFinishedCoursesDiv(dataDetails){
+    const div = document.createElement('div')
+    div.id = 'finished-courses-div'
+    div.classList.add('content-div');
+
+    div.style.display = 'none'
+    dataDetails.courses_finished.forEach(([courseName, courseScore]) => {
+        let newName = courseName.replace(/ /g, '&');
+
+        const courseDiv = document.createElement('div');
+        courseDiv.classList.add('course-div', 'style');
+
+        const infoRow = document.createElement('div');
+        const courseText = document.createElement('p');
+        courseText.textContent = courseName;
+
+        const scoreText = document.createElement('p');
+        scoreText.textContent = `Current Score: ${courseScore}`;
+
+        // infoRow.appendChild(topicHead);
+        infoRow.appendChild(courseText);
+        infoRow.appendChild(scoreText);
+
+        const actionRow = document.createElement('div');
+        const openCourse = document.createElement('a');
+        openCourse.textContent = 'View Course';
+        openCourse.classList.add('style', 'btn');
+        openCourse.href = `/profile/study/${newName}`;
+
+        const openExam = document.createElement('a');
+        openExam.textContent = 'View Exam';
+        openExam.classList.add('style', 'btn');
+        openExam.href = `/profile/exam/${newName}`;
+
+        actionRow.appendChild(openCourse);
+        actionRow.appendChild(openExam);
+
+        courseDiv.appendChild(infoRow);
+        courseDiv.appendChild(actionRow);
+
+        div.appendChild(courseDiv);
+    });
+
+    // document.getElementById('div-section').appendChild(div);
+    document.getElementById('body').appendChild(div);
+}
+
+function createInProgressDivs(dataDetails){
+    const div = document.createElement('div')
+    div.id = 'in-progress-courses-div'
+    div.classList.add('content-div');
+    div.style.display = 'none'
+
+    dataDetails.courses_in_progress.forEach(([courseName, courseScore]) => {
+        let newName = courseName.replace(/ /g, '&');
+
+        const courseDiv = document.createElement('div');
+        courseDiv.classList.add('course-div', 'style');
+
+        const infoRow = document.createElement('div');
+        const courseText = document.createElement('p');
+        courseText.textContent = courseName;
+
+        const scoreText = document.createElement('p');
+        scoreText.textContent = `Current Score: ${courseScore}`;
+
+        // infoRow.appendChild(topicHead);
+        infoRow.appendChild(courseText);
+        infoRow.appendChild(scoreText);
+
+        const actionRow = document.createElement('div');
+        const openCourse = document.createElement('a');
+        openCourse.textContent = 'View Course';
+        openCourse.classList.add('style', 'btn');
+        openCourse.href = `/profile/study/${newName}`;
+
+        const openExam = document.createElement('a');
+        openExam.textContent = 'View Exam';
+        openExam.classList.add('style', 'btn');
+        openExam.href = `/profile/exam/${newName}`;
+
+        actionRow.appendChild(openCourse);
+        actionRow.appendChild(openExam);
+
+        courseDiv.appendChild(infoRow);
+        courseDiv.appendChild(actionRow);
+
+        div.appendChild(courseDiv);
+    });
+
+    // document.getElementById('div-section').appendChild(div);
+    document.getElementById('body').appendChild(div);
 }
 
 export function studentDivs() {
@@ -128,6 +277,7 @@ export function studentDivs() {
         .then(data => {
             const dataDetails = data.details;
             createPersonalInfoDiv(dataDetails);
-            createAllCoursesDiv(dataDetails);
+            createFinishedCoursesDiv(dataDetails)
+            createInProgressDivs(dataDetails)
         });
 }
