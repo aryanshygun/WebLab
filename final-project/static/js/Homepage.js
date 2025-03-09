@@ -21,7 +21,7 @@ fetch(jsonTopicsPath)
 
             const address = document.createElement('a')
             address.classList.add("style")
-            address.href = `/courses/${topic}`
+            address.href = `/shop/${topic}`
             address.id = `${topic.toLowerCase()}`
             address.textContent = topic
             

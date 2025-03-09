@@ -6,13 +6,17 @@ logo.src = "/static/img/logo.png"
 
 const navBar = document.createElement('div')
 navBar.classList.add('nav-bar')
-const pages = [
+
+pages = [
     ["Home", "/"],
-    ["Courses", "/courses/all"],
+    ["Shop", "/shop/all"],
     ["Opinions", "/opinions"],
     ["About Us", "/about"],
     ["Contact", "/contact"],
 ]
+
+
+
 pages.forEach(page => {
     const link = document.createElement("a")
     link.classList.add("style", "btn")

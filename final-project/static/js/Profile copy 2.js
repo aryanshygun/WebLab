@@ -1,54 +1,81 @@
-const body = document.getElementById('body')
+const body = document.getElementById("body");
 
-// left sdide options
-const leftList = [
-    ["Personal Info", 'personal-div'],
-    ["Courses", 'courses-div'],
-    ["Study", 'study-div'],
-    ["Exam", 'exam-div'],
-]
+// const leftList = [
+//     ["Personal Info", "personal-div", "personal-data"],
+//     ["Courses", "courses-div", "courses"],
+//     ["Study", "study-div", "study"],
+//     ["Exam", "exam-div", "exam"]
+// ];
 
-// load left options
+let leftList = []
+let loggerStatus
+function initializeLeftList() {
+    return fetch('/get-info')
+        .then(response => response.json())
+        .then(data => {
+            const status = data.details.status;
+            loggerStatus = status
+
+            if (status === "student") {
+                leftList = [
+                    ["Personal Info", "personal-div", "personal-data"],
+                    ["Finished Courses", "finished-courses-div", "finished-courses"],
+                    ["In Progress Courses", "in-rogress-courses-div", "in-progress-courses"],
+                    ["Wallet", "wallet-div", "wallet"],
+                ];
+            } else if (status === "teacher") {
+                leftList = [
+                    ["Personal Info", "personal-div", "personal-data"],
+                    ["Manage Courses", "manage-courses-div", "manage-courses"],
+                    ["Manage Exams", "manage-exams-div", "manage-exams"],
+                ];
+            } else {
+                leftList = [
+                    ["Personal Info", "personal-div", "personal-data"],
+                    ["Manage Users", "manage-users-div", "users-data"],
+                    ["Manage Opinions", "manage-opinions-div", "opinions-data"]
+                ];
+            }
+        });
+}
+
 function loadLeft() {
-    const leftSection = document.createElement('section')
-    leftSection.classList.add('left')
+    const leftSection = document.createElement("section");
+    leftSection.classList.add("left");
 
-    leftList.forEach(([sectionName, sectionId], index) => {
-        const btn = document.createElement('a')
-        btn.classList.add('style', 'btn')
-        btn.textContent = sectionName
+    leftList.forEach(([sectionName, sectionId, urlPath], index) => {
+        const btn = document.createElement("a");
+        btn.classList.add("style", "btn");
+        // btn.style.backgroundColor = 'red'
+        btn.textContent = sectionName;
         btn.onclick = function () {
-            showDiv(sectionId, btn)
-        }
+            showDiv(sectionId, urlPath, btn);
+        };
 
-        // profile first option highlighted
         if (index === 0) {
-            btn.classList.add('active');
+        btn.classList.add("active");
         }
-        leftSection.appendChild(btn)
-    })
+        leftSection.appendChild(btn);
+    });
 
-    // costumize the logout btn
-    const logOut = document.createElement('a')
-    logOut.textContent = 'Log Out'
-    logOut.href = '/logout'
-    logOut.classList.add("style", "btn", "logout-btn")
-    leftSection.appendChild(logOut)
-    
+    const logOut = document.createElement("a");
+    logOut.textContent = "Log Out";
+    logOut.href = "/logout";
+    logOut.classList.add("style", "btn", "logout-btn");
+    leftSection.appendChild(logOut);
 
-    body.append(leftSection)
+    body.append(leftSection);
 }
 
 function loadRight() {
-    const rightSection = document.createElement('section');
-    rightSection.classList.add('right');
+    const rightSection = document.createElement("section");
+    rightSection.classList.add("right");
 
     createPersonalInfoDiv();
     createCoursesDiv()
 
     rightSection.appendChild(createExamDiv())
     rightSection.appendChild(createStudyDiv())
-
 
 
     body.appendChild(rightSection);
@@ -62,7 +89,7 @@ function createPersonalInfoDiv() {
         const dataDetails = data.details;
         const form = document.createElement('form');
         form.id = 'personal-div';
-        form.classList.add('content-div');
+        form.classList.add('content-div','style');
         form.method = "POST";
         // form.style.display = 'none'
 
@@ -145,8 +172,8 @@ function createCoursesDiv() {
     
         const div = document.createElement('div');
         div.id = 'courses-div';
-        div.classList.add('content-div');
-        div.style.display = 'none';
+        div.classList.add('content-div','style');
+        // div.style.display = 'none';
 
         dataDetails.courses_finished.forEach(([courseName, courseScore]) => {
             
@@ -175,13 +202,13 @@ function createCoursesDiv() {
             const openCourse = document.createElement('a')
             openCourse.textContent = 'View Course'
             openCourse.classList.add('style', 'btn')
-            openCourse.href = `/study/${newName}`
+            openCourse.href = `/profile/study/${newName}`
 
 
             const openExam = document.createElement('a')
             openExam.textContent = 'View Exam'
             openExam.classList.add('style', 'btn')
-            openExam.href = `/exam/${newName}`
+            openExam.href = `/profile/exam/${newName}`
 
             actionRow.appendChild(openCourse)
             actionRow.appendChild(openExam)
@@ -219,13 +246,13 @@ function createCoursesDiv() {
             const openCourse = document.createElement('a')
             openCourse.textContent = 'View Course'
             openCourse.classList.add('style', 'btn')
-            openCourse.href = `/study/${newName}`
+            openCourse.href = `/profile/study/${newName}`
 
 
             const openExam = document.createElement('a')
             openExam.textContent = 'View Exam'
             openExam.classList.add('style', 'btn')
-            openExam.href = `/exam/${newName}`
+            openExam.href = `/profile/exam/${newName}`
 
             actionRow.appendChild(openCourse)
             actionRow.appendChild(openExam)
@@ -245,38 +272,92 @@ function createCoursesDiv() {
 function createExamDiv() {
     const div = document.createElement('div');
     div.id = 'exam-div';
-    div.classList.add('content-div');
-    div.textContent = 'This is the Exam section';
+    div.classList.add('content-div','style');
+    div.textContent = 'Select an exam from the Courses menu';
     div.style.display = 'none'; // Initially hidden
     return div
 }
 
 
 function createStudyDiv() {
-    const div = document.createElement('div')
-    div.id = 'study-div'
-    div.classList.add('content-div')
-    div.textContent = 'This is the Study section'
-    div.style.display = 'none'
-    return div
+    const div = document.createElement("div");
+    div.id = "study-div";
+    div.classList.add("content-div", "style");
+    div.style.display = "none";
 
+    const pathParts = window.location.pathname.split("/").filter(Boolean);
+    const courseName = decodeURIComponent(pathParts[pathParts.length - 1]); // Extract last part
+
+    fetch(`/get-course?name=${courseName}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                div.textContent = "Error: " + data.error;
+                return;
+            }
+
+            div.innerHTML = `
+                <h1>${data.title}</h1>
+                <p>${data.body}</p>
+            `;
+        })
+        .catch(error => {
+            div.textContent = "Error loading course.";
+            console.error(error);
+        });
+
+    return div;
 }
 
 
-function showDiv(sectionId, btn) {
-    document.querySelectorAll('.left .btn').forEach(button => {
-        button.classList.remove('active')
-    })
-    btn.classList.add('active')
-    document.querySelectorAll('.content-div').forEach(div => {
-        div.style.display = 'none'
-    })
-    const targetDiv = document.getElementById(sectionId)
+
+function showDiv(sectionId, urlPath, btn) {
+    document.querySelectorAll(".left .btn").forEach(button => {
+        button.classList.remove("active");
+    });
+    btn.classList.add("active");
+
+    document.querySelectorAll(".content-div").forEach(div => {
+        div.style.display = "none";
+    });
+
+    const targetDiv = document.getElementById(sectionId);
     if (targetDiv) {
-        targetDiv.style.display = 'flex'
+        targetDiv.style.display = "flex";
     }
+
+    history.pushState(null, "", `/profile/${urlPath}`);
 }
 
-loadLeft()
-loadRight()
+function handleDirectAccess() {
+    const path = window.location.pathname;
+    const sections = {
+        "personal-data": "personal-div",
+        "courses": "courses-div",
+        "study": "study-div",
+        "exam": "exam-div"
+    };
 
+    const key = path.split("/").pop();
+    const sectionId = sections[key] || "personal-div";
+
+    document.querySelectorAll(".left .btn").forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(key)) {
+            showDiv(sectionId, btn);
+        }
+    });
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    // loadLeft();
+    // loadRight();
+    // handleDirectAccess();
+    initializeLeftList().then(() => {
+        loadLeft();
+        loadRight();
+        handleDirectAccess();
+    });
+});
+
+window.addEventListener("popstate", handleDirectAccess);

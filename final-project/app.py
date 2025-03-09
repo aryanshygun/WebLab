@@ -53,7 +53,7 @@ def contact_submit():
     return jsonify({'message': 'Message Sent!'})
 
 
-@app.route("/courses/<categories>")
+@app.route("/shop/<categories>")
 def courses(categories):
 
     selected_categories = categories.split("&")
@@ -62,7 +62,7 @@ def courses(categories):
     
     # If 'all' is selected, we don't filter anything, otherwise we filter based on selected categories
     if "all" in selected_categories:
-        filtered_topics = topics_data  # Include all topics if "all" is selected
+        filtered_topics = topics_data
     else:
         selected_categories = [i.title() for i in selected_categories]
 
@@ -73,20 +73,12 @@ def courses(categories):
     session['filtered-topics'] = filtered_topics
 
     # Render the base.html template and pass the 'Courses' name to dynamically load the page
-    return render_template("base.html", name='Courses')
+    return render_template("base.html", name='Shop')
 
 @app.route('/get-filtered-topics')
 def get_filtered_topics():
     return jsonify({"filtered_topics": session['filtered-topics']})
 
-@app.route("/study/<course>")
-def study_topic(course):
-    session['current_course'] = course
-    return render_template("base.html", name='Study')
-
-@app.route("/get-current-course")
-def get_course():
-    return jsonify({'current_course': session['current_course']})
 
 # @app.route("/profile/test")
 # def study_course():
@@ -136,12 +128,27 @@ def show_profile(section='personal-data'):
     
     return render_template("base.html", name="Profile")
 
-@app.route("/profile/study/<course>")
-def study_course(course):
-    if not session.get("logged-in"):
-        return redirect(url_for("auth_page"))
-    return render_template("base.html", name= "Profile")
- 
+
+# @app.route("/profile/study/<course>")
+# def study_course(course):
+#     if not session.get("logged-in"):
+#         return redirect(url_for("auth_page"))
+    
+#     session["selected-course"] = course.replace("&", " ")  # Decode course name
+#     return render_template("base.html", name="Profile")
+
+# @app.route("/get-course")
+# def get_course():
+#     # course_name = session.get("selected-course", None)
+
+#     selected_course = session.get("selected_course")
+#     if not selected_course:
+#         return jsonify({"error": "No course selected"}), 400
+
+#     # Find the course in the JSON structure
+#     for category, course_list in courses.items():
+#         if selected_course in course_list:
+#             return jsonify(course_list[selected_course]["study"])
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():

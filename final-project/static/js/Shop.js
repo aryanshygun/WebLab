@@ -2,14 +2,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.getElementById("body");
     let selectedOptions = new Set();
 
-    fetchCourses().then(data => {
-        createCategoryButtons(data);
-        renderCourses(data, selectedOptions);
+    // Fetch the filtered courses from the newly created JSON file
+    fetchFilteredCourses().then(data => {
+        createCategoryButtons(data.filtered_topics);
+        renderCourses(data.filtered_topics, selectedOptions);
     });
 
-    function fetchCourses() {
-        return fetch("/api/courses")
-            .then(response => response.json());
+    // function fetchFilteredCourses() {
+    //     return fetch("/static/json/temp/selected_topics.json")
+    //         .then(response => response.json());
+    // }
+
+
+    function fetchFilteredCourses() {
+        return fetch("/get-filtered-topics")  // Fetch from Flask instead of the JSON file
+            .then(response => response.json())  // Parse JSON response
+            .catch(error => console.error("Error fetching courses:", error));
     }
 
     function createCategoryButtons(data) {
@@ -38,15 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         updateURL();
-        fetchCourses().then(data => renderCourses(data, selectedOptions));
+        fetchFilteredCourses().then(data => renderCourses(data.filtered_topics, selectedOptions));
     }
 
     function updateURL() {
         let selectedCategories = Array.from(selectedOptions);
         let newPath = selectedCategories.length > 0
-            ? `/courses/${selectedCategories.join("-")}`
-            : "/courses/all";
+            ? `/shop/${selectedCategories.join("&")}`
+            : "/shop/all";
         window.history.pushState({}, "", newPath);
+        // window.location.href = newPath
     }
 
     function renderCourses(data, filters) {
@@ -147,7 +156,7 @@ function buyCourse(topic, course, price) {
             }
 
             const courseLink = document.createElement("a");
-            courseLink.href = `/course/${course}`;
+            courseLink.href = `/study/${course}`;
             courseLink.textContent = "Start Course";
             courseLink.classList.add("style", "btn");
 
