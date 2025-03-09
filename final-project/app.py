@@ -140,7 +140,7 @@ def show_profile(section='personal-data'):
 def study_course(course):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
-    return render_template("base.html", name= "Course")
+    return render_template("base.html", name= "Profile")
  
 
 @app.route("/purchase", methods=["GET", "POST"])

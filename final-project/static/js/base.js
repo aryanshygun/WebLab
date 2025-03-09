@@ -2,14 +2,13 @@ const headerDiv = document.querySelector('header')
 headerDiv.classList.add('style')
 
 const logo = document.createElement('img')
-logo.src = '../static/img/logo.png'
+logo.src = "/static/img/logo.png"
 
 const navBar = document.createElement('div')
 navBar.classList.add('nav-bar')
 const pages = [
     ["Home", "/"],
     ["Courses", "/courses/all"],
-    // ["Profile", "/profile"],
     ["Opinions", "/opinions"],
     ["About Us", "/about"],
     ["Contact", "/contact"],

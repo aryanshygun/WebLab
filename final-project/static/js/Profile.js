@@ -140,7 +140,7 @@ function createCoursesDiv() {
         const div = document.createElement('div');
         div.id = 'courses-div';
         div.classList.add('content-div','style');
-        div.style.display = 'none';
+        // div.style.display = 'none';
 
         dataDetails.courses_finished.forEach(([courseName, courseScore]) => {
             
