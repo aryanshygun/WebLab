@@ -4,7 +4,6 @@ export function createPersonalInfoDiv(dataDetails) {
     form.classList.add('content-div');
     form.method = "POST";
 
-    // Update top
     const topDiv = document.createElement('div');
     topDiv.classList.add('style', 'row-div');
     topDiv.innerHTML = `
@@ -13,7 +12,6 @@ export function createPersonalInfoDiv(dataDetails) {
     `;
     form.appendChild(topDiv);
 
-    // Automating user list
     const userList = [
         ['First Name:', 'first-name', 'text', dataDetails.first_name],
         ['Last Name:', 'last-name', 'text', dataDetails.last_name],
@@ -41,7 +39,6 @@ export function createPersonalInfoDiv(dataDetails) {
         form.appendChild(rowDiv);
     });
 
-    // Update button
     const buttonDiv = document.createElement('div');
     buttonDiv.classList.add('style', 'row-div', 'btn-row-div');
     buttonDiv.innerHTML = `
@@ -50,7 +47,6 @@ export function createPersonalInfoDiv(dataDetails) {
     `;
     form.appendChild(buttonDiv);
 
-    // Handle form submission
     form.addEventListener('submit', function (event) {
         event.preventDefault();
         const formData = new FormData(form);
@@ -65,117 +61,8 @@ export function createPersonalInfoDiv(dataDetails) {
                 }
             });
     });
-
-    // document.getElementById('div-section').appendChild(form);
     document.getElementById('body').appendChild(form);
 }
-
-// function createAllCoursesDiv(dataDetails) {
-//     const div = document.createElement('div');
-//     div.id = 'courses-div';
-//     div.classList.add('content-div', 'style');
-
-//     const createCourseSection = (courses, title) => {
-//         courses.forEach(([courseName, courseScore]) => {
-//             let newName = courseName.replace(/ /g, '&');
-
-//             const courseDiv = document.createElement('div');
-//             courseDiv.classList.add('course-div', 'style');
-
-//             const infoRow = document.createElement('div');
-//             const topicHead = document.createElement('h1');
-//             topicHead.textContent = title;
-
-//             const courseText = document.createElement('p');
-//             courseText.textContent = courseName;
-
-//             const scoreText = document.createElement('p');
-//             scoreText.textContent = `Current Score: ${courseScore}`;
-
-//             infoRow.appendChild(topicHead);
-//             infoRow.appendChild(courseText);
-//             infoRow.appendChild(scoreText);
-
-//             const actionRow = document.createElement('div');
-//             const openCourse = document.createElement('a');
-//             openCourse.textContent = 'View Course';
-//             openCourse.classList.add('style', 'btn');
-//             openCourse.href = `/profile/study/${newName}`;
-
-//             const openExam = document.createElement('a');
-//             openExam.textContent = 'View Exam';
-//             openExam.classList.add('style', 'btn');
-//             openExam.href = `/profile/exam/${newName}`;
-
-//             actionRow.appendChild(openCourse);
-//             actionRow.appendChild(openExam);
-
-//             courseDiv.appendChild(infoRow);
-//             courseDiv.appendChild(actionRow);
-
-//             div.appendChild(courseDiv);
-//         });
-//     };
-
-//     createCourseSection(dataDetails.courses_finished, 'Finished');
-//     createCourseSection(dataDetails.courses_in_progress, 'In Progress');
-
-//     document.querySelector('.right').appendChild(div);
-// }
-
-// function createAllCoursesDiv(dataDetails) {
-//     const div = document.createElement('div');
-//     div.id = 'courses-div';
-//     div.classList.add('content-div', 'style');
-
-//     const createCourseSection = (courses, title) => {
-
-//         dataDetails.courses_finished.forEach(([courseName, courseScore]) => {
-//             let newName = courseName.replace(/ /g, '&');
-
-//             const courseDiv = document.createElement('div');
-//             courseDiv.classList.add('course-div', 'style');
-
-//             const infoRow = document.createElement('div');
-//             // const topicHead = document.createElement('h1');
-//             // topicHead.textContent = title;
-
-//             const courseText = document.createElement('p');
-//             courseText.textContent = courseName;
-
-//             const scoreText = document.createElement('p');
-//             scoreText.textContent = `Current Score: ${courseScore}`;
-
-//             infoRow.appendChild(topicHead);
-//             infoRow.appendChild(courseText);
-//             infoRow.appendChild(scoreText);
-
-//             const actionRow = document.createElement('div');
-//             const openCourse = document.createElement('a');
-//             openCourse.textContent = 'View Course';
-//             openCourse.classList.add('style', 'btn');
-//             openCourse.href = `/profile/study/${newName}`;
-
-//             const openExam = document.createElement('a');
-//             openExam.textContent = 'View Exam';
-//             openExam.classList.add('style', 'btn');
-//             openExam.href = `/profile/exam/${newName}`;
-
-//             actionRow.appendChild(openCourse);
-//             actionRow.appendChild(openExam);
-
-//             courseDiv.appendChild(infoRow);
-//             courseDiv.appendChild(actionRow);
-
-//             div.appendChild(courseDiv);
-//         });
-//     };
-
-//     createCourseSection(dataDetails.courses_finished, 'Finished');
-//     createCourseSection(dataDetails.courses_in_progress, 'In Progress');
-
-//     document.querySelector('.right').appendChild(div);
-// }
 
 function createFinishedCoursesDiv(dataDetails){
     const div = document.createElement('div')
@@ -196,7 +83,6 @@ function createFinishedCoursesDiv(dataDetails){
         const scoreText = document.createElement('p');
         scoreText.textContent = `Current Score: ${courseScore}`;
 
-        // infoRow.appendChild(topicHead);
         infoRow.appendChild(courseText);
         infoRow.appendChild(scoreText);
 
@@ -219,8 +105,6 @@ function createFinishedCoursesDiv(dataDetails){
 
         div.appendChild(courseDiv);
     });
-
-    // document.getElementById('div-section').appendChild(div);
     document.getElementById('body').appendChild(div);
 }
 
@@ -243,7 +127,6 @@ function createInProgressDivs(dataDetails){
         const scoreText = document.createElement('p');
         scoreText.textContent = `Current Score: ${courseScore}`;
 
-        // infoRow.appendChild(topicHead);
         infoRow.appendChild(courseText);
         infoRow.appendChild(scoreText);
 
@@ -266,10 +149,72 @@ function createInProgressDivs(dataDetails){
 
         div.appendChild(courseDiv);
     });
-
-    // document.getElementById('div-section').appendChild(div);
     document.getElementById('body').appendChild(div);
 }
+
+function createWalletDiv(dataDetails){
+    const mainDiv = document.createElement('div')
+    mainDiv.classList.add('content-div')
+    mainDiv.id = 'wallet-div'
+    mainDiv.style.display = 'none'
+
+    const statusDiv = document.createElement('div')
+    statusDiv.classList.add("style")
+    const WalletAmount = document.createElement('h1')
+    WalletAmount.textContent = dataDetails.wallet
+
+    const chargeDiv = document.createElement('div')
+
+    const inputField = document.createElement('input')
+    inputField.classList.add('style', 'input')
+
+    const chargeBtn = document.createElement('button')
+    chargeBtn.classList.add('style', 'btn')
+    chargeBtn.textContent = 'Charge Account'
+
+    chargeDiv.appendChild(inputField)
+    chargeDiv.appendChild(chargeBtn)
+
+    
+    statusDiv.appendChild(WalletAmount)
+    statusDiv.appendChild(chargeDiv)
+
+    const transactionHistoryDiv = document.createElement('div')
+
+    dataDetails.transaction_history.forEach(record => {
+        const recordDiv = document.createElement('div');
+        recordDiv.classList.add("transaction-record");
+
+        const actionText = document.createElement('p');
+        actionText.textContent = record.action === "charge" ? "Charged" : "Spent";
+
+        const topicText = document.createElement('p');
+        topicText.textContent = record.topic ? `Course: ${record.topic}` : "—";
+
+        const amountText = document.createElement('p');
+        amountText.textContent = `Amount: ${record.amount} Coins`;
+
+        const timeText = document.createElement('p');
+        timeText.textContent = `Time: ${record.time}`;
+
+        // Append details to the record div
+        recordDiv.appendChild(actionText);
+        recordDiv.appendChild(topicText);
+        recordDiv.appendChild(amountText);
+        recordDiv.appendChild(timeText);
+
+        // Add the record row to the transaction history div
+        transactionHistoryDiv.appendChild(recordDiv);
+    });
+
+    mainDiv.appendChild(statusDiv)
+    mainDiv.appendChild(transactionHistoryDiv)
+
+
+    document.getElementById('body').appendChild(mainDiv)
+
+}
+
 
 export function studentDivs() {
     fetch('/get-info')
@@ -279,5 +224,6 @@ export function studentDivs() {
             createPersonalInfoDiv(dataDetails);
             createFinishedCoursesDiv(dataDetails)
             createInProgressDivs(dataDetails)
+            createWalletDiv(dataDetails)
         });
 }

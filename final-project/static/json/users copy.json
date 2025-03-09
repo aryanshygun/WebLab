@@ -53,26 +53,6 @@
                 "What are Antonyms?",
                 25
             ]
-        ],
-        "transaction_history": [
-            {
-                "action": "charge",
-                "topic": "",
-                "amount": 300,
-                "time": "2025-03-09 10:15"
-            },
-            {
-                "action": "spend",
-                "topic": "Which Language Is This",
-                "amount": 50,
-                "time": "2025-03-10 14:30"
-            },
-            {
-                "action": "spend",
-                "topic": "Fill in the Blank",
-                "amount": 20,
-                "time": "2025-03-12 16:45"
-            }
         ]
     },
     "johnsmith": {
@@ -98,26 +78,6 @@
                 "Fill in the Blank",
                 85
             ]
-        ],
-        "transaction_history": [
-            {
-                "action": "charge",
-                "topic": "",
-                "amount": 200,
-                "time": "2025-03-08 09:00"
-            },
-            {
-                "action": "spend",
-                "topic": "What are Synonyms?",
-                "amount": 60,
-                "time": "2025-03-09 13:20"
-            },
-            {
-                "action": "spend",
-                "topic": "Fill in the Blank",
-                "amount": 50,
-                "time": "2025-03-11 15:10"
-            }
         ]
     },
     "maryjane": {
@@ -142,27 +102,15 @@
             [
                 "How to add and subtract numbers!",
                 0
+            ],
+            [
+                "What are Synonyms?",
+                0
+            ],
+            [
+                "What are Synonyms?",
+                0
             ]
-        ],
-        "transaction_history": [
-            {
-                "action": "charge",
-                "topic": "",
-                "amount": 500,
-                "time": "2025-03-07 11:45"
-            },
-            {
-                "action": "spend",
-                "topic": "Find the Problem",
-                "amount": 100,
-                "time": "2025-03-08 14:50"
-            },
-            {
-                "action": "spend",
-                "topic": "Which Language Is This",
-                "amount": 70,
-                "time": "2025-03-10 18:30"
-            }
         ]
     },
     "alexbrown": {

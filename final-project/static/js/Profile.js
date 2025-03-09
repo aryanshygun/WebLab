@@ -59,18 +59,12 @@ function loadBtnList() {
 }
 
 function loadDiv() {
-    // const rightSection = document.createElement("section");
-    // rightSection.classList.add("right");
-    // rightSection.id = 'div-section'
-
     import(`./profile-${userDetails.status}.js`).then(module => {
         let functionName = `${userDetails.status}Divs`;
         if (module[functionName]) {
             module[functionName]();
         }
     })
-
-    // body.appendChild(rightSection);
 }
 
 function showDiv(sectionId, btn) {

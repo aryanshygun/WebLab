@@ -2,21 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const body = document.getElementById("body");
     let selectedOptions = new Set();
 
-    // Fetch the filtered courses from the newly created JSON file
     fetchFilteredCourses().then(data => {
         createCategoryButtons(data.filtered_topics);
         renderCourses(data.filtered_topics, selectedOptions);
     });
 
-    // function fetchFilteredCourses() {
-    //     return fetch("/static/json/temp/selected_topics.json")
-    //         .then(response => response.json());
-    // }
-
-
     function fetchFilteredCourses() {
-        return fetch("/get-filtered-topics")  // Fetch from Flask instead of the JSON file
-            .then(response => response.json())  // Parse JSON response
+        return fetch("/get-filtered-topics")
+            .then(response => response.json())
             .catch(error => console.error("Error fetching courses:", error));
     }
 
@@ -55,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ? `/shop/${selectedCategories.join("&")}`
             : "/shop/all";
         window.history.pushState({}, "", newPath);
-        // window.location.href = newPath
     }
 
     function renderCourses(data, filters) {
@@ -146,10 +138,9 @@ function buyCourse(topic, course, price) {
         resultText.textContent = data.message;
         resultText.style.display = 'block'
         
-        const resultRow = resultText.closest('.rowButton'); // Get the parent div
+        const resultRow = resultText.closest('.rowButton')
 
         if (data.success) {
-            // Remove the button only
             const button = resultText.nextElementSibling;
             if (button) {
                 button.remove();
