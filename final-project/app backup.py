@@ -121,19 +121,12 @@ def get_filtered_topics():
 
 
 @app.route("/profile/")
-def load_profile():
+@app.route("/profile/<section>")
+def show_profile(section='personal-data'):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
     
     return render_template("base.html", name="Profile")
-
-
-# @app.route("/profile/<section>")
-# def show_profile(section='personal-data'):
-#     if not session.get("logged-in"):
-#         return redirect(url_for("auth_page"))
-    
-#     return render_template("base.html", name="Profile")
 
 
 # @app.route("/profile/study/<course>")
