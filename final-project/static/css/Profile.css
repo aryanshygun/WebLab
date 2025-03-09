@@ -22,7 +22,7 @@
             font-weight: 500;
             font-size: 20px;
             flex: 1;
-            &.select{
+            &.active{
                 background-color: rgb(49, 94, 255);
                 color: white;
             }

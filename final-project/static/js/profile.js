@@ -20,7 +20,7 @@ function loadLeft() {
         };
 
         if (index === 0) {
-        btn.classList.add("select");
+        btn.classList.add("active");
         }
         leftSection.appendChild(btn);
     });
@@ -259,9 +259,9 @@ function createStudyDiv() {
 
 function showDiv(sectionId, urlPath, btn) {
     document.querySelectorAll(".left .btn").forEach(button => {
-        button.classList.remove("select");
+        button.classList.remove("active");
     });
-    btn.classList.add("select");
+    btn.classList.add("active");
 
     document.querySelectorAll(".content-div").forEach(div => {
         div.style.display = "none";

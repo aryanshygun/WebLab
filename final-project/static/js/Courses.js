@@ -156,7 +156,7 @@ function buyCourse(topic, course, price) {
             }
 
             const courseLink = document.createElement("a");
-            courseLink.href = `/study/${course}`;
+            courseLink.href = `/profile/study/${course}`;
             courseLink.textContent = "Start Course";
             courseLink.classList.add("style", "btn");
 

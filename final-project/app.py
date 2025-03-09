@@ -40,7 +40,6 @@ def contact_submit():
     subject = data.get('subject')
     message = data.get('message')
     time = data.get('datatime')
-    print(time)
     opinions = open_file('static/json/opinions.json')
     user_opinion = {
         "fullname": name,
@@ -102,32 +101,47 @@ def get_course():
 #         return redirect(url_for("auth_page"))
 
 #     return render_template("base.html", name="profile")
+
+
+# @app.route('/<word1>/<word2>')
+# def render_sentencef(word1, word2):
+#     # Join the words into a sentence
+#     sentence = f'{word1} {word2}'
+    
+#     # Render the HTML page with the sentence
+#     return sentence
+
+# @app.route('/<word1>/<word2>/<word3>')
+# def render_sentencey(word1, word2, word3):
+#     # Join the words into a sentence
+#     sentence = f'{word1} {word2} {word3}'
+    
+#     # Render the HTML page with the sentence
+#     return sentence
+
 # @app.route('/<word1>/<word2>/<word3>/<word4>')
-# def render_sentence(word1, word2, word3, word4):
+# def render_sentenceg(word1, word2, word3, word4):
 #     # Join the words into a sentence
 #     sentence = f'{word1} {word2} {word3} {word4}'
     
-    # Render the HTML page with the sentence
-    # return sentence
+#     # Render the HTML page with the sentence
+#     return sentence
+
 
 @app.route("/profile/")
 @app.route("/profile/<section>")
-def show_profile(section="personal-data"):
+def show_profile(section='personal-data'):
     if not session.get("logged-in"):
         return redirect(url_for("auth_page"))
+    
+    return render_template("base.html", name="Profile")
 
-    # Allowed sections
-    valid_sections = ["personal-data", "courses", "study", "exam"]
-
-    if section not in valid_sections:
-        return redirect(url_for("show_profile", section="personal-data"))  # Default section
-
-    return render_template("base.html", name="profile")
-
-
-
-
-
+@app.route("/profile/study/<course>")
+def study_course(course):
+    if not session.get("logged-in"):
+        return redirect(url_for("auth_page"))
+    return render_template("base.html", name= "Course")
+ 
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():
@@ -267,10 +281,6 @@ def update_user():
 
 @app.route('/get-info', methods=["POST", "GET"])
 def get_info():
-    
-    for i, j in session['user'].items():
-        print(i, j)
-    
     return jsonify({'details': session['user']})
 
 if __name__ == '__main__':
