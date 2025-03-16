@@ -1,58 +1,51 @@
-const authorDiv = document.createElement("section")
-authorDiv.classList.add("style")
-authorDiv.id = "form-article"
+function createAuthFormDiv(){
+    const formDiv = document.createElement("form")
+    formDiv.classList.add('style')
 
-const welcomeText = document.createElement("h1")
-welcomeText.textContent = "Welcome!"
+    const welcomeText = document.createElement("h1")
+    welcomeText.textContent = "Welcome!"
+    
+    const instructionText = document.createElement('p')
+    instructionText.textContent = "Please log in to continue."
+    
 
-const instructionText = document.createElement('p')
-instructionText.textContent = "Please log in to continue."
+    const userNameLabel = document.createElement("label");
+    userNameLabel.textContent = "Enter your username:";
+    
+    const userNameInput = document.createElement("input");
+    userNameInput.classList.add("style", "input");
+    userNameInput.type = "text";
+    userNameInput.name = "username";
+    userNameInput.id = "username";
+    
+    const passWordLabel = document.createElement("label")
+    passWordLabel.textContent = "Enter your password:"
 
-instructionText.id = "form-header"
+    const passWordInput = document.createElement("input")
+    passWordInput.classList.add('style', 'input')
+    passWordInput.type = "text"
+    passWordInput.name = "password"
 
-const formDiv = document.createElement("form")
-formDiv.id = "login-form"
 
-const userNameLabel = document.createElement("label")
-userNameLabel.htmlFor = 'username'
-userNameLabel.textContent = "Enter your username:"
+    const actionDiv = document.createElement("div")
+    actionDiv.id = 'action-div'
 
-const userNameInput = document.createElement("input")
-userNameInput.classList.add('style', 'input')
-userNameInput.type = "text"
-userNameInput.name = "username"
-userNameInput.required = true
+    actionDiv.innerHTML = `
+    <button class="style btn" onclick="checkLog('login', event)">Log In</button>
+    <button class="style btn" onclick="checkLog('register', event)">Register</button>
+    `
 
-const passWordLabel = document.createElement("label")
-passWordLabel.htmlFor = 'password'
-passWordLabel.textContent = "Enter your password:"
+    formDiv.appendChild(welcomeText)
+    formDiv.appendChild(instructionText)
+    formDiv.appendChild(userNameLabel)
+    formDiv.appendChild(userNameInput)
+    formDiv.appendChild(passWordLabel)
+    formDiv.appendChild(passWordInput)
+    formDiv.appendChild(actionDiv)
+    return formDiv
+}
 
-const passWordInput = document.createElement("input")
-passWordInput.classList.add('style', 'input')
-passWordInput.type = "text"
-passWordInput.name = "password"
-passWordInput.required = true
-
-const actionDiv = document.createElement("div")
-actionDiv.id = 'auth-btn-div'
-actionDiv.style.flexDirection = 'row !important'
-
-actionDiv.innerHTML = `
-<button class="style btn" onclick="checkLog('login', event)">Log In</button>
-<button class="style btn" onclick="checkLog('register', event)">Register</button>
-`
-formDiv.appendChild(userNameLabel)
-formDiv.appendChild(userNameInput)
-formDiv.appendChild(passWordLabel)
-formDiv.appendChild(passWordInput)
-formDiv.appendChild(actionDiv)
-
-authorDiv.appendChild(welcomeText)
-authorDiv.appendChild(instructionText)
-authorDiv.appendChild(formDiv)
-
-document.getElementById('body').appendChild(authorDiv)
-
+document.getElementById('body').appendChild(createAuthFormDiv())
 
 function checkLog(status, event){
     event.preventDefault()
@@ -75,7 +68,7 @@ function checkLog(status, event){
             const actionBtn = document.createElement('a')
             actionBtn.classList.add('style', 'btn')
             actionBtn.href = '/'
-            document.getElementById('auth-btn-div').style.display = 'none'
+            document.getElementById('action-div').style.display = 'none'
             if (data.success) {
                 statusText.textContent = data.message;
                 actionBtn.textContent = 'Proceed'
@@ -85,7 +78,7 @@ function checkLog(status, event){
             }
             resultDiv.appendChild(statusText)
             resultDiv.appendChild(actionBtn)
-            document.getElementById('login-form').appendChild(resultDiv)
+            document.querySelector('form').appendChild(resultDiv)
         })
     }
 }

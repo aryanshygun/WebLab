@@ -1,78 +1,78 @@
 {
     "Programming": {
-        "Which Language Is This": {
+        "Guess the Language!": {
             "prerequisites": [],
             "price": 70,
             "study": {
-                "title": "Which Language Is This?",
+                "title": "Guess the Language!",
                 "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to."
             }
         },
-        "Find the Problem": {
-            "prerequisites": ["Which Language Is This"],
+        "Fix the Code!": {
+            "prerequisites": ["Guess the Language!"],
             "price": 90,
             "study": {
-                "title": "Find the Problem",
+                "title": "Fix the Code!",
                 "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet."
             }
         },
-        "Fill in the Blank": {
-            "prerequisites": ["Which Language Is This", "Find the Problem"],
+        "Complete the Code!": {
+            "prerequisites": ["Guess the Language!", "Fix the Code!"],
             "price": 110,
             "study": {
-                "title": "Fill in the Blank",
+                "title": "Complete the Code!",
                 "body": "Fill in the blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet."
             }
         }
     },
     "Languages": {
-        "What are Synonyms?": {
+        "Synomyms!": {
             "prerequisites": [],
             "price": 120,
             "study": {
-                "title": "What are Synonyms?",
+                "title": "Synomyms!",
                 "body": "Synonyms are words that have the same or nearly the same meaning as another word. For example, 'happy' and 'joyful' are synonyms because they both express a positive feeling."
             }
         },
-        "What are Antonyms?": {
-            "prerequisites": ["What are Synonyms?"],
+        "Antomyms!": {
+            "prerequisites": ["Synomyms!"],
             "price": 100,
             "study": {
-                "title": "What are Antonyms?",
+                "title": "Antomyms!",
                 "body": "Antonyms are words that have opposite meanings. For example, 'hot' and 'cold' are antonyms because they express opposite temperatures."
             }
         },
-        "Fill in the Blank!": {
-            "prerequisites": ["What are Synonyms?", "What are Antonyms?"],
+        "Find the Word!": {
+            "prerequisites": ["Synomyms!", "Antomyms!"],
             "price": 90,
             "study": {
-                "title": "Fill in the Blank!",
+                "title": "Find the Word!",
                 "body": "Fill in the blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence."
             }
         }
     },
     "Mathematics": {
-        "How to add and subtract numbers!": {
+        "Add & Subtract!": {
             "prerequisites": [],
             "price": 130,
             "study": {
-                "title": "How to add and subtract numbers!",
+                "title": "Add & Subtract!",
                 "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt inventore ad tempore corrupti aliquid optio sint reprehenderit culpa asperiores. Recusandae illum voluptate cupiditate laudantium maiores. Consequatur expedita rem voluptate magnam, quam veritatis molestias perferendis minima eveniet excepturi ipsum velit modi ea beatae architecto non, quos aliquam necessitatibus consectetur iste est."
             }
         },
-        "How to multiply and divide numbers!": {
-            "prerequisites": ["How to add and subtract numbers!"],
+        "Multiply & Divide!": {
+            "prerequisites": ["Add & Subtract!"],
             "price": 80,
             "study": {
-                "title": "How to multiply and divide numbers!",
+                "title": "Multiply & Divide!",
                 "body": "Multiplication and division are fundamental operations in mathematics. Multiplication is repeated addition, while division is the process of splitting a number into equal parts. Understanding these concepts is essential for solving more complex problems."
             }
         },
-        "How to calculate squares and square roots!": {
-            "prerequisites": ["How to add and subtract numbers!", "How to multiply and divide numbers!"],
+        "Squares & Roots!": {
+            "prerequisites": ["Add & Subtract!", "Multiply & Divide!"],
             "price": 90,
             "study": {
-                "title": "How to calculate squares and square roots!",
+                "title": "Squares & Roots!",
                 "body": "Squaring a number means multiplying it by itself, while finding the square root is the inverse operation. These concepts are widely used in geometry, algebra, and advanced mathematics."
             }
         }

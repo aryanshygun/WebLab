@@ -16,20 +16,21 @@ def save_file(address, update):
 @app.route("/logout")
 def logout():
 	session.clear()
-	return redirect(url_for("home"))
+	return redirect(url_for("home_page"))
 
 @app.route("/")
-def home():
+@app.route("/home")
+def home_page():
     if not session.get("logged-in"):
-        return redirect(url_for("auth_page"))
+        return redirect(url_for("authorization_page"))
 
-    return render_template("base.html", name = 'Homepage')
+    return render_template("Base.html", name = 'Homepage')
 
 @app.route("/contact")
-def contact():
+def contact_page():
     if not session.get("logged-in"):
-        return redirect(url_for("auth_page"))
-    return render_template("base.html", name = 'Contact')
+        return redirect(url_for("authorization_page"))
+    return render_template("Base.html", name = 'Contact')
 
 @app.route("/contact/submit", methods=["POST"])
 def contact_submit():
@@ -66,27 +67,30 @@ def courses(categories):
 
         filtered_topics = {category: topics_data.get(category, {}) for category in selected_categories if category in topics_data}
 
-
     session['filtered-topics'] = filtered_topics
 
-    return render_template("base.html", name='Shop')
+    return render_template("Base.html", name='Shop')
 
 @app.route('/get-filtered-topics')
 def get_filtered_topics():
     return jsonify({"filtered_topics": session['filtered-topics']})
 
+@app.route('/get-topics')
+def get_topics():
+    topics = open_file('static/json/topics.json')
+    return jsonify({"topics": topics})
 
 
 @app.route("/profile/")
 def load_profile():
     if not session.get("logged-in"):
-        return redirect(url_for("auth_page"))
-    return render_template("base.html", name="Profile")
+        return redirect(url_for("authorization_page"))
+    return render_template("Base.html", name="Profile")
 
 @app.route("/purchase", methods=["GET", "POST"])
 def courses_specific():
     if not session.get("logged-in"):
-        return redirect(url_for("auth_page"))
+        return redirect(url_for("authorization_page"))
     
     topics = open_file('static/json/topics.json')
     users = open_file('static/json/users.json')
@@ -132,11 +136,11 @@ def courses_specific():
     return jsonify({'message': message, 'success': success})
 
 @app.route("/authorization", methods=["GET"])
-def auth_page():
-    return render_template("base.html", name = 'Authorization')
+def authorization_page():
+    return render_template("Base.html", name = 'Authorization')
 
 @app.route("/authorization/<status>", methods=["GET", "POST"])
-def handle_auth(status):
+def authorization_api(status):
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
@@ -145,43 +149,42 @@ def handle_auth(status):
     if status == 'login':
         if username in users and users[username]['password'] == password:
             session['logged-in'] = True
-            session['username'] = username
-            session['user'] = { key: value for key, value in users[username].items()}
-            session['user']['username'] = username
-            
-            success = True
-            message = 'Login Successful!'
+            session['user'] = users[username].copy()
+            success, message = True, 'Login Successful!'
         else:
-            success = False
-            message = 'Wrong Info!'
-    else:
-        if username in users:
-            message = "Username already taken!"
-        else:
+            success, message = False, 'Wrong Info!'
+
+    elif status == 'register':
+        if username not in users:
             users[username] = {
+                "user_name": username,
                 "first_name": "",
                 "last_name": "",
                 "password": password,
                 "age": "",
                 "city": "",
                 "status": "student",
+                "wallet": 0,
                 "courses_finished": [],
-                "courses_in_progress": []
+                "courses_in_progress": [],
+                "transaction_history": []
             }
             session['logged-in'] = True
-            session['username'] = username
-            session['user'] = { key: value for key, value in users[username].items()}
-            session['user']['username'] = username
-            success = True
-            message = 'Registration Successful!'
+            session['user'] = users[username].copy()
+            success, message = True, 'Registration Successful!'
+        else:
+            success, message = False, "Username already taken!"
+
     save_file('static/json/users.json', users)
     return jsonify({'success': success, 'message': message})
+
 
 @app.route('/update')
 def update_session():
     users = open_file('static/json/users.json')
     session['user'] = { key: value for key, value in users[session['username']].items()}
-    return redirect(url_for('home'))
+    return redirect(url_for('home_page'))
+
 
 @app.route('/update-user', methods=["POST"])
 def update_user():

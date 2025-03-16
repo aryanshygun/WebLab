@@ -1,22 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     const body = document.getElementById("body");
-    let selectedOptions = new Set();
-
-    fetchFilteredCourses().then(data => {
-        createCategoryButtons(data.filtered_topics);
-        renderCourses(data.filtered_topics, selectedOptions);
-    });
-
+    
     function fetchFilteredCourses() {
         return fetch("/get-filtered-topics")
-            .then(response => response.json())
-            .catch(error => console.error("Error fetching courses:", error));
+        .then(response => response.json())
     }
+    
+    let selectedOptions = new Set();
+    fetchFilteredCourses().then(data => {
+        body.appendChild(createCategoryButtons(data.filtered_topics))
+        body.appendChild(renderCourses(data.filtered_topics, selectedOptions))
+    });
 
+    // creates the row of topics
     function createCategoryButtons(data) {
         const optionRow = document.createElement("div");
         optionRow.id = "option-row";
-
         Object.keys(data).forEach(category => {
             const btn = document.createElement("button");
             btn.textContent = category;
@@ -25,10 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.addEventListener("click", () => handleCategorySelection(btn, category));
             optionRow.appendChild(btn);
         });
-
-        body.appendChild(optionRow);
+        return optionRow
     }
 
+    // handles the url and rendering the selected topcis
     function handleCategorySelection(btn, category) {
         if (selectedOptions.has(category)) {
             selectedOptions.delete(category);
@@ -38,21 +37,24 @@ document.addEventListener("DOMContentLoaded", () => {
             btn.classList.add("active");
         }
 
-        updateURL();
-        fetchFilteredCourses().then(data => renderCourses(data.filtered_topics, selectedOptions));
-    }
-
-    function updateURL() {
         let selectedCategories = Array.from(selectedOptions);
         let newPath = selectedCategories.length > 0
             ? `/shop/${selectedCategories.join("&")}`
             : "/shop/all";
         window.history.pushState({}, "", newPath);
+
+        fetchFilteredCourses().then(data => {
+            body.appendChild(renderCourses(data.filtered_topics, selectedOptions))
+        });
     }
 
+
+    // handles creating the div full of courses
     function renderCourses(data, filters) {
         let categories = filters.size > 0 ? [...filters] : Object.keys(data);
-        clearExistingCourses();
+
+        let oldProductDiv = document.getElementById("product-div");
+        if (oldProductDiv) oldProductDiv.remove();
 
         const productDiv = document.createElement("div");
         productDiv.id = "product-div";
@@ -62,15 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 productDiv.appendChild(createCourseElement(category, course, details));
             });
         });
-
-        body.appendChild(productDiv);
+        return productDiv
     }
-
-    function clearExistingCourses() {
-        let oldProductDiv = document.getElementById("product-div");
-        if (oldProductDiv) oldProductDiv.remove();
-    }
-
+    //handles creating a single course
     function createCourseElement(category, course, details) {
         const courseDiv = document.createElement("div");
         courseDiv.classList.add("style", "course");
@@ -80,50 +76,66 @@ document.addEventListener("DOMContentLoaded", () => {
         backgroundImage.src = `/static/img/${category}.jpg`;
         courseDiv.appendChild(backgroundImage);
 
-        let dependencies = details.prerequisites.length ? details.prerequisites.join(" - ") : "None";
         let price = details.price;
 
         const productDetails = [
             ["TOPIC", category],
             ["COURSE", course],
-            ["DEPENDENCIES", dependencies],
+            // ["DEPENDENCIES", dependencies],
             ["PRICE", price]
         ];
 
-        productDetails.forEach(row => {
-            courseDiv.appendChild(createDetailRow(row[0], row[1]));
+        productDetails.forEach(([titleText, valueText]) => {
+            const rowDic = document.createElement("div");
+            const title = document.createElement("h3");
+            const result = document.createElement("p");
+            result.style.textAlign = "right";
+    
+            title.textContent = titleText;
+            result.textContent = valueText;
+    
+            rowDic.appendChild(title);
+            rowDic.appendChild(result);
+
+            courseDiv.appendChild(rowDic)
         });
 
-        courseDiv.appendChild(createRegisterButton(category, course, price));
+        const dependDiv = document.createElement("div");
+        const dependTitle = document.createElement("h3");
+        dependTitle.textContent = "DEPENDENCIES";
+        
+        const dependRow = document.createElement("div");
+        dependRow.classList.add('dependencies-div')
+        
+        if (details.prerequisites.length === 0) {
+            const noneText = document.createElement("p");
+            noneText.textContent = "None";
+            dependRow.appendChild(noneText);
+        } else {
+            details.prerequisites.forEach(prerequisite => {
+                const dependency = document.createElement("p");
+                dependency.textContent = prerequisite;
+                dependRow.appendChild(dependency);
+            });
+        }
+        dependDiv.appendChild(dependTitle);
+        dependDiv.appendChild(dependRow);
+        courseDiv.appendChild(dependDiv);
 
-        return courseDiv;
-    }
 
-    function createDetailRow(titleText, valueText) {
-        const rowDic = document.createElement("div");
-        const title = document.createElement("h3");
-        const result = document.createElement("p");
-        result.style.textAlign = "right";
 
-        title.textContent = titleText;
-        result.textContent = valueText;
-
-        rowDic.appendChild(title);
-        rowDic.appendChild(result);
-
-        return rowDic;
-    }
-
-    function createRegisterButton(category, course, price) {
         const rowDic = document.createElement("div");
         rowDic.classList.add("rowButton");
         rowDic.innerHTML = `
             <p id='${course}' style="display:none;" class='resultText'></p>
             <button class="style btn" onclick="buyCourse('${category}','${course}','${price}')">Register</button>
         `;
-        return rowDic;
+        courseDiv.appendChild(rowDic)
+        return courseDiv;
     }
 });
+
+// handles the logic of buying a course as a student
 function buyCourse(topic, course, price) {
     fetch(`/purchase`, {
         method: 'POST',

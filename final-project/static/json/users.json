@@ -1,5 +1,6 @@
 {
     "ryanshygun": {
+        "user_name": "ryanshygun",
         "first_name": "ryan",
         "last_name": "shygun",
         "password": "111",
@@ -18,6 +19,7 @@
         ]
     },
     "zahrafarshchi": {
+        "user_name": "zahrafarshchi",
         "first_name": "zahra",
         "last_name": "farshchi",
         "password": "222",
@@ -25,12 +27,13 @@
         "city": "tehran",
         "status": "teacher",
         "courses_created": [
-            "Which Language Is This",
-            "Find the Problem",
-            "Fill in the Blank"
+            "Guess The Language!",
+            "Fix the Code!",
+            "Complete the Code!"
         ]
     },
     "abbasrezaii": {
+        "user_name": "abbasrezaii",
         "first_name": "abbas",
         "last_name": "rezaii",
         "password": "333",
@@ -40,17 +43,17 @@
         "wallet": 500,
         "courses_finished": [
             [
-                "Which Language Is This",
+                "Guess The Language!",
                 75
             ],
             [
-                "Fill in the Blank",
+                "Complete the Code!",
                 20
             ]
         ],
         "courses_in_progress": [
             [
-                "What are Antonyms?",
+                "Antomyms!",
                 25
             ]
         ],
@@ -63,19 +66,20 @@
             },
             {
                 "action": "spend",
-                "topic": "Which Language Is This",
+                "topic": "Guess The Language!",
                 "amount": 50,
                 "time": "2025-03-10 14:30"
             },
             {
                 "action": "spend",
-                "topic": "Fill in the Blank",
+                "topic": "Complete the Code!",
                 "amount": 20,
                 "time": "2025-03-12 16:45"
             }
         ]
     },
     "johnsmith": {
+        "user_name": "johnsmith",
         "first_name": "john",
         "last_name": "smith",
         "password": "444",
@@ -85,17 +89,17 @@
         "wallet": 290,
         "courses_finished": [
             [
-                "Which Language Is This",
+                "Guess The Language!",
                 75
             ],
             [
-                "What are Synonyms?",
+                "Synomyms!",
                 50
             ]
         ],
         "courses_in_progress": [
             [
-                "Fill in the Blank",
+                "Complete the Code!",
                 85
             ]
         ],
@@ -108,19 +112,20 @@
             },
             {
                 "action": "spend",
-                "topic": "What are Synonyms?",
+                "topic": "Synomyms!",
                 "amount": 60,
                 "time": "2025-03-09 13:20"
             },
             {
                 "action": "spend",
-                "topic": "Fill in the Blank",
+                "topic": "Complete the Code!",
                 "amount": 50,
                 "time": "2025-03-11 15:10"
             }
         ]
     },
     "maryjane": {
+        "user_name": "maryjane",
         "first_name": "mary",
         "last_name": "jane",
         "password": "567",
@@ -130,17 +135,17 @@
         "wallet": 380,
         "courses_finished": [
             [
-                "Which Language Is This",
+                "Guess The Language!",
                 75
             ]
         ],
         "courses_in_progress": [
             [
-                "Find the Problem",
+                "Fix the Code!",
                 0
             ],
             [
-                "How to add and subtract numbers!",
+                "Add & Subtract!",
                 0
             ]
         ],
@@ -153,19 +158,20 @@
             },
             {
                 "action": "spend",
-                "topic": "Find the Problem",
+                "topic": "Fix the Code!",
                 "amount": 100,
                 "time": "2025-03-08 14:50"
             },
             {
                 "action": "spend",
-                "topic": "Which Language Is This",
+                "topic": "Guess The Language!",
                 "amount": 70,
                 "time": "2025-03-10 18:30"
             }
         ]
     },
     "alexbrown": {
+        "user_name": "alexbrown",
         "first_name": "alex",
         "last_name": "brown",
         "password": "666",
@@ -173,12 +179,13 @@
         "city": "chicago",
         "status": "teacher",
         "courses_created": [
-            "What are Synonyms?",
-            "What are Antonyms?",
-            "Fill in the Blank!"
+            "Synomyms!",
+            "Antomyms!",
+            "Complete the Code!!"
         ]
     },
     "sarahjones": {
+        "user_name": "sarahjones",
         "first_name": "sarah",
         "last_name": "jones",
         "password": "888",
@@ -186,9 +193,9 @@
         "city": "chicago",
         "status": "teacher",
         "courses_created": [
-            "How to add and subtract numbers!",
-            "How to multiply and divide numbers!",
-            "How to calculate squares and square roots!"
+            "Add & Subtract!",
+            "Multiply & Divide!",
+            "Squares & Roots!"
         ]
     }
 }

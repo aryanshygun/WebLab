@@ -1,68 +1,68 @@
 {
     "Programming": {
-        "Which Language Is This": [
+        "Guess the Language!": [
             {
-                "question": "Which language is this?\n\n```html\n<h1>Hello, World!</h1>\n```",
+                "question": "Guess the Language!\n\n```html\n<h1>Hello, World!</h1>\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "HTML"
             },
             {
-                "question": "Which language is this?\n\n```css\nbody { background-color: lightblue; }\n```",
+                "question": "Guess the Language!\n\n```css\nbody { background-color: lightblue; }\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "CSS"
             },
             {
-                "question": "Which language is this?\n\n```javascript\nconsole.log('Hello, World!');\n```",
+                "question": "Guess the Language!\n\n```javascript\nconsole.log('Hello, World!');\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "JavaScript"
             },
             {
-                "question": "Which language is this?\n\n```python\nprint('Hello, World!')\n```",
+                "question": "Guess the Language!\n\n```python\nprint('Hello, World!')\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "Python"
             },
             {
-                "question": "Which language is this?\n\n```html\n<a href='https://example.com'>Click Here</a>\n```",
+                "question": "Guess the Language!\n\n```html\n<a href='https://example.com'>Click Here</a>\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "HTML"
             },
             {
-                "question": "Which language is this?\n\n```css\nh1 { color: red; }\n```",
+                "question": "Guess the Language!\n\n```css\nh1 { color: red; }\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "CSS"
             },
             {
-                "question": "Which language is this?\n\n```javascript\nlet x = 5;\n```",
+                "question": "Guess the Language!\n\n```javascript\nlet x = 5;\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "JavaScript"
             },
             {
-                "question": "Which language is this?\n\n```python\nx = 5\nprint(x)\n```",
+                "question": "Guess the Language!\n\n```python\nx = 5\nprint(x)\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "Python"
             },
             {
-                "question": "Which language is this?\n\n```html\n<img src='image.jpg' alt='Image'>\n```",
+                "question": "Guess the Language!\n\n```html\n<img src='image.jpg' alt='Image'>\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "HTML"
             },
             {
-                "question": "Which language is this?\n\n```css\np { font-size: 16px; }\n```",
+                "question": "Guess the Language!\n\n```css\np { font-size: 16px; }\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "CSS"
             },
             {
-                "question": "Which language is this?\n\n```javascript\nfunction greet() { console.log('Hello!'); }\n```",
+                "question": "Guess the Language!\n\n```javascript\nfunction greet() { console.log('Hello!'); }\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "JavaScript"
             },
             {
-                "question": "Which language is this?\n\n```python\ndef greet():\n    print('Hello!')\n```",
+                "question": "Guess the Language!\n\n```python\ndef greet():\n    print('Hello!')\n```",
                 "options": ["HTML", "CSS", "JavaScript", "Python"],
                 "correct-answer": "Python"
             }
         ],
-        "Find the Problem": [
+        "Fix the Code!": [
             {
                 "question": "What is the problem in this HTML code?\n\n```html\n<h1>Hello, World!</h2>\n```",
                 "options": ["Missing closing tag", "Incorrect tag", "Extra space", "No problem"],
@@ -124,7 +124,7 @@
                 "correct-answer": "Missing colon"
             }
         ],
-        "Fill in the Blank": [
+        "Complete the Code!": [
             {
                 "question": "Fill in the blank in this HTML code:\n\n```html\n<h1>____, World!</h1>\n```",
                 "options": ["Hello", "Hi", "Hey", "Greetings"],
@@ -188,7 +188,7 @@
         ]
     },
     "Languages": {
-        "What are Synonyms?": [
+        "Synomyms!": [
             {
                 "question": "What is a synonym for 'big'?",
                 "options": ["small", "large", "tiny", "little"],
@@ -250,7 +250,7 @@
                 "correct-answer": "tiny"
             }
         ],
-        "What are Antonyms?": [
+        "Antonyms!": [
             {
                 "question": "What is the opposite of 'big'?",
                 "options": ["small", "large", "huge", "giant"],
@@ -312,7 +312,7 @@
                 "correct-answer": "big"
             }
         ],
-        "Fill in the Blank!": [
+        "Find the Word!": [
             {
                 "question": "The cat is very ____. (small/tiny)",
                 "options": ["small", "tiny", "big", "large"],
@@ -376,7 +376,7 @@
         ]
     },
     "Mathematics": {
-        "How to add and subtract numbers!": [
+        "Add & Subtract!": [
             {
                 "question": "2 + 2 ?",
                 "options": [3, 4, 7, 1],
@@ -438,7 +438,7 @@
                 "correct-answer": 11
             }
         ],
-        "How to multiply and divide numbers!": [
+        "Multiply & Divide!": [
             {
                 "question": "3 × 4 ?",
                 "options": [10, 12, 14, 16],
@@ -500,7 +500,7 @@
                 "correct-answer": 9
             }
         ],
-        "How to calculate squares and square roots!": [
+        "Squares & Roots!": [
             {
                 "question": "What is 5² ?",
                 "options": [20, 25, 30, 35],
