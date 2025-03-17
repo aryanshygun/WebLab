@@ -1,0 +1,80 @@
+{
+    "Programming": {
+        "Guess the Language!": {
+            "prerequisites": [],
+            "price": 70,
+            "study": {
+                "title": "Guess the Language!",
+                "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to."
+            }
+        },
+        "Fix the Code!": {
+            "prerequisites": ["Guess the Language!"],
+            "price": 90,
+            "study": {
+                "title": "Fix the Code!",
+                "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet."
+            }
+        },
+        "Complete the Code!": {
+            "prerequisites": ["Guess the Language!", "Fix the Code!"],
+            "price": 110,
+            "study": {
+                "title": "Complete the Code!",
+                "body": "Fill in the blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet."
+            }
+        }
+    },
+    "Languages": {
+        "Synomyms!": {
+            "prerequisites": [],
+            "price": 120,
+            "study": {
+                "title": "Synomyms!",
+                "body": "Synonyms are words that have the same or nearly the same meaning as another word. For example, 'happy' and 'joyful' are synonyms because they both express a positive feeling."
+            }
+        },
+        "Antomyms!": {
+            "prerequisites": ["Synomyms!"],
+            "price": 100,
+            "study": {
+                "title": "Antomyms!",
+                "body": "Antonyms are words that have opposite meanings. For example, 'hot' and 'cold' are antonyms because they express opposite temperatures."
+            }
+        },
+        "Find the Word!": {
+            "prerequisites": ["Synomyms!", "Antomyms!"],
+            "price": 90,
+            "study": {
+                "title": "Find the Word!",
+                "body": "Fill in the blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence."
+            }
+        }
+    },
+    "Mathematics": {
+        "Add & Subtract!": {
+            "prerequisites": [],
+            "price": 130,
+            "study": {
+                "title": "Add & Subtract!",
+                "body": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt inventore ad tempore corrupti aliquid optio sint reprehenderit culpa asperiores. Recusandae illum voluptate cupiditate laudantium maiores. Consequatur expedita rem voluptate magnam, quam veritatis molestias perferendis minima eveniet excepturi ipsum velit modi ea beatae architecto non, quos aliquam necessitatibus consectetur iste est."
+            }
+        },
+        "Multiply & Divide!": {
+            "prerequisites": ["Add & Subtract!"],
+            "price": 80,
+            "study": {
+                "title": "Multiply & Divide!",
+                "body": "Multiplication and division are fundamental operations in mathematics. Multiplication is repeated addition, while division is the process of splitting a number into equal parts. Understanding these concepts is essential for solving more complex problems."
+            }
+        },
+        "Squares & Roots!": {
+            "prerequisites": ["Add & Subtract!", "Multiply & Divide!"],
+            "price": 90,
+            "study": {
+                "title": "Squares & Roots!",
+                "body": "Squaring a number means multiplying it by itself, while finding the square root is the inverse operation. These concepts are widely used in geometry, algebra, and advanced mathematics."
+            }
+        }
+    }
+}

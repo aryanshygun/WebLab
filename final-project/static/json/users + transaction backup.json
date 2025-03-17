@@ -1,0 +1,201 @@
+{
+    "ryanshygun": {
+        "user_name": "ryanshygun",
+        "first_name": "ryan",
+        "last_name": "shygun",
+        "password": "111",
+        "age": "24",
+        "city": "rasht",
+        "status": "admin",
+        "topics_created": [
+            "Mathematics",
+            "Programming",
+            "Languages"
+        ],
+        "teachers_signed": [
+            "itszahra",
+            "alexbrown",
+            "sarahjones"
+        ]
+    },
+    "zahrafarshchi": {
+        "user_name": "zahrafarshchi",
+        "first_name": "zahra",
+        "last_name": "farshchi",
+        "password": "222",
+        "age": "28",
+        "city": "tehran",
+        "status": "teacher",
+        "courses_created": [
+            "Guess The Language!",
+            "Fix the Code!",
+            "Complete the Code!"
+        ]
+    },
+    "abbasrezaii": {
+        "user_name": "abbasrezaii",
+        "first_name": "abbas",
+        "last_name": "rezaii",
+        "password": "333",
+        "age": "38",
+        "city": "mashhad",
+        "status": "student",
+        "wallet": 500,
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ],
+            [
+                "Complete the Code!",
+                20
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Antomyms!",
+                25
+            ]
+        ],
+        "transaction_history": [
+            {
+                "action": "charge",
+                "topic": "",
+                "amount": 300,
+                "time": "2025-03-09 10:15"
+            },
+            {
+                "action": "spend",
+                "topic": "Guess The Language!",
+                "amount": 50,
+                "time": "2025-03-10 14:30"
+            },
+            {
+                "action": "spend",
+                "topic": "Complete the Code!",
+                "amount": 20,
+                "time": "2025-03-12 16:45"
+            }
+        ]
+    },
+    "johnsmith": {
+        "user_name": "johnsmith",
+        "first_name": "john",
+        "last_name": "smith",
+        "password": "444",
+        "age": "22",
+        "city": "new york",
+        "status": "student",
+        "wallet": 290,
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ],
+            [
+                "Synomyms!",
+                50
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Complete the Code!",
+                85
+            ]
+        ],
+        "transaction_history": [
+            {
+                "action": "charge",
+                "topic": "",
+                "amount": 200,
+                "time": "2025-03-08 09:00"
+            },
+            {
+                "action": "spend",
+                "topic": "Synomyms!",
+                "amount": 60,
+                "time": "2025-03-09 13:20"
+            },
+            {
+                "action": "spend",
+                "topic": "Complete the Code!",
+                "amount": 50,
+                "time": "2025-03-11 15:10"
+            }
+        ]
+    },
+    "maryjane": {
+        "user_name": "maryjane",
+        "first_name": "mary",
+        "last_name": "jane",
+        "password": "567",
+        "age": "25",
+        "city": "los angeles",
+        "status": "student",
+        "wallet": 380,
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Fix the Code!",
+                0
+            ],
+            [
+                "Add & Subtract!",
+                0
+            ]
+        ],
+        "transaction_history": [
+            {
+                "action": "charge",
+                "topic": "",
+                "amount": 500,
+                "time": "2025-03-07 11:45"
+            },
+            {
+                "action": "spend",
+                "topic": "Fix the Code!",
+                "amount": 100,
+                "time": "2025-03-08 14:50"
+            },
+            {
+                "action": "spend",
+                "topic": "Guess The Language!",
+                "amount": 70,
+                "time": "2025-03-10 18:30"
+            }
+        ]
+    },
+    "alexbrown": {
+        "user_name": "alexbrown",
+        "first_name": "alex",
+        "last_name": "brown",
+        "password": "666",
+        "age": "35",
+        "city": "chicago",
+        "status": "teacher",
+        "courses_created": [
+            "Synomyms!",
+            "Antomyms!",
+            "Complete the Code!!"
+        ]
+    },
+    "sarahjones": {
+        "user_name": "sarahjones",
+        "first_name": "sarah",
+        "last_name": "jones",
+        "password": "888",
+        "age": "23",
+        "city": "chicago",
+        "status": "teacher",
+        "courses_created": [
+            "Add & Subtract!",
+            "Multiply & Divide!",
+            "Squares & Roots!"
+        ]
+    }
+}

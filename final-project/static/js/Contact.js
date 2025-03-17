@@ -10,7 +10,7 @@ function createLeftDiv(){
     ]
     
     leftSectionTexts.forEach(text => {
-        const h1 = document.createElement("h1")
+        const h1 = document.createElement("h2")
         h1.textContent = text[0]
         const p = document.createElement("p")
         p.textContent = text[1]
@@ -27,7 +27,7 @@ function createRightDiv(){
     const rightSectionTopDiv = document.createElement("div")
     rightSectionTopDiv.classList.add("style")
     
-    const h1 = document.createElement("h1")
+    const h1 = document.createElement("h2")
     h1.textContent = "CONTACT US"        
     
     const p = document.createElement("p")
@@ -40,35 +40,35 @@ function createRightDiv(){
     rightSectionBotDiv.classList.add("style")
     const formFields = [
         ["Full Name:", "text", "name"],
-        ["Email:", "email", "email"],
+        ["Email:", "text", "email"],
         ["Subject:", "text", "subject"],
         ["Message:", "textarea", "message"]
-    ];
+    ]
     formFields.forEach(([labelText, type, id]) => {
         const rowDiv = document.createElement('div')
         rowDiv.classList.add('form-row-div')
     
-        const label = document.createElement("label");
-        label.setAttribute("for", id);
-        label.textContent = labelText;
+        const label = document.createElement("label")
+        label.setAttribute("for", id)
+        label.textContent = labelText
         
-        let input;
+        let input
         if (type === "textarea") {
-            input = document.createElement("textarea");
-            input.rows = 2;
+            input = document.createElement("textarea")
+            input.rows = 2
         } else {
-            input = document.createElement("input");
-            input.type = type;
+            input = document.createElement("input")
+            input.type = type
         }
     
-        input.classList.add("style", "input");
-        input.name = id;
-        input.id = id;
+        input.classList.add("style", "input")
+        input.name = id
+        input.id = id
     
-        rowDiv.appendChild(label);
-        rowDiv.appendChild(input);
+        rowDiv.appendChild(label)
+        rowDiv.appendChild(input)
         rightSectionBotDiv.appendChild(rowDiv)
-    });
+    })
     
     const submitDiv = document.createElement("div")
     submitDiv.classList.add('submit-btn-div')
@@ -76,7 +76,7 @@ function createRightDiv(){
     submitDiv.style.height = '43px'
     submitDiv.innerHTML = `
     <p id="resultText" style="display:none;"></p>
-    <button class="style btn" onclick="submitOpinion()" >Submit</button>
+    <button class="style btn" onclick="submitOpinion(event)" >Submit</button>
     `
     rightSectionBotDiv.appendChild(submitDiv)
 
@@ -93,30 +93,29 @@ function fillContactPage(){
     mainBody.appendChild(createRightDiv())
 }
 
-function submitOpinion() {
+function submitOpinion(event) {
+    if (event) event.preventDefault()
+
     const name = document.querySelector('input[name="name"]').value
     const subject = document.querySelector('input[name="subject"]').value
     const email = document.querySelector('input[name="email"]').value
     const message = document.querySelector('textarea[name="message"]').value
-    const dataTime = new Date().toLocaleString();
-    console.log(dataTime)
+    const dataTime = new Date().toLocaleString()
 
-    if (name && subject && email && message){
+    if (name && subject && email && message) {
         fetch(`/contact/submit`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name: name, email: email, subject: subject, message: message, datatime: dataTime }),
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message, datatime: dataTime }),
         })
-            .then(response => response.json())
-            .then(data => {
-                const resultText = document.getElementById('resultText')
-                resultText.style.display = 'block'
-                resultText.textContent = data.message
-            })
+        .then(response => response.json())
+        .then(data => {
+            const resultText = document.getElementById('resultText')
+            resultText.style.display = 'block'
+            resultText.textContent = data.message
+        })
     }
-
 }
+
 
 fillContactPage()

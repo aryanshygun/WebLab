@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 html{
     scroll-behavior: smooth;
 }
@@ -40,15 +41,16 @@ body{
             transform: scale(1.5);
         }
     }
-    & h2, & h3, & p{
-        margin: 0;
-    }
     & h1{
         margin: 0;
-        font-size: 4vw;
-
+        font-size: 4vw !important;
+    }
+    & h2{
+        margin: 0;
+        font-size: 3vw !important;
     }
     & h3{
+        margin: 0;
         font-size: 2vw !important;
     }
     & p {
@@ -91,12 +93,16 @@ header{
     }
 
 }
+
 #body{
     max-height: 80vh;
     box-sizing: border-box;
     width: 100%;
     padding: 2vh;
+    background-image: unset;
+
 }
+
 footer{
     width:  calc(100% - 4vh);
     min-height: 8vh;
@@ -153,6 +159,10 @@ button:disabled{
             box-shadow: inset 2px 2px 15px rgb(0, 102, 255),inset -3px -3px 7px #cecece;
             padding: .75vw 3.5vw;
             color: whitesmoke !important;
+        }
+        &.active{
+            background-color: rgb(49, 94, 255);
+            color: whitesmoke;
         }
     }
     &.alt{

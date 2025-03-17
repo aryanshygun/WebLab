@@ -24,10 +24,10 @@ function createTopicsDiv(){
     
                 const address = document.createElement('a')
                 address.classList.add("style")
-                address.href = `/shop/${topic}`
+                // address.href = `/shop/${topic}`
                 address.id = `${topic.toLowerCase()}`
                 address.textContent = topic
-                
+
                 const backgroundImage = document.createElement('img')
                 backgroundImage.classList.add('a-img')
                 backgroundImage.src = `static/img/${topic}.jpg`

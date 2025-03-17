@@ -10,7 +10,6 @@
         display: flex;
         flex: 1;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
 
         box-sizing: border-box;
@@ -20,30 +19,33 @@
             & form{
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
-                align-items: center;
-                flex-grow: 1;
                 width: 100%;
+                padding: 25px;
                 box-sizing: border-box;
-                gap: 10px;
-                & label{
-                    font-size: 2vw;
-                }
-                & .form-row-div{
-                    & textarea{
-                        border-radius: 20px;
-                    }
+                justify-content: space-between;
+                align-items: center;
+            }
+            & form{
+                height: 100%;
+                & > div{
                     width: 80%;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
+                    flex: 1;
+                    & label{
+                        font-size: 1.5vw;
+                    }
+                    & input{
+                        padding: .75vw;
+                    }
+                    & textarea{
+                        border-radius: 20px;
+                    }
                 }
                 & .submit-btn-div{
-                    width: 100%;
-                    display: flex;
                     justify-content: space-evenly;
-                    align-items: center;
                 }
 
             }
@@ -54,8 +56,8 @@
 .left{
     background-image: url(../img/contact-hero.jpg);
     background-size: cover;
+    justify-content: center;
     background-position: 50%;
-    justify-content: space-evenly;
     gap: 1vh;
-    box-shadow: inset 0px -200px 100px 10px rgba(0, 0, 0, 0.461);
+    box-shadow: inset 0px -100vh 100px 10px rgba(0, 0, 0, 0.461);
 }

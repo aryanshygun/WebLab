@@ -54,40 +54,32 @@ def contact_submit():
     return jsonify({'message': 'Message Sent!'})
 
 
-# @app.route("/shop/<categories>")
-# def courses(categories):
+@app.route("/shop/<categories>")
+def courses(categories):
 
-#     selected_categories = categories.split("&")
-#     topics_data = open_file('static/json/topics.json')
+    selected_categories = categories.split("&")
+    topics_data = open_file('static/json/topics.json')
     
-#     if "all" in selected_categories:
-#         filtered_topics = topics_data
-#     else:
-#         selected_categories = [i.title() for i in selected_categories]
+    if "all" in selected_categories:
+        session['filtered-topics'] = topics_data
+    else:
+        selected_categories = [i.title() for i in selected_categories]
 
-#         filtered_topics = {category: topics_data.get(category, {}) for category in selected_categories if category in topics_data}
+        session['filtered-topics'] = {category: topics_data[category] for category in selected_categories}
+        
+    print(session['filtered-topics'])
 
-#     session['filtered-topics'] = filtered_topics
+    return render_template("Base.html", name='Shop')
 
-#     return render_template("Base.html", name='Shop')
+@app.route('/get-filtered-topics')
+def get_filtered_topics():
+    return jsonify({"filtered_topics": session['filtered-topics']})
 
-# @app.route('/get-filtered-topics')
-# def get_filtered_topics():
-#     return jsonify({"filtered_topics": session['filtered-topics']})
-
-# @app.route('/get-topics')
-# def get_topics():
-#     topics = open_file('static/json/topics.json')
-#     return jsonify({"topics": topics})
-
-@app.route("/shop")
-def shop():
-    return render_template("Base.html", name="Shop")
-
-@app.route("/get-topics")
-def topics_api():
+@app.route('/get-topics')
+def get_topics():
     topics = open_file('static/json/topics.json')
-    return jsonify({'topics': topics})
+    return jsonify({"topics": topics})
+
 
 @app.route("/profile/")
 def load_profile():

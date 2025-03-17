@@ -45,7 +45,9 @@ function createAuthFormDiv(){
     return formDiv
 }
 
-document.getElementById('body').appendChild(createAuthFormDiv())
+function fillAuthPage(){
+    document.getElementById('body').appendChild(createAuthFormDiv())
+}
 
 function checkLog(status, event){
     event.preventDefault()
@@ -62,7 +64,7 @@ function checkLog(status, event){
         })
         .then(response => response.json())
         .then(data => {
-
+            
             const resultDiv = document.createElement('div')
             const statusText = document.createElement('p')
             const actionBtn = document.createElement('a')
@@ -82,3 +84,5 @@ function checkLog(status, event){
         })
     }
 }
+
+fillAuthPage()
