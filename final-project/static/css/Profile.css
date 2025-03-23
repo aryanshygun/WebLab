@@ -108,6 +108,18 @@
 
 }
 
+.content-div{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    & div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+    }
+}
+
 /* 
 #study-div,
 #exam-div{

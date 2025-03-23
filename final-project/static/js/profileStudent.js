@@ -1,51 +1,63 @@
-export function createPersonalInfoDiv(dataDetails) {
+function addPersonalInfoDiv(dataDetails) {
     const form = document.createElement('form');
-    form.id = 'personal-div';
+    form.id = 'personal-info-div';
     form.classList.add('content-div');
     form.method = "POST";
 
-    const topDiv = document.createElement('div');
-    topDiv.classList.add('style', 'row-div');
-    topDiv.innerHTML = `
-        <h1> ${dataDetails.username} </h1>
-        <h2> ${dataDetails.status}</h2>
-    `;
-    form.appendChild(topDiv);
+    function addTopRow(){
+        const row = document.createElement('div');
+        row.classList.add('style', 'row-div');
+        row.innerHTML = `
+            <h1> ${dataDetails.first_name} ${dataDetails.last_name} </h1>
+            <h2> ${dataDetails.status}</h2>
+        `;
+        return row
+    }
 
-    const userList = [
-        ['First Name:', 'first-name', 'text', dataDetails.first_name],
-        ['Last Name:', 'last-name', 'text', dataDetails.last_name],
-        ['Password:', 'password', 'text', dataDetails.password],
-        ['City:', 'city', 'text', dataDetails.city],
-        ['Age:', 'age', 'number', dataDetails.age]
-    ];
+    form.appendChild(addTopRow())
 
-    userList.forEach(([labelTextContent, name, type, inputTextContent]) => {
-        const rowDiv = document.createElement('div');
-        rowDiv.classList.add('style', 'row-div');
+    function addInfoRows(){
+        const userInfoRows = [
+            ['First Name:', 'first-name', 'text', dataDetails.first_name],
+            ['Last Name:', 'last-name', 'text', dataDetails.last_name],
+            ['Password:', 'password', 'text', dataDetails.password],
+            ['City:', 'city', 'text', dataDetails.city],
+            ['Age:', 'age', 'number', dataDetails.age]
+        ];
+    
+        userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
+            const row = document.createElement('div');
+            row.classList.add('style', 'row-div');
+    
+            const label = document.createElement('label');
+            label.setAttribute('for', name);
+            label.textContent = labelTextContent;
+    
+            const input = document.createElement('input');
+            input.classList.add('style', 'input');
+            input.type = type;
+            input.name = name;
+            input.value = inputTextContent;
+    
+            row.appendChild(label);
+            row.appendChild(input);
+            form.appendChild(row);
+        });
+    }
 
-        const label = document.createElement('label');
-        label.setAttribute('for', name);
-        label.textContent = labelTextContent;
+    addInfoRows()
 
-        const input = document.createElement('input');
-        input.classList.add('style', 'input');
-        input.type = type;
-        input.name = name;
-        input.value = inputTextContent;
+    function addBotRow(){
+        const buttonDiv = document.createElement('div');
+        buttonDiv.classList.add('style', 'row-div', 'btn-row-div');
+        buttonDiv.innerHTML = `
+            <p id='success-message' style="display: none;">Update Successful!</p>
+            <button type='submit' class='style btn'> Update </button>
+        `;
+        return buttonDiv
+    }
 
-        rowDiv.appendChild(label);
-        rowDiv.appendChild(input);
-        form.appendChild(rowDiv);
-    });
-
-    const buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('style', 'row-div', 'btn-row-div');
-    buttonDiv.innerHTML = `
-        <p id='success-message' style="display: none;">Update Successful!</p>
-        <button type='submit' class='style btn'> Update </button>
-    `;
-    form.appendChild(buttonDiv);
+    form.appendChild(addBotRow());
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
@@ -61,7 +73,8 @@ export function createPersonalInfoDiv(dataDetails) {
                 }
             });
     });
-    document.getElementById('body').appendChild(form);
+
+    return form
 }
 
 function createFinishedCoursesDiv(dataDetails){
@@ -152,6 +165,7 @@ function createInProgressDivs(dataDetails){
     document.getElementById('body').appendChild(div);
 }
 
+
 function createWalletDiv(dataDetails){
     const mainDiv = document.createElement('div')
     mainDiv.classList.add('content-div')
@@ -216,14 +230,29 @@ function createWalletDiv(dataDetails){
 }
 
 
-export function studentDivs() {
-    fetch('/get-info')
-        .then(response => response.json())
-        .then(data => {
-            const dataDetails = data.details;
-            createPersonalInfoDiv(dataDetails);
-            createFinishedCoursesDiv(dataDetails)
-            createInProgressDivs(dataDetails)
-            createWalletDiv(dataDetails)
-        });
+// export function createStudentDivs() {
+//     fetch('/get-info')
+//         .then(response => response.json())
+//         .then(data => {
+//             const dataDetails = data.details;
+//             createPersonalInfoDiv(dataDetails);
+//             createCourseDiv(dataDetails, 'finished'); // For finished courses
+//             createCourseDiv(dataDetails, 'in-progress'); // For in-progress courses
+//             createWalletDiv(dataDetails)
+//         });
+// }
+
+
+export function createStudentDivs(dataDetails) {
+    const div = document.getElementById('body')
+    div.appendChild(addPersonalInfoDiv(dataDetails))
+    div.appendChild(addFinishedCoursesDiv(dataDetails))
+    div.appendChild(addInProgressCoursesDiv(dataDetails))
+    div.appendChild(addWalletDiv(dataDetails))
+
+    // createPersonalInfoDiv(dataDetails);
+    // createFinishedCoursesDiv(dataDetails)
+    // createInProgressDivs(dataDetails)
+    // createWalletDiv(dataDetails)
+    return div
 }

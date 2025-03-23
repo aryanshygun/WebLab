@@ -10,7 +10,7 @@ function createHeaderDiv(){
     
     pages = [
         ["Home", "/home"],
-        ["Shop", "/shop/all"],
+        ["Shop", "/shop"],
         ["About Us", "/about"],
         ["Contact Us", "/contact"],
     ]
@@ -42,7 +42,6 @@ function createHeaderDiv(){
     .then(data => {
         document.getElementById('profile-status').textContent = `${data.details.first_name} - ${data.details.status}`;
     })
-    profileButton.href = "Profile"
     profileButton.href = "/profile"
     
     headerDiv.appendChild(logo)

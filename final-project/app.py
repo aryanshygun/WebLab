@@ -84,15 +84,11 @@ def contact_submit():
 def shop():
     return render_template("Base.html", name="Shop")
 
-@app.route("/get-topics")
-def topics_api():
-    topics = open_file('static/json/topics.json')
-    return jsonify({'topics': topics})
-
 @app.route("/profile/")
 def load_profile():
     if not session.get("logged-in"):
         return redirect(url_for("authorization_page"))
+    print('hhuh')
     return render_template("Base.html", name="Profile")
 
 @app.route("/purchase", methods=["GET", "POST"])
@@ -233,6 +229,12 @@ def update_user():
 @app.route('/get-info', methods=["POST", "GET"])
 def get_info():
     return jsonify({'details': session['user']})
+
+@app.route("/get-topics")
+def topics_api():
+    topics = open_file('static/json/topics.json')
+    return jsonify({'topics': topics})
+
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port=5075)

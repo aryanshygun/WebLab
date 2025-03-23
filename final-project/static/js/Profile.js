@@ -1,40 +1,41 @@
-const body = document.getElementById("body");
+// const body = document.getElementById("body");
 
-let leftList
-function initializeLeftList() {
+let allowedDivs
+function initializeAllowedDivs() {
     return fetch('/get-info')
-        .then(response => response.json())
-        .then(data => {
-            const status = data.details.status;
-            userDetails = data.details
+    .then(response => response.json())
+    .then(data => {
+        userDetails = data.details
 
-            if (status === "student") {
-                leftList = [
-                    ["Personal Info", "personal-div"],
-                    ["Finished Courses", "finished-courses-div"],
-                    ["In Progress Courses", "in-progress-courses-div"],
-                    ["Wallet", "wallet-div"],
-                ];
-            } else if (status === "teacher") {
-                leftList = [
-                    ["Personal Info", "personal-div"],
-                    ["Manage Courses", "manage-courses-div"],
-                    ["Manage Exams", "manage-exams-div"],
-                ];
-            } else {
-                leftList = [
-                    ["Personal Info", "personal-div"],
-                    ["Manage Users", "manage-users-div"],
-                    ["Manage Opinions", "manage-opinions-div"]
-                ];
-            }
-        });
+        if (userDetails.status === "Student") {
+            allowedDivs = [
+                ["Personal Info", "personal-info-div"], // shows the details of the user like city age
+                ["Finished Courses", "finished-courses-div"], // just shows the finished courses and their scores
+                ["In Progress Courses", "in-progress-courses-div"], // as above
+                ["Wallet", "wallet-div"], // shows current money, allows to add money, shows history of transactions
+                
+            ];
+        } else if (userDetails.status === "Teacher") {
+            allowedDivs = [
+                ["Personal Info", "personal-div"], // shows the details of the user like city age
+                ["Manage Courses", "manage-courses-div"], // shows all the courses created, allows to create a course
+                ["Manage Tests", "manage-tests-div"], // shows all the tests created, allows to create a test
+                ["Manage Opinions", "manage-opinions-div"] // if teacher, shows all the opinions regarding coures
+            ];
+        } else if (userDetails.status === "Admin"){
+            allowedDivs = [
+                ["Personal Info", "personal-div"], // shows the details of the user like city age
+                ["Manage Users", "manage-users-div"], // shows lall the users, allows admin to remove the user
+                ["Manage Opinions", "manage-opinions-div"] // if admin, shows all the opinions regarding courses and teachers and site
+            ];
+        }
+    });
 }
 
-function loadBtnList() {
+function addBtnsDiv() {
     const leftSection = document.createElement("section");
     leftSection.id = 'btn-list'
-    leftList.forEach(([sectionName, sectionId], index) => {
+    allowedDivs.forEach(([sectionName, sectionId], index) => {
         const btn = document.createElement("a");
         btn.classList.add("style", "btn", 'panel-btns');
         
@@ -49,21 +50,41 @@ function loadBtnList() {
         }
     });
 
-    const logOut = document.createElement("a");
-    logOut.textContent = "Log Out";
-    logOut.href = "/logout";
-    logOut.classList.add("style", "btn", "panel-btns");
-    logOut.id = 'logout-btn'
-    leftSection.appendChild(logOut);
-    body.append(leftSection);
+
+    function addLoginBtn(){
+        const btn = document.createElement("a");
+        btn.textContent = "Log Out";
+        btn.href = "/logout";
+        btn.classList.add("style", "btn", "panel-btns");
+        btn.id = 'logout-btn'
+        return btn
+    }
+    leftSection.appendChild(addLoginBtn());
+    return leftSection
 }
 
-function loadDiv() {
-    import(`./profile-${userDetails.status}.js`).then(module => {
-        let functionName = `${userDetails.status}Divs`;
-        if (module[functionName]) {
-            module[functionName]();
-        }
+// function addDivs() {
+//     return import(`./profile-${userDetails.status}.js`)
+//         .then(module => {
+//             const functionName = `add${userDetails.status}Divs`;
+//             if (module[functionName] && typeof module[functionName] === 'function') {
+//                 return module[functionName]();
+//             } else {
+//                 console.error(`Function ${functionName} not found in module.`);
+//             }
+//         })
+//         .catch(error => {
+//             console.error('Failed to load module:', error);
+//         });
+// }
+
+function addDivs(userDetails) {
+    import(`./profile${userDetails.status}.js`).then(module => {
+        // let functionName = `create${userDetails.status}Divs`;
+        // if (module[functionName]) {
+        //     module[functionName](userDetails);
+        // }
+        module[`create${userDetails.status}Divs`](userDetails)
     })
 }
 
@@ -81,35 +102,18 @@ function showDiv(sectionId, btn) {
     if (targetDiv) {
         targetDiv.style.display = "flex";
     }
-    
-    // history.pushState(null, "", `/profile/${urlPath}`);
+}
+function fillProfilePage(){
+    const body = document.getElementById('body')
+    initializeAllowedDivs().then(() => {
+        body.appendChild(addBtnsDiv())
+        body.appendChild(addDivs(userDetails))
+        // body.appendChild(addDivs())
+        // console.log(1)
+        // console.log(userDetails)
+        // loadDiv(userDetails)
+        // body.appe
+    });
 }
 
-// function handleDirectAccess() {
-//     const path = window.location.pathname;
-//     const sections = {
-//         "personal-data": "personal-div",
-//         "courses": "courses-div",
-//         "study": "study-div",
-//         "exam": "exam-div"
-//     };
-
-//     const key = path.split("/").pop();
-//     const sectionId = sections[key] || "personal-div";
-
-//     document.querySelectorAll(".left .btn").forEach(btn => {
-//         if (btn.textContent.toLowerCase().includes(key)) {
-//             showDiv(sectionId, btn);
-//         }
-//     });
-// }
-
-window.addEventListener("DOMContentLoaded", () => {
-    initializeLeftList().then(() => {
-        loadBtnList();
-        loadDiv();
-        // handleDirectAccess();
-    });
-});
-
-// window.addEventListener("popstate", handleDirectAccess);
+fillProfilePage()
