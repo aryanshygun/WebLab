@@ -41,25 +41,21 @@
         "city": "Mashhad",
         "status": "Student",
         "wallet": 500,
-        "courses": [
-            {
-                "topic": "Languages",
-                "course": "Guess The Language!",
-                "status": "finished",
-                "score": 75
-            },
-            {
-                "topic": "Programming",
-                "course": "Complete the Code!",
-                "status": "finished",
-                "score": 20
-            },
-            {
-                "topic": "Languages",
-                "course": "Antomyms!",
-                "status": "in-progress",
-                "score": 25
-            }
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ],
+            [
+                "Complete the Code!",
+                20
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Antomyms!",
+                25
+            ]
         ]
     },
     "johnsmith": {
@@ -71,25 +67,21 @@
         "city": "New York",
         "status": "Student",
         "wallet": 290,
-        "courses": [
-            {
-                "topic": "Languages",
-                "course": "Guess The Language!",
-                "status": "finished",
-                "score": 75
-            },
-            {
-                "topic": "Languages",
-                "course": "Synomyms!",
-                "status": "finished",
-                "score": 50
-            },
-            {
-                "topic": "Programming",
-                "course": "Complete the Code!",
-                "status": "in-progress",
-                "score": 85
-            }
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ],
+            [
+                "Synomyms!",
+                50
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Complete the Code!",
+                85
+            ]
         ]
     },
     "maryjane": {
@@ -100,26 +92,22 @@
         "age": "25",
         "city": "Los Angeles",
         "status": "Student",
-        "wallet": 430,
-        "courses": [
-            {
-                "topic": "Languages",
-                "course": "Guess The Language!",
-                "status": "finished",
-                "score": 75
-            },
-            {
-                "topic": "Programming",
-                "course": "Fix the Code!",
-                "status": "in-progress",
-                "score": 0
-            },
-            {
-                "topic": "Mathematics",
-                "course": "Add & Subtract!",
-                "status": "in-progress",
-                "score": 0
-            }
+        "wallet": 380,
+        "courses_finished": [
+            [
+                "Guess The Language!",
+                75
+            ]
+        ],
+        "courses_in_progress": [
+            [
+                "Fix the Code!",
+                0
+            ],
+            [
+                "Add & Subtract!",
+                0
+            ]
         ]
     },
     "alexbrown": {

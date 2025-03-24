@@ -61,5 +61,12 @@
         "course": "Guess The Language!",
         "amount": 70,
         "time": "2025-03-10 18:30"
+    },
+    {
+        "username": "maryjane",
+        "action": "charge",
+        "course": "",
+        "amount": 50,
+        "time": "2025-03-24 20:07"
     }
 ]
