@@ -61,21 +61,6 @@ function addBtnsDiv() {
   return leftSection;
 }
 
-// function addDivs() {
-//     return import(`./profile-${userDetails.status}.js`)
-//         .then(module => {
-//             const functionName = `add${userDetails.status}Divs`;
-//             if (module[functionName] && typeof module[functionName] === 'function') {
-//                 return module[functionName]();
-//             } else {
-//                 console.error(`Function ${functionName} not found in module.`);
-//             }
-//         })
-//         .catch(error => {
-//             console.error('Failed to load module:', error);
-//         });
-// }
-
 function addDivs(userDetails) {
   import(`./profile${userDetails.status}.js`).then((module) => {
     return module[`create${userDetails.status}Divs`](userDetails);

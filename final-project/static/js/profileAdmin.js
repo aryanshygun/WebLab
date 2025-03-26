@@ -1,85 +1,174 @@
-export function createPersonalInfoDiv() {
-  fetch("/get-session-info")
-    .then((response) => response.json())
-    .then((data) => {
-      const dataDetails = data.details;
-      const form = document.createElement("form");
-      form.id = "personal-div";
-      form.classList.add("content-div", "style");
-      form.method = "POST";
-      // form.style.display = 'none'
+function addPersonalInfoDiv(dataDetails) {
+  const form = document.createElement("form");
+  form.id = "personal-div";
+  form.classList.add("content-div");
+  form.method = "POST";
 
-      //  update top
-      const topDiv = document.createElement("div");
-      topDiv.classList.add("style", "row-div");
-      topDiv.innerHTML = `
-            <h1> ${dataDetails.username} </h1>
+  function addTopRow() {
+    const row = document.createElement("div");
+    row.classList.add("style", "row-div");
+    row.innerHTML = `
+            <h1> ${dataDetails.first_name} ${dataDetails.last_name} </h1>
             <h2> ${dataDetails.status}</h2>
         `;
-      form.appendChild(topDiv);
+    return row;
+  }
 
-      // automating
-      const userList = [
-        ["First Name:", "first-name", "text", dataDetails.first_name],
-        ["Last Name:", "last-name", "text", dataDetails.last_name],
-        ["Password:", "password", "text", dataDetails.password],
-        ["City:", "city", "text", dataDetails.city],
-        ["Age:", "age", "number", dataDetails.age],
-      ];
+  form.appendChild(addTopRow());
 
-      // update rows
-      userList.forEach(([labelTextContent, name, type, inputTextContent]) => {
-        const rowDiv = document.createElement("div");
-        rowDiv.classList.add("style", "row-div");
+  function addInfoRows() {
+    const userInfoRows = [
+      ["First Name:", "first-name", "text", dataDetails.first_name],
+      ["Last Name:", "last-name", "text", dataDetails.last_name],
+      ["Password:", "password", "text", dataDetails.password],
+      ["City:", "city", "text", dataDetails.city],
+      ["Age:", "age", "number", dataDetails.age],
+    ];
 
-        const label = document.createElement("label");
-        label.setAttribute("for", name);
-        label.textContent = labelTextContent;
+    userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
+      const row = document.createElement("div");
+      row.classList.add("style", "row-div");
 
-        const input = document.createElement("input");
-        input.classList.add("style", "input");
-        input.type = type;
-        input.name = name;
-        input.value = inputTextContent;
+      const label = document.createElement("label");
+      label.setAttribute("for", name);
+      label.textContent = labelTextContent;
 
-        rowDiv.appendChild(label);
-        rowDiv.appendChild(input);
-        form.appendChild(rowDiv);
-      });
+      const input = document.createElement("input");
+      input.classList.add("style", "input");
+      input.type = type;
+      input.name = name;
+      input.value = inputTextContent;
 
-      // update btn
-      const buttonDiv = document.createElement("div");
-      buttonDiv.classList.add("style", "row-div", "btn-row-div");
-      buttonDiv.innerHTML = `
-        <p id='success-message' style="display: none;" >Update Successfull!</p>
-        <button type='submit' class='style btn'> Update </button>
-        `;
-      form.appendChild(buttonDiv);
-
-      // Add the event listener to handle the form submission
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
-
-        // instead of writing down the form inputs one by one, use tihs
-        const formData = new FormData(form);
-        fetch("/update-user", {
-          method: "POST",
-          body: formData,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.success) {
-              document.getElementById("success-message").style.display =
-                "inline";
-            }
-          });
-      });
-      document.querySelector(".right").appendChild(form);
+      row.appendChild(label);
+      row.appendChild(input);
+      form.appendChild(row);
     });
+  }
+
+  addInfoRows();
+
+  function addBotRow() {
+    const buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("style", "row-div", "btn-row-div");
+    buttonDiv.innerHTML = `
+            <p id='success-message' style="display: none;">Update Successful!</p>
+            <button type='submit' class='style btn'> Update </button>
+        `;
+    return buttonDiv;
+  }
+
+  form.appendChild(addBotRow());
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    fetch("/update-user-info", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          document.getElementById("success-message").style.display = "inline";
+        }
+      });
+  });
+
+  return form;
 }
 
-export function adminDivs() {
-  createPersonalInfoDiv();
-  createUserListsDiv();
-  createOpinionsDiv();
+function addManageUsersDiv() {
+  const div = document.createElement("div");
+  div.id = "manage-users-div";
+  div.classList.add("content-div");
+  div.style.display = "none";
+
+  fetch("../static/json/users.json")
+    .then((response) => response.json())
+    .then((users) => {
+      Object.values(users).forEach(details => {
+        const userDiv = document.createElement("div")
+        userDiv.classList.add("style", "user-div")
+
+        const detailRows = [
+          details.user_name,
+          details.age,
+          details.city,
+          details.status
+        ]
+
+        detailRows.forEach(info => {
+          const p = document.createElement('p')
+          p.textContent = info
+          userDiv.appendChild(p)
+        })
+
+        const deleteBtn = document.createElement('button')
+        deleteBtn.classList.add('style', 'btn')
+        deleteBtn.textContent = 'Remove User'
+      
+        deleteBtn.onclick = function () {
+          fetch(`/delete-user/${details.user_name}`)
+          .then (response => response.json())
+          .then (response => {
+            if (response.success){
+              deleteBtn.textContent = 'User Deleted!'
+              deleteBtn.disabled = true
+            }
+          })
+        }
+
+
+        userDiv.appendChild(deleteBtn)
+
+        div.appendChild(userDiv)
+      });
+    });
+  return div;
+}
+
+
+function addManageOpinionsDiv() {
+  const div = document.createElement("div");
+  div.id = "manage-opinions-div";
+  div.classList.add("content-div");
+  div.style.display = "none";
+
+  fetch("../static/json/opinions.json")
+    .then((response) => response.json())
+    .then((opinions) => {
+      opinions.forEach(details => {
+        const opinionDiv = document.createElement("div");
+        opinionDiv.classList.add("style", "opinion-div");
+
+        // Row 1: Username & Time
+        const row1 = document.createElement("div");
+        row1.innerHTML = `<p><strong>From:</strong> ${details.username}</p><p><strong>Time:</strong> ${details.time}</p>`;
+        row1.classList.add("row");
+
+        // Row 2: Subject & Message
+        const row2 = document.createElement("div");
+        row2.innerHTML = `<p><strong>Subject:</strong> ${details.subject}</p><p><strong>Message:</strong> ${details.opinion}</p>`;
+        row2.classList.add("row");
+
+
+        opinionDiv.appendChild(row1);
+        opinionDiv.appendChild(row2);
+        div.appendChild(opinionDiv);
+      });
+    });
+
+  return div;
+}
+
+
+
+
+
+export function createAdminDivs(dataDetails) {
+  const div = document.getElementById("body");
+  div.appendChild(addPersonalInfoDiv(dataDetails));
+  div.appendChild(addManageUsersDiv());
+  div.appendChild(addManageOpinionsDiv());
+  return div;
 }

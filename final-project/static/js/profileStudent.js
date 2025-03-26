@@ -69,6 +69,7 @@ function addPersonalInfoDiv(dataDetails) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
+          console.log('huh')
           document.getElementById("success-message").style.display = "inline";
         }
       });
@@ -195,7 +196,6 @@ function addWalletDiv(dataDetails) {
     return mainDiv
 }
 
-// Export function
 export function createStudentDivs(dataDetails) {
     const div = document.getElementById("body");
     div.appendChild(addPersonalInfoDiv(dataDetails));

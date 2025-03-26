@@ -237,6 +237,14 @@ def transactions_api():
     transactions = open_file("static/json/transactions.json")
     return jsonify({"transactions": transactions})
 
+@app.route("/delete-user/<user>", methods=['GET','POST'])
+def delete_user(user):
+    if session['user']['status'] == 'Admin':
+        users = open_file("static/json/users.json")
+        del users[user]
+        save_file('static/json/users.json', users)
+        return jsonify({ 'success': True})
+        
 @app.route("/charge-wallet", methods=["POST"])
 def charge_wallet():
     print('hi!')

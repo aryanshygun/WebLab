@@ -1,4 +1,4 @@
-#!/Users/dev/WebLab/final-project/myenv/bin/python3.13
+#!/home/ryan/dev/WebLab/final-project/myenv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

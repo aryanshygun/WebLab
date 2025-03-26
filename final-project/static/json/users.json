@@ -100,7 +100,7 @@
         "age": "25",
         "city": "Los Angeles",
         "status": "Student",
-        "wallet": 430,
+        "wallet": 440,
         "courses": [
             {
                 "topic": "Languages",
