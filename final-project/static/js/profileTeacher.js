@@ -1,79 +1,83 @@
 function addPersonalInfoDiv(dataDetails) {
-  const form = document.createElement("form");
-  form.id = "personal-div";
-  form.classList.add("content-div");
-  form.method = "POST";
-
-  function addTopRow() {
+    const form = document.createElement("form");
+    form.id = "personal-info-div";
+    form.classList.add("content-div");
+    form.method = "POST";
+  
+    function addTopRow() {
       const row = document.createElement("div");
-      row.classList.add("style", "row-div");
+      row.classList.add("style", "sub-div", "top-row-div");
       row.innerHTML = `
-          <h1> ${dataDetails.first_name} ${dataDetails.last_name} </h1>
-          <h2> Teacher </h2>
-      `;
+              <h2> ${dataDetails.first_name} ${dataDetails.last_name} </h2>
+              <h3> ${dataDetails.status}</h3>
+          `;
       return row;
-  }
-  form.appendChild(addTopRow());
-
-  function addInfoRows() {
+    }
+  
+    form.appendChild(addTopRow());
+  
+    function addInfoRows() {
       const userInfoRows = [
-          ["First Name:", "first-name", "text", dataDetails.first_name],
-          ["Last Name:", "last-name", "text", dataDetails.last_name],
-          ["Password:", "password", "text", dataDetails.password],
-          ["City:", "city", "text", dataDetails.city],
-          ["Age:", "age", "number", dataDetails.age],
+        ["First Name", "first-name", "text", dataDetails.first_name],
+        ["Last Name", "last-name", "text", dataDetails.last_name],
+        ["Password", "password", "text", dataDetails.password],
+        ["City", "city", "text", dataDetails.city],
+        ["Age", "age", "number", dataDetails.age],
       ];
-
-      userInfoRows.forEach(([labelText, name, type, value]) => {
-          const row = document.createElement("div");
-          row.classList.add("style", "row-div");
-
-          const label = document.createElement("label");
-          label.setAttribute("for", name);
-          label.textContent = labelText;
-
-          const input = document.createElement("input");
-          input.classList.add("style", "input");
-          input.type = type;
-          input.name = name;
-          input.value = value;
-
-          row.appendChild(label);
-          row.appendChild(input);
-          form.appendChild(row);
+  
+      userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
+        const row = document.createElement("div");
+        row.classList.add("style", "sub-div");
+  
+        const label = document.createElement("label");
+        label.setAttribute("for", name);
+        label.textContent = labelTextContent;
+  
+        const input = document.createElement("input");
+        input.classList.add("style", "input");
+        input.type = type;
+        input.name = name;
+        input.value = inputTextContent;
+  
+        row.appendChild(label);
+        row.appendChild(input);
+        form.appendChild(row);
       });
-  }
-  addInfoRows();
-
-  function addBotRow() {
+    }
+  
+    addInfoRows();
+  
+    function addBotRow() {
       const buttonDiv = document.createElement("div");
-      buttonDiv.classList.add("style", "row-div", "btn-row-div");
+      buttonDiv.classList.add("style", "sub-div", "btn-row-div");
       buttonDiv.innerHTML = `
-          <p id='success-message' style="display: none;">Update Successful!</p>
-          <button type='submit' class='style btn'> Update </button>
-      `;
+              <p id='success-message' style="display: none;">Update Successful!</p>
+              <button type='submit' class='style btn'> Update </button>
+          `;
       return buttonDiv;
-  }
-  form.appendChild(addBotRow());
-
-  form.addEventListener("submit", function (event) {
+    }
+  
+    form.appendChild(addBotRow());
+  
+    form.addEventListener("submit", function (event) {
       event.preventDefault();
       const formData = new FormData(form);
       fetch("/update-user-info", {
-          method: "POST",
-          body: formData,
+        method: "POST",
+        body: formData,
       })
-      .then(response => response.json())
-      .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (data.success) {
-              document.getElementById("success-message").style.display = "inline";
+            console.log('huh')
+            document.getElementById("success-message").style.display = "inline";
           }
-      });
-  });
-
-  return form;
-}
-
+        });
+    });
+  
+    return form;
+  }
+  
 function addManageCoursesDiv(dataDetails) {
   const div = document.createElement("div");
   div.id = "manage-courses-div";

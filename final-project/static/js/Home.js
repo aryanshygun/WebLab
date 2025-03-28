@@ -17,10 +17,10 @@ function createHeroDiv(){
     
 function createTopicsDiv(){
     const botDiv = document.createElement("section")    
-    fetch('static/json/topics.json')
+    fetch('get/topics')
         .then(response => response.json())
-        .then(topics => {
-            Object.keys(topics).forEach(topic => {
+        .then(data => {
+            Object.keys(data.topics).forEach(topic => {
     
                 const address = document.createElement('a')
                 address.classList.add("style")

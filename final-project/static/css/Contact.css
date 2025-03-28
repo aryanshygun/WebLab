@@ -4,52 +4,13 @@
     display: flex;
     flex-direction: row;
     gap: 2vh;
-
     & section{
         height: 100%;
         display: flex;
         flex: 1;
         flex-direction: column;
         align-items: center;
-
         box-sizing: border-box;
-        &.right{
-            gap: 2vh;
-            & > div,
-            & form{
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                padding: 25px;
-                box-sizing: border-box;
-                justify-content: space-between;
-                align-items: center;
-            }
-            & form{
-                height: 100%;
-                & > div{
-                    width: 80%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex: 1;
-                    & label{
-                        font-size: 1.5vw;
-                    }
-                    & input{
-                        padding: .75vw;
-                    }
-                    & textarea{
-                        border-radius: 20px;
-                    }
-                }
-                & .submit-btn-div{
-                    justify-content: space-evenly;
-                }
-
-            }
-        }
     }
 }
 
@@ -60,4 +21,48 @@
     background-position: 50%;
     gap: 1vh;
     box-shadow: inset 0px -100vh 100px 10px rgba(0, 0, 0, 0.461);
+}
+
+.right{
+    gap: 2vh;
+    & > div,
+    & form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+        justify-content: space-evenly;
+        align-items: center;
+        flex: 1;
+    }
+    & form{
+        flex: 2;
+        /* height: 100%; */
+        & > div{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            & label{
+                font-size: 1.5vw;
+            }
+            & input{
+                padding: .75vw;
+            }
+            & textarea{
+                text-align: left;
+                border-radius: 25px;
+
+            }
+        }
+        & .submit-btn-div{
+            flex-direction: row;
+            height: 43px;
+            justify-content: space-evenly;
+        }
+
+    }
 }

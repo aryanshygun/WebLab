@@ -27,20 +27,14 @@ function createHeaderDiv() {
   profileButton.id = "profile-status";
   profileButton.classList.add("style", "alt", "btn");
 
-  fetch("/get-session-info", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((response) => {
-      if (!response.ok) {
+  fetch("/get/session")
+    .then(response => response.json())
+    .then(data => {
+      if (data.detail === 'none'){
         document.getElementById("profile-status").textContent = "Profile";
-        return;
       } else {
-        return response.json();
+        document.getElementById("profile-status").textContent = `${data.detail.first_name} ${data.detail.last_name} - ${data.detail.status}`;
       }
-    })
-    .then((data) => {
-      document.getElementById("profile-status").textContent = `${data.details.first_name} ${data.details.last_name} - ${data.details.status}`;
     });
   profileButton.href = "/profile";
 

@@ -6,10 +6,10 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addTopRow() {
     const row = document.createElement("div");
-    row.classList.add("style", "row-div");
+    row.classList.add("style", "sub-div", "top-row-div");
     row.innerHTML = `
-            <h1> ${dataDetails.first_name} ${dataDetails.last_name} </h1>
-            <h2> ${dataDetails.status}</h2>
+            <h2> ${dataDetails.first_name} ${dataDetails.last_name} </h2>
+            <h3> ${dataDetails.status}</h3>
         `;
     return row;
   }
@@ -18,16 +18,16 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addInfoRows() {
     const userInfoRows = [
-      ["First Name:", "first-name", "text", dataDetails.first_name],
-      ["Last Name:", "last-name", "text", dataDetails.last_name],
-      ["Password:", "password", "text", dataDetails.password],
-      ["City:", "city", "text", dataDetails.city],
-      ["Age:", "age", "number", dataDetails.age],
+      ["First Name", "first-name", "text", dataDetails.first_name],
+      ["Last Name", "last-name", "text", dataDetails.last_name],
+      ["Password", "password", "text", dataDetails.password],
+      ["City", "city", "text", dataDetails.city],
+      ["Age", "age", "number", dataDetails.age],
     ];
 
     userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
       const row = document.createElement("div");
-      row.classList.add("style", "row-div");
+      row.classList.add("style", "sub-div");
 
       const label = document.createElement("label");
       label.setAttribute("for", name);
@@ -49,7 +49,7 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addBotRow() {
     const buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("style", "row-div", "btn-row-div");
+    buttonDiv.classList.add("style", "sub-div", "btn-row-div");
     buttonDiv.innerHTML = `
             <p id='success-message' style="display: none;">Update Successful!</p>
             <button type='submit' class='style btn'> Update </button>
@@ -105,7 +105,7 @@ function addCoursesDiv(dataDetails, type) {
         const a = document.createElement("a");
         a.textContent = textContent;
         a.classList.add("style", "btn");
-        a.href = `/profile/${type}/${href}`;
+        // a.href = `/profile/${type}/${href}`;
         return a;
       }
       actionRow.appendChild(createActionButton("View Course", "study", href));
@@ -128,7 +128,7 @@ function addWalletDiv(dataDetails) {
   
     function createTopRow() {
         const div = document.createElement("div");
-        div.classList.add("style");
+        div.classList.add("style", "transaction-div", "wallet-top-row");
         const WalletAmount = document.createElement("h2");
         WalletAmount.textContent = `Wallet: ${dataDetails.wallet}$`;
 
@@ -142,27 +142,23 @@ function addWalletDiv(dataDetails) {
         chargeBtn.textContent = "Charge Account";
         chargeBtn.onclick = function () {
             const amount = inputField.value;
-            fetch("/charge-wallet", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ amount }),
+            fetch(`/charge-wallet/${amount}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                WalletAmount.textContent = `Wallet: ${data.final_wallet}$`;
+                chargeBtn.textContent = 'Charged!';
+                inputField.value = "";
+                mainDiv.innerHTML += `
+                <div class="style transaction-div">
+                    <p>${data.new_transaction.action}</p>
+                    <p>${data.new_transaction.course}</p>
+                    <p>${data.new_transaction.amount}</p>
+                    <p>${data.new_transaction.time}</p>
+                </div>
+                `
+              }
             })
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.success) {
-                        WalletAmount.textContent = `Wallet: ${data.final_wallet}$`;
-                        chargeBtn.textContent = 'Charged!';
-                        inputField.value = "";
-                        mainDiv.innerHTML += `
-                        <div class="style">
-                            <p>${data.new_transaction.action}</p>
-                            <p>${data.new_transaction.course}</p>
-                            <p>${data.new_transaction.amount}</p>
-                            <p>${data.new_transaction.time}</p>
-                        </div>
-                        `
-                    }
-                });
         };
         
         chargeDiv.appendChild(inputField);
@@ -175,13 +171,13 @@ function addWalletDiv(dataDetails) {
 
     mainDiv.appendChild(createTopRow());
 
-    fetch('/get-transactions')
+    fetch('/get/transactions')
         .then(response => response.json())
         .then(data => {
             data.transactions.forEach((record) => {
                 if (record.username === dataDetails.user_name) {
                     const div = document.createElement("div");
-                    div.classList.add('style')
+                    div.classList.add('style',"transaction-div")
                     const xlist = ["action", "course", "amount", "time"];
                     xlist.forEach((x) => {
                         const p = document.createElement("p");

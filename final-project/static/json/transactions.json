@@ -75,5 +75,33 @@
         "course": "",
         "amount": 10,
         "time": "2025-03-26 00:25"
+    },
+    {
+        "username": "maryjane",
+        "action": "spend",
+        "course": "Guess the Language!",
+        "amount": 70,
+        "time": "2025-03-27 20:05"
+    },
+    {
+        "username": "maryjane",
+        "action": "charge",
+        "course": "",
+        "amount": 100,
+        "time": "2025-03-28 01:27"
+    },
+    {
+        "username": "maryjane",
+        "action": "charge",
+        "course": "",
+        "amount": 50,
+        "time": "2025-03-28 01:28"
+    },
+    {
+        "username": "maryjane",
+        "action": "charge",
+        "course": "",
+        "amount": 30,
+        "time": "2025-03-28 03:33"
     }
 ]

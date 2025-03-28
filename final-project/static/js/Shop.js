@@ -1,8 +1,4 @@
 // needs work
-function fetchTopics(){
-    return fetch("/get-topics")
-    .then(response => response.json())
-}
 function createTopicsDiv(topics) {
     const optionRow = document.createElement("div");
     optionRow.id = "option-row";
@@ -11,7 +7,6 @@ function createTopicsDiv(topics) {
         const btn = document.createElement("button");
         btn.textContent = category;
         btn.classList.add("option-btn", "style", "btn");
-        // btn.dataset.category = category;
         btn.id = category
         btn.addEventListener("click", () => toggleTopic(btn, category));
         optionRow.appendChild(btn);
@@ -41,12 +36,15 @@ function updateCoursesDisplay() {
     const productDiv = document.getElementById("product-div");
     productDiv.innerHTML = "";
     
-    fetchTopics().then(data => {
-        const topicsToShow = activeTopics.size ? [...activeTopics] : Object.keys(data.topics);
-        topicsToShow.forEach(topic => {
-            data.topics[topic].courses.forEach(course => {
-                productDiv.appendChild(createCourseDiv(topic, data.topics[topic].img_link, course));
-            });
+    fetch("/get/topics")
+    .then(response => response.json())
+    .then(data => {
+        Object.keys(data.topics).forEach(topic => {
+            if (activeTopics.size === 0 || activeTopics.has(topic)) {
+                data.topics[topic].courses.forEach(course => {
+                    productDiv.appendChild(createCourseDiv(topic, data.topics[topic].img_link, course));
+                });
+            }
         });
     });
 }
@@ -112,10 +110,17 @@ function createCourseDiv(topic,topicImg, course){
     function handleActionRow(){
         const actionRow = document.createElement("div");
         actionRow.classList.add("rowButton");
-        actionRow.innerHTML = `
-        <p id='${course.title}' style="display:none;" class='resultText'></p>
-        <button class="style btn" onclick="buyCourse('${topic}','${course.title}','${course.price}')">Register</button>
-        `;
+ 
+        const p = document.createElement('p')
+        p.id = course.title
+        p.style.display = 'none'
+        p.classList.add('resultText')
+        actionRow.appendChild(p)
+        const button = document.createElement('button')
+        button.classList.add('style', 'btn')
+        button.textContent = 'Register'
+        button.onclick = function() { buyCourse(course.title) }
+        actionRow.appendChild(button)
         return actionRow
     }
     
@@ -125,14 +130,10 @@ function createCourseDiv(topic,topicImg, course){
     return courseDiv
 }
 
-// handles the logic of buying a course as a student
-function buyCourse(topic, course, price) {
-    fetch(`/purchase`, {
+function buyCourse(course) {
+    fetch(`/shop/${course}`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ topic, course, price }),
+        headers: {'Content-Type': 'application/json'}
     })
     .then(response => response.json())
     .then(data => {
@@ -141,9 +142,9 @@ function buyCourse(topic, course, price) {
         resultText.style.display = 'block'
         
         const resultRow = resultText.closest('.rowButton')
+        const button = resultText.nextElementSibling;
 
         if (data.success) {
-            const button = resultText.nextElementSibling;
             if (button) {
                 button.remove();
             }
@@ -155,6 +156,7 @@ function buyCourse(topic, course, price) {
 
             resultRow.appendChild(courseLink);
         } else {
+            resultText.textContent = data.message
             resultText.nextElementSibling.disabled = true
         }
     });
@@ -162,8 +164,9 @@ function buyCourse(topic, course, price) {
 
 function fillShopPage(){
     const body = document.getElementById('body')
-
-    fetchTopics().then(data => {
+    fetch("/get/topics")
+    .then(response => response.json())
+    .then(data => {
         body.appendChild(createTopicsDiv(data.topics))
         body.appendChild(createCoursesDiv(data.topics))
     })

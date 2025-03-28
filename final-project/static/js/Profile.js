@@ -2,12 +2,13 @@
 
 let allowedDivs;
 function initializeAllowedDivs() {
-  return fetch("/get-session-info")
+  return fetch("/get/session")
     .then((response) => response.json())
     .then((data) => {
-      userDetails = data.details;
+      userDetails = data.detail;
 
       if (userDetails.status === "Student") {
+        console.log(userDetails.courses)
         allowedDivs = [
           ["Personal Info", "personal-info-div"], // shows the details of the user like city age
           ["Finished Courses", "finished-courses-div"], // just shows the finished courses and their scores
@@ -53,7 +54,7 @@ function addBtnsDiv() {
     const btn = document.createElement("a");
     btn.textContent = "Log Out";
     btn.href = "/logout";
-    btn.classList.add("style", "btn", "panel-btns");
+    btn.classList.add("style", "btn");
     btn.id = "logout-btn";
     return btn;
   }

@@ -46,7 +46,7 @@
             flex-direction: row;
             width: 80%;
             justify-content: space-between;
-            align-items: start;
+            align-items: center;
             & p{
                 font-size: 2vw !important;
             }

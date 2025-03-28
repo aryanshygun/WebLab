@@ -1,15 +1,15 @@
 function addPersonalInfoDiv(dataDetails) {
   const form = document.createElement("form");
-  form.id = "personal-div";
+  form.id = "personal-info-div";
   form.classList.add("content-div");
   form.method = "POST";
 
   function addTopRow() {
     const row = document.createElement("div");
-    row.classList.add("style", "row-div");
+    row.classList.add("style", "sub-div", "top-row-div");
     row.innerHTML = `
-            <h1> ${dataDetails.first_name} ${dataDetails.last_name} </h1>
-            <h2> ${dataDetails.status}</h2>
+            <h2> ${dataDetails.first_name} ${dataDetails.last_name} </h2>
+            <h3> ${dataDetails.status}</h3>
         `;
     return row;
   }
@@ -18,16 +18,16 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addInfoRows() {
     const userInfoRows = [
-      ["First Name:", "first-name", "text", dataDetails.first_name],
-      ["Last Name:", "last-name", "text", dataDetails.last_name],
-      ["Password:", "password", "text", dataDetails.password],
-      ["City:", "city", "text", dataDetails.city],
-      ["Age:", "age", "number", dataDetails.age],
+      ["First Name", "first-name", "text", dataDetails.first_name],
+      ["Last Name", "last-name", "text", dataDetails.last_name],
+      ["Password", "password", "text", dataDetails.password],
+      ["City", "city", "text", dataDetails.city],
+      ["Age", "age", "number", dataDetails.age],
     ];
 
     userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
       const row = document.createElement("div");
-      row.classList.add("style", "row-div");
+      row.classList.add("style", "sub-div");
 
       const label = document.createElement("label");
       label.setAttribute("for", name);
@@ -49,7 +49,7 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addBotRow() {
     const buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("style", "row-div", "btn-row-div");
+    buttonDiv.classList.add("style", "sub-div", "btn-row-div");
     buttonDiv.innerHTML = `
             <p id='success-message' style="display: none;">Update Successful!</p>
             <button type='submit' class='style btn'> Update </button>
@@ -69,6 +69,7 @@ function addPersonalInfoDiv(dataDetails) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
+          console.log('huh')
           document.getElementById("success-message").style.display = "inline";
         }
       });

@@ -39,8 +39,6 @@ function createRightDiv(){
     const rightSectionBotDiv = document.createElement("form")
     rightSectionBotDiv.classList.add("style")
     const formFields = [
-        ["Full Name:", "text", "name"],
-        ["Email:", "text", "email"],
         ["Subject:", "text", "subject"],
         ["Message:", "textarea", "message"]
     ]
@@ -51,11 +49,12 @@ function createRightDiv(){
         const label = document.createElement("label")
         label.setAttribute("for", id)
         label.textContent = labelText
+        label.name = id
         
         let input
         if (type === "textarea") {
             input = document.createElement("textarea")
-            input.rows = 2
+            input.rows = 4
         } else {
             input = document.createElement("input")
             input.type = type
@@ -72,14 +71,36 @@ function createRightDiv(){
     
     const submitDiv = document.createElement("div")
     submitDiv.classList.add('submit-btn-div')
-    submitDiv.style.flexDirection = 'row !important'
-    submitDiv.style.height = '43px'
-    submitDiv.innerHTML = `
-    <p id="resultText" style="display:none;"></p>
-    <button class="style btn" onclick="submitOpinion(event)" >Submit</button>
-    `
-    rightSectionBotDiv.appendChild(submitDiv)
+    const resultText = document.createElement('p')
+    resultText.id = 'resultText'
+    resultText.style.display = 'none'
 
+    const resultBtn = document.createElement('button')
+    resultBtn.classList.add('style', 'btn')
+    resultBtn.type = 'submit'
+    resultBtn.textContent = 'Submit'
+    submitDiv.appendChild(resultText)
+    submitDiv.appendChild(resultBtn)
+    rightSectionBotDiv.appendChild(submitDiv)
+   
+    rightSectionBotDiv.addEventListener('submit', function (event) {
+        event.preventDefault()
+        const formData = new FormData(rightSectionBotDiv)
+        fetch('/contact/submit', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                subject: formData.get("subject"),
+                message: formData.get("message")
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            resultText.style.display = 'block'
+            resultText.textContent = data.message === 'not-logged' ? 'Log in first' : data.message
+        })
+        .catch(error => console.error("Error:", error))
+    })
 
     rightSection.appendChild(rightSectionTopDiv)
     rightSection.appendChild(rightSectionBotDiv)
@@ -93,29 +114,29 @@ function fillContactPage(){
     mainBody.appendChild(createRightDiv())
 }
 
-function submitOpinion(event) {
-    if (event) event.preventDefault()
+// function submitOpinion(event) {
+//     if (event) event.preventDefault()
 
-    const name = document.querySelector('input[name="name"]').value
-    const subject = document.querySelector('input[name="subject"]').value
-    const email = document.querySelector('input[name="email"]').value
-    const message = document.querySelector('textarea[name="message"]').value
-    const dataTime = new Date().toLocaleString()
+//     const name = document.querySelector('input[name="name"]').value
+//     const subject = document.querySelector('input[name="subject"]').value
+//     const email = document.querySelector('input[name="email"]').value
+//     const message = document.querySelector('textarea[name="message"]').value
+//     const dataTime = new Date().toLocaleString()
 
-    if (name && subject && email && message) {
-        fetch(`/contact/submit`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, subject, message, datatime: dataTime }),
-        })
-        .then(response => response.json())
-        .then(data => {
-            const resultText = document.getElementById('resultText')
-            resultText.style.display = 'block'
-            resultText.textContent = data.message
-        })
-    }
-}
+//     if (name && subject && email && message) {
+//         fetch(`/contact/submit`, {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({ name, email, subject, message, datatime: dataTime }),
+//         })
+//         .then(response => response.json())
+//         .then(data => {
+//             const resultText = document.getElementById('resultText')
+//             resultText.style.display = 'block'
+//             resultText.textContent = data.message
+//         })
+//     }
+// }
 
 
 fillContactPage()

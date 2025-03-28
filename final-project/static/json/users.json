@@ -96,11 +96,11 @@
         "user_name": "maryjane",
         "first_name": "Mary",
         "last_name": "Jane",
-        "password": "567",
+        "password": "555",
         "age": "25",
         "city": "Los Angeles",
         "status": "Student",
-        "wallet": 440,
+        "wallet": 550,
         "courses": [
             {
                 "topic": "Languages",
@@ -117,6 +117,12 @@
             {
                 "topic": "Mathematics",
                 "course": "Add & Subtract!",
+                "status": "in-progress",
+                "score": 0
+            },
+            {
+                "topic": "Programming",
+                "course": "Guess the Language!",
                 "status": "in-progress",
                 "score": 0
             }
