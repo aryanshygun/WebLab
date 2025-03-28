@@ -77,17 +77,16 @@ function addPersonalInfoDiv(dataDetails) {
 
   return form;
 }
-
 function addManageUsersDiv() {
   const div = document.createElement("div");
   div.id = "manage-users-div";
   div.classList.add("content-div");
   div.style.display = "none";
 
-  fetch("../static/json/users.json")
-    .then((response) => response.json())
-    .then((users) => {
-      Object.values(users).forEach(details => {
+  fetch("get/users")
+    .then(response => response.json())
+    .then(data => {
+      Object.values(data.users).forEach(details => {
         const userDiv = document.createElement("div")
         userDiv.classList.add("style", "user-div")
 
@@ -135,10 +134,10 @@ function addManageOpinionsDiv() {
   div.classList.add("content-div");
   div.style.display = "none";
 
-  fetch("../static/json/opinions.json")
-    .then((response) => response.json())
-    .then((opinions) => {
-      opinions.forEach(details => {
+  fetch("/get/messages")
+    .then(response => response.json())
+    .then(data => {
+      data.messages.forEach(details => {
         const opinionDiv = document.createElement("div");
         opinionDiv.classList.add("style", "opinion-div");
 
@@ -149,7 +148,7 @@ function addManageOpinionsDiv() {
 
         // Row 2: Subject & Message
         const row2 = document.createElement("div");
-        row2.innerHTML = `<p><strong>Subject:</strong> ${details.subject}</p><p><strong>Message:</strong> ${details.opinion}</p>`;
+        row2.innerHTML = `<p><strong>Subject:</strong> ${details.subject}</p><p><strong>Message:</strong> ${details.message}</p>`;
         row2.classList.add("row");
 
 

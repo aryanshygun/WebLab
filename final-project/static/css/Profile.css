@@ -40,7 +40,8 @@
             padding: 10px 0px;
         }
     }
-    & .course-div{
+    & .course-div,
+    & .opinion-div{
         display: flex;
         flex-direction: column;
         padding: 25px;
@@ -91,6 +92,20 @@
             & h2 {
                 flex: 1;
             }
+        }
+    }
+    & .user-div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0px 5%;
+        align-items: center;
+        padding-left: 25px;
+        font-size: 2vw;
+        height: 75px;
+        & button{
+            height: 75px;
         }
     }
 

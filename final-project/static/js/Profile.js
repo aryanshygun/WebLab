@@ -17,14 +17,14 @@ function initializeAllowedDivs() {
         ];
       } else if (userDetails.status === "Teacher") {
         allowedDivs = [
-          ["Personal Info", "personal-div"], // shows the details of the user like city age
+          ["Personal Info", "personal-info-div"], // shows the details of the user like city age
           ["Manage Courses", "manage-courses-div"], // shows all the courses created, allows to create a course
           ["Manage Tests", "manage-tests-div"], // shows all the tests created, allows to create a test
           ["Manage Opinions", "manage-opinions-div"], // if teacher, shows all the opinions regarding coures
         ];
       } else if (userDetails.status === "Admin") {
         allowedDivs = [
-          ["Personal Info", "personal-div"], // shows the details of the user like city age
+          ["Personal Info", "personal-info-div"], // shows the details of the user like city age
           ["Manage Users", "manage-users-div"], // shows lall the users, allows admin to remove the user
           ["Manage Opinions", "manage-opinions-div"], // if admin, shows all the opinions regarding courses and teachers and site
         ];
