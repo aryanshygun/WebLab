@@ -27,6 +27,10 @@ def home_page():
 def contact_page():
     return render_template("Base.html", name="Contact")
 
+@app.route("/about")
+def about_page():
+    return render_template("Base.html", name="About")
+
 @app.route("/contact/submit", methods=["POST"])
 def contact_submit():
     if not session.get("logged-in"):

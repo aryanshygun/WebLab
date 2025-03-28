@@ -140,25 +140,102 @@
         }
     }
 }
-/* #finished-courses-div,
-#in-progress-courses-div{
-    & .course-div{
-        display: flex;
-        flex-direction: column;
-        padding: 25px;
-        gap: 25px;
-        & > div{
-            padding: 0px 25px;
-            display: flex;
-            flex-direction: row;
-            gap: 25px;
-            justify-content: space-between;
-            align-items: center;
-            & a,
-            & h1,
-            & p{
-                flex: 1;
-            }
+
+@media (max-width: 1440px) {
+    body{
+        & h1{
+            font-size: 10vw !important;
+        }
+        & h2{
+            font-size: 3.5vw !important;
+        }
+        & h3{
+            font-size: 3.5vw !important;
+        }
+        & p {
+            font-size: 2vw;
         }
     }
-} */
+    .style{
+        &.btn{
+            font-size: 2vw;
+            padding: 1vw 2.5vw;
+        }
+    }
+}
+
+@media (max-width: 810px) {
+    #body{
+        flex-direction: column;
+        /* flex-wrap: wrap;
+        overflow: scroll;
+        scrollbar-width: none;
+        align-items: unset !important; */
+
+        & #btn-list {
+            /* width: 100% !important; */
+            flex-direction: row;
+            flex: 1;
+            /* flex: unset; */
+            /* height: 150px; */
+            padding-bottom: 0;
+
+            & a{
+                border-radius: 50px;
+                &:hover{
+                    padding: 1vw 2.5vw !important;
+                }
+            }
+        }
+        & .content-div{
+            flex: 5;
+            padding-top: 0;
+            /* flex: unset;
+            width: 100%;
+            overflow: hidden;
+            align-items: unset;
+            height: unset;
+            & .sub-div {
+                border-radius: 50px;
+                & input,
+                & button{
+                    font-size: 3vw !important;
+                    height: 100%;
+                    border-radius: 50px;
+                }
+            }
+            & .course-div{
+                height: 100px !important;
+            } */
+        }
+    }
+    & label {
+        font-size: 4vw !important;
+    }
+}
+
+@media (max-width: 540px) {
+    body{
+        & h1{
+            font-size: 12vw !important;
+        }
+        & h2{
+            font-size: 10vw !important;
+        }
+        & h3{
+            font-size: 8vw !important;
+        }
+        & p {
+            font-size: 6vw;
+        }
+    }
+    .style{
+        &.btn{
+            font-size: 3vw;
+            padding: 1.5vw 3vw;
+        }
+    }
+    .topics{
+        flex-direction: column;
+    }
+}

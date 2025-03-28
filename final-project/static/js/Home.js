@@ -16,7 +16,8 @@ function createHeroDiv(){
 }
     
 function createTopicsDiv(){
-    const botDiv = document.createElement("section")    
+    const botDiv = document.createElement("section")  
+    botDiv.classList.add('topics')  
     fetch('get/topics')
         .then(response => response.json())
         .then(data => {

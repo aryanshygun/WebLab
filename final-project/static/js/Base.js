@@ -70,6 +70,7 @@ function createFooterDiv() {
 
   footerDiv.appendChild(legalText);
   footerDiv.appendChild(socialDiv);
+  footerDiv.appendChild(createVerticalNav());
   return footerDiv;
 }
 
@@ -79,6 +80,28 @@ function addIconLink() {
     "https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css";
   link.rel = "stylesheet";
   return link;
+}
+
+function createVerticalNav(){
+  const navBar = document.createElement("div");
+  navBar.classList.add("nav-bar");
+  navBar.style.display = 'none';
+
+  pages = [
+    ["Home", "/home"],
+    ["Shop", "/shop"],
+    ["About Us", "/about"],
+    ["Contact Us", "/contact"],
+  ];
+
+  pages.forEach(([textContent, href]) => {
+    const link = document.createElement("a");
+    link.classList.add("style", "btn");
+    link.textContent = textContent;
+    link.href = href;
+    navBar.appendChild(link);
+  });
+  return navBar
 }
 
 function fillBasePage() {

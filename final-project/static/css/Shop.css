@@ -30,7 +30,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         transition: all .5s ease;
         & img{
             width: 100%;
@@ -48,7 +48,7 @@
             justify-content: space-between;
             align-items: center;
             & p{
-                font-size: 2vw !important;
+                font-size: 2vw;
             }
             & .dependencies-div{
                 display: flex;
@@ -74,4 +74,55 @@
         flex: 1;
 
      }
+}
+
+@media (max-width: 1440px) {
+    body{
+        & h1{
+            font-size: 10vw !important;
+        }
+        & h2{
+            font-size: 8vw !important;
+        }
+        & h3{
+            font-size: 2vw !important;
+        }
+    }
+    .style{
+        &.btn{
+            font-size: 2vw;
+            padding: 1vw 2.5vw;
+        }
+    }
+}
+
+
+@media (max-width: 810px) {
+    body{
+        & h1{
+            font-size: 12vw !important;
+        }
+        & h2{
+            font-size: 10vw !important;
+        }
+        & h3{
+            font-size: 3vw !important;
+        }
+        & p {
+            font-size: 4vw !important;
+        }
+    }
+    .style{
+        &.btn{
+            font-size: 3vw;
+            padding: 1.5vw 3vw;
+        }
+    }
+    .topics{
+        flex-direction: column;
+    }
+    #product-div > div {
+        width: 100% !important;
+        height: 30vh;
+    }
 }
