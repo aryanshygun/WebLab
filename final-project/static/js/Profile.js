@@ -85,6 +85,7 @@ function showDiv(sectionId, btn) {
 }
 function fillProfilePage() {
   const body = document.getElementById("body");
+  body.classList.add('profile-div')
   initializeAllowedDivs().then(() => {
     body.appendChild(addBtnsDiv());
     body.appendChild(addDivs(userDetails));

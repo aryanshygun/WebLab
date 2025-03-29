@@ -100,7 +100,7 @@
         "age": "25",
         "city": "Los Angeles",
         "status": "Student",
-        "wallet": 550,
+        "wallet": 490,
         "courses": [
             {
                 "topic": "Languages",
@@ -123,6 +123,12 @@
             {
                 "topic": "Programming",
                 "course": "Guess the Language!",
+                "status": "in-progress",
+                "score": 0
+            },
+            {
+                "topic": "Languages",
+                "course": "Synonyms!",
                 "status": "in-progress",
                 "score": 0
             }

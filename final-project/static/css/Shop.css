@@ -6,8 +6,8 @@
     overflow-y: scroll;
     scrollbar-width: none;
     margin: -3.2vh 0;
-    max-height: unset !important;
     padding: 6vh 2vh;
+    max-height: unset !important;
     gap: 2vh;
 }
 
@@ -46,9 +46,9 @@
             flex-direction: row;
             width: 80%;
             justify-content: space-between;
-            align-items: center;
             & p{
                 font-size: 2vw;
+                text-align: end;
             }
             & .dependencies-div{
                 display: flex;
@@ -74,55 +74,4 @@
         flex: 1;
 
      }
-}
-
-@media (max-width: 1440px) {
-    body{
-        & h1{
-            font-size: 10vw !important;
-        }
-        & h2{
-            font-size: 8vw !important;
-        }
-        & h3{
-            font-size: 2vw !important;
-        }
-    }
-    .style{
-        &.btn{
-            font-size: 2vw;
-            padding: 1vw 2.5vw;
-        }
-    }
-}
-
-
-@media (max-width: 810px) {
-    body{
-        & h1{
-            font-size: 12vw !important;
-        }
-        & h2{
-            font-size: 10vw !important;
-        }
-        & h3{
-            font-size: 3vw !important;
-        }
-        & p {
-            font-size: 4vw !important;
-        }
-    }
-    .style{
-        &.btn{
-            font-size: 3vw;
-            padding: 1.5vw 3vw;
-        }
-    }
-    .topics{
-        flex-direction: column;
-    }
-    #product-div > div {
-        width: 100% !important;
-        height: 30vh;
-    }
 }

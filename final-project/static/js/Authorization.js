@@ -1,6 +1,7 @@
 function createAuthFormDiv(){
     const formDiv = document.createElement("form")
     formDiv.classList.add('style')
+    formDiv.id = 'auth-form'
 
     const welcomeText = document.createElement("h1")
     welcomeText.textContent = "Welcome!"

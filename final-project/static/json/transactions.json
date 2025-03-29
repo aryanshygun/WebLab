@@ -103,5 +103,12 @@
         "course": "",
         "amount": 30,
         "time": "2025-03-28 03:33"
+    },
+    {
+        "username": "maryjane",
+        "action": "spend",
+        "course": "Synonyms!",
+        "amount": 60,
+        "time": "2025-03-29 16:35"
     }
 ]

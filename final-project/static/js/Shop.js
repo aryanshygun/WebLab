@@ -18,8 +18,7 @@ function createTopicsDiv(topics) {
 let activeTopics = new Set();
 
 function toggleTopic(btn, category) {
-    const productDiv = document.getElementById("product-div");
-    
+
     if (activeTopics.has(category)) {
         activeTopics.delete(category);
         btn.classList.remove('active')
@@ -28,7 +27,6 @@ function toggleTopic(btn, category) {
         btn.classList.add('active')
 
     }
-    
     updateCoursesDisplay();
 }
 
