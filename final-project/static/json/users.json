@@ -28,8 +28,8 @@
         "status": "Teacher",
         "courses_created": [
             "Guess The Language!",
-            "Fix the Code!",
-            "Complete the Code!"
+            "Fix The Code!",
+            "Complete The Code!"
         ]
     },
     "abbasrezaii": {
@@ -50,7 +50,7 @@
             },
             {
                 "topic": "Programming",
-                "course": "Complete the Code!",
+                "course": "Complete The Code!",
                 "status": "finished",
                 "score": 20
             },
@@ -86,7 +86,7 @@
             },
             {
                 "topic": "Programming",
-                "course": "Complete the Code!",
+                "course": "Complete The Code!",
                 "status": "in-progress",
                 "score": 85
             }
@@ -110,19 +110,19 @@
             },
             {
                 "topic": "Programming",
-                "course": "Fix the Code!",
+                "course": "Fix The Code!",
                 "status": "in-progress",
                 "score": 0
             },
             {
                 "topic": "Mathematics",
-                "course": "Add & Subtract!",
+                "course": "Add And Subtract!",
                 "status": "in-progress",
                 "score": 0
             },
             {
                 "topic": "Programming",
-                "course": "Guess the Language!",
+                "course": "Guess The Language!",
                 "status": "in-progress",
                 "score": 0
             },
@@ -145,7 +145,7 @@
         "courses_created": [
             "Synomyms!",
             "Antomyms!",
-            "Complete the Code!!"
+            "Complete The Code!!"
         ]
     },
     "sarahjones": {
@@ -157,9 +157,9 @@
         "city": "Chicago",
         "status": "Teacher",
         "courses_created": [
-            "Add & Subtract!",
-            "Multiply & Divide!",
-            "Squares & Roots!"
+            "Add And Subtract!",
+            "Multiply And Divide!",
+            "Squares And Roots!"
         ]
     }
 }

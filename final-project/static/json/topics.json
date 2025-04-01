@@ -3,20 +3,20 @@
         "img_link": "/static/img/Programming.jpg",
         "courses": [
             {
-                "title": "Guess the Language!",
+                "title": "Guess The Language!",
                 "prerequisites": [],
                 "price": 70,
                 "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to."
             },
             {
-                "title": "Fix the Code!",
-                "prerequisites": ["Guess the Language!"],
+                "title": "Fix The Code!",
+                "prerequisites": ["Guess The Language!"],
                 "price": 90,
                 "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet."
             },
             {
-                "title": "Complete the Code!",
-                "prerequisites": ["Guess the Language!", "Fix the Code!"],
+                "title": "Complete The Code!",
+                "prerequisites": ["Guess The Language!", "Fix The Code!"],
                 "price": 110,
                 "body": "Fill in the blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet."
             }
@@ -26,20 +26,20 @@
         "img_link": "/static/img/Mathematics.jpg",
         "courses": [
             {
-                "title": "Add & Subtract!",
+                "title": "Add And Subtract!",
                 "prerequisites": [],
                 "price": 50,
                 "body": "Master the basics of arithmetic by practicing addition and subtraction problems."
             },
             {
-                "title": "Multiply & Divide!",
-                "prerequisites": ["Add & Subtract!"],
+                "title": "Multiply And Divide!",
+                "prerequisites": ["Add And Subtract!"],
                 "price": 75,
                 "body": "Learn multiplication and division techniques to strengthen your math skills."
             },
             {
-                "title": "Squares & Roots!",
-                "prerequisites": ["Add & Subtract!", "Multiply & Divide!"],
+                "title": "Squares And Roots!",
+                "prerequisites": ["Add And Subtract!", "Multiply And Divide!"],
                 "price": 100,
                 "body": "Explore square numbers and square roots to deepen your mathematical understanding."
             }
@@ -61,7 +61,7 @@
                 "body": "Expand your knowledge of language by discovering opposite words."
             },
             {
-                "title": "Find the Word!",
+                "title": "Find The Word!",
                 "prerequisites": ["Synomyms!", "Antomyms!"],
                 "price": 90,
                 "body": "Fill in the blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence."

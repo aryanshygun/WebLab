@@ -13,6 +13,11 @@ def save_file(address, update):
     with open(address, "w") as outfile:
         json.dump(update, outfile, indent=4)
 
+def update_session():
+    users = open_file("static/json/users.json")
+    session["user"] = { key: value for key, value in users[session["user"]["user_name"]].items()}
+    return redirect(url_for("home_page"))
+
 @app.route("/logout")
 def logout():
     session.clear()
@@ -44,12 +49,6 @@ def contact_submit():
     })
     save_file("static/json/messages.json", messages)
     return jsonify({"message": "Message Sent!"})
-
-@app.route("/profile")
-def load_profile():
-    if not session.get("logged-in"):
-        return redirect(url_for("authorization_page"))
-    return render_template("Base.html", name="Profile")
 
 @app.route("/shop")
 def shop():
@@ -146,16 +145,6 @@ def authorization_api(status):
     save_file("static/json/users.json", users)
     return jsonify({"success": success, "message": message})
 
-
-
-@app.route("/update")
-def update_session():
-    users = open_file("static/json/users.json")
-    session["user"] = {
-        key: value for key, value in users[session["user"]["user_name"]].items()
-    }
-    return redirect(url_for("home_page"))
-
 @app.route("/update-user-info", methods=["POST"])
 def update_user():
     users = open_file("static/json/users.json")
@@ -175,9 +164,35 @@ def get(name):
         if session.get('logged-in'):
             return jsonify({"detail": session["user"]})
         return jsonify({"detail": 'none'})
-    else:
-        file = open_file(f"static/json/{name}.json")
-        return jsonify({name: file})
+    
+    file = open_file(f"static/json/{name}.json")
+    return jsonify({name: file})
+
+@app.route("/get/course/<course_name>")
+def get_course_details(course_name):
+    topics = open_file("static/json/topics.json")
+ 
+    url_course = course_name.replace("&", " ")
+    
+    for topic, topicDetails in topics.items():
+        for course in topicDetails['courses']:
+            if course["title"] == url_course:
+                return jsonify({"course": course["body"]})
+
+@app.route("/course/<course_name>")
+def course_page(course_name):
+    if not session.get("logged-in"):
+        return redirect(url_for("authorization_page"))
+    return render_template("Base.html", name="Course")
+
+
+# @app.route("/profile")
+# @app.route("/profile/")
+@app.route("/profile/<profile_div>")
+def load_profile(profile_div):
+    if not session.get("logged-in"):
+        return redirect(url_for("authorization_page"))
+    return render_template("Base.html", name="Profile")
 
 @app.route("/delete-user/<user>", methods=['GET','POST'])
 def delete_user(user):
@@ -206,6 +221,15 @@ def charge_wallet(amount):
     
     update_session()    
     return jsonify({"success": True,"final_wallet": session['user']['wallet'], "new_transaction": new_transaction})
+
+
+# @app.route("/course/<course_name>")
+# def course(course_name):
     
+
+
+
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5075)

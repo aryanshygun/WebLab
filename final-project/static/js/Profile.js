@@ -8,7 +8,6 @@ function initializeAllowedDivs() {
       userDetails = data.detail;
 
       if (userDetails.status === "Student") {
-        console.log(userDetails.courses)
         allowedDivs = [
           ["Personal Info", "personal-info-div"], // shows the details of the user like city age
           ["Finished Courses", "finished-courses-div"], // just shows the finished courses and their scores
@@ -38,6 +37,11 @@ function addBtnsDiv() {
   allowedDivs.forEach(([sectionName, sectionId], index) => {
     const btn = document.createElement("a");
     btn.classList.add("style", "btn", "panel-btns");
+    // const url = encodeURIComponent(href)
+
+    // btn.href = `/profile/${url}`;
+    // console.log(btn)
+    
 
     btn.textContent = sectionName;
     btn.onclick = function () {

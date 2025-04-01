@@ -1,4 +1,4 @@
-#body{
+ #body{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,5 +26,10 @@ form {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
+    }
+    & label {
+        font-size: 2vw;
+        width: 50%;
+        text-align: end;
     }
 }

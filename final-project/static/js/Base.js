@@ -36,7 +36,7 @@ function createHeaderDiv() {
         document.getElementById("profile-status").textContent = `${data.detail.first_name} ${data.detail.last_name} - ${data.detail.status}`;
       }
     });
-  profileButton.href = "/profile";
+  profileButton.href = "/profile/all";
 
   headerDiv.appendChild(logo);
   headerDiv.appendChild(navBar);

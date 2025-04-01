@@ -87,6 +87,7 @@ function addCoursesDiv(dataDetails, type) {
   dataDetails.courses.forEach(({ course, score, status, topic }) => {
     if (status === type) {
       let href = course.replace(/ /g, "&");
+      console.log(href)
       const courseDiv = document.createElement("div");
       courseDiv.classList.add("course-div", "style");
 
@@ -105,10 +106,10 @@ function addCoursesDiv(dataDetails, type) {
         const a = document.createElement("a");
         a.textContent = textContent;
         a.classList.add("style", "btn");
-        // a.href = `/profile/${type}/${href}`;
+        a.href = `/${type}/${href}`;
         return a;
       }
-      actionRow.appendChild(createActionButton("View Course", "study", href));
+      actionRow.appendChild(createActionButton("View Course", "course", href));
       actionRow.appendChild(createActionButton("View Exam", "exam", href));
 
       courseDiv.appendChild(infoRow);
@@ -194,6 +195,8 @@ function addWalletDiv(dataDetails) {
 
 export function createStudentDivs(dataDetails) {
     const div = document.getElementById("body");
+    // const url_div = window.location.pathname.split("/")[2]
+    // console.log(url_div)
     div.appendChild(addPersonalInfoDiv(dataDetails));
     div.appendChild(addCoursesDiv(dataDetails, "finished"));
     div.appendChild(addCoursesDiv(dataDetails, "in-progress"));

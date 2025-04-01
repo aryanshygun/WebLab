@@ -69,7 +69,6 @@ function addPersonalInfoDiv(dataDetails) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log('huh')
           document.getElementById("success-message").style.display = "inline";
         }
       });
@@ -77,13 +76,14 @@ function addPersonalInfoDiv(dataDetails) {
 
   return form;
 }
+
 function addManageUsersDiv() {
   const div = document.createElement("div");
   div.id = "manage-users-div";
   div.classList.add("content-div");
   div.style.display = "none";
 
-  fetch("get/users")
+  fetch("/get/users")
     .then(response => response.json())
     .then(data => {
       Object.values(data.users).forEach(details => {
