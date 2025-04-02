@@ -9,17 +9,22 @@ function createHeaderDiv() {
   navBar.classList.add("nav-bar");
 
   pages = [
-    ["Home", "/home"],
-    ["Shop", "/shop/All"],
-    ["About Us", "/about"],
-    ["Contact Us", "/contact"],
+    ["Home", "/home", 'home'],
+    ["Shop", "/shop/All", 'shop'],
+    ["Course", "/course/none", 'course'],
+    ["Contact Us", "/contact", 'contact'],
   ];
 
-  pages.forEach(([textContent, href]) => {
+  pages.forEach(([textContent, href, url]) => {
     const link = document.createElement("a");
     link.classList.add("style", "btn");
     link.textContent = textContent;
     link.href = href;
+    const site_url = window.location.pathname.split('/')[1]
+    if (site_url === url){
+      link.style.backgroundColor = 'rgb(49, 94, 255)'
+    }
+
     navBar.appendChild(link);
   });
 

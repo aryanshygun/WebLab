@@ -161,5 +161,23 @@
             "Multiply And Divide!",
             "Squares And Roots!"
         ]
+    },
+    "johndoe": {
+        "user_name": "johndoe",
+        "first_name": "John",
+        "last_name": "Doe",
+        "password": "123",
+        "age": "30",
+        "city": "Rasht",
+        "status": "Student",
+        "wallet": 40,
+        "courses": [
+            {
+                "topic": "Languages",
+                "course": "Synonyms!",
+                "status": "finished",
+                "score": 20
+            }
+        ]
     }
 }

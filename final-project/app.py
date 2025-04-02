@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template, redirect, url_for, session
 import json
 from datetime import datetime
+import random
 
 app = Flask(__name__)
 app.secret_key = "secretkey"
@@ -28,13 +29,13 @@ def logout():
 def home_page():
     return render_template("Base.html", name="Home")
 
-@app.route("/contact")
-def contact_page():
-    return render_template("Base.html", name="Contact")
-
 @app.route("/about")
 def about_page():
     return render_template("Base.html", name="About")
+
+@app.route("/contact")
+def contact_page():
+    return render_template("Base.html", name="Contact")
 
 @app.route("/contact/submit", methods=["POST"])
 def contact_submit():
@@ -52,7 +53,6 @@ def contact_submit():
 
 @app.route("/shop/<topic>")
 def shop(topic):
-    
     return render_template("Base.html", name="Shop")
 
 @app.route("/shop/purchase/<chosen_course>", methods=["POST"])
@@ -146,6 +146,18 @@ def authorization_api(status):
     save_file("static/json/users.json", users)
     return jsonify({"success": success, "message": message})
 
+@app.route("/update/exam/<exam_name>/<score>")
+def update_exam(exam_name, score):
+    users = open_file('static/json/users.json')
+    user_courses = users[session['user']['user_name']]['courses']
+    for course in user_courses:
+        if course['course'] == exam_name:
+            course['status'] = 'finished'
+            course['score'] = int(score)
+    save_file('static/json/users.json', users)
+    update_session()
+    return jsonify({'message':'success'})
+
 @app.route("/update-user-info", methods=["POST"])
 def update_user():
     users = open_file("static/json/users.json")
@@ -169,26 +181,51 @@ def get(name):
     file = open_file(f"static/json/{name}.json")
     return jsonify({name: file})
 
-@app.route("/get/course/<course_name>")
-def get_course_details(course_name):
-    topics = open_file("static/json/topics.json")
- 
-    url_course = course_name.replace("&", " ")
-    
-    for topic, topicDetails in topics.items():
-        for course in topicDetails['courses']:
-            if course["title"] == url_course:
-                return jsonify({"course": course["body"]})
-
-@app.route("/course/<course_name>")
-def course_page(course_name):
-    if not session.get("logged-in"):
-        return redirect(url_for("authorization_page"))
+@app.route("/course/<course>")
+def course_page(course):
     return render_template("Base.html", name="Course")
 
+@app.route("/get/course/<course_name>")
+def get_course_details(course_name):
+    
+    if not session.get("logged-in"):
+        return jsonify({"message": "not logged"})
+    
+    if session['user']['status'] != 'Student':
+        return jsonify({'message': 'not student'})
+    
+    if course_name == 'none':
+        return jsonify({'message': 'no course selected'})
+    
+    topics = open_file("static/json/topics.json")
+    url_course = course_name.replace("&", " ")
+    
+    for topicDetails in topics.values():
+        for course in topicDetails['courses']:
+            if course["title"] == url_course:
+                return jsonify({"course": course})
 
-# @app.route("/profile")
-# @app.route("/profile/")
+@app.route("/exam/<exam>")
+def exam_page(exam):
+    return render_template("Base.html", name="Exam")
+
+@app.route("/get/exam/<exam_name>")
+def get_exam_details(exam_name):
+    url_exam = exam_name.replace('&', ' ')
+    tests = open_file('static/json/tests.json')
+    for i, j in tests.items():
+
+        if i == url_exam:
+            random_tests = random.sample(j, 5)
+            return jsonify({"tests": random_tests})
+
+
+
+
+
+
+
+
 @app.route("/profile/<profile_div>")
 def load_profile(profile_div):
     if not session.get("logged-in"):
@@ -222,15 +259,6 @@ def charge_wallet(amount):
     
     update_session()    
     return jsonify({"success": True,"final_wallet": session['user']['wallet'], "new_transaction": new_transaction})
-
-
-# @app.route("/course/<course_name>")
-# def course(course_name):
-    
-
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5075)

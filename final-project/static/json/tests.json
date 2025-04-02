@@ -1,5 +1,5 @@
 {
-    "Guess the Language!": [
+    "Guess The Language!": [
         {
             "question": "Guess the Language!\n\n```html\n<h1>Hello, World!</h1>\n```",
             "options": ["HTML", "CSS", "JavaScript", "Python"],
@@ -61,7 +61,7 @@
             "correct-answer": "Python"
         }
     ],
-    "Fix the Code!": [
+    "Fix The Code!": [
         {
             "question": "What is the problem in this HTML code?\n\n```html\n<h1>Hello, World!</h2>\n```",
             "options": ["Missing closing tag", "Incorrect tag", "Extra space", "No problem"],
@@ -123,7 +123,7 @@
             "correct-answer": "Missing colon"
         }
     ],
-    "Complete the Code!": [
+    "Complete The Code!": [
         {
             "question": "Fill in the blank in this HTML code:\n\n```html\n<h1>____, World!</h1>\n```",
             "options": ["Hello", "Hi", "Hey", "Greetings"],
@@ -185,7 +185,7 @@
             "correct-answer": "Hello"
         }
     ],
-    "Synomyms!": [
+    "Synonyms!": [
         {
             "question": "What is a synonym for 'big'?",
             "options": ["small", "large", "tiny", "little"],
@@ -309,7 +309,7 @@
             "correct-answer": "big"
         }
     ],
-    "Find the Word!": [
+    "Find The Word!": [
         {
             "question": "The cat is very ____. (small/tiny)",
             "options": ["small", "tiny", "big", "large"],
@@ -371,190 +371,175 @@
             "correct-answer": "small"
         }
     ],
-    "Add & Subtract!": [
+    "Add And Subtract!": [
         {
             "question": "2 + 2 ?",
-            "options": [3, 4, 7, 1],
-            "correct-answer": 4
+            "options": ["3", "4", "7", "1"],
+            "correct-answer": "4"
         },
         {
             "question": "5 + 3 ?",
-            "options": [8, 7, 9, 6],
-            "correct-answer": 8
+            "options": ["8", "7", "9", "6"],
+            "correct-answer": "8"
         },
         {
             "question": "10 - 4 ?",
-            "options": [5, 6, 7, 8],
-            "correct-answer": 6
+            "options": ["5", "6", "7", "8"],
+            "correct-answer": "6"
         },
         {
             "question": "7 + 6 ?",
-            "options": [12, 13, 14, 15],
-            "correct-answer": 13
+            "options": ["12", "13", "14", "15"],
+            "correct-answer": "13"
         },
         {
             "question": "9 - 5 ?",
-            "options": [3, 4, 5, 6],
-            "correct-answer": 4
+            "options": ["3", "4", "5", "6"],
+            "correct-answer": "4"
         },
         {
             "question": "12 + 8 ?",
-            "options": [18, 19, 20, 21],
-            "correct-answer": 20
+            "options": ["18", "19", "20", "21"],
+            "correct-answer": "20"
         },
         {
             "question": "15 - 7 ?",
-            "options": [7, 8, 9, 10],
-            "correct-answer": 8
+            "options": ["7", "8", "9", "10"],
+            "correct-answer": "8"
         },
         {
             "question": "4 + 9 ?",
-            "options": [12, 13, 14, 15],
-            "correct-answer": 13
+            "options": ["12", "13", "14", "15"],
+            "correct-answer": "13"
         },
         {
             "question": "20 - 11 ?",
-            "options": [8, 9, 10, 11],
-            "correct-answer": 9
+            "options": ["8", "9", "10", "11"],
+            "correct-answer": "9"
         },
         {
             "question": "6 + 7 ?",
-            "options": [12, 13, 14, 15],
-            "correct-answer": 13
+            "options": ["12", "13", "14", "15"],
+            "correct-answer": "13"
         },
         {
             "question": "18 - 9 ?",
-            "options": [8, 9, 10, 11],
-            "correct-answer": 9
+            "options": ["8", "9", "10", "11"],
+            "correct-answer": "9"
         },
         {
             "question": "3 + 8 ?",
-            "options": [10, 11, 12, 13],
-            "correct-answer": 11
+            "options": ["10", "11", "12", "13"],
+            "correct-answer": "11"
         }
     ],
-    "Multiply & Divide!": [
+    "Multiply And Divide!": [
         {
             "question": "3 × 4 ?",
-            "options": [10, 12, 14, 16],
-            "correct-answer": 12
+            "options": ["10", "12", "14", "16"],
+            "correct-answer": "12"
         },
         {
             "question": "10 ÷ 2 ?",
-            "options": [3, 4, 5, 6],
-            "correct-answer": 5
+            "options": ["3", "4", "5", "6"],
+            "correct-answer": "5"
         },
         {
             "question": "7 × 6 ?",
-            "options": [40, 42, 44, 46],
-            "correct-answer": 42
+            "options": ["40", "42", "44", "46"],
+            "correct-answer": "42"
         },
         {
             "question": "24 ÷ 8 ?",
-            "options": [2, 3, 4, 5],
-            "correct-answer": 3
+            "options": ["2", "3", "4", "5"],
+            "correct-answer": "3"
         },
         {
             "question": "5 × 9 ?",
-            "options": [40, 45, 50, 55],
-            "correct-answer": 45
+            "options": ["40", "45", "50", "55"],
+            "correct-answer": "45"
         },
         {
             "question": "36 ÷ 6 ?",
-            "options": [5, 6, 7, 8],
-            "correct-answer": 6
+            "options": ["5", "6", "7", "8"],
+            "correct-answer": "6"
         },
         {
             "question": "8 × 7 ?",
-            "options": [54, 56, 58, 60],
-            "correct-answer": 56
+            "options": ["54", "56", "58", "60"],
+            "correct-answer": "56"
         },
         {
             "question": "50 ÷ 10 ?",
-            "options": [4, 5, 6, 7],
-            "correct-answer": 5
+            "options": ["4", "5", "6", "7"],
+            "correct-answer": "5"
         },
         {
             "question": "9 × 8 ?",
-            "options": [70, 72, 74, 76],
-            "correct-answer": 72
+            "options": ["70", "72", "74", "76"],
+            "correct-answer": "72"
         },
         {
             "question": "63 ÷ 9 ?",
-            "options": [6, 7, 8, 9],
-            "correct-answer": 7
+            "options": ["6", "7", "8", "9"],
+            "correct-answer": "7"
         },
         {
             "question": "12 × 5 ?",
-            "options": [50, 55, 60, 65],
-            "correct-answer": 60
+            "options": ["50", "55", "60", "65"],
+            "correct-answer": "60"
         },
         {
             "question": "81 ÷ 9 ?",
-            "options": [8, 9, 10, 11],
-            "correct-answer": 9
+            "options": ["8", "9", "10", "11"],
+            "correct-answer": "9"
         }
     ],
-    "Squares & Roots!": [
+    "Squares And Roots!": [
         {
             "question": "What is 5² ?",
-            "options": [20, 25, 30, 35],
-            "correct-answer": 25
+            "options": ["20", "25", "30", "35"],
+            "correct-answer": "25"
         },
         {
             "question": "What is √16 ?",
-            "options": [2, 3, 4, 5],
-            "correct-answer": 4
+            "options": ["2", "3", "4", "5"],
+            "correct-answer": "4"
         },
         {
             "question": "What is 7² ?",
-            "options": [45, 49, 53, 57],
-            "correct-answer": 49
+            "options": ["45", "49", "53", "57"],
+            "correct-answer": "49"
         },
         {
             "question": "What is √25 ?",
-            "options": [3, 4, 5, 6],
-            "correct-answer": 5
+            "options": ["3", "4", "5", "6"],
+            "correct-answer": "5"
         },
         {
             "question": "What is 9² ?",
-            "options": [72, 81, 90, 99],
-            "correct-answer": 81
+            "options": ["72", "81", "90", "99"],
+            "correct-answer": "81"
         },
         {
             "question": "What is √36 ?",
-            "options": [4, 5, 6, 7],
-            "correct-answer": 6
+            "options": ["4", "5", "6", "7"],
+            "correct-answer": "6"
         },
         {
             "question": "What is 12² ?",
-            "options": [132, 144, 156, 168],
-            "correct-answer": 144
+            "options": ["132", "144", "156", "168"],
+            "correct-answer": "144"
         },
         {
             "question": "What is √64 ?",
-            "options": [6, 7, 8, 9],
-            "correct-answer": 8
+            "options": ["6", "7", "8", "9"],
+            "correct-answer": "8"
         },
         {
             "question": "What is 15² ?",
-            "options": [200, 225, 250, 275],
-            "correct-answer": 225
-        },
-        {
-            "question": "What is √100 ?",
-            "options": [8, 9, 10, 11],
-            "correct-answer": 10
-        },
-        {
-            "question": "What is 20² ?",
-            "options": [400, 425, 450, 475],
-            "correct-answer": 400
-        },
-        {
-            "question": "What is √144 ?",
-            "options": [10, 11, 12, 13],
-            "correct-answer": 12
+            "options": ["200", "225", "250", "275"],
+            "correct-answer": "225"
         }
     ]
 }

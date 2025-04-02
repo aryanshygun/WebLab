@@ -6,19 +6,55 @@
                 "title": "Guess The Language!",
                 "prerequisites": [],
                 "price": 70,
-                "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to."
+                "body": "Different programming languages have unique syntax and use cases. In this section, you'll identify which language a given code snippet belongs to. Understanding language structures helps you recognize patterns, making it easier to work with multiple languages. You'll also gain insight into the similarities and differences between popular programming languages, improving your ability to read and interpret code efficiently.",
+                "examples": [
+                    {
+                        "example": "print('Hello, World!')",
+                        "answer": "Python",
+                        "explanation": "Python uses the `print` function without semicolons, and strings are typically enclosed in single or double quotes."
+                    },
+                    {
+                        "example": "System.out.println(\"Hello, World!\");",
+                        "answer": "Java",
+                        "explanation": "Java requires explicit syntax with `System.out.println` for printing, and statements end with a semicolon."
+                    }
+                ]
             },
             {
                 "title": "Fix The Code!",
                 "prerequisites": ["Guess The Language!"],
                 "price": 90,
-                "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet."
+                "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet. By analyzing syntax and logical errors, you'll improve your ability to troubleshoot and refine code. This hands-on approach will teach you best practices for debugging, such as reading error messages, using print statements, and employing debugging tools. Developing these skills will make you a more effective and efficient programmer.",
+                "examples": [
+                    {
+                        "example": "for i in range(5)\n    print(i)",
+                        "answer": "SyntaxError: Missing colon",
+                        "explanation": "In Python, loops require a colon (`:`) at the end of the `for` statement."
+                    },
+                    {
+                        "example": "int x = 5\nSystem.out.println(x);",
+                        "answer": "SyntaxError: Missing semicolon",
+                        "explanation": "In Java, statements must end with a semicolon (`;`)."
+                    }
+                ]
             },
             {
                 "title": "Complete The Code!",
                 "prerequisites": ["Guess The Language!", "Fix The Code!"],
                 "price": 110,
-                "body": "Fill in the blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet."
+                "body": "Fill-in-the-blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet. This exercise will challenge your ability to recall programming concepts, apply logical reasoning, and write functional code. As you progress, you'll develop a stronger grasp of different programming paradigms, reinforcing your problem-solving abilities and making you a more confident coder.",
+                "examples": [
+                    {
+                        "example": "def greet(name):\n    return ____ + name",
+                        "answer": "'Hello, '",
+                        "explanation": "In Python, strings must be properly enclosed in quotes when concatenating."
+                    },
+                    {
+                        "example": "if (x ___ 10) {\n    System.out.println(\"x is greater\");\n}",
+                        "answer": ">",
+                        "explanation": "In Java, the correct operator for comparison is `>`, meaning 'greater than'."
+                    }
+                ]
             }
         ]
     },
@@ -29,19 +65,55 @@
                 "title": "Add And Subtract!",
                 "prerequisites": [],
                 "price": 50,
-                "body": "Master the basics of arithmetic by practicing addition and subtraction problems."
+                "body": "Master the basics of arithmetic by practicing addition and subtraction problems. These fundamental operations are crucial for everyday calculations, problem-solving, and advanced mathematical concepts. By practicing a variety of problems, you'll improve your speed and accuracy, laying a strong foundation for more complex mathematical techniques. This course is ideal for beginners looking to strengthen their basic math skills.",
+                "examples": [
+                    {
+                        "example": "12 + 8 = ?",
+                        "answer": "20",
+                        "explanation": "Addition combines two numbers to give a larger value, in this case 12 and 8 add up to 20."
+                    },
+                    {
+                        "example": "15 - 7 = ?",
+                        "answer": "8",
+                        "explanation": "Subtraction is the process of finding the difference between two numbers, so subtracting 7 from 15 leaves 8."
+                    }
+                ]
             },
             {
                 "title": "Multiply And Divide!",
                 "prerequisites": ["Add And Subtract!"],
                 "price": 75,
-                "body": "Learn multiplication and division techniques to strengthen your math skills."
+                "body": "Learn multiplication and division techniques to strengthen your math skills. These operations are key to solving real-world problems, from calculating expenses to understanding ratios. This course will help you build fluency with numbers, develop efficient strategies for computation, and enhance your problem-solving abilities. Whether you're preparing for exams or improving everyday calculations, mastering multiplication and division is essential.",
+                "examples": [
+                    {
+                        "example": "6 × 4 = ?",
+                        "answer": "24",
+                        "explanation": "Multiplication is the process of repeated addition. 6 multiplied by 4 means adding 6 four times (6 + 6 + 6 + 6)."
+                    },
+                    {
+                        "example": "24 ÷ 8 = ?",
+                        "answer": "3",
+                        "explanation": "Division breaks a number into equal parts. In this case, 24 divided by 8 results in 3."
+                    }
+                ]
             },
             {
                 "title": "Squares And Roots!",
                 "prerequisites": ["Add And Subtract!", "Multiply And Divide!"],
                 "price": 100,
-                "body": "Explore square numbers and square roots to deepen your mathematical understanding."
+                "body": "Explore square numbers and square roots to deepen your mathematical understanding. These concepts play a crucial role in algebra, geometry, and advanced problem-solving. By learning how to identify and compute squares and roots, you'll develop a stronger foundation in mathematics. This course will provide interactive exercises and real-world applications, making abstract concepts more tangible and accessible.",
+                "examples": [
+                    {
+                        "example": "The square of 5 is ?",
+                        "answer": "25",
+                        "explanation": "Squaring a number means multiplying it by itself. 5 × 5 equals 25."
+                    },
+                    {
+                        "example": "The square root of 36 is ?",
+                        "answer": "6",
+                        "explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number. The square root of 36 is 6 because 6 × 6 = 36."
+                    }
+                ]
             }
         ]
     },
@@ -52,19 +124,55 @@
                 "title": "Synonyms!",
                 "prerequisites": [],
                 "price": 60,
-                "body": "Enhance your vocabulary by learning synonyms for common words."
+                "body": "Enhance your vocabulary by learning synonyms for common words. Understanding synonyms allows you to express ideas more clearly and creatively, improving both written and spoken communication. This course will provide exercises to help you recognize and use synonyms naturally, making your speech and writing more engaging. By expanding your vocabulary, you'll become a more articulate and effective communicator.",
+                "examples": [
+                    {
+                        "example": "Happy - ____",
+                        "answer": "Joyful",
+                        "explanation": "Both 'happy' and 'joyful' convey the same meaning of feeling pleased or content."
+                    },
+                    {
+                        "example": "Fast - ____",
+                        "answer": "Quick",
+                        "explanation": "Both 'fast' and 'quick' refer to high speed or rate of motion."
+                    }
+                ]
             },
             {
                 "title": "Antonyms!",
                 "prerequisites": ["Synonyms!"],
                 "price": 65,
-                "body": "Expand your knowledge of language by discovering opposite words."
+                "body": "Expand your knowledge of language by discovering opposite words. Learning antonyms enhances comprehension and strengthens your ability to express contrasting ideas effectively. This course will provide interactive activities to reinforce the meaning of words, helping you develop a richer vocabulary. Mastering antonyms will improve both your reading and writing skills, making your language usage more precise and impactful.",
+                "examples": [
+                    {
+                        "example": "Hot - ____",
+                        "answer": "Cold",
+                        "explanation": "Hot and cold are direct opposites, used to describe temperature extremes."
+                    },
+                    {
+                        "example": "Strong - ____",
+                        "answer": "Weak",
+                        "explanation": "Strong and weak are opposites, used to describe physical strength or intensity."
+                    }
+                ]
             },
             {
                 "title": "Find The Word!",
-                "prerequisites": ["Synomyms!", "Antomyms!"],
+                "prerequisites": ["Synonyms!", "Antonyms!"],
                 "price": 90,
-                "body": "Fill in the blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence."
+                "body": "Fill-in-the-blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence. This course will challenge you to think critically about word meanings, context, and grammatical structures. Through engaging exercises, you'll refine your ability to select the right words, improving both your comprehension and communication skills. Strengthening your vocabulary will boost your confidence in both everyday and professional conversations.",
+                "examples": [
+                    {
+                        "example": "She was feeling very ____ after the long walk. (tired, energetic)",
+                        "answer": "tired",
+                        "explanation": "The correct choice is 'tired' as it fits the context of a long walk."
+                    },
+                    {
+                        "example": "The ____ of the new phone was impressive. (speed, color)",
+                        "answer": "speed",
+                        "explanation": "The context suggests that the performance of the phone (speed) is being discussed, rather than color."
+                    }
+                ]
             }
         ]
     }

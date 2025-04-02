@@ -130,10 +130,6 @@
         font-size: 20px;
         flex: 1;
         cursor: pointer;
-        /* &.active{
-            background-color: rgb(49, 94, 255);
-            color: white;
-        } */
         &:hover{
             padding: .75vw 2.25vw ;
         }
@@ -150,11 +146,6 @@
 .panel-btns{
     font-size: 2vw !important;
 }
-
-/* .selected{
-    background-color: rgb(49, 94, 255);
-    color: white;
-} */
 
 #manage-all-transactions-div div p{
     flex: 1;

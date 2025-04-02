@@ -110,5 +110,19 @@
         "course": "Synonyms!",
         "amount": 60,
         "time": "2025-03-29 16:35"
+    },
+    {
+        "username": "johndoe",
+        "action": "charge",
+        "course": "",
+        "amount": 100,
+        "time": "2025-04-03 01:24"
+    },
+    {
+        "username": "johndoe",
+        "action": "spend",
+        "course": "Synonyms!",
+        "amount": 60,
+        "time": "2025-04-03 01:24"
     }
 ]
