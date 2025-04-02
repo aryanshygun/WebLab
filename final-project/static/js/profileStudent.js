@@ -69,7 +69,6 @@ function addPersonalInfoDiv(dataDetails) {
       .then((response) => response.json())
       .then((data) => {
         if (data.success) {
-          console.log('huh')
           document.getElementById("success-message").style.display = "inline";
         }
       });
@@ -78,16 +77,14 @@ function addPersonalInfoDiv(dataDetails) {
   return form;
 }
 
-function addCoursesDiv(dataDetails, type) {
+function addCoursesDiv(dataDetails, type, btnText) {
   const div = document.createElement("div");
   div.id = `${type}-courses-div`;
   div.classList.add("content-div");
-  div.style.display = "none";
 
   dataDetails.courses.forEach(({ course, score, status, topic }) => {
     if (status === type) {
       let href = course.replace(/ /g, "&");
-      console.log(href)
       const courseDiv = document.createElement("div");
       courseDiv.classList.add("course-div", "style");
 
@@ -122,84 +119,83 @@ function addCoursesDiv(dataDetails, type) {
 }
 
 function addWalletDiv(dataDetails) {
-    const mainDiv = document.createElement("div");
-    mainDiv.classList.add("content-div");
-    mainDiv.id = "wallet-div";
-    mainDiv.style.display = "none";
-  
-    function createTopRow() {
-        const div = document.createElement("div");
-        div.classList.add("style", "transaction-div", "wallet-top-row");
-        const WalletAmount = document.createElement("h2");
-        WalletAmount.textContent = `Wallet: ${dataDetails.wallet}$`;
+  const mainDiv = document.createElement("div");
+  mainDiv.classList.add("content-div");
+  mainDiv.id = "wallet-div";
+  // mainDiv.style.display = "none";
 
-        const chargeDiv = document.createElement("div");
+  function createTopRow() {
+      const div = document.createElement("div");
+      div.classList.add("style", "transaction-div", "wallet-top-row");
+      const WalletAmount = document.createElement("h2");
+      WalletAmount.textContent = `Wallet: ${dataDetails.wallet}$`;
 
-        const inputField = document.createElement("input");
-        inputField.classList.add("style", "input");
+      const chargeDiv = document.createElement("div");
 
-        const chargeBtn = document.createElement("button");
-        chargeBtn.classList.add("style", "btn");
-        chargeBtn.textContent = "Charge Account";
-        chargeBtn.onclick = function () {
-            const amount = inputField.value;
-            fetch(`/charge-wallet/${amount}`)
-            .then(response => response.json())
-            .then(data => {
-              if (data.success) {
-                WalletAmount.textContent = `Wallet: ${data.final_wallet}$`;
-                chargeBtn.textContent = 'Charged!';
-                inputField.value = "";
-                mainDiv.innerHTML += `
-                <div class="style transaction-div">
-                    <p>${data.new_transaction.action}</p>
-                    <p>${data.new_transaction.course}</p>
-                    <p>${data.new_transaction.amount}</p>
-                    <p>${data.new_transaction.time}</p>
-                </div>
-                `
+      const inputField = document.createElement("input");
+      inputField.classList.add("style", "input");
+
+      const chargeBtn = document.createElement("button");
+      chargeBtn.classList.add("style", "btn");
+      chargeBtn.textContent = "Charge Account";
+      chargeBtn.onclick = function () {
+          const amount = inputField.value;
+          fetch(`/charge-wallet/${amount}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              WalletAmount.textContent = `Wallet: ${data.final_wallet}$`;
+              chargeBtn.textContent = 'Charged!';
+              inputField.value = "";
+              mainDiv.innerHTML += `
+              <div class="style transaction-div">
+                  <p>${data.new_transaction.action}</p>
+                  <p>${data.new_transaction.course}</p>
+                  <p>${data.new_transaction.amount}</p>
+                  <p>${data.new_transaction.time}</p>
+              </div>
+              `
+            }
+          })
+      };
+      
+      chargeDiv.appendChild(inputField);
+      chargeDiv.appendChild(chargeBtn);
+
+      div.appendChild(WalletAmount);
+      div.appendChild(chargeDiv);
+      return div;
+  }
+
+  mainDiv.appendChild(createTopRow());
+
+  fetch('/get/transactions')
+      .then(response => response.json())
+      .then(data => {
+          data.transactions.forEach((record) => {
+              if (record.username === dataDetails.user_name) {
+                  const div = document.createElement("div");
+                  div.classList.add('style',"transaction-div")
+                  const xlist = ["action", "course", "amount", "time"];
+                  xlist.forEach((x) => {
+                      const p = document.createElement("p");
+                      p.textContent = record[x];
+                      div.appendChild(p);
+                  });
+                  mainDiv.appendChild(div);
               }
-            })
-        };
-        
-        chargeDiv.appendChild(inputField);
-        chargeDiv.appendChild(chargeBtn);
-
-        div.appendChild(WalletAmount);
-        div.appendChild(chargeDiv);
-        return div;
-    }
-
-    mainDiv.appendChild(createTopRow());
-
-    fetch('/get/transactions')
-        .then(response => response.json())
-        .then(data => {
-            data.transactions.forEach((record) => {
-                if (record.username === dataDetails.user_name) {
-                    const div = document.createElement("div");
-                    div.classList.add('style',"transaction-div")
-                    const xlist = ["action", "course", "amount", "time"];
-                    xlist.forEach((x) => {
-                        const p = document.createElement("p");
-                        p.textContent = record[x];
-                        div.appendChild(p);
-                    });
-                    mainDiv.appendChild(div);
-                }
-            });
-        })
-
-    return mainDiv
+          });
+      })
+  return mainDiv
 }
 
-export function createStudentDivs(dataDetails) {
-    const div = document.getElementById("body");
-    // const url_div = window.location.pathname.split("/")[2]
-    // console.log(url_div)
-    div.appendChild(addPersonalInfoDiv(dataDetails));
-    div.appendChild(addCoursesDiv(dataDetails, "finished"));
-    div.appendChild(addCoursesDiv(dataDetails, "in-progress"));
-    div.appendChild(addWalletDiv(dataDetails));
-    return div;
+export function fillProfile(dataDetails) {
+    const url_div = window.location.pathname.split("/")[2]
+    const urlList = {
+      "Personal&Info": addPersonalInfoDiv(dataDetails),
+      "Finished&Courses": addCoursesDiv(dataDetails, "finished", "Finished Courses"),
+      "In&Progress&Courses": addCoursesDiv(dataDetails, "in-progress", "In Progress Courses"),
+      "Wallet": addWalletDiv(dataDetails)
+    }
+    return urlList[url_div]
 }

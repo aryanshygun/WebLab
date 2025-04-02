@@ -1,5 +1,3 @@
-// const body = document.getElementById("body");
-
 let allowedDivs;
 function initializeAllowedDivs() {
   return fetch("/get/session")
@@ -9,23 +7,24 @@ function initializeAllowedDivs() {
 
       if (userDetails.status === "Student") {
         allowedDivs = [
-          ["Personal Info", "personal-info-div"], // shows the details of the user like city age
-          ["Finished Courses", "finished-courses-div"], // just shows the finished courses and their scores
-          ["In Progress Courses", "in-progress-courses-div"], // as above
-          ["Wallet", "wallet-div"], // shows current money, allows to add money, shows history of transactions
+          "Personal Info", // shows the details of the user like city age
+          "Finished Courses", // just shows the finished courses and their scores
+          "In Progress Courses", // as above
+          "Wallet", // shows current money, allows to add money, shows history of transactions
         ];
       } else if (userDetails.status === "Teacher") {
         allowedDivs = [
-          ["Personal Info", "personal-info-div"], // shows the details of the user like city age
-          ["Manage Courses", "manage-courses-div"], // shows all the courses created, allows to create a course
-          ["Manage Tests", "manage-tests-div"], // shows all the tests created, allows to create a test
-          ["Manage Opinions", "manage-opinions-div"], // if teacher, shows all the opinions regarding coures
+          "Personal Info", // shows the details of the user like city age
+          "Manage Courses", // shows all the courses created, allows to create a course
+          "Manage Tests", // shows all the tests created, allows to create a test
+          "Manage Opinions", // if teacher, shows all the opinions regarding coures
         ];
       } else if (userDetails.status === "Admin") {
         allowedDivs = [
-          ["Personal Info", "personal-info-div"], // shows the details of the user like city age
-          ["Manage Users", "manage-users-div"], // shows lall the users, allows admin to remove the user
-          ["Manage Opinions", "manage-opinions-div"], // if admin, shows all the opinions regarding courses and teachers and site
+          "Personal Info", // shows the details of the user like city age
+          "Manage Users", // shows lall the users, allows admin to remove the user
+          "Manage Opinions", // if admin, shows all the opinions regarding courses and teachers and site
+          "Manage Transactions" // if admnin, have access to vieww all the transacitosn
         ];
       }
     });
@@ -34,24 +33,20 @@ function initializeAllowedDivs() {
 function addBtnsDiv() {
   const leftSection = document.createElement("section");
   leftSection.id = "btn-list";
-  allowedDivs.forEach(([sectionName, sectionId], index) => {
+
+  const site_url = window.location.pathname.split('/')[2].replace(/&/g, " ")
+
+  allowedDivs.forEach(sectionName => {
     const btn = document.createElement("a");
+    const url = sectionName.replace(/ /g, "&");
+    btn.href = `/profile/${url}`
     btn.classList.add("style", "btn", "panel-btns");
-    // const url = encodeURIComponent(href)
-
-    // btn.href = `/profile/${url}`;
-    // console.log(btn)
-    
-
-    btn.textContent = sectionName;
-    btn.onclick = function () {
-      showDiv(sectionId, btn);
-    };
-    leftSection.appendChild(btn);
-
-    if (index === 0) {
-      btn.classList.add("active");
+    if (site_url === sectionName){
+      btn.style.backgroundColor = 'rgb(49, 94, 255)'
+      btn.style.color = 'white'
     }
+    btn.textContent = sectionName;
+    leftSection.appendChild(btn);
   });
 
   function addLoginBtn() {
@@ -66,33 +61,17 @@ function addBtnsDiv() {
   return leftSection;
 }
 
-function addDivs(userDetails) {
-  import(`./profile${userDetails.status}.js`).then((module) => {
-    return module[`create${userDetails.status}Divs`](userDetails);
-  });
-}
-
-function showDiv(sectionId, btn) {
-  document.querySelectorAll(".panel-btns").forEach((button) => {
-    button.classList.remove("active");
-  });
-  btn.classList.add("active");
-
-  document.querySelectorAll(".content-div").forEach((div) => {
-    div.style.display = "none";
-  });
-
-  const targetDiv = document.getElementById(sectionId);
-  if (targetDiv) {
-    targetDiv.style.display = "flex";
-  }
-}
 function fillProfilePage() {
   const body = document.getElementById("body");
   body.classList.add('profile-div')
+
   initializeAllowedDivs().then(() => {
     body.appendChild(addBtnsDiv());
-    body.appendChild(addDivs(userDetails));
+
+    import(`./profile${userDetails.status}.js`).then(module => {
+      body.appendChild(module['fillProfile'](userDetails))
+    });
+
   });
 }
 

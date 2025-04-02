@@ -223,7 +223,8 @@ button:disabled{
         /* for auth  */
         #auth-form{
             label{
-                font-size: 3vw !important;
+                font-size: 2vw !important;
+                text-align: center;
             }
         }
 

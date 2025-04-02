@@ -1,63 +1,41 @@
-// needs work
 function createTopicsDiv(topics) {
     const optionRow = document.createElement("div");
     optionRow.id = "option-row";
+    const site_url = window.location.pathname.split('/')[2].replace(/&/g, " ")
+    console.log(site_url)
+
     
     Object.keys(topics).forEach(category => {
-        const btn = document.createElement("button");
+        const btn = document.createElement("a");
         btn.textContent = category;
         btn.classList.add("option-btn", "style", "btn");
         btn.id = category
-        btn.addEventListener("click", () => toggleTopic(btn, category));
+        btn.href = `/shop/${category}`
+        if (site_url === category){
+            btn.style.backgroundColor = 'rgb(49, 94, 255)'
+            btn.style.color = 'white'
+          }
         optionRow.appendChild(btn);
     });
-    
     return optionRow;
 }
-
-let activeTopics = new Set();
-
-function toggleTopic(btn, category) {
-
-    if (activeTopics.has(category)) {
-        activeTopics.delete(category);
-        btn.classList.remove('active')
-    } else {
-        activeTopics.add(category);
-        btn.classList.add('active')
-
-    }
-    updateCoursesDisplay();
-}
-
-function updateCoursesDisplay() {
-    const productDiv = document.getElementById("product-div");
-    productDiv.innerHTML = "";
-    
-    fetch("/get/topics")
-    .then(response => response.json())
-    .then(data => {
-        Object.keys(data.topics).forEach(topic => {
-            if (activeTopics.size === 0 || activeTopics.has(topic)) {
-                data.topics[topic].courses.forEach(course => {
-                    productDiv.appendChild(createCourseDiv(topic, data.topics[topic].img_link, course));
-                });
-            }
-        });
-    });
-}
-
 
 function createCoursesDiv(topics){
     const productDiv = document.createElement("div");
     productDiv.id = "product-div";
+    const site_url = window.location.pathname.split('/')[2].replace(/&/g, " ");
+
     Object.entries(topics).forEach(([topic, topicDetails]) => {
-        topicDetails.courses.forEach(course => {
-            productDiv.appendChild(createCourseDiv(topic, topicDetails.img_link, course))
-        })
-    })
+        if (site_url === "All" || topic === site_url) {
+            topicDetails.courses.forEach(course => 
+                productDiv.appendChild(createCourseDiv(topic, topicDetails.img_link, course))
+            );
+        }
+    });
+    
     return productDiv
 }
+
 function createCourseDiv(topic,topicImg, course){
     const courseDiv = document.createElement("div");
     courseDiv.classList.add("style");
@@ -129,7 +107,7 @@ function createCourseDiv(topic,topicImg, course){
 }
 
 function buyCourse(course) {
-    fetch(`/shop/${course}`, {
+    fetch(`/shop/purchase/${course}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'}
     })

@@ -147,7 +147,7 @@ function addManageOpinionsDiv() {
   return div;
 }
 
-export function createTeacherDivs(dataDetails) {
+export function fillProfile(dataDetails) {
   const div = document.getElementById("body");
   div.appendChild(addPersonalInfoDiv(dataDetails));
   div.appendChild(addManageCoursesDiv(dataDetails));

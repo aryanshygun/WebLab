@@ -81,7 +81,6 @@ function addManageUsersDiv() {
   const div = document.createElement("div");
   div.id = "manage-users-div";
   div.classList.add("content-div");
-  div.style.display = "none";
 
   fetch("/get/users")
     .then(response => response.json())
@@ -132,7 +131,6 @@ function addManageOpinionsDiv() {
   const div = document.createElement("div");
   div.id = "manage-opinions-div";
   div.classList.add("content-div");
-  div.style.display = "none";
 
   fetch("/get/messages")
     .then(response => response.json())
@@ -161,14 +159,86 @@ function addManageOpinionsDiv() {
   return div;
 }
 
+function addManageAllTransactionsDiv() {
+  const div = document.createElement("div");
+  div.id = "manage-all-transactions-div";
+  div.classList.add("content-div");
+
+  fetch("/get/transactions")
+    .then(response => response.json())
+    .then(data => {
+
+      data.transactions.forEach(details => {
+        const userDiv = document.createElement("div")
+        userDiv.classList.add("style", "user-div")
+        const detailRows = [
+          details.username,
+          details.action,
+          details.course,
+          details.amount,
+          details.time
+        ]
+        detailRows.forEach(detail => {
+          const p = document.createElement('p')
+          p.textContent = detail
+          userDiv.appendChild(p)
+        });
 
 
+        div.appendChild(userDiv)
+      })
+
+      // Object.values(data.users).forEach(details => {
+      //   const userDiv = document.createElement("div")
+      //   userDiv.classList.add("style", "user-div")
+
+      //   const detailRows = [
+      //     details.user_name,
+      //     details.age,
+      //     details.city,
+      //     details.status
+      //   ]
+
+      //   detailRows.forEach(info => {
+      //     const p = document.createElement('p')
+      //     p.textContent = info
+      //     userDiv.appendChild(p)
+      //   })
+
+      //   const deleteBtn = document.createElement('button')
+      //   deleteBtn.classList.add('style', 'btn')
+      //   deleteBtn.textContent = 'Remove User'
+      
+      //   deleteBtn.onclick = function () {
+      //     fetch(`/delete-user/${details.user_name}`)
+      //     .then (response => response.json())
+      //     .then (response => {
+      //       if (response.success){
+      //         deleteBtn.textContent = 'User Deleted!'
+      //         deleteBtn.disabled = true
+      //       }
+      //     })
+      //   }
 
 
-export function createAdminDivs(dataDetails) {
-  const div = document.getElementById("body");
-  div.appendChild(addPersonalInfoDiv(dataDetails));
-  div.appendChild(addManageUsersDiv());
-  div.appendChild(addManageOpinionsDiv());
+      //   userDiv.appendChild(deleteBtn)
+
+      //   div.appendChild(userDiv)
+      // });
+    });
   return div;
+}
+
+
+
+export function fillProfile(dataDetails) {
+
+  const url_div = window.location.pathname.split("/")[2]
+  const urlList = {
+    "Personal&Info": addPersonalInfoDiv(dataDetails),
+    "Manage&Users": addManageUsersDiv(),
+    "Manage&Opinions": addManageOpinionsDiv(),
+    "Manage&Transactions": addManageAllTransactionsDiv(),
+  }
+  return urlList[url_div]
 }

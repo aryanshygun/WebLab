@@ -50,11 +50,12 @@ def contact_submit():
     save_file("static/json/messages.json", messages)
     return jsonify({"message": "Message Sent!"})
 
-@app.route("/shop")
-def shop():
+@app.route("/shop/<topic>")
+def shop(topic):
+    
     return render_template("Base.html", name="Shop")
 
-@app.route("/shop/<chosen_course>", methods=["POST"])
+@app.route("/shop/purchase/<chosen_course>", methods=["POST"])
 def courses_specific(chosen_course):
     if not session.get("logged-in"):
         return jsonify({"success": False, "message": "Login First"})

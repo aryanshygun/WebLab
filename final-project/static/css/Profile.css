@@ -90,6 +90,10 @@
             & div{
                 flex: 2;
                 justify-content: space-evenly;
+                & input{
+                    font-size: 1.5vw !important;
+                    padding: 1vw .5vw !important;
+                }
             }
             & h2 {
                 flex: 1;
@@ -126,10 +130,10 @@
         font-size: 20px;
         flex: 1;
         cursor: pointer;
-        &.active{
+        /* &.active{
             background-color: rgb(49, 94, 255);
             color: white;
-        }
+        } */
         &:hover{
             padding: .75vw 2.25vw ;
         }
@@ -145,4 +149,13 @@
 
 .panel-btns{
     font-size: 2vw !important;
+}
+
+/* .selected{
+    background-color: rgb(49, 94, 255);
+    color: white;
+} */
+
+#manage-all-transactions-div div p{
+    flex: 1;
 }

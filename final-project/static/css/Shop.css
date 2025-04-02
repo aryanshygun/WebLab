@@ -69,9 +69,10 @@
     flex-direction: row;
     gap: 25px;
     box-sizing: border-box;
-    & button {
+    & a {
         height: 100%;
-        flex: 1;
+        flex: 1 !important;
+        box-sizing: border-box;
 
      }
 }

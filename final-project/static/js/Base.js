@@ -10,7 +10,7 @@ function createHeaderDiv() {
 
   pages = [
     ["Home", "/home"],
-    ["Shop", "/shop"],
+    ["Shop", "/shop/All"],
     ["About Us", "/about"],
     ["Contact Us", "/contact"],
   ];
@@ -36,7 +36,7 @@ function createHeaderDiv() {
         document.getElementById("profile-status").textContent = `${data.detail.first_name} ${data.detail.last_name} - ${data.detail.status}`;
       }
     });
-  profileButton.href = "/profile/all";
+  profileButton.href = "/profile/Personal&Info";
 
   headerDiv.appendChild(logo);
   headerDiv.appendChild(navBar);
