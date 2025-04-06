@@ -1,95 +1,55 @@
 #body{
     display: flex;
     flex-direction: row;
-    margin: -3.2vh 0;
-    padding: 0vh 2vh;
     gap: 2vh;
-    max-height: unset !important;
-    overflow: hidden;
 }
 
+
 .content-div{
-    padding: 6vh 0vh;
-    box-sizing: border-box;
     display: flex;
     flex: 4;
-    flex-direction: row;
-    flex-wrap: wrap;
+    box-sizing: border-box;
     height: 100%;
     gap: 25px;
     overflow: scroll;
     scrollbar-width: none;
+
+    flex-direction: column;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+
     align-items: center;
     & .sub-div{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 90%;
-        margin: 0px 5%;
+        width: 95%;
+        min-height: 150px;
         align-items: center;
         padding-left: 25px;
+        box-sizing: border-box;
         font-size: 2vw;
-        &.top-row-div{
-            padding: 0px 25px;
-        }
-        &.btn-row-div{
-            display: flex;
-            flex-direction: row;
-            gap: 25px;
-            justify-content: space-evenly;
-            padding: 10px 0px;
-        }
-    }
-    & .course-div,
-    & .opinion-div{
-        display: flex;
-        flex-direction: column;
-        padding: 25px;
-        justify-content: start;
-        gap: 25px;
-        width: 90%;
-        margin: 0px 5%;
-        & > div{
-            padding: 0px 25px;
-            display: flex;
-            flex-direction: row;
-            gap: 25px;
-            justify-content: space-between;
-            align-items: center;
-            & a,
-            & h1,
-            & p{
-                flex: 1;
-            }
-        }
-    }
-    & .transaction-div{
-        display: flex;
-        flex-direction: row;
-        padding: 25px;
-        gap: 25px;
-        width: 90%;
-        margin: 0px 5%;
-        & > div,
-        & > h2,
-        & > p{
-            box-sizing: border-box !important;
-            display: flex;        
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-            white-space: nowrap;
-            overflow: hidden;   
-            text-overflow: ellipsis;
-            font-size: 1.5vw;
-        }
+        background-color: var(--background-color);
 
+        & input,
+        & button{
+            min-height: 150px;
+        }
+        & p {
+            flex: 1;
+            text-align: start;
+        }
+        &.top-div{
+            padding-left: 0px !important;
+        }
         &.wallet-top-row{
             box-sizing: border-box;
+
             & div{
-                flex: 2;
-                justify-content: space-evenly;
+                flex: 1;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
                 & input{
                     font-size: 1.5vw !important;
                     padding: 1vw .5vw !important;
@@ -97,28 +57,71 @@
             }
             & h2 {
                 flex: 1;
+                text-align: start;
+            }    
+        }
+        &.top-row-div{
+            justify-content: space-evenly;
+        }
+        &.btn-row-div{
+            gap: 25px;
+            justify-content: space-evenly;
+        }
+        &.transaction-div{
+            & p {
+                text-align: center;
             }
         }
-    }
-    & .user-div{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 90%;
-        margin: 0px 5%;
-        align-items: center;
-        padding-left: 25px;
-        font-size: 2vw;
-        height: 75px;
-        & button{
-            height: 75px;
+        &.two-row{
+            display: flex;
+            flex-direction: column;
+            padding: 25px;
+            justify-content: start;
+            gap: 25px;
+            width: 80%;
+            &.course-div{
+                min-height: 250px;
+                justify-content: space-between;
+                & p,
+                & h2{
+                    flex: 1;
+                    text-align: center;
+                }
+            }
+            
+            /* margin: 0px 5%; */
+            background-color: var(--background-color);
+            & > div{
+    
+                width: 100%;
+                padding: 0px 25px;
+                display: flex;
+                flex-direction: row;
+                gap: 25px;
+                justify-content: space-between;
+                align-items: center;
+                & a,
+                & h1,
+                & p{
+                    flex: 1;
+                    text-align: start;
+                }
+            }          
         }
     }
-
 }
-
+.manage-course-btn-div{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+.top-div{
+    & input{
+        height: 100%;
+    }
+    padding-left: 0px !important;
+}
 #btn-list {
-    padding: 6vh 0vh;
     box-sizing: border-box;
     flex: 1;
     display: flex;
@@ -137,9 +140,7 @@
     & #logout-btn{
         background-color: red !important;
         color: white;
-        &:hover{
-            box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.5) !important;
-        }
+        font-size: 2vw !important;
     }
 }
 
@@ -147,6 +148,8 @@
     font-size: 2vw !important;
 }
 
-#manage-all-transactions-div div p{
-    flex: 1;
+#manage-all-transactions-div div{
+    & p {
+        flex: 1;
+    }
 }

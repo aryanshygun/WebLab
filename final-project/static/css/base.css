@@ -11,23 +11,14 @@ body{
     overflow: hidden;
     margin: 0;
     height: 100vh;
-    background-image: url(../img/bg.png);
     background-size: 100% 100%;
     font-family: Nunito;
-    color: whitesmoke;
+    /* background-color: var(--background-color) !important; */
+    background-image: var(--background-url);
+    color: var(--text-color);
+    
+    /* color: whitesmoke; */
 
-    a{
-        text-decoration: none;
-        border-radius: 50px;
-        color: rgb(50, 50, 50);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: .75vw 2.25vw;
-        cursor: pointer;
-        transition: all .3s ease;
-        cursor: pointer;
-    }
     i{
         height: 100%;
         aspect-ratio: 1/1;
@@ -36,7 +27,7 @@ body{
         justify-content: center;
         box-sizing: border-box;
         cursor: pointer;
-        transition: all .3s ease;
+        transition: all .5s ease;
         &:hover{
             transform: scale(1.5);
         }
@@ -51,25 +42,14 @@ body{
     }
     h3{
         margin: 0;
-        font-size: 2vw !important;
+        font-size: 2vw;
     }
     p {
         margin: 0;
         font-size: 2vw;
     }
 }
-.nav-bar{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    position: relative;
-    a {
-        white-space: nowrap;
-        overflow: hidden;   
-        text-overflow: ellipsis;
-        color:#323232 !important;
-    }
-}
+
 header{
     max-height: 8vh;
     min-height: 8vh;
@@ -80,26 +60,33 @@ header{
     align-items: center;
     margin: 2vh 2vh 0 2vh;
     z-index: 10;
-    img{
+
+    & .nav-bar{
+        display: flex;
+        gap: 20px;
+    }
+    & img{
         height: calc(100% - 2vh);
-        filter:invert(1);
         margin-left: 2vh;
     }
-    #profile-status{
+    & #profile-status{
+        background-color: #315eff !important;
+        color: whitesmoke !important;
         flex: unset;
         height: 100%;
         box-sizing: border-box;
     }
-
+    .side-bar-btn{
+        display: none !important;
+    }
 }
 
 #body{
-    max-height: 80vh;
+    /* max-height: 80vh; */
+    min-height: 80vh;
     box-sizing: border-box;
     width: 100%;
     padding: 2vh;
-    background-image: unset;
-
 }
 
 footer{
@@ -114,19 +101,14 @@ footer{
     align-items: center;
     padding: 0px 40px;
     z-index: 10;
-    p {
-        white-space: nowrap;
-        overflow: hidden;   
-        text-overflow: ellipsis;
+    & p {
         font-size: 1.5vw;
     }
-    .socials{
+    & .socials{
         display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
         gap: 1.5vw;
     }
-    .nav-bar{
+    /* & .nav-bar{
         width: 100%;
         height: 100%;
         justify-content: space-between;
@@ -137,59 +119,79 @@ footer{
                 padding: 1.5vw 3vw !important;
             }
         }
-    }
+    } */
 }
 
 button:disabled{
     cursor:not-allowed
 }
 
+.no-wrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .style{
     font-weight: 300;
-
     box-shadow:  0px 0px 10px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(5px);
     border-radius: 4vw;
     border: 1px solid rgba(198, 198, 198, 0.498);
     text-align: center;
+
     transition-duration: .5s;
     transition-timing-function: ease;
     transition-property: backdrop-filter, width, padding, background-color, box-shadow, filter, transform, color, flex;
     &:hover{
-        backdrop-filter: blur(25px);
+        backdrop-filter: blur(10px);
     }
+
     &.btn{
-        background-color: whitesmoke;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s ease;
+
+
+
         cursor: pointer;
         backdrop-filter: unset;
         padding: .75vw 2.25vw;
         font-size: 1.5vw;
-        color: #323232;
+        color: var(--text-color);
+        background-color: var(--background-color);
+
         &:hover{
-            background-color: rgb(49, 94, 255);
-            box-shadow: inset 2px 2px 15px rgb(0, 102, 255),inset -3px -3px 7px #cecece;
             padding: .75vw 3.5vw;
-            color: whitesmoke !important;
         }
         &.active{
-            background-color: rgb(49, 94, 255);
-            color: whitesmoke;
+            background-color: rgb(49, 94, 255) !important;
+            color: whitesmoke !important;
         }
     }
+    &.input{
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.3);
+        font-size: 1.25vw;
+        text-align: center;
+        padding: 1vw;
+        color: var(--text-color);
+        background-color: var(--background-color);
+
+    }
+
     &.alt{
         background: rgb(49, 94, 255);
         box-shadow: inset 2px 2px 15px rgb(0, 47, 255),inset -3px -3px 7px #cecece;
         color: whitesmoke;
     }
-    &.input{
-        box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.344);
-        color: whitesmoke;
-        font-size: 1.25vw;
-        text-align: center;
-        padding: 1vw;
-    }
 }
+
+
+
 /* tablet */
 @media (max-width: 1440px) {
     /* for base and others  */
@@ -239,6 +241,9 @@ button:disabled{
 /* vertical tablet */
 @media (max-width: 810px) {
     /* for base and others */
+    #body{
+        height: 90vh;
+    }
     div,
     button,
     a,
@@ -249,28 +254,48 @@ button:disabled{
         border-radius: 50px !important;
     }
     header{
+        position: relative;
         .nav-bar {
             display: none;
         }
         a {
-            font-size: 3vw !important;
+            font-size: 3vw;
         }
         img {
             height: calc(100% - 3vh);
         }
+        .side-bar-btn{
+            display: flex !important;
+            height: 100%;
+            box-sizing: border-box;
+            justify-content: center;
+            align-items: center;
+        }
+        .side-bar{
+            /* height: vh; */
+            position: fixed;
+            /* left: -200px; */
+            transform: translateX(-200px);
+            transition: all .5s ease;
+            top: 150%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 25px;
+            & a{
+                min-height: 100px;
+            }
+            &.show{
+                transform: translateX(0px) !important;
+            }
+        }
     }
     footer {
-        padding: 0px !important;
-        p, .socials{
-            display: none;
-        }
-        .nav-bar{
-            display: flex !important;
-        }
+        display: none;
     }
     .style{
         &.btn{
-            font-size: 3vw;
+            font-size: 4vw;
             padding: 1vw 2.5vw;
             /* &:hover{
                 padding: 1vw 5vw !important;
@@ -357,23 +382,22 @@ button:disabled{
             }
 
             #personal-info-div{
-                align-items: unset !important;
-                gap: unset !important;
                 justify-content: space-between;
+                align-items: center;
                 gap: 25px;
                 label {
-                    font-size: 4vw !important;
+                    font-size: 4vw;
                 }
                 div{
                     height: 75px !important;
-                    width: 100% !important;
+                    width: 95% !important;
                     & input{
                         height: 100%;
                         border-radius: 50px !important;
-                        font-size: 3vw !important;
+                        font-size: 3vw ;
                     }
                     h2, h3 {
-                        font-size: 4vw !important;
+                        font-size: 4vw;
                     }
                 }
             }
@@ -407,6 +431,9 @@ button:disabled{
     /* base and others end */
 
     #body{
+        p{
+            font-size: 7vw !important;
+        }
 
         /* for home  */
         .topics{
@@ -422,9 +449,13 @@ button:disabled{
 
         /* for shop  */
         #option-row > button {
-            font-size: 3.5vw !important;
+            font-size: 5vw !important;
         }
         #product-div > div {
+            &:nth-child(odd):hover,
+            &:nth-child(even):hover{
+                transform: scale(1) translate(0px, 0px) !important;
+            }
             width: 100% !important;
             h3 {
                 font-size: 5vw !important;
@@ -495,6 +526,7 @@ button:disabled{
             justify-content: space-evenly;
             .panel-btns{
                 width: 40% !important;
+                font-size: 4vw !important;
                 &:hover{
                     padding: 1.5vw 3vw !important;
                 }
@@ -503,57 +535,82 @@ button:disabled{
                 padding: 1.5vw 3vw !important;
             }
         }
-
-        #finished-courses-div,
-        #in-progress-courses-div{
-            h1{
-                font-size: 12vw !important;
-            }
-            h2{
-                font-size: 10vw !important;
-            }
+        .sub-div{
+            flex-direction: column;
+            min-height: 400px;
+            /* height: auto; */
+            padding-left: 0px;
+            h2,
             h3{
-                font-size: 8vw !important;
+                font-size: 7vw !important;
+                display: flex;
+                align-items: center;
             }
             p {
-                font-size: 6vw;
+                text-align: center;
+                display: flex;
+                align-items: center;
             }
-            width: 100% !important;
-            .course-div{
-                box-sizing: border-box;
-                div {
-                    flex-direction: column;
-                }
-                & > div:last-child{
-                    flex-direction: row !important;
-                }
-            }
-        }
-        #wallet-div{
-            width: 100% !important;
-
-            div{
-                flex-wrap: wrap;
-                p{
-                    flex: unset !important;
-                    width: 40% !important;
-                    font-size: 4vw !important;
+            &.wallet-top-row div {
+                width: 100%;
+                gap: 25px;
+                button,
+                input{
+                    flex: 1;
+                    border-radius: 50px;
                 }
             }
-            .wallet-top-row{
-                flex-direction: column !important;
-                div {
-                    flex-direction: column;
-                    width: 100%;
-                    gap: 25px;
-                    button,
-                    input{
-                        font-size: 5vw !important;
-                    }
-                }
+            & > label{
+                font-size: 7vw !important;
+            }
+            & > input{
+                font-size: 7vw !important;
+                width: 100%;
             }
         }
+        .sub-div.two-row{
+            padding: 25px;
+            :first-child {
+                flex-direction: column;
+            }
+        }
+            
+          
         /* end profile */
+
+        .study-div{
+            justify-content: unset !important;
+            flex-direction: column;
+            overflow: scroll;
+            scrollbar-width: none;
+            h2,
+            h3{
+                font-size: 7vw !important;
+            }
+            & .left-div {
+                padding: 25px;
+                height: unset ;
+                width: 100%;
+            }
+            & .right-div{
+                box-sizing: border-box;
+                height: unset;
+                width: 100%;
+                .example{
+                    box-sizing: border-box;
+                    width: 100%;
+
+                    gap: 25px;
+                }
+                .top-row{
+                    gap: 25px;
+                    flex-direction: column;
+                }
+            }
+        }
+        .test h3{
+            font-size: 6vw;
+        }
     }
 
 }

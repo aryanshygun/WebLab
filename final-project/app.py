@@ -13,11 +13,25 @@ def open_file(address):
 def save_file(address, update):
     with open(address, "w") as outfile:
         json.dump(update, outfile, indent=4)
-
+        
+@app.route('/update-session')
 def update_session():
     users = open_file("static/json/users.json")
     session["user"] = { key: value for key, value in users[session["user"]["user_name"]].items()}
     return redirect(url_for("home_page"))
+
+@app.route("/set-theme/<theme>", methods=["GET", "POST"])
+def set_theme(theme):
+    session["theme"] = theme
+    print('color set to', theme)
+    return jsonify({"theme": 'color is now set to' + theme})
+
+@app.route("/get-theme")
+def get_theme():
+    if session.get("theme"):
+        return jsonify({"theme": session["theme"]})
+    return jsonify({"theme": "dark"})
+
 
 @app.route("/logout")
 def logout():
@@ -120,9 +134,9 @@ def authorization_api(status):
         if username in users and users[username]["password"] == password:
             session["logged-in"] = True
             session["user"] = users[username].copy()
-            success, message = True, "Login Successful!"
+            success, message, action = True, "Login Successful!", 'Proceed'
         else:
-            success, message = False, "Wrong Info!"
+            success, message, action = False, "Wrong Info!", "Retry"
 
     elif status == "register":
         if username not in users:
@@ -139,24 +153,12 @@ def authorization_api(status):
             }
             session["logged-in"] = True
             session["user"] = users[username].copy()
-            success, message = True, "Registration Successful!"
+            success, message, action = True, "Registration Successful!", 'Proceed'
         else:
-            success, message = False, "Username already taken!"
+            success, message, action = False, "Username already taken!", "Retry"
 
     save_file("static/json/users.json", users)
-    return jsonify({"success": success, "message": message})
-
-@app.route("/update/exam/<exam_name>/<score>")
-def update_exam(exam_name, score):
-    users = open_file('static/json/users.json')
-    user_courses = users[session['user']['user_name']]['courses']
-    for course in user_courses:
-        if course['course'] == exam_name:
-            course['status'] = 'finished'
-            course['score'] = int(score)
-    save_file('static/json/users.json', users)
-    update_session()
-    return jsonify({'message':'success'})
+    return jsonify({"success": success, "message": message, "action": action})
 
 @app.route("/update-user-info", methods=["POST"])
 def update_user():
@@ -187,23 +189,25 @@ def course_page(course):
 
 @app.route("/get/course/<course_name>")
 def get_course_details(course_name):
-    
     if not session.get("logged-in"):
-        return jsonify({"message": "not logged"})
-    
-    if session['user']['status'] != 'Student':
-        return jsonify({'message': 'not student'})
+        return jsonify({'success': False, 'message': "You need to first Login!"})
     
     if course_name == 'none':
-        return jsonify({'message': 'no course selected'})
-    
+        return jsonify({'success': False, 'message': 'select a course from the Profile Panel!'})
+
     topics = open_file("static/json/topics.json")
     url_course = course_name.replace("&", " ")
     
     for topicDetails in topics.values():
         for course in topicDetails['courses']:
             if course["title"] == url_course:
-                return jsonify({"course": course})
+                return jsonify({'success': True, 'message': course})
+                
+                # success = True
+                # message = course
+                # break
+    # return jsonify({'success': success, 'message': message})
+            
 
 @app.route("/exam/<exam>")
 def exam_page(exam):
@@ -219,46 +223,119 @@ def get_exam_details(exam_name):
             random_tests = random.sample(j, 5)
             return jsonify({"tests": random_tests})
 
-
-
-
-
-
-
-
 @app.route("/profile/<profile_div>")
 def load_profile(profile_div):
     if not session.get("logged-in"):
         return redirect(url_for("authorization_page"))
     return render_template("Base.html", name="Profile")
 
-@app.route("/delete-user/<user>", methods=['GET','POST'])
-def delete_user(user):
-    if session['user']['status'] == 'Admin':
-        users = open_file("static/json/users.json")
-        del users[user]
-        save_file('static/json/users.json', users)
-        return jsonify({ 'success': True})
+
+@app.route("/update/<action>/<json_file>", methods=["POST"])
+def update_json(action, json_file):
+    
+    if action == 'add' and json_file == 'topics':
+        file = open_file(f"static/json/{json_file}.json")
+        topic_name = request.form.get("topicName")
+        img_url = request.form.get("urlAddress")
+        file[topic_name] = {
+            "img": f"/static/img/{img_url}",
+            "courses": []
+        }
+        save_file(f"static/json/{json_file}.json", file)
+        return jsonify({"success": True})
+    
+    elif action == 'remove' and json_file == 'topics':
+        file = open_file(f"static/json/{json_file}.json")
+        data = request.get_json()
+        topic_name = data.get("topicName")
+        del file[topic_name]
+        save_file(f"static/json/{json_file}.json", file)
+        return jsonify({"success": True})
+    
+    elif action == 'remove' and json_file == 'users':
+        file = open_file(f"static/json/{json_file}.json")
+        data = request.get_json()
+        username = data.get("username")
+        del file[username]
+        save_file(f"static/json/{json_file}.json", file)
+        return jsonify({"success": True})
+    
+    elif action == 'remove' and json_file == 'course':
+        data = request.get_json()
+        course_title = data.get("course")
+        file2 = open_file("static/json/users.json")
+        for i, j in file2.items():
+            if i == session['user']['user_name']:
+                for i in range(len(j['courses_created'])):
+                    if j['courses_created'][i] == course_title:
+                        j['courses_created'].pop(i)
+                        break
+        save_file("static/json/users.json", file2)
+        update_session()
+        return jsonify({"success": True})
+    
+    elif action == 'add' and json_file == 'course':
+        file = open_file(f"static/json/users.json")
+        data = request.get_json()
+        course_title = data.get("course")
+
+        for i, j in file.items():
+            if i == session['user']['user_name']:
+                j['courses_created'].append(course_title)
+                update_session()
+                break
+        save_file(f"static/json/users.json", file)
+        update_session()
+        return jsonify({"success": True})
+
+    elif action == 'add' and json_file == 'transactions':
+        file = open_file(f"static/json/{json_file}.json")
+        data = request.get_json()
+        amount = data.get("amount")
+        transaction = {
+            "username": session['user']['user_name'],
+            "action": "charge",
+            "course": "",
+            "amount": int(amount),
+            "time": datetime.now().strftime("%m-%d %H:%M")
+        }
+        file.append(transaction)
+        save_file(f"static/json/{json_file}.json", file)
+        update_session()
+        return jsonify({"success": True})
+    
+    elif action == 'add' and json_file == 'exam':
+        data = request.get_json()
+        score = data.get("score")
+        exam_name = data.get("exam_name")
         
-@app.route("/charge-wallet/<amount>", methods=["GET","POST"])
-def charge_wallet(amount):
-    transactions = open_file("static/json/transactions.json")
-    new_transaction = {
-        "username": session['user']['user_name'],
-        "action": "charge",
-        "course": "",
-        "amount": int(amount),
-        "time": datetime.now().strftime("%Y-%m-%d %H:%M")
-    }
-    transactions.append(new_transaction)
-    save_file("static/json/transactions.json", transactions)
+        file = open_file(f"static/json/users.json")
+        
+        user_courses = file[session['user']['user_name']]['courses']
+        for course in user_courses:
+            if course['course'] == exam_name:
+                course['status'] = 'finished'
+                course['score'] = int(score)
+                
+        # data = request.get_json()
+        # exam_name = data.get("exam_name")
+        # questions = data.get("questions")
+        # file[exam_name] = questions
+        save_file(f"static/json/users.json", file)
+        update_session()
+        return jsonify({"success": True})
     
-    users = open_file("static/json/users.json")
-    users[session['user']['user_name']]["wallet"] += int(amount)
-    save_file("static/json/users.json", users)
-    
-    update_session()    
-    return jsonify({"success": True,"final_wallet": session['user']['wallet'], "new_transaction": new_transaction})
+# @app.route("/update/exam/<exam_name>/<score>")
+# def update_exam(exam_name, score):
+#     users = open_file('static/json/users.json')
+#     user_courses = users[session['user']['user_name']]['courses']
+#     for course in user_courses:
+#         if course['course'] == exam_name:
+#             course['status'] = 'finished'
+#             course['score'] = int(score)
+#     save_file('static/json/users.json', users)
+#     update_session()
+#     return jsonify({'message':'success'})
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5075)

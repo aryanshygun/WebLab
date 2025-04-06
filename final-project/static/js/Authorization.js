@@ -4,14 +4,14 @@ function createAuthFormDiv(){
     formDiv.id = 'auth-form'
 
     const welcomeText = document.createElement("h1")
-    welcomeText.textContent = "Welcome!"
+    welcomeText.textContent = "WELCOME TO LEARNIT"
     
     const instructionText = document.createElement('p')
-    instructionText.textContent = "Please log in to continue."
+    instructionText.textContent = "- PLEASE LOGIN TO CONTINUE -"
     
 
     const userNameLabel = document.createElement("label");
-    userNameLabel.textContent = "Enter your username:";
+    userNameLabel.textContent = "- USERNAME -";
     
     const userNameInput = document.createElement("input");
     userNameInput.classList.add("style", "input");
@@ -20,7 +20,7 @@ function createAuthFormDiv(){
     userNameInput.id = "username";
     
     const passWordLabel = document.createElement("label")
-    passWordLabel.textContent = "Enter your password:"
+    passWordLabel.textContent = "- PASSWORD -"
 
     const passWordInput = document.createElement("input")
     passWordInput.classList.add('style', 'input')
@@ -65,23 +65,10 @@ function checkLog(status, event){
         })
         .then(response => response.json())
         .then(data => {
-            
-            const resultDiv = document.createElement('div')
-            const statusText = document.createElement('p')
-            const actionBtn = document.createElement('a')
-            actionBtn.classList.add('style', 'btn')
-            actionBtn.href = '/'
-            document.getElementById('action-div').style.display = 'none'
-            if (data.success) {
-                statusText.textContent = data.message;
-                actionBtn.textContent = 'Proceed'
-            } else {
-                statusText.textContent = data.message;
-                actionBtn.textContent = 'Retry'
-            }
-            resultDiv.appendChild(statusText)
-            resultDiv.appendChild(actionBtn)
-            document.querySelector('form').appendChild(resultDiv)
+            document.getElementById('action-div').innerHTML = `
+            <p id="statusText">${data.message}</p>
+            <a class="style btn" href="/">${data.action}</a>
+            `
         })
     }
 }

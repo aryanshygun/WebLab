@@ -1,16 +1,26 @@
+const color = document.getElementById('logo').src.includes('light');
+// it means its darkmode
+const backgroundColor = color ? '#00000085' : '#eeeeee85'
+const textColor = color ? '#eeeeee' : '#303030'
+
 function addPersonalInfoDiv(dataDetails) {
+
   const form = document.createElement("form");
   form.id = "personal-info-div";
   form.classList.add("content-div");
   form.method = "POST";
 
+
   function addTopRow() {
     const row = document.createElement("div");
+    row.style.backgroundColor = backgroundColor
+    row.style.color = textColor
     row.classList.add("style", "sub-div", "top-row-div");
     row.innerHTML = `
             <h2> ${dataDetails.first_name} ${dataDetails.last_name} </h2>
             <h3> ${dataDetails.status}</h3>
         `;
+
     return row;
   }
 
@@ -26,8 +36,11 @@ function addPersonalInfoDiv(dataDetails) {
     ];
 
     userInfoRows.forEach(([labelTextContent, name, type, inputTextContent]) => {
+
       const row = document.createElement("div");
       row.classList.add("style", "sub-div");
+      row.style.backgroundColor = backgroundColor
+      row.style.color = textColor
 
       const label = document.createElement("label");
       label.setAttribute("for", name);
@@ -42,6 +55,8 @@ function addPersonalInfoDiv(dataDetails) {
       row.appendChild(label);
       row.appendChild(input);
       form.appendChild(row);
+
+
     });
   }
 
@@ -49,6 +64,8 @@ function addPersonalInfoDiv(dataDetails) {
 
   function addBotRow() {
     const buttonDiv = document.createElement("div");
+    buttonDiv.style.backgroundColor = backgroundColor
+    buttonDiv.style.color = textColor
     buttonDiv.classList.add("style", "sub-div", "btn-row-div");
     buttonDiv.innerHTML = `
             <p id='success-message' style="display: none;">Update Successful!</p>
@@ -74,11 +91,15 @@ function addPersonalInfoDiv(dataDetails) {
       });
   });
 
+
+
   return form;
 }
 
 function addCoursesDiv(dataDetails, type, btnText) {
   const div = document.createElement("div");
+  div.style.color = textColor
+
   div.id = `${type}-courses-div`;
   div.classList.add("content-div");
 
@@ -86,7 +107,7 @@ function addCoursesDiv(dataDetails, type, btnText) {
     if (status === type) {
       let href = course.replace(/ /g, "&");
       const courseDiv = document.createElement("div");
-      courseDiv.classList.add("course-div", "style");
+      courseDiv.classList.add("sub-div","two-row","course-div", "style");
 
       const infoRow = document.createElement("div");
       function createInfoRow(textContent, type) {
@@ -101,6 +122,9 @@ function addCoursesDiv(dataDetails, type, btnText) {
       const actionRow = document.createElement("div");
       function createActionButton(textContent, type, href) {
         const a = document.createElement("a");
+        a.style.backgroundColor = backgroundColor
+        a.style.color = textColor
+
         a.textContent = textContent;
         a.classList.add("style", "btn");
         a.href = `/${type}/${href}`;
@@ -126,7 +150,10 @@ function addWalletDiv(dataDetails) {
 
   function createTopRow() {
       const div = document.createElement("div");
-      div.classList.add("style", "transaction-div", "wallet-top-row");
+      div.style.backgroundColor = backgroundColor
+      div.style.color = textColor
+
+      div.classList.add("style", "sub-div", "wallet-top-row");
       const WalletAmount = document.createElement("h2");
       WalletAmount.textContent = `Wallet: ${dataDetails.wallet}$`;
 
@@ -140,21 +167,20 @@ function addWalletDiv(dataDetails) {
       chargeBtn.textContent = "Charge Account";
       chargeBtn.onclick = function () {
           const amount = inputField.value;
-          fetch(`/charge-wallet/${amount}`)
+          fetch(`/update/add/transactions`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  amount: amount,
+              }),
+          })
           .then(response => response.json())
           .then(data => {
             if (data.success) {
-              WalletAmount.textContent = `Wallet: ${data.final_wallet}$`;
-              chargeBtn.textContent = 'Charged!';
-              inputField.value = "";
-              mainDiv.innerHTML += `
-              <div class="style transaction-div">
-                  <p>${data.new_transaction.action}</p>
-                  <p>${data.new_transaction.course}</p>
-                  <p>${data.new_transaction.amount}</p>
-                  <p>${data.new_transaction.time}</p>
-              </div>
-              `
+
+              location.reload()
             }
           })
       };
@@ -172,12 +198,16 @@ function addWalletDiv(dataDetails) {
   fetch('/get/transactions')
       .then(response => response.json())
       .then(data => {
-          data.transactions.forEach((record) => {
+          data.transactions.forEach(record => {
               if (record.username === dataDetails.user_name) {
                   const div = document.createElement("div");
-                  div.classList.add('style',"transaction-div")
+                  div.style.backgroundColor = backgroundColor
+                  div.style.color = textColor
+            
+                  
+                  div.classList.add('style',"sub-div")
                   const xlist = ["action", "course", "amount", "time"];
-                  xlist.forEach((x) => {
+                  xlist.forEach(x => {
                       const p = document.createElement("p");
                       p.textContent = record[x];
                       div.appendChild(p);
@@ -190,6 +220,8 @@ function addWalletDiv(dataDetails) {
 }
 
 export function fillProfile(dataDetails) {
+
+
     const url_div = window.location.pathname.split("/")[2]
     const urlList = {
       "Personal&Info": addPersonalInfoDiv(dataDetails),

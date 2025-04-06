@@ -5,9 +5,9 @@
     flex-direction: row;
     gap: 2vh;
     flex-wrap: wrap;
-    margin: -3.2vh 0;
-    padding: 6vh 2vh;
-    max-height: unset !important;
+    /* margin: -3.2vh 0;
+    padding: 6vh 2vh; */
+    height: 100%;
 
     overflow: scroll;
     scrollbar-width: none;
@@ -27,6 +27,10 @@
     justify-content: center;
     background-position: 50%;
     gap: 1vh;
+    & p,
+    & h2{
+        color: #eeeeee !important;
+    }
     box-shadow: inset 0px -100vh 100px 10px rgba(0, 0, 0, 0.461);
 }
 

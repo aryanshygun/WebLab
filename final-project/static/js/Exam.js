@@ -6,7 +6,7 @@ function createTestsDiv(course_name, data) {
         const testRow = document.createElement('div');
         testRow.classList.add('test', 'style');
 
-        const questionP = document.createElement('h2')
+        const questionP = document.createElement('h3')
         questionP.textContent = test.question
         testRow.appendChild(questionP)
 
@@ -52,9 +52,19 @@ function createTestsDiv(course_name, data) {
         resultText.style.display = 'flex'
         resultText.textContent = `Your Score is ${percentage}%!`
 
-        fetch(`/update/exam/${course_name}/${percentage}`)
+        fetch(`/update/add/score`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                exam_name: course_name,
+                score: percentage
+            })
+        })
         .then(response => response.json())
         .then(data =>{
+            
 
         })
 

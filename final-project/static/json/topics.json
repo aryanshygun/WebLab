@@ -22,7 +22,9 @@
             },
             {
                 "title": "Fix The Code!",
-                "prerequisites": ["Guess The Language!"],
+                "prerequisites": [
+                    "Guess The Language!"
+                ],
                 "price": 90,
                 "body": "Debugging is an essential skill in programming. In this section, you'll identify the problem in a given code snippet. By analyzing syntax and logical errors, you'll improve your ability to troubleshoot and refine code. This hands-on approach will teach you best practices for debugging, such as reading error messages, using print statements, and employing debugging tools. Developing these skills will make you a more effective and efficient programmer.",
                 "examples": [
@@ -40,7 +42,10 @@
             },
             {
                 "title": "Complete The Code!",
-                "prerequisites": ["Guess The Language!", "Fix The Code!"],
+                "prerequisites": [
+                    "Guess The Language!",
+                    "Fix The Code!"
+                ],
                 "price": 110,
                 "body": "Fill-in-the-blank questions test your understanding of programming syntax and logic. Choose the correct code to complete the snippet. This exercise will challenge your ability to recall programming concepts, apply logical reasoning, and write functional code. As you progress, you'll develop a stronger grasp of different programming paradigms, reinforcing your problem-solving abilities and making you a more confident coder.",
                 "examples": [
@@ -81,17 +86,19 @@
             },
             {
                 "title": "Multiply And Divide!",
-                "prerequisites": ["Add And Subtract!"],
+                "prerequisites": [
+                    "Add And Subtract!"
+                ],
                 "price": 75,
                 "body": "Learn multiplication and division techniques to strengthen your math skills. These operations are key to solving real-world problems, from calculating expenses to understanding ratios. This course will help you build fluency with numbers, develop efficient strategies for computation, and enhance your problem-solving abilities. Whether you're preparing for exams or improving everyday calculations, mastering multiplication and division is essential.",
                 "examples": [
                     {
-                        "example": "6 × 4 = ?",
+                        "example": "6 \u00d7 4 = ?",
                         "answer": "24",
                         "explanation": "Multiplication is the process of repeated addition. 6 multiplied by 4 means adding 6 four times (6 + 6 + 6 + 6)."
                     },
                     {
-                        "example": "24 ÷ 8 = ?",
+                        "example": "24 \u00f7 8 = ?",
                         "answer": "3",
                         "explanation": "Division breaks a number into equal parts. In this case, 24 divided by 8 results in 3."
                     }
@@ -99,19 +106,22 @@
             },
             {
                 "title": "Squares And Roots!",
-                "prerequisites": ["Add And Subtract!", "Multiply And Divide!"],
+                "prerequisites": [
+                    "Add And Subtract!",
+                    "Multiply And Divide!"
+                ],
                 "price": 100,
                 "body": "Explore square numbers and square roots to deepen your mathematical understanding. These concepts play a crucial role in algebra, geometry, and advanced problem-solving. By learning how to identify and compute squares and roots, you'll develop a stronger foundation in mathematics. This course will provide interactive exercises and real-world applications, making abstract concepts more tangible and accessible.",
                 "examples": [
                     {
                         "example": "The square of 5 is ?",
                         "answer": "25",
-                        "explanation": "Squaring a number means multiplying it by itself. 5 × 5 equals 25."
+                        "explanation": "Squaring a number means multiplying it by itself. 5 \u00d7 5 equals 25."
                     },
                     {
                         "example": "The square root of 36 is ?",
                         "answer": "6",
-                        "explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number. The square root of 36 is 6 because 6 × 6 = 36."
+                        "explanation": "The square root of a number is the value that, when multiplied by itself, gives the original number. The square root of 36 is 6 because 6 \u00d7 6 = 36."
                     }
                 ]
             }
@@ -140,7 +150,9 @@
             },
             {
                 "title": "Antonyms!",
-                "prerequisites": ["Synonyms!"],
+                "prerequisites": [
+                    "Synonyms!"
+                ],
                 "price": 65,
                 "body": "Expand your knowledge of language by discovering opposite words. Learning antonyms enhances comprehension and strengthens your ability to express contrasting ideas effectively. This course will provide interactive activities to reinforce the meaning of words, helping you develop a richer vocabulary. Mastering antonyms will improve both your reading and writing skills, making your language usage more precise and impactful.",
                 "examples": [
@@ -158,7 +170,10 @@
             },
             {
                 "title": "Find The Word!",
-                "prerequisites": ["Synonyms!", "Antonyms!"],
+                "prerequisites": [
+                    "Synonyms!",
+                    "Antonyms!"
+                ],
                 "price": 90,
                 "body": "Fill-in-the-blank questions test your vocabulary and understanding of word usage. Choose the correct word to complete the sentence. This course will challenge you to think critically about word meanings, context, and grammatical structures. Through engaging exercises, you'll refine your ability to select the right words, improving both your comprehension and communication skills. Strengthening your vocabulary will boost your confidence in both everyday and professional conversations.",
                 "examples": [

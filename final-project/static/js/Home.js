@@ -25,9 +25,11 @@ function createTopicsDiv(){
     
                 const address = document.createElement('a')
                 address.classList.add("style")
-                // address.href = `/shop/${topic}`
-                address.id = `${topic.toLowerCase()}`
-                address.textContent = topic
+                address.href = `/shop/${topic}`
+                
+                const addressText = document.createElement('p')
+                addressText.textContent = topic
+                address.appendChild(addressText)
 
                 const backgroundImage = document.createElement('img')
                 backgroundImage.classList.add('a-img')
@@ -41,8 +43,10 @@ function createTopicsDiv(){
 }
 
 function fillHomePage(){
-    document.getElementById('body').appendChild(createHeroDiv())
-    document.getElementById('body').appendChild(createTopicsDiv())
+    const body = document.getElementById('body')
+
+    body.appendChild(createHeroDiv())
+    body.appendChild(createTopicsDiv())
 }    
 
 fillHomePage()

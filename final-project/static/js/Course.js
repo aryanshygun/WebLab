@@ -1,14 +1,23 @@
-function createDefaultDiv(text){
-    const div = document.createElement('div')
-    div.classList.add('style', 'default-div')
-    
-    const p = document.createElement('p')
-    p.textContent = text
-    div.appendChild(p)
-    return div
-}
 
-function createStudyDiv(course){
+// function createDefaultDiv(text){
+// const div = document.createElement('div')
+//     div.classList.add('style', 'default-div')
+
+//     const p = document.createElement('p')
+//     p.textContent = text
+//     div.appendChild(p)
+//     return div
+// }
+
+function createStudyDiv(dataSuccess, dataMessage){
+    if (!dataSuccess){
+        const div = document.createElement('div')
+        div.classList.add('style', 'default-div')
+        const p = document.createElement('p')
+        p.textContent = dataMessage
+        div.appendChild(p)
+        return div
+    }
     const div = document.createElement('div')
     div.classList.add('study-div')
 
@@ -61,8 +70,8 @@ function createStudyDiv(course){
         return rightDiv
     }
 
-    div.appendChild(createLeftDiv(course))
-    div.appendChild(createRightDiv(course))
+    div.appendChild(createLeftDiv(dataMessage))
+    div.appendChild(createRightDiv(dataMessage))
     return div
 }
 
@@ -71,19 +80,33 @@ function fillCoursePage(){
     const url_course = window.location.pathname.split("/")[2]
     const body = document.getElementById('body')
     
+    console.log(url_course)
     fetch(`/get/course/${url_course}`)
     .then (response => response.json())
     .then (data => {
-        if (data.message === 'not logged'){
-            body.appendChild(createDefaultDiv('You need to first Log in!'))
-        } else if (data.message === 'not student'){
-            body.appendChild(createDefaultDiv('You need to be a student!'))
-        } else if (data.message === 'no course selected'){
-            body.appendChild(createDefaultDiv('Select a course from your profile!'))
-        } else {
-            body.appendChild(createStudyDiv(data.course))
-        }
+        console.log(data)
+        body.appendChild(createStudyDiv(data.success, data.message))
     })
 }
+// setTimeout(() => {
+    
+// }, 500);
+
+// setTimeout(() => {
+//     const themeColor = document.getElementById('logo').src.includes('light');
+//     // it means its darkmode
+//     const backgroundColor = themeColor ? '#00000085' : '#eeeeee85'
+//     const textColor = themeColor ? '#eeeeee' : '#303030'
+
+//     fillCoursePage(backgroundColor, textColor)
+// }, 500);
+
+// fetch('/get-theme')
+// .then(response => response.json())
+// .then(data => {
+//     const backgroundColor = data.theme === 'dark' ? '#00000085' : '#eeeeee85'
+//     const textColor = data.theme === 'dark' ? '#eeeeee' : ' #303030'
+//     fillCoursePage(backgroundColor, textColor)
+// })
 
 fillCoursePage()

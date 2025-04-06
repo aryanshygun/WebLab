@@ -2,21 +2,33 @@ function createTopicsDiv(topics) {
     const optionRow = document.createElement("div");
     optionRow.id = "option-row";
     const site_url = window.location.pathname.split('/')[2].replace(/&/g, " ")
-    console.log(site_url)
 
-    
     Object.keys(topics).forEach(category => {
         const btn = document.createElement("a");
         btn.textContent = category;
         btn.classList.add("option-btn", "style", "btn");
-        btn.id = category
         btn.href = `/shop/${category}`
+
+        const color = document.getElementById('logo').src.includes('light');
+        // it means its darkmode
+        const backgroundColor = color ? '#00000085' : '#eeeeee85'
+        const textColor = color ? '#eeeeee' : '#303030'
+        btn.style.backgroundColor = backgroundColor
+        btn.style.color = textColor
+
+        console.log('color')
+        console.log(color)
+
+
+
         if (site_url === category){
             btn.style.backgroundColor = 'rgb(49, 94, 255)'
             btn.style.color = 'white'
           }
         optionRow.appendChild(btn);
     });
+
+
     return optionRow;
 }
 
@@ -148,4 +160,3 @@ function fillShopPage(){
     })
 }
 fillShopPage()
-

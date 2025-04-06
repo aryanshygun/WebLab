@@ -1,3 +1,5 @@
+
+
 let allowedDivs;
 function initializeAllowedDivs() {
   return fetch("/get/session")
@@ -7,24 +9,24 @@ function initializeAllowedDivs() {
 
       if (userDetails.status === "Student") {
         allowedDivs = [
-          "Personal Info", // shows the details of the user like city age
-          "Finished Courses", // just shows the finished courses and their scores
-          "In Progress Courses", // as above
-          "Wallet", // shows current money, allows to add money, shows history of transactions
+          "Personal Info",
+          "Finished Courses",
+          "In Progress Courses",
+          "Wallet",
         ];
       } else if (userDetails.status === "Teacher") {
         allowedDivs = [
-          "Personal Info", // shows the details of the user like city age
-          "Manage Courses", // shows all the courses created, allows to create a course
-          "Manage Tests", // shows all the tests created, allows to create a test
-          "Manage Opinions", // if teacher, shows all the opinions regarding coures
+          "Personal Info",
+          "Manage Courses",
+          "Manage Tests",
         ];
       } else if (userDetails.status === "Admin") {
         allowedDivs = [
-          "Personal Info", // shows the details of the user like city age
-          "Manage Users", // shows lall the users, allows admin to remove the user
-          "Manage Opinions", // if admin, shows all the opinions regarding courses and teachers and site
-          "Manage Transactions" // if admnin, have access to vieww all the transacitosn
+          "Personal Info",
+          "Manage Users",
+          "Manage Topics",
+          "Manage Opinions",
+          "Manage Transactions"
         ];
       }
     });
@@ -36,14 +38,22 @@ function addBtnsDiv() {
 
   const site_url = window.location.pathname.split('/')[2].replace(/&/g, " ")
 
+  const color = document.getElementById('logo').src.includes('light');
+  // it means its darkmode
+  const backgroundColor = color ? '#00000085' : '#eeeeee85'
+  const textColor = color ? '#eeeeee' : '#303030'
+  
   allowedDivs.forEach(sectionName => {
     const btn = document.createElement("a");
     const url = sectionName.replace(/ /g, "&");
     btn.href = `/profile/${url}`
     btn.classList.add("style", "btn", "panel-btns");
     if (site_url === sectionName){
-      btn.style.backgroundColor = 'rgb(49, 94, 255)'
+      btn.style.backgroundColor = '#315eff'
       btn.style.color = 'white'
+    } else {
+      btn.style.backgroundColor = backgroundColor
+      btn.style.color = textColor
     }
     btn.textContent = sectionName;
     leftSection.appendChild(btn);
@@ -65,14 +75,15 @@ function fillProfilePage() {
   const body = document.getElementById("body");
   body.classList.add('profile-div')
 
+
   initializeAllowedDivs().then(() => {
     body.appendChild(addBtnsDiv());
 
     import(`./profile${userDetails.status}.js`).then(module => {
       body.appendChild(module['fillProfile'](userDetails))
     });
-
   });
+  
 }
 
 fillProfilePage();
