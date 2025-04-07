@@ -2,8 +2,13 @@ function createHeaderDiv() {
   const headerDiv = document.createElement("header");
   headerDiv.classList.add("style");
 
+  const logoAddress = document.createElement('a')
+  logoAddress.href = '/'
+logoAddress.classList.add('logo-address')
   const logo = document.createElement("img");
+  
   logo.id = "logo";
+  logoAddress.appendChild(logo);
   
 
 
@@ -95,73 +100,12 @@ function createHeaderDiv() {
 
   headerDiv.appendChild(sideBarBtn);
   headerDiv.appendChild(sideBarDiv);
-  headerDiv.appendChild(logo);
+  headerDiv.appendChild(logoAddress);
   headerDiv.appendChild(navBar);
   headerDiv.appendChild(profileButton);
 
   return headerDiv;
 }
-
-
-// function createVerticalHeader(){
-//   const headerDiv = document.createElement("header");
-//   headerDiv.classList.add("style");
-
-//   const logo = document.createElement("img");
-//   logo.id = "logo";
-  
-
-//   const navBar = document.createElement("div");
-//   navBar.classList.add("nav-bar");
-
-//   pages = [
-//     ["HOME", "/home", 'home'],
-//     ["SHOP", "/shop/All", 'shop'],
-//     ["COURSE", "/course/none", 'course'],
-//     ["CONTACT", "/contact", 'contact'],
-//   ];
-
-//   pages.forEach(([textContent, href, url]) => {
-//     const link = document.createElement("a");
-//     link.classList.add("style", "btn", "no-wrap");
-//     link.textContent = textContent;
-//     link.href = href;
-//     const site_url = window.location.pathname.split('/')[1]
-//     if (site_url === url){
-//       link.classList.add('active')
-//     }
-
-//     navBar.appendChild(link);
-//   });
-
-//   const profileButton = document.createElement("a");
-//   profileButton.id = "profile-status";
-//   profileButton.classList.add("style", "alt", "btn");
-
-//   fetch("/get/session")
-//     .then(response => response.json())
-//     .then(data => {
-//       if (data.detail === 'none'){
-//         document.getElementById("profile-status").textContent = "Profile";
-//       } else {
-//         document.getElementById("profile-status").textContent = `${data.detail.first_name} ${data.detail.last_name} - ${data.detail.status}`;
-//       }
-//     });
-//   profileButton.href = "/profile/Personal&Info";
-
-//   headerDiv.appendChild(logo);
-//   headerDiv.appendChild(navBar);
-//   headerDiv.appendChild(profileButton);
-
-//   return headerDiv;
-
-// }
-
-
-
-
-
-
 
 function createBodyDiv() {
   const body = document.createElement("div");
@@ -246,7 +190,6 @@ function fillBasePage() {
   document.body.prepend(createFooterDiv());
   document.body.prepend(createBodyDiv());
   document.body.prepend(createHeaderDiv());
-  // document.body.prepend(createVerticalHeader())
 
 }
 

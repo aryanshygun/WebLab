@@ -51,6 +51,18 @@ body{
 }
 
 header{
+    .logo-address{
+        height: 100%;
+        box-sizing: border-box;
+        padding: 0;
+        margin-left: 15px;
+        display: flex;
+        align-items: center;
+        & img {
+            height: 65%;
+            margin-left: 0;
+        }
+    }
     max-height: 8vh;
     min-height: 8vh;
     width:  calc(100% - 4vh);
@@ -60,6 +72,10 @@ header{
     align-items: center;
     margin: 2vh 2vh 0 2vh;
     z-index: 10;
+    .side-bar,
+    .side-bar-btn{
+        display: none;
+    }
 
     & .nav-bar{
         display: flex;
@@ -197,8 +213,8 @@ button:disabled{
     /* for base and others  */
     header{
         a {
-            padding: 1.25vw 3vw !important;
-            font-size: 1.75vw !important;
+            padding: 1.25vw 3vw;
+            font-size: 1.75vw;
         }
     }
     footer{
@@ -271,11 +287,15 @@ button:disabled{
             justify-content: center;
             align-items: center;
         }
+        .side-bar,
+        .side-bar-btn{
+            display: flex;
+        }
         .side-bar{
             /* height: vh; */
             position: fixed;
             /* left: -200px; */
-            transform: translateX(-200px);
+            transform: translateX(-300px);
             transition: all .5s ease;
             top: 150%;
             display: flex;
@@ -309,6 +329,10 @@ button:disabled{
         #product-div > div {
             width: 100% !important;
             height: 35vh !important;
+            &:nth-child(odd):hover,
+            &:nth-child(even):hover{
+                transform: scale(1) translate(0px, 0px) !important;
+            }
         }
         /* shop end  */
 
@@ -452,10 +476,6 @@ button:disabled{
             font-size: 5vw !important;
         }
         #product-div > div {
-            &:nth-child(odd):hover,
-            &:nth-child(even):hover{
-                transform: scale(1) translate(0px, 0px) !important;
-            }
             width: 100% !important;
             h3 {
                 font-size: 5vw !important;
@@ -607,6 +627,13 @@ button:disabled{
                     flex-direction: column;
                 }
             }
+        }
+        .test{
+            height: 800px;
+            min-height: unset !important;
+            flex-direction: column;
+            gap: 25px;
+
         }
         .test h3{
             font-size: 6vw;

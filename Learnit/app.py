@@ -201,13 +201,7 @@ def get_course_details(course_name):
     for topicDetails in topics.values():
         for course in topicDetails['courses']:
             if course["title"] == url_course:
-                return jsonify({'success': True, 'message': course})
-                
-                # success = True
-                # message = course
-                # break
-    # return jsonify({'success': success, 'message': message})
-            
+                return jsonify({'success': True, 'message': course})        
 
 @app.route("/exam/<exam>")
 def exam_page(exam):
@@ -316,26 +310,9 @@ def update_json(action, json_file):
             if course['course'] == exam_name:
                 course['status'] = 'finished'
                 course['score'] = int(score)
-                
-        # data = request.get_json()
-        # exam_name = data.get("exam_name")
-        # questions = data.get("questions")
-        # file[exam_name] = questions
         save_file(f"static/json/users.json", file)
         update_session()
         return jsonify({"success": True})
-    
-# @app.route("/update/exam/<exam_name>/<score>")
-# def update_exam(exam_name, score):
-#     users = open_file('static/json/users.json')
-#     user_courses = users[session['user']['user_name']]['courses']
-#     for course in user_courses:
-#         if course['course'] == exam_name:
-#             course['status'] = 'finished'
-#             course['score'] = int(score)
-#     save_file('static/json/users.json', users)
-#     update_session()
-#     return jsonify({'message':'success'})
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5075)

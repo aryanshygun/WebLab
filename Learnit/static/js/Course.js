@@ -1,14 +1,4 @@
 
-// function createDefaultDiv(text){
-// const div = document.createElement('div')
-//     div.classList.add('style', 'default-div')
-
-//     const p = document.createElement('p')
-//     p.textContent = text
-//     div.appendChild(p)
-//     return div
-// }
-
 function createStudyDiv(dataSuccess, dataMessage){
     if (!dataSuccess){
         const div = document.createElement('div')
@@ -88,25 +78,5 @@ function fillCoursePage(){
         body.appendChild(createStudyDiv(data.success, data.message))
     })
 }
-// setTimeout(() => {
-    
-// }, 500);
-
-// setTimeout(() => {
-//     const themeColor = document.getElementById('logo').src.includes('light');
-//     // it means its darkmode
-//     const backgroundColor = themeColor ? '#00000085' : '#eeeeee85'
-//     const textColor = themeColor ? '#eeeeee' : '#303030'
-
-//     fillCoursePage(backgroundColor, textColor)
-// }, 500);
-
-// fetch('/get-theme')
-// .then(response => response.json())
-// .then(data => {
-//     const backgroundColor = data.theme === 'dark' ? '#00000085' : '#eeeeee85'
-//     const textColor = data.theme === 'dark' ? '#eeeeee' : ' #303030'
-//     fillCoursePage(backgroundColor, textColor)
-// })
 
 fillCoursePage()

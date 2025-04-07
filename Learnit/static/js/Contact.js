@@ -114,29 +114,4 @@ function fillContactPage(){
     mainBody.appendChild(createRightDiv())
 }
 
-// function submitOpinion(event) {
-//     if (event) event.preventDefault()
-
-//     const name = document.querySelector('input[name="name"]').value
-//     const subject = document.querySelector('input[name="subject"]').value
-//     const email = document.querySelector('input[name="email"]').value
-//     const message = document.querySelector('textarea[name="message"]').value
-//     const dataTime = new Date().toLocaleString()
-
-//     if (name && subject && email && message) {
-//         fetch(`/contact/submit`, {
-//             method: 'POST',
-//             headers: { 'Content-Type': 'application/json' },
-//             body: JSON.stringify({ name, email, subject, message, datatime: dataTime }),
-//         })
-//         .then(response => response.json())
-//         .then(data => {
-//             const resultText = document.getElementById('resultText')
-//             resultText.style.display = 'block'
-//             resultText.textContent = data.message
-//         })
-//     }
-// }
-
-
 fillContactPage()
