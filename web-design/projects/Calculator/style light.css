@@ -1,0 +1,66 @@
+body {
+    background-color:hsl(0, 0%, 90%);
+    font-family: Nunito;
+
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+section {
+    width: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+}
+
+#screen {
+    grid-column: span 4;
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+    font-size: 48px;
+    overflow: hidden;
+}
+
+.style{
+    background-color: #e0e0e0;
+    box-shadow:  2px 2px 5px #bfbfbf, -3px -3px 7px #ffffff;
+    border-radius: 50px;
+    border: 1px solid rgba(190, 190, 190, 0.5);
+    transition: all .3s ease;
+    color: hsl(0, 0%, 20%);
+}
+
+.btn{
+    display: flex;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+.btn:active {
+    transform: scale(.8);
+}
+.btn:hover{
+    box-shadow:inset 2px 2px 5px #bfbfbf, inset -3px -3px 7px #ffffff;
+}
+
+.span{
+    aspect-ratio: 4/1;
+    grid-column: span 4;
+}
+
+.op {
+    background-color: hsl(0, 0%, 50%);
+    box-shadow:inset 2px 2px 5px hsl(0, 0%, 25%), inset -3px -3px 7px hsl(0, 0%, 75%);
+    color: hsl(0, 0%, 90%);
+    border: 0px;
+}
+
+
