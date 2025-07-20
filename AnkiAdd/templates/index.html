@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence & Word Collector</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div>
+        <div class="toggle-buttons">
+            <a href="#sentence-form" data-target="sentence-form" class="active">Sentence</a>
+            <a href="#verb-form" data-target="verb-form">Verb</a>
+            <a href="#noun-form" data-target="noun-form">Noun</a>
+            <a href="#adj-form" data-target="adj-form">Adjective</a>
+            <a href="#adv-form" data-target="adv-form">Adverb</a>
+            <a href="#prep-form" data-target="prep-form">Preposition</a>
+            <a href="#conj-form" data-target="conj-form">Conjunction</a>
+            <a href="#other-form" data-target="other-form">Other</a>
+        </div>
+        <div class="forms">
+            <form id="sentence-form" action="/submit/sentence" method="post">
+                <h1>Sentences</h1>
+                <div class="form-row">
+                    <label for="Sentence">Sentence</label>
+                    <input id="sentence" name="Sentence" type="text" placeholder="e.g. Ich gehe zur Schule" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="sentence_translation" name="Translation" type="text" placeholder="e.g. I go to school">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Notes</label>
+                    <input id="sentence_notes" name="Notes" type="text" placeholder="e.g. daily routine">
+                </div>
+                <button type="submit">Add Sentence</button>
+            </form>
+
+            <form id="verb-form" action="/submit/verb" method="post">
+                <h1>Verbs</h1>
+                <div class="form-row">
+                    <label for="verb">Infinitive</label>
+                    <input id="verb" name="Verb" type="text" placeholder="e.g. gehen" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="verb_translation" name="Translation" type="text" placeholder="e.g. to go">
+                </div>
+                <div class="form-row">
+                    <label for="Praeteritum">Präteritum</label>
+                    <input id="verb_praeteritum" name="Praeteritum" type="text" placeholder="e.g. ging">
+                </div>
+                <div class="form-row">
+                    <label for="Partizip">Partizip II</label>
+                    <input id="verb_partizip" name="Partizip" type="text" placeholder="e.g. gegangen">
+                </div>
+                <div class="form-row">
+                    <label for="Auxiliary">Auxiliary verb</label>
+                    <input id="verb_auxiliary" name="Auxiliary" type="text" placeholder="e.g. sein">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="verb_example" name="Example" type="text" placeholder="e.g. Ich bin gestern gegangen">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="verb_example_translation" name="Example Translation" type="text" placeholder="e.g. I went yesterday">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Extra notes</label>
+                    <input id="verb_notes" name="Notes" type="text" placeholder="e.g. irregular verb">
+                </div>
+                <button type="submit">Add Verb</button>
+            </form>
+
+            <form id="noun-form" action="/submit/noun" method="post">
+                <h1>Nouns</h1>
+                <div class="form-row">
+                    <label for="Noun">Noun</label>
+                    <input id="noun" name="Noun" type="text" placeholder="e.g. der Hund" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="noun_translation" name="Translation" type="text" placeholder="e.g. the dog">
+                </div>
+                <div class="form-row">
+                    <label for="Plural">Plural</label>
+                    <input id="noun_plural" name="Plural" type="text" placeholder="e.g. die Hunde">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="noun_example" name="Example" type="text" placeholder="e.g. Der Hund spielt">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="noun_example_translation" name="Example Translation" type="text" placeholder="e.g. The dog is playing">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Extra notes</label>
+                    <input id="noun_notes" name="Notes" type="text" placeholder="e.g. masculine noun">
+                </div>
+                <button type="submit">Add Noun</button>
+            </form>
+
+            <form id="adj-form" action="/submit/adj" method="post" >
+                <h1>Adjectives</h1>
+                <div class="form-row">
+                    <label for="Adj">Adjective</label>
+                    <input id="adj" name="Adj" type="text" placeholder="e.g. schnell" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="adjective_translation" name="Translation" type="text" placeholder="e.g. fast">
+                </div>
+                <div class="form-row">
+                    <label for="Comparative">Comparative</label>
+                    <input id="adjective_comparative" name="Comparative" type="text" placeholder="e.g. schneller">
+                </div>
+                <div class="form-row">
+                    <label for="Superlative">Superlative</label>
+                    <input id="adjective_superlative" name="Superlative" type="text" placeholder="e.g. am schnellsten">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="adjective_example" name="Example" type="text" placeholder="e.g. Er läuft schnell">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="adjective_example_translation" name="Example Translation" type="text" placeholder="e.g. He runs fast">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Extra notes</label>
+                    <input id="adjective_notes" name="Notes" type="text" placeholder="e.g. used with verbs">
+                </div>
+                <button type="submit">Add Adjective</button>
+            </form>
+
+            <form id="adv-form" action="/submit/adv" method="post" >
+                <h1>Adverbs</h1>
+                <div class="form-row">
+                    <label for="Adv">Adverb</label>
+                    <input id="adverb" name="Adv" type="text" placeholder="e.g. heute" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="adverb_translation" name="adverb_translation" type="text" placeholder="e.g. today">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="adverb_example" name="Example" type="text" placeholder="e.g. Ich arbeite heute">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="adverb_example_translation" name="Example Translation" type="text" placeholder="e.g. I'm working today">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Extra notes</label>
+                    <input id="adverb_notes" name="Notes" type="text" placeholder="e.g. temporal adverb">
+                </div>
+                <button type="submit">Add Adverb</button>
+            </form>
+
+            <form id="prep-form" action="/submit/prep" method="post" >
+                <h1>Prepositions</h1>
+                <div class="form-row">
+                    <label for="Prep">Preposition</label>
+                    <input id="prep" name="Prep" type="text" placeholder="e.g. unter" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="prep_translation" name="Translation" type="text" placeholder="e.g. under">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="prep_example" name="Example" type="text" placeholder="e.g. Die Katze ist unter dem Tisch">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="prep_example_translation" name="Example Translation" type="text" placeholder="e.g. The cat is under the table">
+                </div>
+                <button type="submit">Add Preposition</button>
+            </form>
+
+            <form id="conj-form" action="/submit/conj" method="post" >
+                <h1>Conjunctions</h1>
+                <div class="form-row">
+                    <label for="Conj">Conjunction</label>
+                    <input id="conj" name="Conj" type="text" placeholder="e.g. weil" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="conj_translation" name="Translation" type="text" placeholder="e.g. because">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="conj_example" name="Example" type="text" placeholder="e.g. Ich bleibe zu Hause, weil ich müde bin">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="conj_example_translation" name="Example Translation" type="text" placeholder="e.g. I'm staying home because I'm tired">
+                </div>
+                <button type="submit">Add Conjunction</button>
+            </form>
+
+            <!-- Other -->
+            <form id="other-form" action="/submit/other" method="post" >
+                <h1>Other Words</h1>
+                <div class="form-row">
+                    <label for="Other">Other word</label>
+                    <input id="other" name="Other" type="text" placeholder="e.g. doch" required>
+                </div>
+                <div class="form-row">
+                    <label for="Translation">Translation</label>
+                    <input id="other_translation" name="Translation" type="text" placeholder="e.g. however">
+                </div>
+                <div class="form-row">
+                    <label for="Example">Example sentence</label>
+                    <input id="other_example" name="Example" type="text" placeholder="e.g. Es ist teuer, doch ich kaufe es">
+                </div>
+                <div class="form-row">
+                    <label for="Example Translation">Example translation</label>
+                    <input id="other_example_translation" name="Example Translation" type="text" placeholder="e.g. It’s expensive, but I’ll buy it">
+                </div>
+                <div class="form-row">
+                    <label for="Notes">Extra notes</label>
+                    <input id="other_notes" name="Notes" type="text" placeholder="e.g. used for contrast">
+                </div>
+                <button type="submit">Add Word</button>
+            </form>
+        </div>
+    </div>
+    <div class="entry-list">
+        {% for div in xlist %}
+        <div class="entry">
+            {% for title, answer in div.items() %}
+            <p><strong>{{ title }}:</strong> {{ answer }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    <script src="../static/script.js"></script>
+</body>
+</html>

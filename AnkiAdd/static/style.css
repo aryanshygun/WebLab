@@ -1,0 +1,170 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: rgb(61, 61, 61);
+    & > div {
+        flex: 1;
+        border-radius: 2rem;
+        display: flex;
+        background-color: royalblue;
+        flex-direction: column;
+        box-sizing: border-box;
+        overflow: hidden;
+        gap: 2rem; 
+        padding: 5px;
+    }
+}
+ 
+html{
+    scroll-behavior: smooth;
+}
+
+.forms {
+    overflow: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    gap: 2rem;
+}
+
+form,
+.entry{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    padding: 2rem;
+    gap: 1rem;
+    transition: 1s ease all;
+    &:target{
+        background-color: cadetblue;
+    }
+}
+.entry-list{
+    overflow: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+.toggle-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    gap: 1rem;
+    a{
+        text-decoration: none;
+        flex: 1;
+        text-align: center;
+        color: black;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 50px;
+        border: 1px solid #333;
+        background-color: white;
+        cursor: pointer;
+        transition: 1s ease all;
+        &.active {
+            background-color: #333;
+            padding: 1rem 2rem;
+            color: white;
+        }
+    }
+}
+
+h2 {
+    margin-top: 0;
+}
+
+
+input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+button[type="submit"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: #000;
+}
+.item {
+    background: #f1f1f1;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin: 0.4rem 0;
+}
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.translation {
+    color: #555;
+    font-style: italic;
+}
+.example {
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+}
+.notes {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+.delete-form {
+    display: inline;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    color: #c00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+label {
+    width: 150px;
+    font-weight: 600;
+}
+input {
+    flex: 1;
+    padding: 0.4rem 0.6rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+button[type="submit"] {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+button[type="submit"]:hover {
+    background-color: #000;
+}

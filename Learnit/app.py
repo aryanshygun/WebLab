@@ -33,6 +33,7 @@ def get_theme():
     return jsonify({"theme": "dark"})
 
 
+
 @app.route("/logout")
 def logout():
     session.clear()
