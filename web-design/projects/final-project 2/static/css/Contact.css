@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+#body{
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+    flex-wrap: wrap;
+    /* margin: -3.2vh 0;
+    padding: 6vh 2vh; */
+    height: 100%;
+
+    overflow: scroll;
+    scrollbar-width: none;
+    & section{
+        height: 100%;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+}
+
+.left{
+    background-image: url(../img/contact-hero.jpg);
+    background-size: cover;
+    justify-content: center;
+    background-position: 50%;
+    gap: 1vh;
+    & p,
+    & h2{
+        color: #eeeeee !important;
+    }
+    box-shadow: inset 0px -100vh 100px 10px rgba(0, 0, 0, 0.461);
+}
+
+.right{
+    gap: 2vh;
+    & > div,
+    & form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 25px;
+        box-sizing: border-box;
+        justify-content: space-evenly;
+        align-items: center;
+        flex: 1;
+    }
+    & form{
+        flex: 2;
+        /* height: 100%; */
+        & > div{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex: 1;
+            & label{
+                font-size: 2.5vw;
+            }
+            & input{
+                padding: .75vw;
+            }
+            & textarea{
+                text-align: left !important;
+                border-radius: 25px;
+
+            }
+        }
+        & .submit-btn-div{
+            flex-direction: row;
+            height: 43px;
+            justify-content: space-evenly;
+        }
+
+    }
+}
