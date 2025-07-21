@@ -1,0 +1,70 @@
+
+#body{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    
+}
+#quiz-form{
+    width: 100%;
+    display: flex;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    overflow: scroll;
+    scrollbar-width: none;
+
+
+    & .test {
+        background-color: var(--background-color);
+        width: 100%;
+        display: flex;
+        min-height: 250px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px;
+        box-sizing: border-box;
+        height: 150px;
+        & h2 {
+            /* flex: 1; */
+            width: 50%;
+        }
+        & .options {
+            /* flex: 1; */
+            width: 50%;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            & label {
+                /* ba ckground-color: red; */
+                /* height: 100%; */
+                flex: 1;
+                /* height: 50px; */
+                width: 5000px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                & input[type="radio"] {
+                    width: 30px;
+                    height: 30px;
+                }
+                & p {
+                    text-align: start;
+                }
+            }
+        }
+    }
+    & .submit-row{
+        min-height: 250px;
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}

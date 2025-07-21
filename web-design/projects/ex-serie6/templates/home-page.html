@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home-page.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container">
+        <header class="style">
+            <p>WORDLE</p>
+        </header>
+
+        <main>
+            <div class="content">
+                <div class="style info">
+                    <h1>Hello<br>{{username | title}}!👋🏼</h1>
+                    <!-- <h2>CURRENT SCORE: <br>{{score}}!</h2> -->
+                    <h1 style="text-align: end;">SCORE: <br>{{score}}!</h1>
+                </div>
+    
+                <div class="style body">
+                    <h1>Choose a topic!</h1>
+                    <p>You have plenty of options to choose from! Once you select a category, you’ll need to guess a word from it. Some letters will be randomly revealed to help you out!</p>
+                    <div class="topics">
+                        {% for topic in topics %}
+                            <button class="style btn" onclick="location.href='{{ url_for('play_game', selected_topic=topic)}}'">{{ topic }}</button>
+                        {% endfor %}
+                    </div>
+    
+                </div>
+            </div>
+
+        </main>
+
+        <footer class="style">
+            <a class="style btn alt" href="/home"><i class="ri-gamepad-line ri-2x"></i></a>
+            <a class="style btn alt" href="/leaderboard"><i class="ri-list-check ri-2x"></i></a>
+            <a class="style btn" href="/logout"><i class="ri-logout-circle-r-line ri-2x"></i></a>
+        </footer>
+    </div>
+
+</body>
+</html>

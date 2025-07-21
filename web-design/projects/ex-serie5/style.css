@@ -1,0 +1,134 @@
+body{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    padding: 25px;
+    margin: 0;
+    background-color: hsl(0, 0%, 20%);
+    justify-content: space-evenly;
+    height: 100vh;
+    box-sizing: border-box;
+    align-items: center;
+    overflow: hidden;
+}
+.phase1,
+.phase2{
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px;
+
+    box-sizing: border-box;
+    align-items: center;
+    height: 100%;
+    gap: 25px;
+    flex: 1;
+    /* width: 30%; */
+    border-radius: 50px;
+    /* min-width: 650px; */
+    overflow: scroll;
+    scrollbar-width: none;
+    
+}
+
+.phase3{
+    background-color: royalblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 25px;
+    height: 100%;
+
+    box-sizing: border-box;
+    align-items: center;
+    gap: 25px;
+    flex: 1;
+    border-radius: 50px;
+    overflow: scroll;
+    scrollbar-width: none;
+    & button {
+        background-color: whitesmoke;
+        color: black;
+    }
+}
+
+
+h1{
+    margin: 0;
+}
+
+section{
+    background-color: whitesmoke;
+    width: 100%;
+
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+    box-sizing: border-box;
+}
+
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+    align-items: center;
+    justify-content: space-evenly;
+}
+input[type="text"]{
+    font-size: 20px;
+    background-color: rgb(65, 188, 225);
+    border-radius: 50px;
+    border: none;
+    padding: 10px 15px;
+    color: whitesmoke;
+    text-align: center;
+    &::placeholder{
+        color: rgba(255, 255, 255, 0.597);
+    }
+}
+& button{
+    padding: 10px 15px;
+    font-size: 25px;
+    color: whitesmoke;
+    border-radius: 50px;
+    background-color: royalblue;
+    border: none;
+    cursor: pointer;
+    transition: padding .5s ease;
+    &:hover{
+        padding: 10px 30px;
+    }
+}
+
+table{
+    width: 100%;
+    border-spacing: 10px;
+    & th{
+        color: whitesmoke;
+        /* padding: 0px 20px; */
+        text-wrap: nowrap;
+        padding: 10px 15px;
+        text-align: center;
+        background-color: royalblue;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 50px;
+    }
+
+    & td{
+        color: rgb(0, 0, 0);
+        /* padding: 0px 20px; */
+        text-wrap: nowrap;
+        padding: 10px 15px;
+        text-align: center;
+        background-color: rgb(65, 188, 225);
+        border-radius: 50px;
+    }
+
+}

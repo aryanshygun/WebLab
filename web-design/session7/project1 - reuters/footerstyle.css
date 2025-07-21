@@ -1,0 +1,126 @@
+/* 0 - footer global */
+footer a img{
+    width: 20px;
+}
+
+footer a:hover{
+    filter: none;
+}
+
+footer p{
+    font-size: 15px;
+    font-weight: 100;
+    margin-right: 10px;
+}
+
+footer .container{
+    width: 1440px;
+    padding: 20px 30px;
+    display: flex;
+    box-sizing: border-box;
+    row-gap: 30px;
+
+}
+
+.footer-links,
+.footer-company,
+.footer-product,
+.footer-legal{
+    border-top: 1px solid darkgray;
+    display: flex;
+    justify-content: center;
+}
+
+footer .column{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+/* 1 - footer links */
+.footer-links .container .column{
+    gap: 7px;
+    width: 25%;
+}
+
+.footer-links .container .column a img{
+    width: 20px;
+    margin-right: 7px;
+}
+
+/* 2 - footer company */
+.footer-company .container .column .socials{
+    display: flex;
+    gap: 15px;
+}
+
+.social{
+    border: 1px solid rgb(80, 80, 80);
+    border-radius: 5px;
+    padding: 10px;
+    transition: box-shadow .3s ease;
+}
+
+.social:hover{
+    box-shadow: 0px 0px 10px  rgb(181, 181, 181);
+    border: 1px solid rgb(0, 0, 0);
+}
+
+/* 3 - footer product */
+.footer-product .container .column .products{
+    display: flex;
+    gap: 30px;
+}
+.footer-product p a{
+    font-weight: bold;
+    font-size: 20px;
+}
+/* 4 - footer legal */
+.footer-legal .container{
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-legal .section{
+    display: flex;
+    gap: 15px;
+}
+
+@media  screen and (min-width:768px) and (max-width: 1365px) {
+
+    .footer-product .column{
+        width: 100%;
+    }
+
+    .footer-product p{
+        flex: 1;
+    }
+
+    .footer-product .container,
+    .footer-legal .container{
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    .footer-links .container,
+    .footer-legal .section{
+        flex-wrap: wrap;
+    }
+
+    
+    .footer-company .container,
+    .footer-product .container,
+    .footer-product .products{
+        flex-direction: column;
+    }
+    
+    .footer-company .column,
+    .footer-product .column{
+        width: 80%;
+    }
+    .footer-links .container .column{
+        width: 50%;
+    }
+}

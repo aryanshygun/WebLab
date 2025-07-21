@@ -1,0 +1,165 @@
+{
+    "ryanshygun": {
+        "user_name": "ryanshygun",
+        "first_name": "Ryan",
+        "last_name": "Shygun",
+        "password": "111",
+        "age": "24",
+        "city": "Rasht",
+        "status": "Admin",
+        "topics_created": [
+            "Mathematics",
+            "Programming",
+            "Languages"
+        ],
+        "teachers_signed": [
+            "itszahra",
+            "alexbrown",
+            "sarahjones"
+        ]
+    },
+    "zahrafarshchi": {
+        "user_name": "zahrafarshchi",
+        "first_name": "Zahra",
+        "last_name": "Farshchi",
+        "password": "222",
+        "age": "28",
+        "city": "Tehran",
+        "status": "Teacher",
+        "courses_created": [
+            "Guess The Language!",
+            "Fix The Code!",
+            "Complete The Code!"
+        ]
+    },
+    "abbasrezaii": {
+        "user_name": "abbasrezaii",
+        "first_name": "Abbas",
+        "last_name": "Rezaii",
+        "password": "333",
+        "age": "38",
+        "city": "Mashhad",
+        "status": "Student",
+        "wallet": 500,
+        "courses": [
+            {
+                "topic": "Languages",
+                "course": "Guess The Language!",
+                "status": "finished",
+                "score": 75
+            },
+            {
+                "topic": "Programming",
+                "course": "Complete The Code!",
+                "status": "finished",
+                "score": 20
+            },
+            {
+                "topic": "Languages",
+                "course": "Antomyms!",
+                "status": "in-progress",
+                "score": 25
+            }
+        ]
+    },
+    "johnsmith": {
+        "user_name": "johnsmith",
+        "first_name": "John",
+        "last_name": "Smith",
+        "password": "444",
+        "age": "22",
+        "city": "New York",
+        "status": "Student",
+        "wallet": 290,
+        "courses": [
+            {
+                "topic": "Languages",
+                "course": "Guess The Language!",
+                "status": "finished",
+                "score": 75
+            },
+            {
+                "topic": "Languages",
+                "course": "Synomyms!",
+                "status": "finished",
+                "score": 50
+            },
+            {
+                "topic": "Programming",
+                "course": "Complete The Code!",
+                "status": "in-progress",
+                "score": 85
+            }
+        ]
+    },
+    "maryjane": {
+        "user_name": "maryjane",
+        "first_name": "Mary",
+        "last_name": "Jane",
+        "password": "555",
+        "age": "25",
+        "city": "Los Angeles",
+        "status": "Student",
+        "wallet": 490,
+        "courses": [
+            {
+                "topic": "Languages",
+                "course": "Guess The Language!",
+                "status": "finished",
+                "score": 75
+            },
+            {
+                "topic": "Programming",
+                "course": "Fix The Code!",
+                "status": "in-progress",
+                "score": 0
+            },
+            {
+                "topic": "Mathematics",
+                "course": "Add And Subtract!",
+                "status": "in-progress",
+                "score": 0
+            },
+            {
+                "topic": "Programming",
+                "course": "Guess The Language!",
+                "status": "in-progress",
+                "score": 0
+            },
+            {
+                "topic": "Languages",
+                "course": "Synonyms!",
+                "status": "in-progress",
+                "score": 0
+            }
+        ]
+    },
+    "alexbrown": {
+        "user_name": "alexbrown",
+        "first_name": "Alex",
+        "last_name": "Brown",
+        "password": "666",
+        "age": "35",
+        "city": "Chicago",
+        "status": "Teacher",
+        "courses_created": [
+            "Synomyms!",
+            "Antomyms!",
+            "Complete The Code!!"
+        ]
+    },
+    "sarahjones": {
+        "user_name": "sarahjones",
+        "first_name": "Sarah",
+        "last_name": "Jones",
+        "password": "888",
+        "age": "23",
+        "city": "Chicago",
+        "status": "Teacher",
+        "courses_created": [
+            "Add And Subtract!",
+            "Multiply And Divide!",
+            "Squares And Roots!"
+        ]
+    }
+}

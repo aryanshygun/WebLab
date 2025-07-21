@@ -1,0 +1,9 @@
+{
+  "Job": ["engineer", "teacher", "doctor", "lawyer", "artist", "pilot"],
+  "Sport": ["basketball", "crossfit", "football", "bodybuilding", "tennis", "swimming"],
+  "Country": ["england", "france", "germany", "canada", "italy", "brazil"],
+  "Animal": ["tiger", "eagle", "dolphin", "rabbit", "panther", "falcon"],
+  "Color": ["red", "blue", "green", "black", "yellow", "purple"],
+  "Instrument": ["guitar", "piano", "violin", "trumpet", "flute", "drums"],
+  "Clothing": ["shirt", "pants", "jacket", "sneakers", "hat", "gloves"]
+}

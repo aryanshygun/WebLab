@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="pages">
+
+            <div class="front-page" id="feed">
+                <div id="header">
+                    <img src="image/instagram logo.jpg" alt="Instagram">
+                    <i class="ri-arrow-down-s-line"></i>
+                    <div class="seperator"></div>
+                    <i class="ri-heart-line"></i>
+                    <i class="ri-telegram-2-line"></i>
+                </div>
+                <div id="stories"></div>
+                <div id="posts"></div>
+            </div>
+
+            <div class="front-page" id="global">
+                <div class="search">
+                    <i class="ri-search-line"></i>
+                    <input type="text" name="search" id="search-bot" placeholder="Search...">
+                </div>
+                <div id="global-post"></div>
+            </div>
+
+            <div class="front-page" id="profile">
+                <div id="profile-header">
+                    <div class="profile-username">
+                        <a href="">Ryxnole</a>
+                        <i class="ri-arrow-down-s-line"></i>
+                        <div class="seperator"></div>
+                        <i class="ri-at-line"></i>
+                        <i class="ri-add-box-line"></i>
+                        <i class="ri-menu-line"></i>
+                    </div>
+                    <div class="profile-details">
+                        <img src="image/p1.jpg" class="pfp">
+                        <div>
+                            <a href="">10</a>
+                            <p>posts</p>
+                        </div>
+                        <div>
+                            <a href="">300</a>
+                            <p>followers</p>
+                        </div>
+                        <div>
+                            <a href="">200</a>
+                            <p>following</p>
+                        </div>
+                    </div>
+                    <div class="profile-bio">
+                        <p>Welcome to my page!</p>
+                    </div>
+                    <div class="profile-buttons">
+                        <div>Edit profile</div>
+                        <div>Share profile</div>
+                        <div>Email</div>
+                    </div>
+                </div>
+                <div id="profile-posts">
+                    <!-- Post grid -->
+                    <!-- <div class="post-grid">
+                        <div class="post"><img src="image/post1.jpg" alt="Post 1"></div>
+                        <div class="post"><img src="image/post2.jpg" alt="Post 2"></div>
+                        <div class="post"><img src="image/post3.jpg" alt="Post 3"></div>
+                        <div class="post"><img src="image/post4.jpg" alt="Post 4"></div>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <div id="footer">
+            <i onclick="viewPage('feed')" class="ri-home-3-line"></i>
+            <i onclick="viewPage('global')" class="ri-search-line"></i>
+            <i class="ri-add-box-line"></i>
+            <i class="ri-video-chat-line"></i>
+            <i onclick="viewPage('profile')" class="ri-profile-line"></i>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body{
+    /* background-image: url('../../unique-industrial-architecture-house-in-daylight-realistic-ai-generative-free-photo.jpg'); */
+    background-color: rgb(60, 75, 75);
+}
+.navbar{
+    border-radius: 10px;
+    width: 100%;
+    background-color: hsl(166, 20%, 31%);
+    position: sticky;
+    top: 0%;
+}
+.buttons{
+    background-color: white;
+    display: inline-block;
+    padding: 5px 25px;
+    border-radius: 5px;
+    margin: 20px 30px;
+}
+
+.links{
+    text-decoration-line: none;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(44, 44, 44);
+}
+
+.hero{
+    background-color: white;
+    width: 60vw;
+    margin: 5vh 20vw;
+}
+
+.img1{
+    width: 50vw;
+    margin: 5vh 5vw 0;
+}
+
+.innertext{
+    position: absolute;
+    /* top: 600px; */
+    /* left: 500px; */
+    color: white;
+    background-color: cadetblue;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
+
+.outtertext{
+    margin-left: 5vw;
+}
+
+
+p{
+    margin: 0 5vw 10%;
+    padding-bottom: 5%;
+    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    /* font-family: 'Josefin sans', sans-serif/; */
+
+}
+
+.backtop{
+    position: fixed;
+    /* top: 0%; */
+    bottom: 5%;
+    left: 4%;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
+
+
+.back{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+

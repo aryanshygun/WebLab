@@ -1,0 +1,372 @@
+html{
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+body{
+    margin: 0;
+    font-family: copperplate;
+    /* color: white; */
+    color: black;
+    position: relative;
+}
+
+main{
+    background-color: rgb(40, 40, 40);
+
+    transform: translateY(-379px);
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100vh;
+    margin: auto;
+    }
+
+img{
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+header{
+    position: sticky;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%,-50%);
+    width: fit-content;
+    border: 1px solid rgb(0, 0, 0);
+    backdrop-filter: blur(50px);
+    border-radius: 100px;
+    padding: 5px;
+    gap: 50px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header a {
+    flex: 1;
+}
+
+header a img{
+    width: 50px;
+    transition: filter .3s ease;
+}
+
+header a:hover img{
+    filter: invert();
+}
+
+
+p{
+    text-align: center;
+    margin: 0;
+    width: 50%;
+}
+
+h1{font-size: 35px;}
+h2{font-size: 30px;}
+h3{font-size: 25px;}
+
+h1,h2,h3{
+    margin: 0;
+    transition: letter-spacing 1s ease;
+}
+h1:hover,
+h2:hover,
+h3:hover{
+    letter-spacing: 5px;
+}
+
+
+article{
+    display: flex;
+    flex-direction: row;
+    width: 1225px;
+    gap: 25px;
+    justify-content: center;
+}
+.carousel{
+    height: 700px;
+}
+.carousel img{
+    flex: 1;
+    transition: all 1s ease;
+}
+
+.carousel img:hover{
+    box-shadow: 0px 0px 20px rgb(48, 48, 48);
+    flex: 3;
+}
+.card{
+    flex: 1;
+    height: 360px;
+    background-size: 100%;
+    color: white;
+    gap: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition-property: transform, box-shadow;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+.card img{
+    width: 100px;
+}
+
+#one{background-image: url(image/ink1.jpg);}
+#two{background-image: url(image/ink2.jpg);}
+#three{background-image: url(image/ink3.jpg);}
+
+.card:hover{
+    box-shadow: inset 0px 0px 50px rgb(0, 0, 0);
+    transform: scale(1.1);
+} 
+.card:hover h2{
+    letter-spacing: 5px;
+}
+
+.staff{
+    background-size: 100% ;
+    width: 600px;
+    aspect-ratio: 4/3;
+    gap: 10px;
+    box-sizing: border-box;
+    padding: 0 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    transition-property: border, box-shadow;
+    transition-timing-function: ease;
+    transition-duration: 1s;
+}
+
+.staff:hover{
+    box-shadow: inset 0px 0px 50px rgb(0, 0, 0);
+    }
+
+#yek{
+    background-image: url(image/p2.jpg);
+    align-items: end;
+
+}
+#do{
+    background-image: url(image/p1.jpg);
+    align-items: start;
+}
+
+#yek p{
+    text-align: end;
+}
+
+#do p{
+    text-align: start;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.icons img{
+    width: 30px;
+    transition: transform .3s ease;
+}
+
+.icons img:hover{
+    transform: scale(1.3);
+}
+
+.hero{
+    height: 500px;
+    width: 100%;
+    background-image: url(image/hero1.jpg);
+    background-size: 100%;
+    color: white;
+}
+
+.hero a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(56, 56, 255);
+    padding: 20px 20px;
+    transition-property: background-color, color, padding;
+    transition-timing-function: ease;
+    transition-duration: .4s;
+}
+.hero a:hover{
+    background-color: white;
+    color: black;
+    padding: 20px 50px;
+}
+
+
+
+.container{
+    width: 40%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 10%,
+        rgba(0, 0, 0, 0.5),
+        transparent 90%,
+        transparent 100%
+    );
+}
+
+.logos {
+    display: flex;
+    width: fit-content;
+    animation: loop 5s linear infinite;
+}
+
+.logos:hover{
+    animation-play-state: paused;
+}
+
+.logos img{
+    height: 100%;
+    filter: invert();
+    transition: background-color .4s ease;
+    width: 150px;
+    display: flex;
+}
+
+.logos img:hover{
+    background-color: rgba(0, 0, 0, 0.783);
+}
+
+@keyframes loop {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-50%);}
+}
+
+#sec1{
+    background-image: url(image/bg1.png);
+    background-size: 100% 100%;
+}
+#sec2{
+    background-image: url(image/bg2.png);
+    background-size: 100% 100%;
+}
+#sec3{
+    background-image: url(image/bg3.png);
+    background-size: 100% 100%;
+}
+#sec4{
+    background-image: url(image/bg4.png);
+    background-size: 100% 100%;
+}
+
+
+@media screen and (max-width:1300px) {
+
+    main{
+        background-color: rgb(40, 40, 40);
+    
+        transform: translateY(-67px);
+    }
+    header{
+        position: sticky;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: fit-content;
+        border: 1px solid rgb(0, 0, 0);
+        backdrop-filter: blur(50px);
+        border-radius: 100px;
+        padding: 5px;
+        gap: 50px;
+        z-index: 10;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+    html{
+        scroll-behavior: smooth;
+        overflow: hidden;
+        overflow: unset;
+    }
+
+    section{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        gap: 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        height: fit-content;
+    }
+    
+    .card:hover{
+        box-shadow: inset 0px 0px 50px rgb(0, 0, 0);
+        transform: scale(1);
+    } 
+
+    article{
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        gap: 25px;
+        justify-content: start;
+    }
+
+    #sec1{
+        height: 2000px;
+    }
+
+
+    #sec2{
+        text-align: center;
+    }
+    #sec2 h1{
+        width: 80%;
+    }
+
+    #sec2 article{
+        flex-direction: column;
+        align-items: center;
+    }
+    #sec2 .card{
+        width: 600px;
+        aspect-ratio: 1/1;
+    }
+
+
+    #sec3 article{
+
+        align-items: center;
+    }
+
+    #sec4{
+        height: 100vh;
+    }
+
+    #sec4 .hero{
+        height: 300px;
+
+    }
+
+
+
+
+
+
+}

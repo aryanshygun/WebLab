@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard-page.css') }}">
+    <title>Leaderboard</title>
+</head>
+<body>
+    <div class="container">
+        <header class="style">
+            <p>WORDLE</p>
+        </header>
+
+        <main>
+            <div class="content">
+                <div class="style title">
+                    <h1>
+                        - LEADERBOARD -
+                    </h1>
+                </div>
+                {% for user, score in scores.items() %}
+                    <div class="style score">
+                        <h1>{{ loop.index }}</h1>
+
+                        {% if user == logged_user %}
+                            <h1 class="logged">{{ user | title }}</h1>
+                        {% else %}
+                            <h1>{{ user | title }}</h1>
+                        {% endif %}
+
+                        <h1>{{ score['score']}}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        <footer class="style">
+            <a class="style btn alt" href="/home"><i class="ri-gamepad-line ri-2x"></i></a>
+            <a class="style btn alt" href="/leaderboard"><i class="ri-list-check ri-2x"></i></a>
+            <a class="style btn" href="/logout"><i class="ri-logout-circle-r-line ri-2x"></i></a>
+        </footer>
+    </div>
+
+<div>
+    <h1 class="correct">test</h1>
+</div>
+
+
+</body>
+<script src="{{ url_for( 'static', filename='js/leaderboard-page.js')}}"></script>
+
+</html>

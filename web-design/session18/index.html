@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instagram</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="pages">
+            <div id="feed">
+                <header>
+                    <img src="image/instagram logo.jpg" alt="Instagram">
+                    <i class="ri-arrow-down-s-line"></i>
+                    <div class="seperator"></div>
+                    <i class="ri-heart-line"></i>
+                    <i class="ri-telegram-2-line"></i>
+                </header>
+                <div class="stories"></div>
+                <div class="posts"></div>
+            </div>
+            <div id="global">
+                <div class="search">
+                    <!-- <div class="box"> -->
+                        <i class="ri-search-line"></i>
+                        <p>Search</p>
+                    <!-- </div> -->
+                </div>
+                <div id="global-post"></div>
+            </div>
+
+            <div id="profile">this is profile</div>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="footer">
+            <a onclick="viewSection('feed')" >
+                <i id="feed-btn" class="ri-home-3-fill"></i>
+            </a>
+            <a onclick="viewSection('global')" >
+                <i id="global-btn" class="ri-search-line"></i>
+            </a>
+            <a>
+                <i class="ri-add-box-line"></i>
+            </a>
+            <a>
+                <i class="ri-video-chat-line"></i>
+            </a>
+            <a onclick="viewSection('profile')" >
+                <i id="profile-btn" class="ri-profile-line"></i>
+            </a>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
