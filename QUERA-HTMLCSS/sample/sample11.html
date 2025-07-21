@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Forms-2</title>
+  </head>
+  <body>
+    <form>
+      <label for="password">گذرواژه</label>
+      <br />
+      <input type="password" id="password" name="password" />
+      <br />
+      <br />
+
+      <label for="profile-color">رنگ پروفایل</label>
+      <br />
+      <input type="color" id="profile-color" name="color" />
+      <br />
+      <br />
+
+      <label for="birthday">تاریخ تولد</label>
+      <br />
+      <input type="date" id="birthday" name="birthday" />
+      <br />
+      <br />
+
+      <label for="profile-photo">عکس پروفایل</label>
+      <br />
+      <input
+        type="file"
+        id="profile-photo"
+        name="file"
+        accept="image/png, image/jpeg"
+      />
+      <br />
+      <br />
+
+      <label for="range">میزان پیش‌روی</label>
+      <br />
+      <input type="range" id="range" name="progress" value="70" />
+      <br />
+      <br />
+
+      <input type="checkbox" id="subscribe" name="subscribe" value="true" />
+      <label for="subscribe">عضویت در خبرنامه</label>
+      <br />
+      <br />
+
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="male">آقا</label>
+      <input type="radio" id="female" name="gender" value="female" />
+      <label for="female">خانم</label>
+      <br />
+      <br />
+
+      <label for="education">تحصیلات</label>
+      <br />
+      <select id="education" name="education">
+        <option value="diploma">دیپلم</option>
+        <option value="bsc">کارشناسی</option>
+        <option value="msc">کارشناسی ارشد</option>
+        <option value="phd">دکترا</option>
+      </select>
+      <br />
+      <br />
+
+      <button type="submit">ثبت</button>
+      <button type="reset">بازنشانی</button>
+    </form>
+  </body>
+</html>
