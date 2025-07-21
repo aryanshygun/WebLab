@@ -1,0 +1,72 @@
+.profile {
+  padding: 20px; /* Increased padding */
+  border: 1px solid #c4c4c4; /* Lighter border color */
+  width: 300px;
+  text-align: justify;
+  margin-right: 10px;
+  border-radius: 8px; /* Rounded corners */
+  background-color: #ffffff; /* Optional: background color */
+}
+
+img {
+  width: 100%; /* Full width */
+  height: 100%; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners for the image */
+}
+
+.detail {
+  margin-top: 20px; /* Increased top margin */
+  padding-top: 10px; /* Increased top padding */
+  border-top: 1px solid #c4c4c4; /* Lighter border color */
+}
+
+p {
+  font-family: "Arial", sans-serif; /* Modern font family */
+  font-size: 14px; /* Adjusted font size */
+  line-height: 1.6; /* Improved line height */
+  color: #333333; /* Dark grey color for better readability */
+}
+
+.btn {
+  width: 100%; /* Full width */
+  padding: 10px 0; /* Padding for larger clickable area */
+  background-color: #007bff; /* Vibrant background color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners for button */
+  cursor: pointer; /* Cursor change to indicate clickability */
+  font-weight: bold; /* Bold text */
+  margin-top: 15px; /* Space above button */
+}
+
+.container {
+  max-width: 960px; /* Maximum width of the container */
+  margin: 20px auto; /* Centering the container */
+  padding: 20px;
+  background: #fff; /* White background for the main content area */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+@media (max-width: 768px) {
+  .cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .profile {
+    margin-bottom: 20px;
+  }
+}
